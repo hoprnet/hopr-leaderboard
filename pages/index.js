@@ -104,7 +104,7 @@ function HomeContent({
       <section className={styles.intro}>
         <p>
           Welcome to HOPR Säntis testnet! Follow the instructions below to start earning points. There are HOPR token
-          prizes for the 20 highest scorers, along with 10 random prizes. The testnet will run until October 6th
+          prizes for the 20 highest scorers, along with 10 random prizes. Click <a href="https://app.gitbook.com/@hoprnet/s/home/getting-started/saentis-testnet/the-scoreboard">here<a> for more info. The testnet will run until October 6th
         </p>
         <p>
           Click <a href="https://docs.hoprnet.org/home/getting-started/saentis-testnet">here</a> for more information
