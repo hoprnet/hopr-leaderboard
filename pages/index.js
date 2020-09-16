@@ -212,6 +212,7 @@ function HomeContent({
         <br />
         <br />
         Last Updated: {refreshed}
+        <script src="https://panther.hoprnet.org/script.js" site="LCFGMVKB" defer></script>
       </footer>
     </>
   )
