@@ -122,7 +122,7 @@ function HomeContent({
               install the latest version of the HOPR node.
             </li>
             <li>
-              Send <strong>{Math.max(parseFloat(env ? env.COVERBOT_XDAI_THRESHOLD : 0), 0.01)} xDAI</strong> to your{' '}
+              Send <strong>{Math.max(parseFloat(env ? env.COVERBOT_XDAI_THRESHOLD : 0), 0.02)} xDAI</strong> to your{' '}
               <a
                 href="https://docs.hoprnet.org/home/getting-started/saentis-testnet/funding-your-node"
                 target="_blank"
