@@ -141,7 +141,7 @@ function HomeContent({
               .
             </li>
             <li>
-              In HOPR Chat, type <strong>myAddress</strong> to find your node address.
+              In your HOPR node, type <strong>myAddress</strong> to find your node address.
             </li>
             <li>
               <>
@@ -158,7 +158,7 @@ function HomeContent({
               </>
             </li>
             <li>
-              In HOPR Chat, type <strong>includeRecipient</strong> and then "y" so the bot can respond.
+              In your HOPR node, type <strong>includeRecipient</strong> and then "y" so the bot can respond.
             </li>
             <li>
               Send a message with your tweet to the{' '}
