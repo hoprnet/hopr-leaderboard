@@ -175,7 +175,7 @@ function HomeContent({
               </strong>
             </li>
             <li>Wait for a message from CoverBot verifying your tweet.</li>
-            <li>You have scored points! Keep your node online to earn more!</li>
+            <li>You have scored points! Keep your node online to earn more! Every 30s, the bot will randomly select a registered address and relay some data, awarding points.</li>
           </ol>
         </section>
 
