@@ -18,7 +18,7 @@ body.dark-mode {
   right: 5%;
   top: 5%;
 }
-/* The switch - the box around the slider */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -27,14 +27,12 @@ body.dark-mode {
   cursor: pointer;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -86,7 +84,6 @@ input:checked + .slider:before {
 
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
