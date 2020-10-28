@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
-import api from "../../utils/api";
 
 const LeftSide = ({hash,copyCodeToClipboard}) => {
   const router = useRouter();
