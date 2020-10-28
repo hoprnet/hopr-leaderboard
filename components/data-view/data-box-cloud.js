@@ -8,7 +8,7 @@ const DataBoxCloud = ({address, channel}) => {
   };
  
   return (
-    <div className="box-border">
+    <div className="box-border copy-style ">
       <div onClick={() => copyCodeToClipboard(address)}>
         <h3 className="num"> {address} </h3>
         <p>HOPR token address</p>

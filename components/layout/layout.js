@@ -117,7 +117,7 @@ const Layout = ({ children }) => {
       />
       <div className="main-container">
         <div className="only-desktop-view">
-          <LeftSide hash={hash} copyCodeToClipboard={copyCodeToClipboard} />
+          <LeftSide hash={hash} />
         </div>
         <section className={'about only-mobile-view ' + (router.pathname != '/' ? 'aux-margin' : '')}>
           <div className={(router.pathname != '/' ? 'only-desktop-view' : '')}>

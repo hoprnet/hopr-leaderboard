@@ -1,0 +1,44 @@
+.copy-style {
+  & > div {
+    width: 100%;
+    padding: 1em 0.5em;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 0;
+    cursor: pointer;
+    transition: all 350ms ease-in-out;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        font-weight: 600;
+        color: $black;
+      }
+    &:active {
+      &::before {
+        content: "Copy to clipboard!!";
+        animation: animateLabel 800ms infinite;
+      }
+    }
+  }
+}
+
+@keyframes animateLabel {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+    transition: all 350ms ease-in-out;
+  }
+  to {
+    transform: translateY(-270%);
+    opacity: .89;
+    transition: all 350ms ease-in-out;
+  }
+}

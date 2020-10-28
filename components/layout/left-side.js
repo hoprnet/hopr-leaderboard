@@ -4,8 +4,12 @@ import Link from "next/link";
 import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
 
-const LeftSide = ({hash,copyCodeToClipboard}) => {
+const LeftSide = ({hash}) => {
   const router = useRouter();
+
+  const copyCodeToClipboard = (aux) => {
+    navigator.clipboard.writeText(aux);
+  };
 
   return (
     <section className="area-left-desktop">
@@ -58,9 +62,9 @@ const LeftSide = ({hash,copyCodeToClipboard}) => {
         </Link>
       </div>
       {/*  */}
-      <div className="copy-line-token">
+      <div className="copy-line-token copy-style">
         <h4>HOPR node</h4>
-        <div className="hash" onClick={() => copyCodeToClipboard()}>
+        <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
           <p>{hash}</p>
           <div>
             <img src="/assets/icons/copy.svg" alt="copy" />
