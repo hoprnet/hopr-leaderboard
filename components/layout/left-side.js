@@ -13,7 +13,7 @@ const LeftSide = ({hash,copyCodeToClipboard}) => {
         <Link href="/">
           <div
             className={
-              "menu-item-desktop " + [router.pathname == "/" ? "active" : ""]
+              "menu-item-desktop " + (router.pathname == "/" ? "active" : "")
             }
           >
             <img src="/assets/icons/home.svg" alt="hopr HOME" />
@@ -49,7 +49,7 @@ const LeftSide = ({hash,copyCodeToClipboard}) => {
           <div
             className={
               "menu-item-desktop " +
-              [router.pathname == "/help" ? "active" : ""]
+              (router.pathname == "/help" ? "active" : "")
             }
           >
             <img src="/assets/icons/help.svg" alt="hopr HELP" />
