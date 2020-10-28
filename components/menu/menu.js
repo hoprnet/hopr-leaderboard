@@ -8,18 +8,18 @@ const Menu = ({ darkMode, changeThemeMode, activaMenu, hash, copyCodeToClipboard
   const router = useRouter()
   return (
     <>
-      <div className={'menu-mobile ' + [activaMenu ? 'open-menu' : '']}>
+      <div className={'menu-mobile ' + (activaMenu ? 'open-menu' : '')}>
         <div className="menu-container">
           <div>
             <ul>
               <Link href="/">
-                <li className={[router.pathname == '/' ? 'active' : '']}>
+                <li className={(router.pathname == '/' ? 'active' : '')}>
                   <img src="/assets/icons/home.svg" alt="hopr HOME" />
                   <p>HOME</p>
                 </li>
               </Link>
               <Link href="/hopr-allocation">
-                <li className={[router.pathname == '/hopr-allocation' ? 'active' : '']}>
+                <li className={(router.pathname == '/hopr-allocation' ? 'active' : '')}>
                   <img src="/assets/icons/horp_icon.svg" alt="hopr HOPR ALLOCATION" />
                   <p>HOPR ALLOCATION</p>
                 </li>
@@ -31,7 +31,7 @@ const Menu = ({ darkMode, changeThemeMode, activaMenu, hash, copyCodeToClipboard
                 </li>
               </Link>
               <Link href="/help">
-                <li className={[router.pathname == '/help' ? 'active' : '']}>
+                <li className={(router.pathname == '/help' ? 'active' : '')}>
                   <img src="/assets/icons/help.svg" alt="hopr HELP" />
                   <p>HELP</p>
                 </li>
@@ -61,7 +61,7 @@ const Menu = ({ darkMode, changeThemeMode, activaMenu, hash, copyCodeToClipboard
               <span className="slider round">
                 <img
                   className="icon-darkmode"
-                  src={'/assets/icons/' + [darkMode ? 'luna.svg' : 'dom.svg']}
+                  src={'/assets/icons/' + (darkMode ? 'luna.svg' : 'dom.svg')}
                   alt="hopr"
                 />
               </span>

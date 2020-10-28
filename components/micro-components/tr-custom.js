@@ -6,7 +6,7 @@ const TrCustom = ({ online, address, id, score, tweetUrl }) => {
     <tr key={id}>
       <td className="icon-help-online" data-label="online">
         <div className="container-online"> 
-          <div className={[online ? "online" : "offline"]}></div>
+          <div className={online ? "online" : "offline"}></div>
           <p>{online ? 'online' : 'offline'}</p>
         </div>
       </td>
