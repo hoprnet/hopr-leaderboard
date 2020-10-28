@@ -24,7 +24,7 @@ const LeftSide = ({hash,copyCodeToClipboard}) => {
           <div
             className={
               "menu-item-desktop " +
-              [router.pathname == "/hopr-allocation" ? "active" : ""]
+              (router.pathname == "/hopr-allocation" ? "active" : "")
             }
           >
             <img src="/assets/icons/horp_icon.svg" alt="hopr HOPR ALLOCATION" />
