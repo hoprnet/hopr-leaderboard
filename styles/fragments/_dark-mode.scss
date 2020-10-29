@@ -1,8 +1,20 @@
 body.dark-mode {
   background: black;
   filter: invert(1) hue-rotate(180deg);
-  .icon-logo-desktop img {
+  img {
     filter: invert(1) hue-rotate(180deg) !important;
+  }
+
+  a.aux-link-out span img {
+    filter: invert(0) hue-rotate(180deg) !important;
+  }
+
+  .menu-item-desktop img {
+    filter: invert(0) hue-rotate(180deg) !important;
+  }
+
+  p, h1, h2, h3, h4 {
+    color: black;
   }
 }
 
