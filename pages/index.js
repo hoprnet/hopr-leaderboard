@@ -13,7 +13,7 @@ export default function Home() {
       title: "online",
       dataIndex: "online",
       key: "online",
-      className: "sortBy asc",
+      className: "sortBy",
     },
     {
       title: "address",
@@ -25,13 +25,13 @@ export default function Home() {
       title: "id",
       dataIndex: "id",
       key: "id",
-      className: "sortBy ",
+      className: "sortBy",
     },
     {
       title: "score",
       dataIndex: "score",
       key: "score",
-      className: "sortBy",
+      className: "sortBy desc",
     },
     {
       title: "tweetUrl",
@@ -39,7 +39,7 @@ export default function Home() {
       key: "tweetUrl",
     },
   ];
-  
+
   const [data, setData] = useState(undefined);
   const [columns, setColumns] = useState(columnsDefaults);
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,8 +53,10 @@ export default function Home() {
     const fetchData = async () => {
       const response = await api.getAllData();
       if (response.data) {
-        setData(response.data);
-        setColumns(columnsDefaults);
+        let [aNew, aColumns] = fnSortData('score', columnsDefaults, response.data);
+
+        setData(aNew);
+        setColumns(aColumns);
         setMatch(response.data.nodes.length);
       }
     };
@@ -63,9 +65,6 @@ export default function Home() {
 
   useEffect(() => {
     callAPI();
-    return () =>{
-      setData(undefined);
-    }
   }, []);
 
 
@@ -99,9 +98,8 @@ export default function Home() {
     }
   };
 
-  const onClickSort = (key) => {
-    let sSort = "",
-      aColumns = [...columns];
+  const fnSortData = (key, aColumns, aNew) => {
+    let sSort = "";
 
     aColumns.map((item) => {
       if (item.key === key) {
@@ -114,7 +112,6 @@ export default function Home() {
     });
     aColumns.find((item) => item.key === key).className = "sortBy " + sSort;
 
-    let aNew = { ...data };
     aNew.nodes = aNew.nodes.sort((a, b) => {
       let iBase = getIntBase(key),
         convertA = parseInt(a[key], iBase),
@@ -126,6 +123,12 @@ export default function Home() {
         return convertA - convertB;
       }
     });
+
+    return [aNew, aColumns];
+  };
+
+  const onClickSort = (key) => {
+    let [aNew, aColumns] = fnSortData(key, [ ...columns ], { ...data });
 
     setData(aNew);
     setColumns(aColumns);
