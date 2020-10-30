@@ -5,58 +5,72 @@ import BoxRemember from "../components/micro-components/box-remember";
 const dataTable = [
   {
     rank: "1",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "40,000",
   },
   {
     rank: "2",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "20,000",
   },
   {
     rank: "3",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "15,000",
   },
   {
     rank: "4",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "10,000",
   },
   {
     rank: "5",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "7,500",
   },
   {
     rank: "6",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "6,000",
   },
   {
     rank: "7",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "4,00",
   },
   {
     rank: "8",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "3,000",
   },
   {
     rank: "9",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "2,500",
   },
   {
     rank: "10",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "2,000",
   },
   {
     rank: "11-20",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "1,500",
   },
   {
     rank: "21-50",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "1,000",
   },
   {
     rank: "51-100",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "500",
   },
   {
     rank: "101-200",
+    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
     prize: "200",
   },
 ];
@@ -91,15 +105,30 @@ export default function HoprAllocation() {
               <thead>
                 <tr>
                   <th scope="col">Rank</th>
+                  <th scope="col">User</th>
                   <th scope="col">Prize</th>
                 </tr>
               </thead>
               <tbody>
-                {dataTable.map((e) => {
-                  const { rank, prize } = e;
+                {dataTable.map((e,index) => {
+                  const { rank, address, prize } = e;
                   return (
                     <tr key={rank}>
                       <td data-label="rank">{rank}</td>
+                      <td data-label="user">
+                        <a
+                          className="table-link-on"
+                          target="_blank"
+                          href={
+                            "https://explorer.matic.network/address/" + address }
+                          rel="noopener noreferrer"
+                          >
+                          <img src="/assets/icons/link.svg" alt="link" />
+                          <div>
+                            {address.slice(0, 5)}<span>...</span>{address.slice(-5)}
+                          </div>
+                        </a>
+                      </td>
                       <td data-label="prize">{prize}</td>
                     </tr>
                   );

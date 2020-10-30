@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Menu from '../menu/menu'
+import MsgCopy from '../micro-components/msg-copy'
 import Modal from '../micro-components/modal'
 import LeftSide from './left-side'
 import RightSide from './right-side'
@@ -14,6 +15,7 @@ import api from '../../utils/api'
 const Layout = ({ children }) => {
   const router = useRouter()
   const [darkMode, setDarkMode] = useState(undefined)
+  const [showMsg, setShowMsg] = useState(false)
   const [modal, setModal] = useState(false)
   const [activaMenu, setactivaMenu] = useState(false)
   const [API_LastUpdated, SetAPI_LastUpdated] = useState(null)
@@ -27,6 +29,13 @@ const Layout = ({ children }) => {
     setTimeout(() => {
       setModal(false)
     }, 4000)
+  }
+  
+  const showCopyCode = () =>{
+    setShowMsg(!showMsg)
+    setTimeout(() =>{
+      setShowMsg(false)
+    },800)
   }
 
   const changeThemeMode = () => {
@@ -106,6 +115,9 @@ const Layout = ({ children }) => {
               </span>
             </label>
           </div>
+          {/*  */}
+          <MsgCopy showMsg={showMsg}/>
+          {/*  */}
         </div>
       </header>
       <Menu
@@ -117,7 +129,7 @@ const Layout = ({ children }) => {
       />
       <div className="main-container">
         <div className="only-desktop-view">
-          <LeftSide hash={hash} />
+          <LeftSide hash={hash} showCopyCode={showCopyCode} />
         </div>
         <section className={'about only-mobile-view ' + (router.pathname != '/' ? 'aux-margin' : '')}>
           <div className={(router.pathname != '/' ? 'only-desktop-view' : '')}>
@@ -135,7 +147,7 @@ const Layout = ({ children }) => {
             Thanks for helping us create the <span> HOPR network. </span>
           </p>
         </section>
-        <RightSide address={address} channel={channel} API_LastUpdated={API_LastUpdated} />
+        <RightSide address={address} channel={channel} API_LastUpdated={API_LastUpdated} showCopyCode={showCopyCode} />
       </div>
       <Modal modal={modal} hash={hash} />
     </>
