@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
   const [API_LastUpdated, SetAPI_LastUpdated] = useState(null)
   const [address, setAddress] = useState('')
   const [channel, setChannel] = useState('')
-  const [hash, setHash] = useState('16Uiu2HAm7KxaBkgd9ENvhf5qAkp1c6Q5Q1dXe8HBDzxLN4SxAVw6')
+  const [hash, setHash] = useState('')
 
   const copyCodeToClipboard = async () => {
     await navigator.clipboard.writeText(hash)
