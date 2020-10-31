@@ -1,6 +1,6 @@
 .box-alert-copy {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   align-items: center;
   justify-content: center;
@@ -10,17 +10,18 @@
   box-shadow: $shadow;
   transform: translateY(-100%);
   transition: all 350ms cubic-bezier(1, 0, 0, 1);
-
+  z-index: 34;
   p {
     font-size: 1.1em;
     color: $blue;
     font-weight: 400;
   }
+  @media (min-width: 767px) {
+    position: absolute;
+  }
 }
 
 .showAlert {
-    transform: translateY(0%);
-    transition: all 350ms cubic-bezier(1, 0, 0, 1);
-
+  transform: translateY(0%);
+  transition: all 350ms cubic-bezier(1, 0, 0, 1);
 }
-

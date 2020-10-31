@@ -115,10 +115,11 @@ const Layout = ({ children }) => {
               </span>
             </label>
           </div>
-          {/*  */}
-          <MsgCopy showMsg={showMsg}/>
-          {/*  */}
+          
         </div>
+        {/*  */}
+        <MsgCopy showMsg={showMsg}/>
+          {/*  */}
       </header>
       <Menu
         darkMode={darkMode}
@@ -139,7 +140,7 @@ const Layout = ({ children }) => {
         {children}
         <section className="only-mobile-view">
           <hr />
-          <DataBoxCloud address={address} channel={channel} />
+          <DataBoxCloud address={address} channel={channel} showCopyCode={showCopyCode} />
           <hr />
           <DataUpdateKnow API_LastUpdated={API_LastUpdated} />
           <hr />
