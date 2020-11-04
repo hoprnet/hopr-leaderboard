@@ -18,7 +18,7 @@ const CopieParagraph = () => {
         ran from <span>21st Oct</span> at{" "}
         <span>3pm CET</span> until{" "}
         <span>Nov 4th</span>.{" "} The <span>200</span> highest scorers will win a
-        share of <span>200,000 HOPR</span>. {" "}Results will be published soon.
+        share of <span>200,000 HOPR</span>. {" "}Results will be published soon. {" "}
         <a
           className="aux-link-out"
           target="_blank"
