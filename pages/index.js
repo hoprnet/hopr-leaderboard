@@ -41,10 +41,15 @@ export default function Home() {
   ];
 
   const [data, setData] = useState(undefined);
-  const [visibleData, setVisibleData] = useState({ visible: false, position: {}, pos_page: {}, data: '' });
+  const [visibleData, setVisibleData] = useState({
+    visible: false,
+    position: {},
+    pos_page: {},
+    data: "",
+  });
   const [columns, setColumns] = useState(columnsDefaults);
   const [searchTerm, setSearchTerm] = useState("");
-  const [showMsg, setShowMsg] = useState(false)
+  const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
   const nodesVerified = data ? data.connected.length : 0;
   const nodesRegistered = data ? data.nodes.length : 0;
@@ -55,7 +60,11 @@ export default function Home() {
     const fetchData = async () => {
       const response = await api.getAllData();
       if (response.data) {
-        let [aNew, aColumns] = fnSortData('score', columnsDefaults, response.data);
+        let [aNew, aColumns] = fnSortData(
+          "score",
+          columnsDefaults,
+          response.data
+        );
 
         setData(aNew);
         setColumns(aColumns);
@@ -129,23 +138,27 @@ export default function Home() {
   };
 
   const onClickSort = (key) => {
-    let [aNew, aColumns] = fnSortData(key, [ ...columns ], { ...data });
+    let [aNew, aColumns] = fnSortData(key, [...columns], { ...data });
 
     setData(aNew);
     setColumns(aColumns);
   };
 
   const showCopyCode = () => {
-    setShowMsg(!showMsg)
-  }
+    setShowMsg(!showMsg);
+  };
 
-  const twitterRegex = new RegExp(/https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is)
-  const trimmedNodesWithUsername = nodes.map(node => { 
-    const [tweet, username] = node.tweetUrl.match(twitterRegex); 
+  const twitterRegex = new RegExp(
+    /https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is
+  );
+  const trimmedNodesWithUsername = nodes.map((node) => {
+    const [tweet, username] = node.tweetUrl.match(twitterRegex);
     const { id, score } = node;
-    return { id, username, score}
-  })
-  const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort((a, b) => b.score - a.score)
+    return { id, username, score };
+  });
+  const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
+    (a, b) => b.score - a.score
+  );
 
   return (
     <Layout toggle={showMsg}>
@@ -261,7 +274,7 @@ export default function Home() {
               </table>
             )}
           </div>
-          <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername}/>
+          <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
     </Layout>
