@@ -132,6 +132,14 @@ export default function Home() {
     setColumns(aColumns);
   };
 
+  const twitterRegex = new RegExp(/https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is)
+  const trimmedNodesWithUsername = nodes.map(node => { 
+    const [tweet, username] = node.tweetUrl.match(twitterRegex); 
+    const { id, score } = node;
+    return { id, username, score}
+  })
+  const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort((a, b) => b.score - a.score)
+
   return (
     <Layout>
       <div className="only-mobile-view">
@@ -232,7 +240,7 @@ export default function Home() {
               </table>
             )}
           </div>
-          <BoxRemember />
+          <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername}/>
         </div>
       </div>
     </Layout>
