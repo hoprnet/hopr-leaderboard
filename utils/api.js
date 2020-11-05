@@ -1,4 +1,5 @@
 import db, { FirebaseNetworkTables } from "./db";
+import { DEDUCTABLE_SCORE_MAP } from "../constants/score";
 import { HOPR_NETWORK } from "./env";
 
 export async function getData(table) {
@@ -31,11 +32,14 @@ export async function getAllData() {
   const nodes = Object.entries(score).map(([id, score]) => {
     const node = state.connected.find((node) => node.id === id) || {};
 
+    const pointsToDeduct = DEDUCTABLE_SCORE_MAP[id] || 0;
+    const newScore = score - pointsToDeduct
+
     return {
       online: !!node.address,
       address: node.address || "?",
       id: id || "?",
-      score: score || "?",
+      score: newScore || "?",
       tweetId: node.tweetId || "?",
       tweetUrl: node.tweetUrl || "?",
     };
