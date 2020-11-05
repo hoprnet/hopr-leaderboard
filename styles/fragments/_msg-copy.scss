@@ -1,23 +1,22 @@
 .box-alert-copy {
-  display: flex;
-  position: fixed;
-  top: 0;
   align-items: center;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
   background: $yellow;
   box-shadow: $shadow;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  position: fixed;
+  top: 0;
   transform: translateY(-100%);
   transition: all 350ms cubic-bezier(1, 0, 0, 1);
+  width: 100%;
   z-index: 34;
+
   p {
-    font-size: 1.1em;
     color: $blue;
+    font-size: 1.1em;
     font-weight: 400;
-  }
-  @media (min-width: 767px) {
-    position: absolute;
   }
 }
 

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Menu from '../menu/menu'
 import MsgCopy from '../micro-components/msg-copy'
-import Modal from '../micro-components/modal'
 import LeftSide from './left-side'
 import RightSide from './right-side'
 import CopieParagraph from '../data-view/copie-paragraph'
@@ -12,11 +11,10 @@ import DataUpdateKnow from '../data-view/data-update-know'
 import '../../styles/main.scss'
 import api from '../../utils/api'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, toggle }) => {
   const router = useRouter()
   const [darkMode, setDarkMode] = useState(undefined)
   const [showMsg, setShowMsg] = useState(false)
-  const [modal, setModal] = useState(false)
   const [activaMenu, setactivaMenu] = useState(false)
   const [API_LastUpdated, SetAPI_LastUpdated] = useState(null)
   const [address, setAddress] = useState('')
@@ -24,18 +22,15 @@ const Layout = ({ children }) => {
   const [hash, setHash] = useState('')
 
   const copyCodeToClipboard = async () => {
-    await navigator.clipboard.writeText(hash)
-    setModal(true)
-    setTimeout(() => {
-      setModal(false)
-    }, 4000)
+    await navigator.clipboard.writeText(hash);
+    showCopyCode();
   }
 
   const showCopyCode = () =>{
     setShowMsg(!showMsg)
     setTimeout(() =>{
       setShowMsg(false)
-    },800)
+    }, 800)
   }
 
   const changeThemeMode = () => {
@@ -47,6 +42,10 @@ const Layout = ({ children }) => {
       }
     }
   }
+
+  useEffect(() => {
+    showCopyCode();
+  }, [toggle]);
 
   useEffect(() => {
     if (darkMode !== undefined) {
@@ -148,7 +147,6 @@ const Layout = ({ children }) => {
         </section>
         <RightSide address={address} channel={channel} API_LastUpdated={API_LastUpdated} showCopyCode={showCopyCode} />
       </div>
-      <Modal modal={modal} hash={hash} />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/main.scss";
 
-const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData }) => {
+const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -10,6 +10,11 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData }) => {
       };
 
     setVisibleData({ visible: true, position, data: id });
+  };
+
+  const copyCodeToClipboard = (aux) => {
+    navigator.clipboard.writeText(aux);
+    showCopyCode();
   };
 
   return (
@@ -28,16 +33,17 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData }) => {
           rel="noopener noreferrer"
         >
           <img src="/assets/icons/link.svg" alt="link" />
-         <div> {address.slice(0, 5)}<span>...</span>{address.slice(-5)}</div>
+          <div> {address.slice(0, 5)}<span>...</span>{address.slice(-5)}</div>
         </a>
       </td>
       <td
         data-label="id"
         data-raw={id}
+        onClick={() => copyCodeToClipboard(id)}
         onMouseEnter={(event) => _handlerOnHover(event, id)}
         onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
       >
-        <div>{id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
+        <div><img src="/assets/icons/copy.svg" alt="copy" /> {id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
       </td>
       <td data-type="score" data-label="score">
         {score}

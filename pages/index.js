@@ -44,6 +44,7 @@ export default function Home() {
   const [visibleData, setVisibleData] = useState({ visible: false, position: {}, pos_page: {}, data: '' });
   const [columns, setColumns] = useState(columnsDefaults);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showMsg, setShowMsg] = useState(false)
   const [match, setMatch] = useState(0);
   const nodesVerified = data ? data.connected.length : 0;
   const nodesRegistered = data ? data.nodes.length : 0;
@@ -67,10 +68,6 @@ export default function Home() {
   useEffect(() => {
     callAPI();
   }, []);
-
-  useEffect(() => {
-    console.log(visibleData.position);
-  }, [visibleData]);
 
   useEffect(() => {
     let count = 0;
@@ -138,8 +135,12 @@ export default function Home() {
     setColumns(aColumns);
   };
 
+  const showCopyCode = () => {
+    setShowMsg(!showMsg)
+  }
+
   return (
-    <Layout>
+    <Layout toggle={showMsg}>
       {visibleData.visible && (
         <div
           className="tooltip"
@@ -228,6 +229,7 @@ export default function Home() {
                             online={online}
                             address={address}
                             tweetUrl={tweetUrl}
+                            showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
                         );
@@ -241,6 +243,7 @@ export default function Home() {
                           online={online}
                           address={address}
                           tweetUrl={tweetUrl}
+                          showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />
                       );
