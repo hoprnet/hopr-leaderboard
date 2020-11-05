@@ -38,19 +38,16 @@ const LeftSide = ({darkMode,hash, showCopyCode}) => {
             </p>
           </div>
         </Link>
-
         <div className="menu-item-desktop ">
           <a
             target="_blank"
             href="https://discord.com/invite/wUSYqpD"
             rel="noopener noreferrer"
           >
-               <img src={'/assets/icons/discord'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
-
+            <img src={'/assets/icons/discord'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
             <p>DISCORD</p>
           </a>
         </div>
-
         <Link href="/help">
           <div
             className={
@@ -63,7 +60,6 @@ const LeftSide = ({darkMode,hash, showCopyCode}) => {
           </div>
         </Link>
       </div>
-      {/*  */}
       <div className="copy-line-token">
         <h4>HOPR node</h4>
         <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
@@ -73,7 +69,6 @@ const LeftSide = ({darkMode,hash, showCopyCode}) => {
           </div>
         </div>
       </div>
-      {/*  */}
       <div className="twitter-line-menu">
         <div>
           <a href="https://twitter.com/hoprnet" target="_blank">

@@ -12,19 +12,20 @@
 }
 
 .box {
-  padding: 1em 0 0 0;
-  border: 0.5px solid $grey;
-  border-radius: 8px;
   background: #fff;
+  border-radius: 8px;
+  border: 0.5px solid $grey;
   box-shadow: $shadow;
   overflow: hidden;
+  padding: 1em 0 0 0;
+
   @media (min-width: 767px) {
-    display: block;
-    width: 55vw;
-    height: fit-content;
-    overflow: hidden;
-    margin: 0 1em;
     box-sizing: border-box;
+    display: block;
+    height: fit-content;
+    margin: 0 1em 2em 1em;
+    overflow: hidden;
+    width: 55vw;
   }
 }
 

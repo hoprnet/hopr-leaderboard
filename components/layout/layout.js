@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
       setModal(false)
     }, 4000)
   }
-  
+
   const showCopyCode = () =>{
     setShowMsg(!showMsg)
     setTimeout(() =>{
@@ -47,10 +47,6 @@ const Layout = ({ children }) => {
       }
     }
   }
-
-  useEffect(()=>{
-    
-  })
 
   useEffect(() => {
     if (darkMode !== undefined) {
@@ -119,11 +115,8 @@ const Layout = ({ children }) => {
               </span>
             </label>
           </div>
-          
         </div>
-        {/*  */}
         <MsgCopy showMsg={showMsg}/>
-          {/*  */}
       </header>
       <Menu
         darkMode={darkMode}

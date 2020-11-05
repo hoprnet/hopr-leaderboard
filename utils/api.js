@@ -30,7 +30,7 @@ export async function getAllData() {
 
   const nodes = Object.entries(score).map(([id, score]) => {
     const node = state.connected.find((node) => node.id === id) || {};
-console.log(node)
+
     return {
       online: !!node.address,
       address: node.address || "?",
