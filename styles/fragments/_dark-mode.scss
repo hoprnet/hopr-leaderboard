@@ -16,6 +16,14 @@ body.dark-mode {
   p, h1, h2, h3, h4 {
     color: black;
   }
+
+  .box-alert-copy {
+    background-color: #000;
+
+    p {
+      color: #FFF!important;
+    }
+  }
 }
 
 .line-darkMode-mobile{
