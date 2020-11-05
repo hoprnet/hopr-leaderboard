@@ -1,11 +1,21 @@
 import React from "react";
 import "../../styles/main.scss";
 
-const TrCustom = ({ online, address, id, score, tweetUrl }) => {
+const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData }) => {
+  const _handlerOnHover = (event, id) => {
+    const oRect = event.currentTarget.getBoundingClientRect(),
+      position = {
+        x: oRect.x,
+        y: oRect.top + window.pageYOffset
+      };
+
+    setVisibleData({ visible: true, position, data: id });
+  };
+
   return (
     <tr key={id}>
       <td className="icon-help-online" data-label="online">
-        <div className="container-online"> 
+        <div className="container-online">
           <div className={online ? "online" : "offline"}></div>
           <p>{online ? 'online' : 'offline'}</p>
         </div>
@@ -21,7 +31,12 @@ const TrCustom = ({ online, address, id, score, tweetUrl }) => {
          <div> {address.slice(0, 5)}<span>...</span>{address.slice(-5)}</div>
         </a>
       </td>
-      <td data-label="id" data-raw={id}>
+      <td
+        data-label="id"
+        data-raw={id}
+        onMouseEnter={(event) => _handlerOnHover(event, id)}
+        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
+      >
         <div>{id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
       </td>
       <td data-type="score" data-label="score">

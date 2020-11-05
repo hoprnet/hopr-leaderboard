@@ -41,6 +41,7 @@ export default function Home() {
   ];
 
   const [data, setData] = useState(undefined);
+  const [visibleData, setVisibleData] = useState({ visible: false, position: {}, pos_page: {}, data: '' });
   const [columns, setColumns] = useState(columnsDefaults);
   const [searchTerm, setSearchTerm] = useState("");
   const [match, setMatch] = useState(0);
@@ -67,6 +68,9 @@ export default function Home() {
     callAPI();
   }, []);
 
+  useEffect(() => {
+    console.log(visibleData.position);
+  }, [visibleData]);
 
   useEffect(() => {
     let count = 0;
@@ -136,6 +140,17 @@ export default function Home() {
 
   return (
     <Layout>
+      {visibleData.visible && (
+        <div
+          className="tooltip"
+          style={{
+            left: visibleData.position.x,
+            top: visibleData.position.y,
+          }}
+        >
+          {visibleData.data}
+        </div>
+      )}
       <div className="only-mobile-view">
         <BoxDataTable
           nodesVerified={nodesVerified}
@@ -156,7 +171,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-
           <div className="only-mobile-view remove-all-padding">
             <SearchBar
               searchTerm={searchTerm}
@@ -208,24 +222,26 @@ export default function Home() {
                       ) {
                         return (
                           <TrCustom
+                            id={id}
                             key={id}
+                            score={score}
                             online={online}
                             address={address}
-                            id={id}
-                            score={score}
                             tweetUrl={tweetUrl}
+                            setVisibleData={setVisibleData}
                           />
                         );
                       }
                     } else {
                       return (
                         <TrCustom
+                          id={id}
                           key={id}
+                          score={score}
                           online={online}
                           address={address}
-                          id={id}
-                          score={score}
                           tweetUrl={tweetUrl}
+                          setVisibleData={setVisibleData}
                         />
                       );
                     }
