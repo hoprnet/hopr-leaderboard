@@ -4,7 +4,7 @@ import Link from "next/link";
 import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
 
-const LeftSide = ({hash, showCopyCode}) => {
+const LeftSide = ({darkMode,hash, showCopyCode}) => {
   const router = useRouter();
 
   const copyCodeToClipboard = (aux) => {
@@ -21,7 +21,7 @@ const LeftSide = ({hash, showCopyCode}) => {
               "menu-item-desktop " + (router.pathname == "/" ? "active" : "")
             }
           >
-            <img src="/assets/icons/home.svg" alt="hopr HOME" />
+            <img src={'/assets/icons/home'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
             <p>HOME</p>
           </div>
         </Link>
@@ -45,7 +45,8 @@ const LeftSide = ({hash, showCopyCode}) => {
             href="https://discord.com/invite/wUSYqpD"
             rel="noopener noreferrer"
           >
-            <img src="/assets/icons/discord.svg" alt="hopr DISCORD" />
+               <img src={'/assets/icons/discord'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
+
             <p>DISCORD</p>
           </a>
         </div>
@@ -57,7 +58,7 @@ const LeftSide = ({hash, showCopyCode}) => {
               (router.pathname == "/help" ? "active" : "")
             }
           >
-            <img src="/assets/icons/help.svg" alt="hopr HELP" />
+              <img src={'/assets/icons/help'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
             <p>HELP</p>
           </div>
         </Link>

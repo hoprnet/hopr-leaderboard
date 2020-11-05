@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g id="Icon_feather-help-circle" transform="matrix(1,0,0,1,-2.4,-2.4)">
+        <path id="Path_7" d="M20,11.5C20,16.163 16.163,20 11.5,20C6.837,20 3,16.163 3,11.5C3,6.837 6.837,3 11.5,3C16.163,3 20,6.837 20,11.5Z" style="fill:none;fill-rule:nonzero;stroke:rgb(30,148,242);stroke-width:1.2px;"/>
+        <g id="Path_8" transform="matrix(1,0,0,1,-4.609,-3.247)">
+            <path d="M13.635,12.2C13.994,11.182 14.961,10.498 16.04,10.498C17.439,10.498 18.59,11.649 18.59,13.048C18.59,13.048 18.59,13.049 18.59,13.05C18.59,14.75 16.04,15.6 16.04,15.6" style="fill:none;fill-rule:nonzero;stroke:rgb(30,148,242);stroke-width:1.2px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,2.4,2.4)">
+            <circle cx="9.1" cy="14" r="1" style="fill:rgb(30,148,242);"/>
+        </g>
+    </g>
+</svg>

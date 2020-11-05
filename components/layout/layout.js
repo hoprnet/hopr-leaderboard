@@ -48,6 +48,10 @@ const Layout = ({ children }) => {
     }
   }
 
+  useEffect(()=>{
+    
+  })
+
   useEffect(() => {
     if (darkMode !== undefined) {
       localStorage.setItem('darkMode', darkMode)
@@ -127,10 +131,11 @@ const Layout = ({ children }) => {
         activaMenu={activaMenu}
         hash={hash}
         copyCodeToClipboard={copyCodeToClipboard}
+        showCopyCode={showCopyCode}
       />
       <div className="main-container">
         <div className="only-desktop-view">
-          <LeftSide hash={hash} showCopyCode={showCopyCode} />
+          <LeftSide darkMode={darkMode} hash={hash} showCopyCode={showCopyCode} />
         </div>
         <section className={'about only-mobile-view ' + (router.pathname != '/' ? 'aux-margin' : '')}>
           <div className={(router.pathname != '/' ? 'only-desktop-view' : '')}>

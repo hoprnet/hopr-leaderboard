@@ -10,8 +10,10 @@ body.dark-mode {
   }
 
   .menu-item-desktop img {
-    filter: invert(0) hue-rotate(180deg) !important;
+    filter: invert(0) hue-rotate(0deg) !important;
   }
+
+
 
   p, h1, h2, h3, h4 {
     color: black;
@@ -25,6 +27,7 @@ body.dark-mode {
     }
   }
 }
+
 
 .line-darkMode-mobile{
   display: flex;
