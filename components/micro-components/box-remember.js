@@ -1,7 +1,12 @@
 import React from "react";
+import { CSVLink } from "react-csv";
 import "../../styles/main.scss";
 
-const BoxRemember = () => {
+const BoxRemember = ({leaderboardData = []}) => {
+  const csvData = leaderboardData.length > 0 ? leaderboardData : [
+    { "address": "0x000...00000", "node": "16Uiu...xxxxx", "score": 0}
+  ]
+
   return (
     <div className="area-remember">
       <div>
@@ -22,6 +27,7 @@ const BoxRemember = () => {
           </a>
         </div>
       </div>
+      <p className="download-link"><CSVLink filename={"hopr-network.csv"} data={csvData}>Download as CSV</CSVLink></p>
     </div>
   );
 };

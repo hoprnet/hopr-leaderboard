@@ -1,4 +1,10 @@
 .area-remember {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  @media (min-width: 767px) {
+    flex-direction: row;
+  }
   background: #fafafa;
   box-shadow: 1px -2px 5px 0px #0000001f;
   padding: 1em;
@@ -10,6 +16,13 @@
     flex-direction: column;
     @media (min-width: 767px) {
       flex-direction: row;
+    }
+  }
+  .download-link {
+    margin: 0 auto;
+    padding-top: 20px;
+    @media (min-width: 767px) {
+      padding-top: 0;
     }
   }
   .area-links-remember {
