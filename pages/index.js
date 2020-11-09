@@ -151,8 +151,10 @@ export default function Home() {
   const twitterRegex = new RegExp(
     /https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is
   );
+
   const trimmedNodesWithUsername = nodes.map((node) => {
-    const [tweet, username] = node.tweetUrl.match(twitterRegex);
+    const regexedTweet = node.tweetUrl && node.tweetUrl.match(twitterRegex) || [];
+    const username = regexedTweet[1] || "undefined_user";
     const { id, score } = node;
     return { id, username, score };
   });
