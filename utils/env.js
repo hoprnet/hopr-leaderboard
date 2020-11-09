@@ -1,4 +1,4 @@
-const HOPR_NETWORK = process.env["NEXT_PUBLIC_HOPR_NETWORK"] || "basodino";
+const HOPR_NETWORK = process.env["NEXT_PUBLIC_HOPR_NETWORK"] || "basodino-r2";
 const HOPR_DATABASE_URL =
   process.env["NEXT_PUBLIC_HOPR_DATABASE_URL"] || "hopr-coverbot";
 
