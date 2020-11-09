@@ -9,7 +9,7 @@ const CopieParagraph = () => {
         <a
           className="aux-link-out-to-post"
           target="_blank"
-          href="https://medium.com/hoprnet/hopr-bas%C3%B2dino-a-better-bigger-braver-testnet-97f68e1c9b7e"
+          href="https://medium.com/hoprnet/bas%C3%B2dino-results-and-v2-announcement-aeff51f155bf"
           rel="noopener noreferrer"
         >
           <span>HOPR Basòdino v2 testnet!</span>{" "}
