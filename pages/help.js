@@ -5,6 +5,7 @@ import api from "../utils/api";
 
 export default function Help() {
   const [hash, setHash] = useState('');
+  const [showMsg, setShowMsg] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,18 +15,21 @@ export default function Help() {
     fetchData();
   }, []);
 
-  const [modal, setModal] = useState(false);
-  const copyCodeToClipboard = () => {
-    navigator.clipboard.writeText(hash);
-    setModal(true);
+  const showCopyCode = () => {
+    setShowMsg(true);
     setTimeout(() => {
-      setModal(false);
-    }, 4000);
+      setShowMsg(false);
+    }, 800);
+  };
+
+  const copyCodeToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    showCopyCode();
   };
 
   return (
     <>
-      <Layout>
+      <Layout toggle={showMsg}>
         <div className="box help-area">
           <div className="box-top-area">
             <div>
@@ -91,10 +95,10 @@ export default function Help() {
                 <strong>crawl</strong> first.
                 <br />
                 <div className="quick-code">
-                  <div className="hash" onClick={() => copyCodeToClipboard()}>
+                  <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
                     <p>{hash}</p>
                     <div>
-                      <img src="/assets/icons/copy.svg" alt="copy" />
+                      <img style={{ marginLeft: 8 }} src="/assets/icons/copy.svg" alt="copy" />
                     </div>
                   </div>
                 </div>
@@ -127,24 +131,6 @@ export default function Help() {
           </div>
         </div>
       </Layout>
-      <div className={"modal-copy-menu " + [modal ? "show-modal-menu" : ""]}>
-        <div className="box-modal-copy">
-          <div className="icon-logo">
-            <img src="/assets/brand/logo.svg" alt="hopr" />
-          </div>
-          <div className="content">
-            <div>
-              <p>{hash}</p>
-            </div>
-            <h5>copied to clipboard</h5>
-            <hr className="hr-alert" />
-            <p className="copy-alert">
-              this message is only informative it <br />
-              closes itself in <span>4 seconds.</span>
-            </p>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

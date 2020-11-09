@@ -145,7 +145,10 @@ export default function Home() {
   };
 
   const showCopyCode = () => {
-    setShowMsg(!showMsg);
+    setShowMsg(true);
+    setTimeout(() => {
+      setShowMsg(false);
+    }, 800);
   };
 
   const twitterRegex = new RegExp(

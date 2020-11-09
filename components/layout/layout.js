@@ -21,16 +21,16 @@ const Layout = ({ children, toggle }) => {
   const [channel, setChannel] = useState('')
   const [hash, setHash] = useState('')
 
-  const copyCodeToClipboard = async () => {
-    await navigator.clipboard.writeText(hash);
+  const copyCodeToClipboard = async (text) => {
+    await navigator.clipboard.writeText(text);
     showCopyCode();
   }
 
-  const showCopyCode = () =>{
-    setShowMsg(!showMsg)
-    setTimeout(() =>{
-      setShowMsg(false)
-    }, 800)
+  const showCopyCode = () => {
+    setShowMsg(true);
+    setTimeout(() => {
+      setShowMsg(false);
+    }, 800);
   }
 
   const changeThemeMode = () => {
@@ -44,7 +44,9 @@ const Layout = ({ children, toggle }) => {
   }
 
   useEffect(() => {
-    showCopyCode();
+    if (toggle) {
+      showCopyCode();
+    }
   }, [toggle]);
 
   useEffect(() => {
@@ -123,11 +125,14 @@ const Layout = ({ children, toggle }) => {
         activaMenu={activaMenu}
         hash={hash}
         copyCodeToClipboard={copyCodeToClipboard}
-        showCopyCode={showCopyCode}
       />
       <div className="main-container">
         <div className="only-desktop-view">
-          <LeftSide darkMode={darkMode} hash={hash} showCopyCode={showCopyCode} />
+          <LeftSide
+            darkMode={darkMode}
+            hash={hash}
+            copyCodeToClipboard={copyCodeToClipboard}
+          />
         </div>
         <section className={'about only-mobile-view ' + (router.pathname != '/' ? 'aux-margin' : '')}>
           <div className={(router.pathname != '/' ? 'only-desktop-view' : '')}>
@@ -137,7 +142,11 @@ const Layout = ({ children, toggle }) => {
         {children}
         <section className="only-mobile-view">
           <hr />
-          <DataBoxCloud address={address} channel={channel} showCopyCode={showCopyCode} />
+          <DataBoxCloud
+            address={address}
+            channel={channel}
+            copyCodeToClipboard={copyCodeToClipboard}
+          />
           <hr />
           <DataUpdateKnow API_LastUpdated={API_LastUpdated} />
           <hr />
@@ -145,7 +154,12 @@ const Layout = ({ children, toggle }) => {
             Thanks for helping us create the <span> HOPR network. </span>
           </p>
         </section>
-        <RightSide address={address} channel={channel} API_LastUpdated={API_LastUpdated} showCopyCode={showCopyCode} />
+        <RightSide
+          address={address}
+          channel={channel}
+          API_LastUpdated={API_LastUpdated}
+          copyCodeToClipboard={copyCodeToClipboard}
+        />
       </div>
     </>
   )

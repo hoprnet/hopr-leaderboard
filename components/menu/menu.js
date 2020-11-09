@@ -40,14 +40,17 @@ const Menu = ({ darkMode, changeThemeMode, activaMenu, hash, copyCodeToClipboard
             <hr />
             <div className="quick-code">
               <p>HOPR node</p>
-              <div className="hash" onClick={() => copyCodeToClipboard()}>
+              <div
+                className="hash"
+                onClick={() => copyCodeToClipboard(hash)}
+              >
                 <p>
                   {hash.slice(0, 8)}
                   <span>...</span>
                   {hash.slice(-8)}
                 </p>
                 <div>
-                  <img src="/assets/icons/copy.svg" alt="copy" />
+                  <img style={{ marginLeft: 8 }} src="/assets/icons/copy.svg" alt="copy" />
                 </div>
               </div>
             </div>

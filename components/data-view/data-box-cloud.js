@@ -1,13 +1,7 @@
 import React from "react";
 import "../../styles/main.scss";
 
-const DataBoxCloud = ({address, channel, showCopyCode}) => {
-
-  const copyCodeToClipboard = (aux) => {
-    navigator.clipboard.writeText(aux);
-    showCopyCode();
-  };
-
+const DataBoxCloud = ({address, channel, copyCodeToClipboard}) => {
   return (
     <div className="box-border ">
       <div onClick={() => copyCodeToClipboard(address)}>

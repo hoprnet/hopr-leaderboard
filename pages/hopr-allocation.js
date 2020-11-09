@@ -114,7 +114,7 @@ export default function HoprAllocation() {
                   const { rank, address, prize } = e;
                   return (
                     <tr key={rank}>
-                      <td data-label="rank">{rank}</td>
+                      <td data-label="rank" className="notEnum">{rank}</td>
                       <td data-label="user">
                         <a
                           className="table-link-on"
