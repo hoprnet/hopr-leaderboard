@@ -10,7 +10,7 @@ const BoxRemember = ({leaderboardData = []}) => {
   return (
     <div className="area-remember">
       <div>
-        <p>If you encountered any issues please let us know on</p>
+        <p>For any issues please reach us on</p>
         <div className="area-links-remember">
           <a
             target="_blank"
