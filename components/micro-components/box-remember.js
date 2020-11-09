@@ -22,7 +22,7 @@ const BoxRemember = ({leaderboardData = []}) => {
           </a>
 
           <a href="//t.me/hoprnet" target="_blank" rel="noreferrer">
-            <img src="/assets/icons/telegram.svg" alt="hopr telgram" />
+            <img src="/assets/icons/telegram.svg" alt="hopr telegram" />
             <span>Telegram</span>
           </a>
         </div>

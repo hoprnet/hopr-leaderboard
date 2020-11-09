@@ -4,9 +4,7 @@ import TweetBasodino from "../components/tweet-basodino";
 import api from "../utils/api";
 
 export default function Help() {
-  const [hash, setHash] = useState(
-    "16Uiu2HAm7KxaBkgd9ENvhf5qAkp1c6Q5Q1dXe8HBDzxLN4SxAVw6"
-  );
+  const [hash, setHash] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {

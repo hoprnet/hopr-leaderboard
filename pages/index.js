@@ -7,15 +7,13 @@ import TrCustom from "../components/micro-components/tr-custom";
 import SuperBoxSearch from "../components/micro-components/super-box-search";
 import api from "../utils/api";
 
-
-
 export default function Home() {
   const columnsDefaults = [
     {
       title: "online",
       dataIndex: "online",
       key: "online",
-      className: "sortBy asc",
+      className: "sortBy",
     },
     {
       title: "address",
@@ -27,13 +25,13 @@ export default function Home() {
       title: "id",
       dataIndex: "id",
       key: "id",
-      className: "sortBy ",
+      className: "sortBy",
     },
     {
       title: "score",
       dataIndex: "score",
       key: "score",
-      className: "sortBy",
+      className: "sortBy desc",
     },
     {
       title: "tweetUrl",
@@ -41,9 +39,17 @@ export default function Home() {
       key: "tweetUrl",
     },
   ];
+
   const [data, setData] = useState(undefined);
+  const [visibleData, setVisibleData] = useState({
+    visible: false,
+    position: {},
+    pos_page: {},
+    data: "",
+  });
   const [columns, setColumns] = useState(columnsDefaults);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
   const nodesVerified = data ? data.connected.length : 0;
   const nodesRegistered = data ? data.nodes.length : 0;
@@ -54,8 +60,14 @@ export default function Home() {
     const fetchData = async () => {
       const response = await api.getAllData();
       if (response.data) {
-        setData(response.data);
-        setColumns(columnsDefaults);
+        let [aNew, aColumns] = fnSortData(
+          "score",
+          columnsDefaults,
+          response.data
+        );
+
+        setData(aNew);
+        setColumns(aColumns);
         setMatch(response.data.nodes.length);
       }
     };
@@ -64,11 +76,7 @@ export default function Home() {
 
   useEffect(() => {
     callAPI();
-    return () =>{
-      setData(undefined);
-    }
   }, []);
-
 
   useEffect(() => {
     let count = 0;
@@ -86,7 +94,7 @@ export default function Home() {
         }
       }
     }
-    setMatch(count); 
+    setMatch(count);
   }, [searchTerm]);
 
   const getIntBase = (key) => {
@@ -100,9 +108,8 @@ export default function Home() {
     }
   };
 
-  const onClickSort = (key) => {
-    let sSort = "",
-      aColumns = [...columns];
+  const fnSortData = (key, aColumns, aNew) => {
+    let sSort = "";
 
     aColumns.map((item) => {
       if (item.key === key) {
@@ -115,7 +122,6 @@ export default function Home() {
     });
     aColumns.find((item) => item.key === key).className = "sortBy " + sSort;
 
-    let aNew = { ...data };
     aNew.nodes = aNew.nodes.sort((a, b) => {
       let iBase = getIntBase(key),
         convertA = parseInt(a[key], iBase),
@@ -128,20 +134,45 @@ export default function Home() {
       }
     });
 
+    return [aNew, aColumns];
+  };
+
+  const onClickSort = (key) => {
+    let [aNew, aColumns] = fnSortData(key, [...columns], { ...data });
+
     setData(aNew);
     setColumns(aColumns);
   };
 
-  const twitterRegex = new RegExp(/https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is)
-  const trimmedNodesWithUsername = nodes.map(node => { 
-    const [tweet, username] = node.tweetUrl.match(twitterRegex); 
+  const showCopyCode = () => {
+    setShowMsg(!showMsg);
+  };
+
+  const twitterRegex = new RegExp(
+    /https?:\/\/twitter\.com\/(?:\#!\/)?(\w+)\/status(es)?\/(\d+)/is
+  );
+  const trimmedNodesWithUsername = nodes.map((node) => {
+    const [tweet, username] = node.tweetUrl.match(twitterRegex);
     const { id, score } = node;
-    return { id, username, score}
-  })
-  const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort((a, b) => b.score - a.score)
+    return { id, username, score };
+  });
+  const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
+    (a, b) => b.score - a.score
+  );
 
   return (
-    <Layout>
+    <Layout toggle={showMsg}>
+      {visibleData.visible && (
+        <div
+          className="tooltip"
+          style={{
+            left: visibleData.position.x,
+            top: visibleData.position.y,
+          }}
+        >
+          {visibleData.data}
+        </div>
+      )}
       <div className="only-mobile-view">
         <BoxDataTable
           nodesVerified={nodesVerified}
@@ -162,7 +193,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-
           <div className="only-mobile-view remove-all-padding">
             <SearchBar
               searchTerm={searchTerm}
@@ -214,24 +244,28 @@ export default function Home() {
                       ) {
                         return (
                           <TrCustom
+                            id={id}
                             key={id}
+                            score={score}
                             online={online}
                             address={address}
-                            id={id}
-                            score={score}
                             tweetUrl={tweetUrl}
+                            showCopyCode={showCopyCode}
+                            setVisibleData={setVisibleData}
                           />
                         );
                       }
                     } else {
                       return (
                         <TrCustom
+                          id={id}
                           key={id}
+                          score={score}
                           online={online}
                           address={address}
-                          id={id}
-                          score={score}
                           tweetUrl={tweetUrl}
+                          showCopyCode={showCopyCode}
+                          setVisibleData={setVisibleData}
                         />
                       );
                     }
@@ -240,7 +274,7 @@ export default function Home() {
               </table>
             )}
           </div>
-          <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername}/>
+          <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
     </Layout>

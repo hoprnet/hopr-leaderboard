@@ -1,0 +1,26 @@
+.box-alert-copy {
+  align-items: center;
+  background: $yellow;
+  box-shadow: $shadow;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  transform: translateY(-100%);
+  transition: all 350ms cubic-bezier(1, 0, 0, 1);
+  width: 100%;
+  z-index: 34;
+
+  p {
+    color: $blue;
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+}
+
+.showAlert {
+  transform: translateY(0%);
+  transition: all 350ms cubic-bezier(1, 0, 0, 1);
+}

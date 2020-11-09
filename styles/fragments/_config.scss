@@ -1,8 +1,9 @@
 body {
   font-family: "Source Code Pro", monospace;
   background: $white-alt;
+
   @media (min-width: 767px) {
-  overflow:hidden;
+    height: 100vh;
   }
 }
 
@@ -192,6 +193,7 @@ a.aux-help-twitter {
     div {
       width: 16px;
       height: 16px;
+      box-sizing: border-box;
       border-radius: 100%;
     }
     p{
