@@ -33,12 +33,15 @@ export default function Help() {
                 <h1>Instructions</h1>
               </div>
               <div className="box-btn">
-                <p>v0.05</p>
+                <p>v0.06</p>
               </div>
             </div>
           </div>
 
           <div className="box-main-area">
+            <div className="quick-code">
+              <small>If you participated in Basòdino v1, you are already registered. Just start up your node to begin relaying. Check into Telegram each day at 3pm CET for a new task.</small>
+            </div>
             <hr />
             <ol>
               <li>
