@@ -40,7 +40,7 @@ export default function Help() {
 
           <div className="box-main-area">
             <div className="quick-code">
-              <small>If you participated in Basòdino v1, you are already registered. Just start up your node to begin relaying. Check into Telegram each day at 3pm CET for a new task.</small>
+              <small>If you participated in Basòdino v1, you are already registered. Just start up your node to begin relaying. If you deleted your tweet or changed node address, you will need to reregister. Check into Telegram each day at 3pm CET for a new task.</small>
             </div>
             <hr />
             <ol>
