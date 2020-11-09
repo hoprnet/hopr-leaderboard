@@ -12,13 +12,14 @@ const CopieParagraph = () => {
           href="https://medium.com/hoprnet/hopr-bas%C3%B2dino-a-better-bigger-braver-testnet-97f68e1c9b7e"
           rel="noopener noreferrer"
         >
-          <span>HOPR Basòdino testnet!</span>{" "}
+          <span>HOPR Basòdino v2 testnet!</span>{" "}
         </a>
-        Visit HELP in the menu for instructions. Registration is now CLOSED. Basòdino
-        ran from <span>21st Oct</span> at{" "}
+        Basòdino v2 will 
+        run from <span>Nov 9th</span> at{" "}
         <span>3pm CET</span> until{" "}
-        <span>Nov 4th</span>.{" "} The <span>200</span> highest scorers will win a
-        share of <span>200,000 HOPR</span>. {" "}Results will be published soon. {" "}
+        <span>Nov 23rd</span>.{" "} There is a <span>200,000 HOPR</span> prize pool.{" "}Complete daily tasks for points!{" "} 
+        Tasks will be posted on Telegram at 3pm CET each day.{" "} 
+        Visit HELP in the menu for instructions.{" "}
         <a
           className="aux-link-out"
           target="_blank"
