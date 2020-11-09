@@ -107,7 +107,7 @@ export default function Help() {
                 You have scored points! Keep your node online to earn more!
               </li>
               <li>
-                Every 30s, CoverBot will randomly choose a registered user to
+                Every 10s, CoverBot will randomly choose a registered user to
                 relay data and earn more points.
               </li>
             </ol>
