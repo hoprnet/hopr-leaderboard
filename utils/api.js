@@ -30,7 +30,7 @@ export async function getAllData() {
   ]);
 
   const nodes = Object.entries(score).map(([id, score]) => {
-    const node = state.connected.find((node) => node.id === id) || {};
+    const node = (state.connected && state.connected.find((node) => node.id === id)) || {};
 
     const pointsToDeduct = DEDUCTABLE_SCORE_MAP[id] || 0;
     const newScore = score - pointsToDeduct

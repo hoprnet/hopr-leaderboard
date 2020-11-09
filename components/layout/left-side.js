@@ -58,7 +58,7 @@ const LeftSide = ({darkMode,hash, copyCodeToClipboard}) => {
       <div className="copy-line-token">
         <h4>HOPR node</h4>
         <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
-          <p>{hash}</p>
+          <p>{hash.substr(-8)}</p>
           <div>
             <img style={{ marginLeft: 8 }} src="/assets/icons/copy.svg" alt="copy" />
           </div>

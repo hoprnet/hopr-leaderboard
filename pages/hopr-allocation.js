@@ -101,41 +101,10 @@ export default function HoprAllocation() {
         </div>
         <div className="box-main-area remove-all-padding aux-add-top ">
           <div className="box-container-table">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Rank</th>
-                  <th scope="col">User</th>
-                  <th scope="col">Prize</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dataTable.map((e,index) => {
-                  const { rank, address, prize } = e;
-                  return (
-                    <tr key={rank}>
-                      <td data-label="rank" className="notEnum">{rank}</td>
-                      <td data-label="user">
-                        <a
-                          className="table-link-on"
-                          target="_blank"
-                          href={
-                            "https://explorer.matic.network/address/" + address }
-                          rel="noopener noreferrer"
-                          >
-                          <img src="/assets/icons/link.svg" alt="link" />
-                          <div>
-                            {address.slice(0, 5)}<span>...</span>{address.slice(-5)}
-                          </div>
-                        </a>
-                      </td>
-                      <td data-label="prize">{prize}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            {/*  */}
+            <div className="box-main-area">
+                <br/>
+                <p>Basòdino v2 has a 200,000 HOPR prize fund. The precise allocation will be determined by the community as part of a daily task. Please check back later.</p>
+            </div>
           </div>
           <BoxRemember />
         </div>
