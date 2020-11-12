@@ -1,5 +1,6 @@
 import db, { FirebaseNetworkTables } from "./db";
 import { DEDUCTABLE_SCORE_MAP } from "../constants/score";
+import { DAILIES_SCORE_ARRAY } from "../constants/dailies";
 import { HOPR_NETWORK } from "./env";
 
 export async function getData(table) {
@@ -33,7 +34,8 @@ export async function getAllData() {
     const node = (state.connected && state.connected.find((node) => node.id === id)) || {};
 
     const pointsToDeduct = DEDUCTABLE_SCORE_MAP[id] || 0;
-    const newScore = score - pointsToDeduct
+    const pointsToAdd = DAILIES_SCORE_ARRAY.map(daily => daily[id] || 0).reduce((accum, val) => accum + val, 0)
+    const newScore = score - pointsToDeduct + pointsToAdd
 
     return {
       online: !!node.address,
