@@ -10,12 +10,6 @@ import api from "../utils/api";
 export default function Home() {
   const columnsDefaults = [
     {
-      title: "online",
-      dataIndex: "online",
-      key: "online",
-      className: "sortBy",
-    },
-    {
       title: "address",
       dataIndex: "address",
       key: "address",
@@ -236,7 +230,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { online, address, id, score, tweetUrl } = e;
+                    const { address, id, score, tweetUrl } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -249,7 +243,6 @@ export default function Home() {
                             id={id}
                             key={id}
                             score={score}
-                            online={online}
                             address={address}
                             tweetUrl={tweetUrl}
                             showCopyCode={showCopyCode}
@@ -263,7 +256,6 @@ export default function Home() {
                           id={id}
                           key={id}
                           score={score}
-                          online={online}
                           address={address}
                           tweetUrl={tweetUrl}
                           showCopyCode={showCopyCode}

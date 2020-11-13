@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
-const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
+const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -31,12 +31,6 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCo
 
   return (
     <tr key={id}>
-      <td className="icon-help-online" data-label="online">
-        <div className="container-online">
-          <div className={online ? "online" : "offline"}></div>
-          <p>{online ? 'online' : 'offline'}</p>
-        </div>
-      </td>
       <td data-label="address" data-raw={address}>
         <a
           className="table-link-on"
