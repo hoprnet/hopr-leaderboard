@@ -31,6 +31,14 @@ const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }
 
   return (
     <tr key={id}>
+      <td 
+        data-type="score"
+        data-label="score"
+        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
+        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
+      >
+        {score}
+      </td>
       <td data-label="address" data-raw={address}>
         <a
           className="table-link-on"
@@ -50,14 +58,6 @@ const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }
         onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
       >
         <div><img src="/assets/icons/copy.svg" alt="copy" /> {id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
-      </td>
-      <td 
-        data-type="score"
-        data-label="score"
-        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
-        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
-      >
-        {score}
       </td>
       <td data-label="tweetUrl">
         <a target="_blank" href={tweetUrl} rel="noopener noreferrer">

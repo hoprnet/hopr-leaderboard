@@ -82,6 +82,7 @@ table tr {
     justify-content: space-between;
     &:first-child::before {
       @media (min-width: 767px) {
+        color: $black;
         content: counter(hopr-nodes) ". ";
         position: absolute;
         left: 10px;

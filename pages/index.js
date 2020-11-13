@@ -10,6 +10,12 @@ import api from "../utils/api";
 export default function Home() {
   const columnsDefaults = [
     {
+      title: "score",
+      dataIndex: "score",
+      key: "score",
+      className: "sortBy desc",
+    },
+    {
       title: "address",
       dataIndex: "address",
       key: "address",
@@ -20,12 +26,6 @@ export default function Home() {
       dataIndex: "id",
       key: "id",
       className: "sortBy",
-    },
-    {
-      title: "score",
-      dataIndex: "score",
-      key: "score",
-      className: "sortBy desc",
     },
     {
       title: "tweetUrl",
