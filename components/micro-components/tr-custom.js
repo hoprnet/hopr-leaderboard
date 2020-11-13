@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
-const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
+const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -31,11 +31,13 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCo
 
   return (
     <tr key={id}>
-      <td className="icon-help-online" data-label="online">
-        <div className="container-online">
-          <div className={online ? "online" : "offline"}></div>
-          <p>{online ? 'online' : 'offline'}</p>
-        </div>
+      <td 
+        data-type="score"
+        data-label="score"
+        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
+        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
+      >
+        {score}
       </td>
       <td data-label="address" data-raw={address}>
         <a
@@ -56,14 +58,6 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCo
         onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
       >
         <div><img src="/assets/icons/copy.svg" alt="copy" /> {id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
-      </td>
-      <td 
-        data-type="score"
-        data-label="score"
-        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
-        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
-      >
-        {score}
       </td>
       <td data-label="tweetUrl">
         <a target="_blank" href={tweetUrl} rel="noopener noreferrer">

@@ -38,7 +38,6 @@ export async function getAllData() {
     const newScore = score - pointsToDeduct + pointsToAdd
 
     return {
-      online: !!node.address,
       address: node.address || "?",
       id: id || "?",
       score: newScore || "?",
