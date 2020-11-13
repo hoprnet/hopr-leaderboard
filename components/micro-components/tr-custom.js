@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/main.scss";
+import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
 const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
@@ -16,6 +17,17 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCo
     navigator.clipboard.writeText(aux);
     showCopyCode();
   };
+
+  const breakdownScorePerId = (id, score) => {
+    let pointsFromDailies = 0;
+    const dailiesBreakdown = DAILIES_SCORE_ARRAY_MAP.map(dailyScore => {
+      pointsFromDailies += +dailyScore.daily[id] || 0;
+      return `${dailyScore.name}: ${dailyScore.daily[id] || 0}/${dailyScore.maxPoints}`
+    })
+    const coverbotPoints = +score - pointsFromDailies;
+    dailiesBreakdown.push(`Coverbot: ${coverbotPoints}`)
+    return dailiesBreakdown.join('\n')
+  }
 
   return (
     <tr key={id}>
@@ -45,7 +57,12 @@ const TrCustom = ({ online, address, id, score, tweetUrl, setVisibleData, showCo
       >
         <div><img src="/assets/icons/copy.svg" alt="copy" /> {id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
       </td>
-      <td data-type="score" data-label="score">
+      <td 
+        data-type="score"
+        data-label="score"
+        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
+        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
+      >
         {score}
       </td>
       <td data-label="tweetUrl">
