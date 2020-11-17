@@ -14,7 +14,7 @@ const CopieParagraph = () => {
         >
           <span>HOPR Basòdino v2 testnet!</span>{" "}
         </a>
-        Registration is now CLOSED. Basòdino v2 will 
+        Registration is now <span>CLOSED</span>. Basòdino v2 will 
         run from <span>Nov 9th</span> at{" "}
         <span>3pm CET</span> until{" "}
         <span>Nov 23rd</span>.{" "} There is a <span>200,000 HOPR</span> prize pool.{" "}Complete daily tasks for points!{" "} 
