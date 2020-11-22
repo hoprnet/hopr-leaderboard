@@ -10,6 +10,7 @@ import { DAILY_9_RESULTS } from './daily/task_9';
 import { DAILY_10_RESULTS } from './daily/task_10';
 import { DAILY_11_RESULTS } from './daily/task_11';
 import { DAILY_11W_RESULTS } from './daily/task_11w';
+import { DAILY_13_RESULTS } from './daily/task_13';
 
 export const DAILIES_SCORE_ARRAY = [
     DAILY_1_RESULTS,
@@ -23,7 +24,8 @@ export const DAILIES_SCORE_ARRAY = [
     DAILY_9_RESULTS,
     DAILY_10_RESULTS,
     DAILY_11_RESULTS,
-    DAILY_11W_RESULTS
+    DAILY_11W_RESULTS,
+    DAILY_13_RESULTS
 ]
 
 export const DAILIES_SCORE_ARRAY_MAP = DAILIES_SCORE_ARRAY.map((daily, index) => ({
