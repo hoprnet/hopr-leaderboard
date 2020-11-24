@@ -1,4 +1,4 @@
-export const DAILY_12w_RESULTS = {
+export const DAILY_12W_RESULTS = {
 "16Uiu2HAmMRaRcymko2nvPmoYYPQFWTFdtD2N67zLZ6obbqYMNsau":"200",
 "16Uiu2HAmEShbtwqLhd8pvgxiCxtpMq31WysaB9gtLGyy8Z8MtFqk":"200",
 "16Uiu2HAmPXuKC9D4CZLZ8SvAWuL3eAuJJfxUCxVNATmv8CbXs7Rt":"200",
