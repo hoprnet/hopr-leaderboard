@@ -73,7 +73,7 @@ table tr {
   &:nth-child(odd) {
     background: white;
   }
-  td {
+  td:not(.notEnum) {
     display: flex;
     align-items: center;
     white-space: nowrap;

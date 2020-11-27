@@ -4,13 +4,8 @@ import Link from "next/link";
 import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
 
-const LeftSide = ({darkMode,hash, showCopyCode}) => {
+const LeftSide = ({darkMode,hash, copyCodeToClipboard}) => {
   const router = useRouter();
-
-  const copyCodeToClipboard = (aux) => {
-    navigator.clipboard.writeText(aux);
-    showCopyCode();
-  };
 
   return (
     <section className="area-left-desktop">
@@ -65,7 +60,7 @@ const LeftSide = ({darkMode,hash, showCopyCode}) => {
         <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
           <p>{hash.substr(-8)}</p>
           <div>
-            <img src="/assets/icons/copy.svg" alt="copy" />
+            <img style={{ marginLeft: 8 }} src="/assets/icons/copy.svg" alt="copy" />
           </div>
         </div>
       </div>
