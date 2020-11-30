@@ -37,7 +37,7 @@ export const DAILIES_SCORE_ARRAY = [
 ]
 
 export const DAILIES_SCORE_ARRAY_MAP = DAILIES_SCORE_ARRAY.map((daily, index) => ({
-    name: `Daily ${index + 1}`,
+    name: `Task ${index + 1}`,
     maxPoints: Math.max(...Object.values(daily)),
     daily
 }))
