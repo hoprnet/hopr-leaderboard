@@ -29,8 +29,6 @@ const TrCustom = ({ address, id, score, channels, staked, setVisibleData, showCo
     return dailiesBreakdown.join('\n')
   }
 
-  console.log("STAKED", staked)
-
   return (
     <tr key={id}>
       <td 
