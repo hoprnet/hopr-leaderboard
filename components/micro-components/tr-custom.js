@@ -43,7 +43,7 @@ const TrCustom = ({ address, id, score, channels, staked, setVisibleData, showCo
         data-type="staked"
         data-label="staked"
       >
-        {staked.toFixed(2)}
+        {staked}
       </td>
       <td 
         data-type="channels"

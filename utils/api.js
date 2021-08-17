@@ -53,7 +53,7 @@ export async function getAllData() {
     address: id,
     score: 0,
     channels: channels.length,
-    staked: channels.reduce((acc, val) => acc += +utils.formatEther(val.balance), 0)
+    staked: (staked => staked.toFixed(2))(channels.reduce((acc, val) => acc += +utils.formatEther(val.balance), 0))
   }))
 
   console.log("NODES", nodes);

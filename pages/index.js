@@ -98,14 +98,16 @@ export default function Home() {
     setMatch(count);
   }, [searchTerm]);
 
-  const getIntBase = (key) => {
+  const getParser = (key) => {
     switch (key) {
       case "address":
-        return 16;
+        return (val) => parseInt(val, 16);
       case "id":
-        return 36;
+        return (val) => parseInt(val, 36);
+      case "stake":
+          return (val) => +val;
       default:
-        return 10;
+        return (val) => parseInt(val, 10);
     }
   };
 
@@ -124,9 +126,9 @@ export default function Home() {
     aColumns.find((item) => item.key === key).className = "sortBy " + sSort;
 
     aNew.nodes = aNew.nodes.sort((a, b) => {
-      let iBase = getIntBase(key),
-        convertA = parseInt(a[key], iBase),
-        convertB = parseInt(b[key], iBase);
+      let parser = getParser(key),
+        convertA = parser(a[key]),
+        convertB = parser(b[key]);
 
       if (sSort === "asc") {
         return convertB - convertA;
