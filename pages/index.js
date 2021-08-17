@@ -16,6 +16,12 @@ export default function Home() {
       className: "sortBy desc",
     },
     {
+      title: "staked",
+      dataIndex: "staked",
+      key: "staked",
+      className: "sortBy desc",
+    },
+    {
       title: "channels",
       dataIndex: "channels",
       key: "channels",
@@ -46,9 +52,9 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
-  const nodesVerified = data ? data.connected.length : 0;
+  const nodesVerified = '?';
   const nodesRegistered = data ? data.nodes.length : 0;
-  const nodesConnected = data ? data.connectedNodes : 0;
+  const nodesConnected = '?';
   const nodes = data ? data.nodes : [];
 
   const callAPI = () => {
@@ -234,7 +240,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { address, id, score, channels } = e;
+                    const { address, id, score, channels, staked } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -248,6 +254,7 @@ export default function Home() {
                             key={id}
                             score={score}
                             address={address}
+                            staked={staked}
                             showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
@@ -261,6 +268,7 @@ export default function Home() {
                           score={score}
                           address={address}
                           channels={channels}
+                          staked={staked}
                           showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />

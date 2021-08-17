@@ -5,6 +5,7 @@ import { DAILIES_SCORE_ARRAY } from "../constants/dailies";
 import { Multiaddr } from 'multiaddr'
 import { stringToU8a } from './string'
 import { HOPR_NETWORK } from "./env";
+import { utils } from 'ethers'
 import { ENDPOINT, QUERY_GET_ACCOUNTS } from '../constants/queries';
 
 export async function getData(table) {
@@ -52,6 +53,7 @@ export async function getAllData() {
     address: id,
     score: 0,
     channels: channels.length,
+    staked: channels.reduce((acc, val) => acc += +utils.formatEther(val.balance), 0)
   }))
 
   console.log("NODES", nodes);

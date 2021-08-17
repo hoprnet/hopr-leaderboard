@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
-const TrCustom = ({ address, id, score, channels, setVisibleData, showCopyCode }) => {
+const TrCustom = ({ address, id, score, channels, staked, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -29,6 +29,8 @@ const TrCustom = ({ address, id, score, channels, setVisibleData, showCopyCode }
     return dailiesBreakdown.join('\n')
   }
 
+  console.log("STAKED", staked)
+
   return (
     <tr key={id}>
       <td 
@@ -40,11 +42,18 @@ const TrCustom = ({ address, id, score, channels, setVisibleData, showCopyCode }
         {score}
       </td>
       <td 
+        data-type="staked"
+        data-label="staked"
+      >
+        {staked.toFixed(2)}
+      </td>
+      <td 
         data-type="channels"
         data-label="channels"
       >
         {channels}
       </td>
+      
       <td data-label="address" data-raw={address}>
         <a
           className="table-link-on"

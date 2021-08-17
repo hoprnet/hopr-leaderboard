@@ -6,6 +6,7 @@ export const QUERY_GET_ACCOUNTS = `
       multiaddr
       channels {
         id
+        balance
       }
       hasAnnounced
     }
