@@ -16,6 +16,12 @@ export default function Home() {
       className: "sortBy desc",
     },
     {
+      title: "channels",
+      dataIndex: "channels",
+      key: "channels",
+      className: "sortBy desc",
+    },
+    {
       title: "address",
       dataIndex: "address",
       key: "address",
@@ -26,12 +32,7 @@ export default function Home() {
       dataIndex: "id",
       key: "id",
       className: "sortBy",
-    },
-    {
-      title: "tweetUrl",
-      dataIndex: "tweetUrl",
-      key: "tweetUrl",
-    },
+    }
   ];
 
   const [data, setData] = useState(undefined);
@@ -233,7 +234,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { address, id, score, tweetUrl } = e;
+                    const { address, id, score, channels } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -247,7 +248,6 @@ export default function Home() {
                             key={id}
                             score={score}
                             address={address}
-                            tweetUrl={tweetUrl}
                             showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
@@ -260,7 +260,7 @@ export default function Home() {
                           key={id}
                           score={score}
                           address={address}
-                          tweetUrl={tweetUrl}
+                          channels={channels}
                           showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />

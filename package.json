@@ -8,9 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@urql/core": "^2.2.0",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "1.0.1",
+    "graphql": "^15.5.1",
     "isomorphic-fetch": "3.0.0",
+    "multiaddr": "^10.0.0",
     "next": "9.5.5",
     "node-sass": "4.14.1",
     "react": "16.14.0",

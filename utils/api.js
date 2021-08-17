@@ -1,7 +1,11 @@
+import { createClient } from '@urql/core';
 import db, { FirebaseNetworkTables } from "./db";
 import { DEDUCTABLE_SCORE_MAP } from "../constants/score";
 import { DAILIES_SCORE_ARRAY } from "../constants/dailies";
+import { Multiaddr } from 'multiaddr'
+import { stringToU8a } from './string'
 import { HOPR_NETWORK } from "./env";
+import { ENDPOINT, QUERY_GET_ACCOUNTS } from '../constants/queries';
 
 export async function getData(table) {
   try {
@@ -24,27 +28,33 @@ export async function getScore() {
   return getData(FirebaseNetworkTables.score);
 }
 
+export async function getAllAccounts() {
+  const client = createClient({
+    url: ENDPOINT,
+    fetchOptions: {
+      mode: "cors", // no-cors, cors, *same-origin
+    },
+  });
+  const { data } = await client.query(QUERY_GET_ACCOUNTS).toPromise()
+  return data && data.accounts;
+}
+
 export async function getAllData() {
+  const accounts = await getAllAccounts() || []
+  console.log("Getting All Data", accounts)
   const [state, score] = await Promise.all([
     getData(FirebaseNetworkTables.state).then((res) => res.data),
     getData(FirebaseNetworkTables.score).then((res) => res.data),
   ]);
 
-  const nodes = Object.entries(score).map(([id, score]) => {
-    const node = (state.connected && state.connected.find((node) => node.id === id)) || {};
+  const nodes = accounts.map(({ id, channels, multiaddr}) => ({
+    id: new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop(),
+    address: id,
+    score: 0,
+    channels: channels.length,
+  }))
 
-    const pointsToDeduct = DEDUCTABLE_SCORE_MAP[id] || 0;
-    const pointsToAdd = DAILIES_SCORE_ARRAY.map(daily => +daily[id] || 0).reduce((accum, val) => accum + val, 0)
-    const newScore = score - pointsToDeduct + pointsToAdd
-
-    return {
-      address: node.address || "?",
-      id: id || "?",
-      score: newScore || "?",
-      tweetId: node.tweetId || "?",
-      tweetUrl: node.tweetUrl || "?",
-    };
-  });
+  console.log("NODES", nodes);
 
   state.nodes = nodes;
 
