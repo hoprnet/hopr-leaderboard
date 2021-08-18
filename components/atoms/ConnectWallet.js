@@ -12,6 +12,11 @@ export const ConnectWallet = () => {
         <button onClick={!account ? activateBrowserWallet : deactivate}>
           {!account ? "Connect" : "Disconnect"}
         </button>
+        {!account && (
+          <small style={{ marginLeft: "10px" }}>
+            Only available in Polygon/Matic network.
+          </small>
+        )}
       </div>
       {account && <p>Account: {account}</p>}
       {etherBalance && <p>Balance: {formatEther(etherBalance)}</p>}
