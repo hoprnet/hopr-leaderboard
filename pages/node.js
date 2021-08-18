@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout.js";
-import TweetBasodino from "../components/tweet-basodino";
+import { ConnectWallet } from "../components/atoms/ConnectWallet";
+import { FaucetBalance } from "../components/atoms/FaucetBalance";
 import api from "../utils/api";
 
 export default function Help() {
@@ -44,25 +45,13 @@ export default function Help() {
 
           <div className="box-main-area">
             <div className="quick-code">
-              <small>Use the following tools to get HOPR tokens, connect your HOPR node to your identity, and other useful actions. All actions require a web3 provider.</small>
+              <small>Use the following tools to get HOPR tokens, connect your HOPR node to your identity, and other useful actions. All actions require a web3 provider like MetaMask to work.</small>
             </div>
             <hr />
-            Actions to be shown here.
+            <ConnectWallet />
             <hr />
             <div className="twitter-line-menu">
-              <a
-                className="aux-help-twitter"
-                href="https://twitter.com/hoprnet"
-                target="_blank"
-              >
-                <div>
-                  <img src="/assets/icons/twitter.svg" alt="twitter" />
-                </div>
-                <div>
-                  <p>@hoprnet</p>
-                  <span>click here to tweet</span>
-                </div>
-              </a>
+              <b>Faucet Balance:</b><FaucetBalance />
             </div>
           </div>
         </div>

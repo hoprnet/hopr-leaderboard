@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@urql/core": "^2.2.0",
+    "@usedapp/core": "^0.4.4",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "1.0.1",
+    "add": "^2.0.6",
     "ethers": "^5.4.4",
     "graphql": "^15.5.1",
     "isomorphic-fetch": "3.0.0",
@@ -20,6 +22,6 @@
     "react": "16.14.0",
     "react-csv": "^2.0.3",
     "react-dom": "16.14.0",
-    "yarn": "1.22.10"
+    "yarn": "^1.22.11"
   }
 }
