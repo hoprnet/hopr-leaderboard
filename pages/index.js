@@ -130,6 +130,9 @@ export default function Home() {
         convertA = parser(a[key]),
         convertB = parser(b[key]);
 
+      console.log("A", convertA, a[key], key)
+      console.log("A", convertB, b[key], key)
+
       if (sSort === "asc") {
         return convertB - convertA;
       } else {

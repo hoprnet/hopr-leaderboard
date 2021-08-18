@@ -18,9 +18,9 @@ const Menu = ({ darkMode, changeThemeMode, activaMenu, hash, copyCodeToClipboard
                   <p>HOME</p>
                 </li>
               </Link>
-              <Link href="/hopr-allocation">
-                <li className={(router.pathname == '/hopr-allocation' ? 'active' : '')}>
-                  <img src="/assets/icons/horp_icon.svg" alt="hopr HOPR ALLOCATION" />
+              <Link href="/nfts">
+                <li className={(router.pathname == '/nfts' ? 'active' : '')}>
+                  <img src="/assets/icons/horp_icon.svg" alt="HOPR NFTs" />
                   <p>HOPR ALLOCATION</p>
                 </li>
               </Link>
