@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout.js";
-import { ConnectWallet } from "../components/atoms/ConnectWallet";
 import { FaucetBalance } from "../components/atoms/FaucetBalance";
 import { VerifyNode } from "../components/atoms/VerifyNode";
 import api from "../utils/api";
 import { useEthers } from "@usedapp/core";
+import { Connectors } from "../components/molecules/Connectors";
 
 export default function Help() {
-  const { account } = useEthers();
+  const { account, library } = useEthers();
+  const [idx, setIdx] = useState();
   const [hash, setHash] = useState("");
   const [showMsg, setShowMsg] = useState(false);
 
@@ -51,12 +52,21 @@ export default function Help() {
               <small>
                 Use the following tools to get HOPR tokens, connect your HOPR
                 node to your identity, and other useful actions. All actions
-                require a web3 provider like MetaMask to work.
+                require a web3 provider like MetaMask to work, and all
+                information will be stored on the{" "}
+                <a href="https://ceramic.network/" target="_blank">
+                  Ceramic Network
+                </a>
+                , which only you can control via your web3 provider.
               </small>
             </div>
             <hr />
-            <ConnectWallet />
-            { account && <VerifyNode /> }
+            <Connectors
+              address={account}
+              idx={idx}
+              setIdx={setIdx}
+            />
+            {account && library && idx && <VerifyNode idx={idx} />}
             <hr />
             <div className="twitter-line-menu">
               <b>Faucet Balance:</b>
