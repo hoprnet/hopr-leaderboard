@@ -20,7 +20,7 @@ const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
               src={"/assets/icons/home" + (darkMode ? "_d" : "") + ".svg"}
               alt="hopr HOME"
             />
-            <p>HOME</p>
+            <p>Network</p>
           </div>
         </Link>
         <Link href="/nfts">
@@ -34,19 +34,17 @@ const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
             <p>NFTs</p>
           </div>
         </Link>
-        <div className="menu-item-desktop ">
-          <a
-            target="_blank"
-            href="https://discord.com/invite/wUSYqpD"
-            rel="noopener noreferrer"
+        <Link href="/node">
+          <div
+            className={
+              "menu-item-desktop " +
+              (router.pathname == "/node" ? "active" : "")
+            }
           >
-            <img
-              src={"/assets/icons/discord" + (darkMode ? "_d" : "") + ".svg"}
-              alt="hopr HOME"
-            />
-            <p>DISCORD</p>
-          </a>
-        </div>
+            <img src="/assets/icons/magnifying.svg" alt="HOPR node" />
+            <p>Node</p>
+          </div>
+        </Link>
         <Link href="/help">
           <div
             className={
@@ -56,9 +54,9 @@ const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
           >
             <img
               src={"/assets/icons/help" + (darkMode ? "_d" : "") + ".svg"}
-              alt="hopr HOME"
+              alt="Help"
             />
-            <p>HELP</p>
+            <p>Help</p>
           </div>
         </Link>
       </div>

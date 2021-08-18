@@ -195,7 +195,7 @@ export default function Home() {
         <div className="box-top-area">
           <div>
             <div className="box-title">
-              <h1>Leaderboard</h1>
+              <h1>Network</h1>
             </div>
             <div className="box-btn">
               <button onClick={() => callAPI()}>

@@ -20,26 +20,26 @@ const Menu = ({
             <ul>
               <Link href="/">
                 <li className={router.pathname == "/" ? "active" : ""}>
-                  <img src="/assets/icons/home.svg" alt="hopr HOME" />
-                  <p>HOME</p>
+                  <img src="/assets/icons/home.svg" alt="HOPR network" />
+                  <p>Network</p>
                 </li>
               </Link>
               <Link href="/nfts">
                 <li className={router.pathname == "/nfts" ? "active" : ""}>
                   <img src="/assets/icons/horp_icon.svg" alt="HOPR NFTs" />
-                  <p>HOPR ALLOCATION</p>
+                  <p>NFTs</p>
                 </li>
               </Link>
-              <Link href="https://discord.com/invite/wUSYqpD" target="_blank">
+              <Link href="/node">
                 <li>
-                  <img src="/assets/icons/discord.svg" alt="hopr DISCORD" />
-                  <p>DISCORD</p>
+                  <img src="/assets/icons/magnifying.svg" alt="HOPR node" />
+                  <p>Node</p>
                 </li>
               </Link>
               <Link href="/help">
                 <li className={router.pathname == "/help" ? "active" : ""}>
-                  <img src="/assets/icons/help.svg" alt="hopr HELP" />
-                  <p>HELP</p>
+                  <img src="/assets/icons/help.svg" alt="Help" />
+                  <p>Help</p>
                 </li>
               </Link>
             </ul>
