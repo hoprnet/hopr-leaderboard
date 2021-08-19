@@ -1725,10 +1725,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@hoprnet/hopr-utils@1.76.0-next.17":
-  version "1.76.0-next.17"
-  resolved "https://registry.yarnpkg.com/@hoprnet/hopr-utils/-/hopr-utils-1.76.0-next.17.tgz#b50327f2c15dcad444c519efc54e1d319062aca9"
-  integrity sha512-vJfB9Pllu6pc6cfZFqeAR2x4ysMBOvlcyh9+W7jR+/yJVupuex4sLz9zwH+FxMogLGKP8xKhnTfJDqIsq0GLMQ==
+"@hoprnet/hopr-utils@1.76.0-next.18":
+  version "1.76.0-next.18"
+  resolved "https://registry.yarnpkg.com/@hoprnet/hopr-utils/-/hopr-utils-1.76.0-next.18.tgz#faf36d1e1693ddf7e1ceb9c530a0d4f82caac36d"
+  integrity sha512-yQMuJrg2D8DNEmZIzxq8SEP0XYB7xHUksj4jKAHKzOcn5b6D+GjXALLn2Zwb3Kt0akKg6sQrBLcCvPNXYCrKOA==
   dependencies:
     abort-controller "~3.0.0"
     bignumber.js "^9.0.0"

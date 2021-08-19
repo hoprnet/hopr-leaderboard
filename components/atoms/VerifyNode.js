@@ -33,6 +33,7 @@ export const VerifyNode = ({ idx }) => {
       }).then(
         (res) => res.json()
       );
+      console.log("RESPONSE", response);
       loadIDX()
     }
   };
