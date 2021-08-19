@@ -1,18 +1,44 @@
+import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
+import { CERAMIC_IDX_ALIASES, CERAMIC_IDX_HOPR_NAMESPACE } from "../../constants/ceramic";
+import { HOPR_ADDRESS_CHAR_LENGTH } from "../../constants/hopr";
 
 export const VerifyNode = ({ idx }) => {
+  const { account } = useEthers();
   const [inputValue, setInputValue] = useState();
-  const [hasError, setError] = useState();
-  const addHOPRNodeToIDX = () => {
-    // @TODO:
-    // 1. Verify that inputValue is an actual HOPR node
-    // 2. Store the HOPR node data in the user HOPR IDX alias
-    // 3. Populate the required hooks.
+  const [profile, setProfile] = useState({})
+  const [error, setError] = useState();
+
+  const loadIDX = async () => {
+    const profile = await idx.get("basicProfile", `${account}@eip155:137`);
+    setProfile(profile);
+    console.log("PROFILE", profile)
+  }
+  const addHOPRNodeToIDX = async () => {
+    // NB: We can’t fully validate HOPR node address until it’s stored in IDX
+    // since our hopr-utils had been tailored for node.js and not browser usage.
+    if (inputValue.length != HOPR_ADDRESS_CHAR_LENGTH) {
+      setError("Invalid HOPR address. Please try with a different value.");
+    } else {
+      const { alias1 } = CERAMIC_IDX_ALIASES
+      const hoprNodeInfo = { [inputValue]: inputValue };
+      await idx.set(alias1, { [CERAMIC_IDX_HOPR_NAMESPACE]: hoprNodeInfo });
+      const response = await fetch(`/api/faucet/nodes/${account}`, {
+        body: JSON.stringify({ node: inputValue }),
+        method: "POST",
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        }),
+      }).then(
+        (res) => res.json()
+      );
+      loadIDX()
+    }
   };
   useEffect(() => {
-    // @TODO: 
-    // 1. Verify with IDX we are connected.
-    // 2. Load the needed information from IDX
+    // @TODO:
+    loadIDX()
     // 3. Populate the required hooks
     // console.log("IDX (Verify Node)", idx);
   }, []);
@@ -56,7 +82,7 @@ export const VerifyNode = ({ idx }) => {
           >
             Add node for funding.
           </button>
-          { hasError && <span style={{ marginLeft: "5px" }}>Error.</span> }
+          {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
       </div>
       <div>
