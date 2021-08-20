@@ -1,6 +1,7 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
 
+import { EligibilityPerAddress } from "./EligibilityPerAddress";
 import {
   CERAMIC_IDX_ALIASES,
   CERAMIC_IDX_HOPR_NAMESPACE,
@@ -53,14 +54,13 @@ const NodeTable = ({ nodes = [], signRequest }) => (
 export const VerifyNode = ({ idx }) => {
   const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
-  const [nodes, setNodes] = useState({});
   const [profile, setProfile] = useState({});
   const [error, setError] = useState();
 
   const loadIDX = async () => {
-    const profile = await idx.get("basicProfile", `${account}@eip155:137`);
+    const profile =
+      (await idx.get("basicProfile", `${account}@eip155:137`)) || {};
     setProfile(profile);
-    setNodes(profile[CERAMIC_IDX_HOPR_NAMESPACE]);
   };
 
   const signRequest = async (hoprAddress, ethAddress) => {
@@ -118,9 +118,10 @@ export const VerifyNode = ({ idx }) => {
   }, []);
   return (
     <div display="flex" style={{ margin: "10px 0" }}>
+      <EligibilityPerAddress />
       <div style={{ marginBottom: "15px" }}>
         <p>
-          <b>Add HOPR node</b> Faucet
+          <b>Add HOPR node</b> { !profile && <span>Loading IDX...</span> }
         </p>
         <small>
           By adding a HOPR node, you can request funds from our faucet. You can
@@ -131,10 +132,12 @@ export const VerifyNode = ({ idx }) => {
         <br />
         <br />
         <small>
-          To fund, please sign the fund request with your web3 provider. If your
-          address is part of our staking program, we'll be funding your address
-          with both MATIC (0.01) and (m)HOPR funds (10), otherwise we’ll only
-          provide you with (m)HOPR funds. You can fund up to (10) nodes.
+          To fund, please sign the fund request with your web3 provider to
+          validate your address against our{" "}
+          <a href="https://dune.xyz/queries/109219" target="_blank">
+            records
+          </a>
+          . You can fund up to (10) nodes.
         </small>
         <div display="block" style={{ marginTop: "5px" }}>
           <input
