@@ -15,6 +15,7 @@ const NodeTable = ({ nodes = [] }) => (
         <tr>
           <th>HOPR node</th>
           <th>Ethereum address</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,7 @@ const NodeTable = ({ nodes = [] }) => (
           <tr>
             <td>{truncate(node)}</td>
             <td>{truncate(nodes[node])}</td>
+            <td><button disabled>Fund</button></td>
           </tr>
         ))}
       </tbody>
@@ -89,16 +91,14 @@ export const VerifyNode = ({ idx }) => {
         <small>
           By adding a HOPR node, you can request funds from our faucet. You can
           add any HOPR node, even if it’s not controlled by you. By clicking
-          “Add HOPR node”, your web3 provider will ask you to sign a message
-          from your address.
+          “Add HOPR node”, we will validate the given node and obtain its address.
         </small>
         <br />
         <br />
         <small>
           If your address is part of our staking program, we'll be funding your
           address with both MATIC (0.01) and (m)HOPR funds (10), otherwise we’ll
-          only provide you with (m)HOPR funds. You can repeat this action for up
-          to (10) nodes.
+          only provide you with (m)HOPR funds. You can fund up to (10) nodes.
         </small>
         <div display="block" style={{ marginTop: "5px" }}>
           <input
