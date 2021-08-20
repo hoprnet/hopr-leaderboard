@@ -6,7 +6,7 @@ import {
 import stakers from "../../../../constants/stake/sixth_august.json";
 import devs from "../../../../constants/stake/dev_wallets.json";
 import HOPR_TOKEN_ABI from "../../../../constants/HoprTokenABI";
-import { providers, utils, Wallet, Contract } from 'ethers'
+import { providers, utils, Wallet, Contract } from "ethers";
 
 //@TODO:
 //1. [✅] Get address and signature, verify that indeed they match.
@@ -45,19 +45,32 @@ export default async (req, res) => {
       wallet
     );
 
-    let transferAmount
+    let transferAmount;
+    const transactions = [];
     if (eligible) {
       // Send 0.01 MATIC, and eligible.actual_stake mHOPR to message.ethAddress
-      transferAmount = '3';
+      transferAmount = "3";
+      transactions.push(
+        await wallet.sendTransaction({
+          to: message.ethAddress,
+          value: utils.parseEther("0.001"),
+        })
+      );
     } else {
       // Send 0 MATIC, and 10 mHOPR to message.ethAddress
-      transferAmount = '1';  
+      transferAmount = "1";
     }
-    const tx = await hoprTokenContract.transfer(message.ethAddress, utils.parseEther(transferAmount));
+    transactions.push(
+      await hoprTokenContract.transfer(
+        message.ethAddress,
+        utils.parseEther(transferAmount)
+      )
+    );
+
     return res.status(200).json({
       status: "ok",
       address,
-      tx,
+      transactions,
     });
   } else {
     return res.json({
