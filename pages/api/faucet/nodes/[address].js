@@ -28,17 +28,14 @@ export default async (req, res) => {
       res.statusCode = 200;
       return res.json({
         status: "ok",
-        [CERAMIC_IDX_HOPR_NAMESPACE]: profile[CERAMIC_IDX_HOPR_NAMESPACE],
         peerId: pId,
         ethAddress
       });
     } else {
-      console.log("No data detected")
       res.statusCode = 501;
       return res.json({ status: "err" });
     }
   } catch (e) {
-    console.log("ERROR", e)
     res.statusCode = 501;
     return res.json({ status: "err" });
   }

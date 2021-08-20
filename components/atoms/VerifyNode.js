@@ -1,47 +1,84 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
-import { CERAMIC_IDX_ALIASES, CERAMIC_IDX_HOPR_NAMESPACE } from "../../constants/ceramic";
+import {
+  CERAMIC_IDX_ALIASES,
+  CERAMIC_IDX_HOPR_NAMESPACE,
+} from "../../constants/ceramic";
 import { HOPR_ADDRESS_CHAR_LENGTH } from "../../constants/hopr";
+
+const truncate = (address) => `${address.slice(0, 5)}...${address.slice(-5)}`;
+
+const NodeTable = ({ nodes = [] }) => (
+  <div className="box-container-table" style={{ height: "100%" }}>
+    <table>
+      <thead>
+        <tr>
+          <th>HOPR node</th>
+          <th>Ethereum address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {Object.keys(nodes).map((node) => (
+          <tr>
+            <td>{truncate(node)}</td>
+            <td>{truncate(nodes[node])}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 
 export const VerifyNode = ({ idx }) => {
   const { account } = useEthers();
   const [inputValue, setInputValue] = useState();
-  const [profile, setProfile] = useState({})
+  const [nodes, setNodes] = useState({});
+  const [profile, setProfile] = useState({});
   const [error, setError] = useState();
 
   const loadIDX = async () => {
     const profile = await idx.get("basicProfile", `${account}@eip155:137`);
     setProfile(profile);
-    console.log("PROFILE", profile)
-  }
+    setNodes(profile[CERAMIC_IDX_HOPR_NAMESPACE])
+  };
   const addHOPRNodeToIDX = async () => {
     // NB: We can’t fully validate HOPR node address until it’s stored in IDX
     // since our hopr-utils had been tailored for node.js and not browser usage.
     if (inputValue.length != HOPR_ADDRESS_CHAR_LENGTH) {
       setError("Invalid HOPR address. Please try with a different value.");
     } else {
-      const { alias1 } = CERAMIC_IDX_ALIASES
+      const { alias1 } = CERAMIC_IDX_ALIASES;
       const hoprNodeInfo = { [inputValue]: inputValue };
       await idx.set(alias1, { [CERAMIC_IDX_HOPR_NAMESPACE]: hoprNodeInfo });
       const response = await fetch(`/api/faucet/nodes/${account}`, {
         body: JSON.stringify({ node: inputValue }),
         method: "POST",
         headers: new Headers({
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         }),
-      }).then(
-        (res) => res.json()
-      );
+      }).then((res) => res.json());
+      console.log("RESPONSE", response)
+
+      if (response.status === "ok") {
+        await idx.set(alias1, {
+          [CERAMIC_IDX_HOPR_NAMESPACE]: {
+            [response.peerId.id]: response.ethAddress,
+          },
+        });
+      } else {
+        await idx.set(alias1, {
+          [CERAMIC_IDX_HOPR_NAMESPACE]: {
+            [inputValue]: 'invalid',
+          },
+        })
+      }
       console.log("RESPONSE", response);
-      loadIDX()
+      loadIDX();
     }
   };
   useEffect(() => {
-    // @TODO:
-    loadIDX()
-    // 3. Populate the required hooks
-    // console.log("IDX (Verify Node)", idx);
+    loadIDX();
   }, []);
   return (
     <div display="flex" style={{ margin: "10px 0" }}>
@@ -85,6 +122,7 @@ export const VerifyNode = ({ idx }) => {
           </button>
           {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
+        <NodeTable nodes={profile[CERAMIC_IDX_HOPR_NAMESPACE]} />
       </div>
       <div>
         <p>
