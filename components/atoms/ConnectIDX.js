@@ -40,8 +40,6 @@ export const ConnectIDX = ({
 
     const idx = new IDX({ ceramic, aliases: CERAMIC_IDX_ALIASES });
     setIdx(idx);
-    const idxProfile = await idx.get("basicProfile", _did.id);
-    console.log("IDX (Profile)", idxProfile);
   };
   return (
     <>

@@ -1,0 +1,4357 @@
+[
+    {
+      "account": "0x95ed91e587f17a311cd216c704a2cbd06cff085a",
+      "actual_stake": 200065.8262,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb7f9f538aa1b41ae2853eb63f1939187ffe70eb4",
+      "actual_stake": 200000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf17e325f34bb4f2401a67cdb58025ed9947ee198",
+      "actual_stake": 195150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x508f1b6c5eb1e0f9d48795c848d87288bae13a46",
+      "actual_stake": 163212.6245,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x42f7061ee77094e31f5ac69e6f76d8054bb7495f",
+      "actual_stake": 146293,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x48888508116d8fa0165217582a38997d72a125c2",
+      "actual_stake": 142688.7471,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5bffcd8f4809e29bcace4c9c21e0c3b6963ecec1",
+      "actual_stake": 140358.531,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0de156cb2202c682b41d3fbe8b785238ecf3f647",
+      "actual_stake": 130914.8794,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2c7ed5966fa687e84d6837ee2efb29d2430112f5",
+      "actual_stake": 126050.7025,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x12ee827ae3b9390560eec8d6ac1685d8df99faf4",
+      "actual_stake": 126000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x48a91a2fdc5953745db8a9277602cf25349cded5",
+      "actual_stake": 123751.3749,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd1a0931de7a002d0d47117404bcbb3443fafb618",
+      "actual_stake": 119280,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x616c9f0aaa13d3587b9fe6f513df62522f7d900c",
+      "actual_stake": 119129.4717,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd5c196b5b67e624738d85ab5a98534e68fd2c88e",
+      "actual_stake": 112772,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3f4d0a6654c8365b42dcaa8aa92d9034e2a6141f",
+      "actual_stake": 108669.661,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4326990033ecd87a5444383cf8c715e696301910",
+      "actual_stake": 100000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe4126fd057ab2fc08b6ce2621de4c3bc56464101",
+      "actual_stake": 98250,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe0e03ba22e14776dc972a50e6cca5ceedb3b972c",
+      "actual_stake": 97425,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x107cd74419dfc9ff01975e652597c5a4b6706460",
+      "actual_stake": 92071,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb5ebf7fac6f40583261758a7347e8eaa41935524",
+      "actual_stake": 90585,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6a9ee69b6781c18164ee9f7c58f1763bcffc7c51",
+      "actual_stake": 90000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xffd2a8f4275e76288d31dbb756ce0e6065a3d766",
+      "actual_stake": 89028.2071,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7f4edb8fca00cd0e8b02cdcf46cd0be76ce4c773",
+      "actual_stake": 80545.1957,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1d932e6489b5e4091ee078db497799237b354191",
+      "actual_stake": 80113,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe2f3c30b753f71bdbf1258d6e09fd3d2adf549db",
+      "actual_stake": 80000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xec8aff769b4995a5db62c26212ca612f0914af2f",
+      "actual_stake": 75351.986,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x542af4dda22ae22bae41ea32fafcfb6af00d8ac5",
+      "actual_stake": 70546.6943,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8d339490827b323295da0a003096e18b0dd99a2f",
+      "actual_stake": 69830.2696,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2e5b27a6ee216c90f6f42bfeadd7cd25888e5be3",
+      "actual_stake": 69765.94768062702,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xba74377de2bc1d752537958960068122c3ec960d",
+      "actual_stake": 64200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf3551c1d8ac61569e482abc05eefae4cccef32c1",
+      "actual_stake": 64197.88305014655,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1bfb9fb63d45f7d50520e0a3059504013cdfe8fd",
+      "actual_stake": 64196.8429,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6e2a2acc7253d38e0891f439a9815bed3771e305",
+      "actual_stake": 63302.1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc4a6312a5d5af3c03d546fa287fa1f883b3db749",
+      "actual_stake": 62356.6788,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x253a1dc6bbad8a62a8e8f7b21214fea2b78cb77e",
+      "actual_stake": 61356.6917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7d3a7ad44bfcfc0962709ece4c149128717906b8",
+      "actual_stake": 60696.6079,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xac5b6d6b47f5d68f7daa1036fe73c844eb954334",
+      "actual_stake": 60124.143,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb3bd192d80fa4f40a1d851e81c9cf196a3a7d632",
+      "actual_stake": 58022.7514,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa93609d2c8ddbd3b776e24fc4098be997d3ff7f8",
+      "actual_stake": 57912.4971,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9254dc142566bbdefa0d44411d67cc47d3ce41bf",
+      "actual_stake": 57000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x253c65df365f451caf756f224dd124277a959430",
+      "actual_stake": 56913.950365749486,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbd0ec71b9ada90ac6c1428cafd45fe2fca367665",
+      "actual_stake": 56790.0529,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x50b13b54c917171a03ceb8216f3990535fc18097",
+      "actual_stake": 54220.2859,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd8b00122b6cc0d44fb3198fb675635272d516b7f",
+      "actual_stake": 51987.2478,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x03f182ec7474877ec8d830a5fcb804fd132755c1",
+      "actual_stake": 51250,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeb4872b4c995f6613077090438eae69cfeff142f",
+      "actual_stake": 50882.73899856214,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x960cc811e5ef36760f5c679af90e821b10385e04",
+      "actual_stake": 50052,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfd660518dc1b52d9f67facd42bbba962b06b8e54",
+      "actual_stake": 50000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb8b7ea41cfa41ee65623c93cc4f9eb68d80bca13",
+      "actual_stake": 49943.8972,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x72bf07f4a11e9657f56250b560be11a63ca16757",
+      "actual_stake": 48869.1729,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa44dd0cf1de1c461fde0b7b92c374789b59784c9",
+      "actual_stake": 48761.817,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2916d837b5f3d4e83df9c6db717356bd89c6e9a5",
+      "actual_stake": 48733.8403,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x56d53a4402a7b8f4ad027cfb421ff60e865f665b",
+      "actual_stake": 48564,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd0b744a3cee6c07814a889ecd4ebb3da1d4252d1",
+      "actual_stake": 48423.12,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf4d6635a15f79d00700db4d8a40cc7baa655563d",
+      "actual_stake": 47726.5354,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x18376a0e6f2975013d2866407ea4f4e2ff01b510",
+      "actual_stake": 41200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x643430283b19fa5bd70a1138b495c2b43523cdd5",
+      "actual_stake": 40626.53808548002,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2b7d141a63ebab9ee78dfb312874859933033895",
+      "actual_stake": 40263.2989,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x37ddc47bc1cb4e980117ea99839cb7d31a0f2a66",
+      "actual_stake": 40000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x896aea93ae29147e810059c75390ef4bbbeebe29",
+      "actual_stake": 37416.3533,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x58654f05384e90004ec571ce732598c0f0b0ed79",
+      "actual_stake": 37386.6959,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x36b70790eda400a74363d576090209cffd5a01fa",
+      "actual_stake": 36800,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x32ed0c6b445a0e5c413dc583106583e19ee39dbb",
+      "actual_stake": 35000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf89be918c3d9989dd1e454bd21e1fc3afb7e6eeb",
+      "actual_stake": 33956.10475838045,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x31b6f2771e2e56aa754b319b7ee8134d9bd66cc0",
+      "actual_stake": 33555.91,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0df20a129be3ef3efd924e1bcdcbe09b32396805",
+      "actual_stake": 33376,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf455324f5112f4370d30a36de2af8255d61d391c",
+      "actual_stake": 33203.5433,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1b99eac6e12c0080151a897c36ebba0bc7f9e954",
+      "actual_stake": 32881,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcb06551543a48e812d72e00bf88c4ef80a29208e",
+      "actual_stake": 32439.6076,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2b3ce0006e3d8f7abadf8b0c3f68ab9cc3bfa49e",
+      "actual_stake": 32370.1988,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9f24aa4adc816066d71f0d7362f89c6590dd8e93",
+      "actual_stake": 32339.0662,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc1196c46559203fe1e3ffe05009fde59795a6385",
+      "actual_stake": 32155.3546,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5de853cb6813f9aefd25635776139d8c0aaaf77a",
+      "actual_stake": 32000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb1d8af0c0ef6abc24f6642263a4cf15349c69310",
+      "actual_stake": 31999,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x51df72bdaa3ce5cdead9a5f74bd0eea75969ce19",
+      "actual_stake": 31984,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbc5381c2a6c008b44629a21b5eb5f671ce465ae9",
+      "actual_stake": 31900,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbd4718edca87ebbbc9f501938b4a7bb6dd6f8b86",
+      "actual_stake": 31900,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3587db7dab8eed84962bb5f7a52ab875fd20aa46",
+      "actual_stake": 30556.2588,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x86df6fb7d87cad5683a4b148f1e5afa6cb4633ed",
+      "actual_stake": 30210,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1097558fc316296f5c817de215088259b2365ca9",
+      "actual_stake": 29864.9203,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x72b3daf411912561836dea10e2efebd6f81ec209",
+      "actual_stake": 29720.58,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3d91fc43561520df06b74715a0976133a8fdf6c9",
+      "actual_stake": 28865.2957,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x62ec589cc2a82816599a7c6f9d145a62d90c17cb",
+      "actual_stake": 28801,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb2307a911a5acb113813032e8fa1f76665198ef7",
+      "actual_stake": 28550.7472,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x66342cdb636aba7b1ccc2f95efabbc7ba3b1947d",
+      "actual_stake": 28469.5719,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc866b55ab835ee33a2bcd71c9a3ea2e364df3a3e",
+      "actual_stake": 26181.7448,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x138732bd8109847f5cb02541ecb17d24b1e9ff6e",
+      "actual_stake": 25970,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe6ec4cbe4535c0c49fead4542d53a572e5abbb33",
+      "actual_stake": 25815.887,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x76d929285e1b9c9cc94908ac67df03b63528671a",
+      "actual_stake": 25652,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4ce7d126dcb606008a711b46c2d8df50d88e4244",
+      "actual_stake": 24117.0918,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x263a13fbe5416661d8ff67c5d98624d1553900ae",
+      "actual_stake": 24100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xddf8eb9abe01c6baf5f1308a3173a69f95fa6ce2",
+      "actual_stake": 23730,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe29bdd620872e4daea7cfd491a39798a1f564915",
+      "actual_stake": 23000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x71f84d76e7f4b9da4d6a7a0e77a216c03bc34e8e",
+      "actual_stake": 22840.9369,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x475abc90c3cab0d1e0be8411e5df5ab5cef76017",
+      "actual_stake": 22821.603,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3e98b3623592b52eb2ddcf36a4ce9a9d48df57ef",
+      "actual_stake": 22416.3909,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5055deface85f86112e31a2b9694e1f0e9e23961",
+      "actual_stake": 22298.665,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x193bd90b68eb1df24d9c52d78960717b5e2ec9bb",
+      "actual_stake": 21948,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x26260b28ce15a5aae6c61283693f6c677db05953",
+      "actual_stake": 21631.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9a1e402d39cb2d49cf23e6767c6458126ea24631",
+      "actual_stake": 21554,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0ab89d33cc455105c56a6e9381bde16e0d6d9e40",
+      "actual_stake": 21400,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaca3365a1a6dba0839b3b56219cf250ebb9f32f1",
+      "actual_stake": 21339.401,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0b128f624078f9e7a1dcd58a275b445f57f20df8",
+      "actual_stake": 21030.7217,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90f3c7434ee39cf24caddc3874bf7c295e4ba6d5",
+      "actual_stake": 20958.3219,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3cefb79af1f4126dc679d52f5f7458a25ce74b42",
+      "actual_stake": 20792.7518,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xecb4833bef09473065b801b53360011f0364902b",
+      "actual_stake": 20570.612797674195,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6339a73610969b50f0b91122bb90e231046b112f",
+      "actual_stake": 20290.7518,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb054675add7062e2a708ba7c211fb0ec1f56b8fa",
+      "actual_stake": 20150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa24db1dc8ce36c960bc4517d4b1eb3f3e7c10fff",
+      "actual_stake": 20147.516994761903,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe3ee38307cfdff07938fa8d39958d925da94e3ae",
+      "actual_stake": 20138.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x65a7de07f2df7564421b3a942cb0699b357b91ce",
+      "actual_stake": 20126.935,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0705b3f95211b829afec43e3dd3bb8bd4aceca20",
+      "actual_stake": 20000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6bf7550bf182b8428e2cf4fc640ed884ff8c7a57",
+      "actual_stake": 19668.946,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb90440ee1fac3172a630470f4adcb99d0fee936d",
+      "actual_stake": 19656.2179,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0abd1ca07293821a879dd5a3f7ec0003c7e8b1a3",
+      "actual_stake": 19500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdd8e898b37eaf390cf53790f2ea2cabedac7afa2",
+      "actual_stake": 19373.7426,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf68500d8ebc678077a9388cf0aa570536613f17c",
+      "actual_stake": 18845,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6c8a70bae601e97f2c885f640d5c35b2a1e805e3",
+      "actual_stake": 18430.2958,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x66a204d402e14c5b7b5bf9b6d8f2c4c34353a3cd",
+      "actual_stake": 18295.9696,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xae60a8cbc37cfde7ae14047c95bdca81aa159ae0",
+      "actual_stake": 18278.7703,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x896db7c827e6dc3635f659dae77cd04b8d6cd5e3",
+      "actual_stake": 18168.1212,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5a09a306f75f55f1a79e03c65712002b5fb2a1df",
+      "actual_stake": 18118.9326,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xff79ad62d19066e43b99eed19f94e11b0e0b5688",
+      "actual_stake": 18102.22551897706,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xff78bad7f3fefbf552a2978e1455d0126da9ba76",
+      "actual_stake": 18080.13784461153,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfb17dbaab9d6b882323b34fd8d2a35eaa4dd0964",
+      "actual_stake": 18000.0078,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5b9f0eef7bfbd54ba21cd7409bbdfef12136421a",
+      "actual_stake": 17880,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x697d13930a51a7a9dede42e48fcb0b7043918917",
+      "actual_stake": 17277,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd23cca1d288eaded8667a7d4765d0033641f4c60",
+      "actual_stake": 17047.7158,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6688bc837b6c9a125dbd5476bf1480be4be3124e",
+      "actual_stake": 17000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5978da7e5b78fd3d922d00c5ccb173e9f113d51c",
+      "actual_stake": 16917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5a61b9530697137b0473d96f1340208e3d9881ce",
+      "actual_stake": 16917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x867a575da50a8aa617cf99990c5940a3841a57be",
+      "actual_stake": 16917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbe1d706baf3aff088c7c6ee32f6012fa71003d97",
+      "actual_stake": 16917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc09361f9a17fa21e465d0cc5b8a5b3a31bb18860",
+      "actual_stake": 16917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf8038fc93a714801c5d399bc80b1629af0116f1b",
+      "actual_stake": 16916,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x509bea2ad9bcf38a95cb1ad7e4aac40a4a1249c5",
+      "actual_stake": 16844.7717,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcfa42a98dbaaa0e6fb06e72a9a5a24a5f9c2edd9",
+      "actual_stake": 16800,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfba05c94cb4628d5046ff384920d22d0c1374e44",
+      "actual_stake": 16794.6265,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9b18e9e9aa3dd35100b385b7035c0b1e44afca14",
+      "actual_stake": 16740.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x161619839ebbada5d3c279e1a79c50f7fc4274d6",
+      "actual_stake": 16662.642,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x143e5867163967fb0032f0f20d63c824d7c2f3de",
+      "actual_stake": 16650,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa6cf43fe0b47d5da8f03258b37f1caf148955019",
+      "actual_stake": 16650,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x329f4435e0f22899b733756c71aa12c1004146b1",
+      "actual_stake": 16572,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xae269a1371993af69df73ba39beef3659b33146b",
+      "actual_stake": 16547,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcda6530fe243961d15400a0775670b3234979800",
+      "actual_stake": 16544.211,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdfbdf668465ab37fc5a5b3532b100f507daf4894",
+      "actual_stake": 16543.9309,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe5943f4a7d4f58846c9a9cde76080ed89766a2f1",
+      "actual_stake": 16530.389,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd11eb5db7cfbb9ecae4b62e71ec0a461f6baf669",
+      "actual_stake": 16520,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8f771a8e8ba888f2b06cc75747ee59fa9f7613e9",
+      "actual_stake": 16500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf318a2f77816c166181597e53ec95773c7d70262",
+      "actual_stake": 16500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x040d4205b3b23151c5df8076c15ce830332b97fd",
+      "actual_stake": 16452.9166,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x726d07ea7b1983f35055bb288af78e7480bd1242",
+      "actual_stake": 16400,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x84c697eaf77deb3b8ba24b8056a1bf27838c5cb5",
+      "actual_stake": 16380.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf84b9e57628da8a8167c0f84c266f70ec0863510",
+      "actual_stake": 16347.5865,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90f659686262a2149dfeb4b6ef88edc8fcc4e05a",
+      "actual_stake": 16343.974,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7ab19ab563ec3e0aa8f2e283513286a58d3a4ae0",
+      "actual_stake": 16338.5641,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x20f77d1e0b152197483aa088467bd2eb81c3757d",
+      "actual_stake": 16328.282,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa8213ad427cc7c16cf6248e0653553bc3008a191",
+      "actual_stake": 16312.6997,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb3d3c522a44a39dadf9cbd649cb5f3d85b63f691",
+      "actual_stake": 16285.0737,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd944633d12e0ecf7e88d6b6248bc192d2e24226d",
+      "actual_stake": 16261.906,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0057bd83a142da84b6404616c683e21e7dd6fa5f",
+      "actual_stake": 16254.6222,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90b7903f465600923ce2a18c0aa222ba79784b6a",
+      "actual_stake": 16249,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x53bad4e06b7b0244927bb03d43f3171c4b0349be",
+      "actual_stake": 16242.445,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x536167334b9a964d0e7bff3e1d706083b2eb2290",
+      "actual_stake": 16240.3119,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4d8bd62c7cb6769795410c5d1209cc09bfe16c60",
+      "actual_stake": 16230.3769,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x47c3eb3dcdd524c2508da649d08f94571dcd398a",
+      "actual_stake": 16226.4572,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6a6e0a753c927cbd77c1cf97820a5ad496b74a16",
+      "actual_stake": 16223.0901,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xebb166e1e8c3b4e9c51e4463cbf5c59a5899dab8",
+      "actual_stake": 16220,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf9e5b652beae776dd717e5d2453ca1770a4f2c04",
+      "actual_stake": 16200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6c1feca12c7f4ee37346789ee5f2b51966e1dc14",
+      "actual_stake": 16199.1192,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc28122073824a46e24091e678b33fd710baacb06",
+      "actual_stake": 16195,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8a1cfc56923a2e02b9feec98a3a4f9f6e3cead6b",
+      "actual_stake": 16190,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9edba74460ad6b40b40809b2228982c56e3e890b",
+      "actual_stake": 16180.1378,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x06f65d4a643940d104eb608bf47b64ace9e4b60c",
+      "actual_stake": 16150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8a9aecb126b8afac9bdca66d9e6dbd505a261ca6",
+      "actual_stake": 16150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8ca60eb7c8d4de486986335166e1c9f6b3982029",
+      "actual_stake": 16150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x219d4eb4b62972862a6b38d130427aa92eae1a69",
+      "actual_stake": 16150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2e31bd290416f095db77c56cb2a2ce7ea4511872",
+      "actual_stake": 16150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7df437c26813e2d976d2d88fc99e361f9e90ad3c",
+      "actual_stake": 16150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x852d31705ce7221c9a5d573a66b349cbc8f3d028",
+      "actual_stake": 16150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc9e3d84e62cc145ff76fd90859cbd46b5c665941",
+      "actual_stake": 16150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x291b40d05d5e5c72a5a5c0df168b12b6f45fcc1e",
+      "actual_stake": 16144.3043,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9c2c3b36fbce13efb602750ef3403291824fa338",
+      "actual_stake": 16140.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x687670e9c58526d673aa22d6ab355d952819afdf",
+      "actual_stake": 16121.465136711198,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x05c9f9ea62c3c69ddf7221446d7dbf4e04b0c408",
+      "actual_stake": 16110,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1cead3374a856061be00f5c6d2a035eedf1c3c76",
+      "actual_stake": 16100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2266e997a7eb807b94aae1790fdc372936e05a84",
+      "actual_stake": 16086.8888,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfe9f4e4fc884fbab008947c09c6bd7ecab1d9510",
+      "actual_stake": 16074.7891,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc7b169b108c5e75991c520aea97140534291c81d",
+      "actual_stake": 16069,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5cfc0af2db55938b879c5be94d0cd860ec2db029",
+      "actual_stake": 16064.9535,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x852926150de3854d61319021bd88f239c1cc4c38",
+      "actual_stake": 16050,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc96b54890f172986f8edc7aec6e8c09a53760526",
+      "actual_stake": 16042.018,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1aaf5e41c2c73617bc120097547a3410caf6718a",
+      "actual_stake": 16003.3531,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x089abd28f0971b6d155f9db710bc87c5a5b27123",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x155236c4bbb79f13850241448561e583b1648b3f",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x19ba3eeda313577888c145a5d7053df05471b460",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1b7577729e06c6c92dae3edaf6d0d6ab029a1c3d",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1cccede48295654b7e48333b47f54d24c4d612d9",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2e296866572552471f042af6edeed856ec38b871",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f6102a60813af809c8da5f46ceb1d022dd718f2",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x57e2e76e240c57009fd00553b7dffe2dfbfd07bf",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5aee02e9a8b5fffc7b909a6ed3d751db95e75bb4",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5c9109250555d1a56811c3806515520a3dc06974",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6d6ed67479d02d63a4a0f111a6d76ff93bb2d23d",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x788a8a180f27f86b2148fbd7836ee6f0794d9296",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8ae0e37599fee51fa8080d9a1d1de6ae2c1d7f46",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x92db7e8d9b281c9470749a83eeb51de21ff6dde6",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x94f69c258cd251bcb77dbb6156da13e32dcb8ef4",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x980aa416e2d67fc97c671162d8ae261c105b2043",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9d8c00b16906a78943c66f1f976a98e4e7a36909",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa4d92b028b12558d3b17fb56adebdcd5fa800d4e",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc7630bb99c9eb8987130722bcf850dee8bfc9d84",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc8c3e484ddf92069eb3226df266c2c262902d835",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc962ba9a1a45b79c1228636db5a6efa4a4b75d76",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xce6754a176b23accbaf4197fd739e146811fe4c3",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd114fe967b1d6a10e21a89868369c1eed669a560",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd3136a99be75beb3565c386ca28076e3a5621c56",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdfc3b7af259b992038cec2dbb4c73fdbb60f90d1",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe011df1d6eb9e98de0fa5e4824c4a48db1cef519",
+      "actual_stake": 16000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x82b393e5e20fc5ce9d22ee1406bd71370f95de00",
+      "actual_stake": 15999.7557,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3c6c41aaf1a852403a16d64497f874ff490423a3",
+      "actual_stake": 15999.6906,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3f5b5930f62bccca5d844738af254c2f948d7617",
+      "actual_stake": 15999,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa748ba1119fbd1d5077d7504552e53da969428cb",
+      "actual_stake": 15999,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3749ac4c96c9d92dff122f7822e2db9dd4cc7d15",
+      "actual_stake": 15992,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x58b61d71a801beffe49ed1a8e01a908be965ca1b",
+      "actual_stake": 15992,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x52cb973dbfddabce4f4904f89b2f081c44df81b0",
+      "actual_stake": 15990.2009,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8df5d18f91333f5591e9331b460d5e501c43b4b3",
+      "actual_stake": 15989,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3f80528837e792b23777977fa3aa7ad8a3eab4e7",
+      "actual_stake": 15984,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5b584922b2df2467a54c19084f83ebaccab21f64",
+      "actual_stake": 15960,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x426874a11e30f6a9efca3715a84d3b5142fce4bb",
+      "actual_stake": 15955,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5ba44cfc6672522e2c560830bf87024604dbcdf8",
+      "actual_stake": 15950,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xee2770f616b3cc50b96e5f8e9a3811947daf96db",
+      "actual_stake": 15760,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8d56bf499968cde8b7ed974d45afbfab7ee4addf",
+      "actual_stake": 15475.1882,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xba701fe1f2c79487a24e31836c403c8d679a368e",
+      "actual_stake": 15399,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xce4d4bf74cf639d99c26803f6dbc0a8054329c16",
+      "actual_stake": 15390.6555,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04bbb7ea18ea570ae47d4489991645e4e49bbf37",
+      "actual_stake": 15200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf331f8cbcd9100292258d2a1986a4a2e7435e453",
+      "actual_stake": 15073,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x77d63a93c90a9860ab07ee6bc7bc5becad1cbfde",
+      "actual_stake": 15000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x956290cae406bf01a4047035f1a8975eed11d1e4",
+      "actual_stake": 15000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfc5b2d51fd03b13bf440eb9e0c7b1d94b1b77bb9",
+      "actual_stake": 15000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc33e3272d29d0cd5a7371a3114080ffdc333e892",
+      "actual_stake": 14873.4,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x20d236b1800f2b597cd64d920b71d36b87991f30",
+      "actual_stake": 14798.0671,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc4cbf8f4c59570450df297cedd3963b7e1f60652",
+      "actual_stake": 14579.9444,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfea310e868466201e881866e75232e1bc2b86e0c",
+      "actual_stake": 14497.26,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa0fc190a3eddd20bd8a514fbc2129562d4fe2e8f",
+      "actual_stake": 14394.55,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7c9c864ad7e9b90cf45f2db419a6a1efe3026576",
+      "actual_stake": 14387.3491,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x045d3d3bf9ef8ae7bae0e1ee2765349636d90057",
+      "actual_stake": 14317.4336,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x95a32d9e373a3622c56cfe14c9f4039b5a0eac51",
+      "actual_stake": 14253.7348,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x26199b5dd7637d8ddd76fcfe31ec1eadee25e275",
+      "actual_stake": 14000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x95f3dadaa5c781de9aa453830d4e689d57937f82",
+      "actual_stake": 14000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9186bb7053bc9ff73d1647712309dfc2c8699049",
+      "actual_stake": 13896.3967,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0b5a3054e7d7c25c23ee8b7fd7cba3d2660bc6a0",
+      "actual_stake": 13600,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa4f4d8b87af48e72015b8d6446df79033d41c427",
+      "actual_stake": 13575,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaec19d15f1b6b737c8f374fd90d1f19ca8fcbdeb",
+      "actual_stake": 13483.8781,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeebcfef507d6109d87689811f5d85d89d30cae76",
+      "actual_stake": 13466.98,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x984253cad96157b89255f4674e5362fc0feb69ee",
+      "actual_stake": 13214,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5f855b107afaadf722cf9611b82167a272b4acb0",
+      "actual_stake": 12574.9354,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x35e939c53b208ccec114c6b92f6d754b023dff4d",
+      "actual_stake": 12514.65,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3b5569a21010a908ea9acaccfa9a21db41292b43",
+      "actual_stake": 12226.087,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1c0ec596303ce6666f5a4d24c29e78cf881cb5d3",
+      "actual_stake": 12160.7518,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3935b8d9183192127ea42de420f8e771043b3764",
+      "actual_stake": 12140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6af6d4c57b3d48d614ecc52f6c25242783dec71a",
+      "actual_stake": 12127,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8dcf30b6c050837af7a91158145153e97fa0c5aa",
+      "actual_stake": 12123.2247,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5e87b43f8077f53fe5fb998a97ffacd299267323",
+      "actual_stake": 12100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x22ffd919b46d45c53adc6283b446afe896c2345e",
+      "actual_stake": 12000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6efd92a21517badd12089cdcd5c04c71dc2c67e2",
+      "actual_stake": 12000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcec4384d5f0746d2ab0262a7a8141a0427a50db0",
+      "actual_stake": 12000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd48d664965286ddea41e97784d079de981d099b6",
+      "actual_stake": 12000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc5232a75366a9b40a616aa606636548db716f038",
+      "actual_stake": 11675.7705,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6739db8df16dfee466598f0842e529aed8daa0f8",
+      "actual_stake": 11590,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe9bd415d5d543b5d4fe12ac2baa52cd9ca026f46",
+      "actual_stake": 11564.5665,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfb2165f4abeed496b4edd3234c4cc09f1557226e",
+      "actual_stake": 11436.6913,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1279249174ec07a2cb3f057bdc43414106183d4c",
+      "actual_stake": 11222,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x25f21ae8d681973ea06082ce71127b52e09d5892",
+      "actual_stake": 11068.0957,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x85cf22d065b1f686faa6afa96c2c5eb7dc257239",
+      "actual_stake": 11035,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb06e5ce2fe560fac1f4c4e7537d60a82d82359e3",
+      "actual_stake": 11032,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb6d2e7efefce4c13ef98b1a69c0677725b08baba",
+      "actual_stake": 11032,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xda615562970f622b1e174b335c9e3b2a96264b14",
+      "actual_stake": 11031,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x91ba7d1cb45cb17ddd5526253a0c791e3d413bc5",
+      "actual_stake": 11030,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5d0cbf3abc8701706b36179bcdb0409aa1e44640",
+      "actual_stake": 11028,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc846b4532249ba200a2f40b011aa8a770266bac2",
+      "actual_stake": 11000.175,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04be52434eb64addf373137310551ac42013677c",
+      "actual_stake": 11000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3e86eac93a2dbb4faeb8709d77d451aeda710ef9",
+      "actual_stake": 11000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xccebe8104a3aa1a440461f5f4f6c38fbdfb30802",
+      "actual_stake": 11000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xde5701c91e479888878f9aebf1decc0b10d88cb5",
+      "actual_stake": 10851.9655,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x034e1f7a66b582b68e511b325ed0ccb71bb4bc12",
+      "actual_stake": 10756.1191,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x55e86864dde83bdd7ef9f0d1f1765ebbec3a7934",
+      "actual_stake": 10680,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xde6f17794861e1e13104285cd2dabfc478bfb679",
+      "actual_stake": 10579,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa3176cdb52dd85290e72b2c486cf6149ab38fd32",
+      "actual_stake": 10516.51,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x993192a774609176f59325e9c0afd0641917d0db",
+      "actual_stake": 10490.1719,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe6d4f8876e2a6be510eaafbf4b6c16bfb786ef20",
+      "actual_stake": 10450,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc34380fb3c3cb6cbb71a243b007629c0b0c2ee01",
+      "actual_stake": 10400,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe9cc72a95988cf04086cfc649bd1c7c841c5dd60",
+      "actual_stake": 10390,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xee6838a106f2a86609828566bd3222a9e8af6ae7",
+      "actual_stake": 10255,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5c9bc3aaa7f44407c9a663934055049aa2a3d860",
+      "actual_stake": 10212.305,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe3ac40fb0e6421bdb3426aaa957edf3ccb34bf1a",
+      "actual_stake": 10201.3718,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x744f617343f03bb7c9d52a6d84f87aa4b1017fac",
+      "actual_stake": 10169.6012,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x639fad44e324329a726cc1845a4b7f3ab2ac1dab",
+      "actual_stake": 10150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8e118bbffdcc009b1d46423868f7a49f8bcbbfcc",
+      "actual_stake": 10150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf7c6382da0a3ee08ad4c201b01e33e122600ab6f",
+      "actual_stake": 10150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f595c056e785e13579128df27cad2968d034ba4",
+      "actual_stake": 10137,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbd1ea07bcc208715e099588add684ed78f3ff3ed",
+      "actual_stake": 10109.0424,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeb1f276fd47635a473bb1d2c8047c423da6f5116",
+      "actual_stake": 10066.5016,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4c0ec032d64f5560b1ee96bd342a0def72bfed61",
+      "actual_stake": 10064,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf300628919f80ed9cc0db74793788c0e1310b629",
+      "actual_stake": 10004.5854,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x05211b706bce6a569d556faa5821237464f33001",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0c1633e0ba164a9def56d86d7c46afcbe4d28a77",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x21af2697a9912a21687d57ae29d371b767bdc6bf",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f532bba250546b8992c05c2d7131e85b77cbacb",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x39b1c7003421a40627f0803ee0584a6b0f677335",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3fc151ca5cad17625a5198bdb0fa8ee3c26c744c",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x43f9873fcf56b25f605a45b89169213ff0fc9ec3",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4969d2aae61256bb141d102f0ccbb573b19dc915",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x91c08c6b34df3e8b7f17bdb0bf270de218eafae6",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa2165c20395f602b1bd91a6f311858386531ea93",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb817f347cc5dc77dabeb45dc071dc4ca80b28e16",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe4c140a67a3a95913a6e2fcfc6d6434d94c07641",
+      "actual_stake": 10000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe60d9c72c5ec15136b942525407d07527f2df2b7",
+      "actual_stake": 9991.5724,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x13fb07c0e9b5d63ec38ae1fa9221c3c911193646",
+      "actual_stake": 9958,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4a2dd4b190b6dee6939709278b659ed5ffcb9d92",
+      "actual_stake": 9779.2791,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f59a307319b52c0928e679ac625cf7d3c883d36",
+      "actual_stake": 9570.6193,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x378aa43f8a44150fb88ad7f6ce8a0349460f8c12",
+      "actual_stake": 9176.8848,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x29a65d830516cca6e694be90d3de3cc19f620ea6",
+      "actual_stake": 9017.9171,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc89d46fb330da177a5a5b6fe4d547723381f7795",
+      "actual_stake": 9000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x205c211a68e0b8c1a97d61b0b09099231b3c160d",
+      "actual_stake": 8988,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x84ea5312de3e5d2c92a85adfd9d15b7a263c7eae",
+      "actual_stake": 8910.0856,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xae5a48e555f5dc7300896b7a12ac64813bccad8c",
+      "actual_stake": 8716.6128,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x41b20fd647fb2310c5cf2329b6397a7c75baa84c",
+      "actual_stake": 8500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x21606ee18fc1c9b398c25f56e98e6035ab434299",
+      "actual_stake": 8480,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6be27f6f4c3ec75a3e5866ac4f877d5ea9ac363d",
+      "actual_stake": 8357.6,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x27643f4e2b35a18bcd55252e88f13039f4f81927",
+      "actual_stake": 8332,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x77f7f8c188b3590ffa6426536b199fd84416d667",
+      "actual_stake": 8239.3732,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbcd9fdc648f1134ba00d0d8070b77f296c94dc1e",
+      "actual_stake": 8105.08,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4d04a3bfd8d9eec765412cb03a3020215ea58156",
+      "actual_stake": 8000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6033d237130eb62577f96d6f3b5fb2eb5e45047a",
+      "actual_stake": 8000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb346d2e0685ebac08ed05ce998622fb523da3245",
+      "actual_stake": 8000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf5b413a42a2dd2bb5f568d9174d306bf7435ce29",
+      "actual_stake": 8000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa0837778bc9a735924bcf4c98e64af6e8de42cf4",
+      "actual_stake": 7998,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xee9439a12a7c2a9b6600ca8a498620580d2f116e",
+      "actual_stake": 7971.572,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9c04c3186f5471c4e58db47ecfdeeda92c1e8cb2",
+      "actual_stake": 7950,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcf43e9a2f9ed4810de89ae08d88445d8ccf63ab1",
+      "actual_stake": 7644.4635,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbf5c8925ccdbe4ff933a739e51dcdd74fdd78d32",
+      "actual_stake": 7226,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9cdb491354086ab189dbb17360c33970b7298d3f",
+      "actual_stake": 7150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x930dab128ee82c5eadac116bd1a7f0618110aadb",
+      "actual_stake": 7140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x13b0d26d0703cd7a13a52e4bfb90a48887e559a6",
+      "actual_stake": 7000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x415fce36e2dc12421f20b93dbad1dd68bd2f6db6",
+      "actual_stake": 6934.1757,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2b2ba7547fea61596f0124176d68b959c891cb38",
+      "actual_stake": 6832.1016,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x365ac75da2711ce91be17a0fd550ef3dda59b75c",
+      "actual_stake": 6679.6761,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9322400e339682b103aff2cfc635a86052bcb0b3",
+      "actual_stake": 6666,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5cdbf2f8280959358b08c61c59c813021b8b5697",
+      "actual_stake": 6652.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x984683042ddb484e074117dc7c7f367de1d11e98",
+      "actual_stake": 6400,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe000adb6f47c7461694bcb69bf51bab8087d819d",
+      "actual_stake": 6197.5014,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xabc214b0412a0bc732d2d41409f171732767c82c",
+      "actual_stake": 6150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcaaf10244e0f891a2c4f066f3d137914b47f1dce",
+      "actual_stake": 6150.3007,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd925cbbc53f8d70a05eba2f7abf4eb35d95f5180",
+      "actual_stake": 6123,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb1ac9db0d6a1ec291f427ad03fc3b632e1e93a56",
+      "actual_stake": 6100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x22cab81e0fee2bad5b015dbbeb6a374a1b8738de",
+      "actual_stake": 6051,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfd3719bef669f5cebbda47b69e7814cf413e9517",
+      "actual_stake": 6012.3813,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1426fbd146942e153653863cbe633780c17268da",
+      "actual_stake": 6000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe76a6619581dd7122bc127a6f018ba035b182aaa",
+      "actual_stake": 6000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf7e74a9a394226058e14bfc17deafdb76eebbb25",
+      "actual_stake": 6000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe5476721db576ad7541389325a03747a8786aeff",
+      "actual_stake": 5850,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0f28fa701eda5db150f2c6ccfa220e75cd839efe",
+      "actual_stake": 5645.846,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6ebd7e1bb5db5aa2930b0ffdca3d31ac9df94ce6",
+      "actual_stake": 5630.981838371603,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2430a2c8d8bc1c3351ef6ff6eccf836b109117d1",
+      "actual_stake": 5588.1485,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8328924fd5b47dac53931bdc1bafdda391f019e1",
+      "actual_stake": 5583.9442,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe01ac109d51c4d30aacabb2cbbf7dd0ddefe07a0",
+      "actual_stake": 5583.1659,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x64b3ebe1457303de98aa5719f98c00663f71830d",
+      "actual_stake": 5566.6183,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc4839c439a8646a64c7ce5a7da008a5d0062d4bc",
+      "actual_stake": 5318.1985,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x62bc9648389f6e4af7007aaabb9859015067eab6",
+      "actual_stake": 5315.6625,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf16d8d189b9066ffe94ba9df555c8dcc852b2dcb",
+      "actual_stake": 5310.7074,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x57af825ff979bd64b841ab525a5c743912abbc59",
+      "actual_stake": 5300,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x89db10868fca68b529d55620d0e88ab4bf519f95",
+      "actual_stake": 5202.5127,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdaf08467be187fdad0db1df64b8cbd20f60ab370",
+      "actual_stake": 5196.1682,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf3062faaa61cd4ee6e8705135a3bc6419cd766b2",
+      "actual_stake": 5169,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1f2b6dcff8b9c35ea8b4daed42a7772ec1014276",
+      "actual_stake": 5149,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x711888263273d7e6d2179ddb5b3fea4b41921911",
+      "actual_stake": 5148,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe1da425d1880d3243f9dfd3c9c2c3f09e73acd6d",
+      "actual_stake": 5140.2355,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe482d0df6f180e11fac5f33fec677dc83b70096b",
+      "actual_stake": 5120,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9062a96b9e947b2b57283e705c97b871f5eb6561",
+      "actual_stake": 5101,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4439a95083bb871a0158fb001e8435f121f7dc20",
+      "actual_stake": 5100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9e851437232da62270275e1255325d210c5dd4a9",
+      "actual_stake": 5092.94088385342,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa1a3a42cfdbf8e8a664ba2d7f6f78ca278e611db",
+      "actual_stake": 5089.4485,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x25e4723f5859952d807ca1339e010c30e06656af",
+      "actual_stake": 5050.8393,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x077c5d343e226e7e152246780be2bca2af91631e",
+      "actual_stake": 5025,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04eda6633a95c74cf93c0c66417669e4aa43028d",
+      "actual_stake": 5000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x762c0e5ae9d4c726f9ee112cc66ed5f11566a8d0",
+      "actual_stake": 5000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x87d6bdf56d2a247829559d008826e1073e68201f",
+      "actual_stake": 5000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90e0d1653cd4828d0e73c29fd64b7a316dc49318",
+      "actual_stake": 5000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3c5b25331c30937ac324d3f20af0caa70e645588",
+      "actual_stake": 4902.9665,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x49525c292f006396aa78d3441ee73ee992ef3183",
+      "actual_stake": 4900,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x98ed6337bc1d16b46fe2375c552830e77d96d1ad",
+      "actual_stake": 4892.9282,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe2551950f53e519d8f2cff42a3b418082827cc3d",
+      "actual_stake": 4839.0004,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x979a52bc5d52522f440b8b20c74b1af9fcb547b8",
+      "actual_stake": 4822.1074,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaad610d7afd65890784549761a45b76150e8fad5",
+      "actual_stake": 4758.6237,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeccc484dd4093f62fc24c4725800013fbc2c1d15",
+      "actual_stake": 4751.5471,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbc0a24a17caed0dbca77e564159c188c7aaacab7",
+      "actual_stake": 4750.0498,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5dd5d21acc7203ad2fa76722b6deca060711d0e6",
+      "actual_stake": 4649.0803,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x113204be8150654057fc08da084915fff513fab3",
+      "actual_stake": 4591.2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0428d82d3c4d8c616dac3862e9fc88af9a294b83",
+      "actual_stake": 4465.1454,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc9f52c0d4b3b4a35ba507d3ab99a1df0479018f7",
+      "actual_stake": 4273.2916,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5dfc833b3e853f3e0d8d7b5bb2d2a66dd2b9d061",
+      "actual_stake": 4268,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0bc99b862e5545d181cc7bfa71720712527aceee",
+      "actual_stake": 4195,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9e825de7d9f9876b35a2785f50355ccc59f22541",
+      "actual_stake": 4151.1311,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe646e22e0fc1b0f49cd828acca2c9ad42f681115",
+      "actual_stake": 4047.903,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4fc7ffb529c2022a808552b28f70c0aa471a5b2c",
+      "actual_stake": 4010,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x09eeb474e90c00e5ba1c9e1581749ccb40fb8c77",
+      "actual_stake": 4000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3bc78c5fb49f5a50aed564dabea2512b0fad37e6",
+      "actual_stake": 4000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8467f76ba0b033232e37c9b8cc4c28756400553a",
+      "actual_stake": 4000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x324d9a28403839cdedf36600fa735520f18dca64",
+      "actual_stake": 3996,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0bd55d236eecbdaf01d2c79253da0aeb3488af02",
+      "actual_stake": 3964.2938,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x973f891536483cc32ccb9a93c152dee1dbc229f2",
+      "actual_stake": 3925,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfec7969d5eb88f01662a8fa76155601fcead49d6",
+      "actual_stake": 3862,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x26d03ee5591b3999ef2df9e01e5fe7a81f3a9e8a",
+      "actual_stake": 3693.6312,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd553a709362e7e04d2c41e0e2fedb3eef7d08e8e",
+      "actual_stake": 3690,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x97a10c045fcb083e1807d63519431a8ff776dc05",
+      "actual_stake": 3600.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2ffe1cebbd2e6934f1a9e2bc4a0940d8c78cff6d",
+      "actual_stake": 3599,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb6a960e019e2068084bdd23fbc26593bb1965cd0",
+      "actual_stake": 3586.6514,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xed228b5fab71e8c69d1d962cd829eae5e1232e86",
+      "actual_stake": 3383.69,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6aeea1aee1559640b066fd2b49933987a4267f5f",
+      "actual_stake": 3347.6823,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x827c09e905c42a1cf30164d3fab36fbe777e6fc4",
+      "actual_stake": 3328.0447,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8c0d5cf17365df315b8d334eb5552be9f7ff3978",
+      "actual_stake": 3221.5745,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8cd4ca0aed6b915b68e75e3d0854a73bb977979c",
+      "actual_stake": 3187,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7fb3b6d222ce75121d0edd4ce0248ec10b498b3d",
+      "actual_stake": 3184.8131,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5be5bea2e2326d96b631efa2129f0f6d720f382e",
+      "actual_stake": 3162,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3e3f22da9a50d22694c452c5ec39b907524373b8",
+      "actual_stake": 3154.0023,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x81fa725f8cebd030939ab8b649507f733101ae95",
+      "actual_stake": 3108.49,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9da775343d9c9847b35a3111a8956a95e4be6ba6",
+      "actual_stake": 3063.331,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcd02aae43d7d133196f28fff1c8c0ee268ffe17e",
+      "actual_stake": 3018.3044,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xecdd3eea32f491f7d28120e70459da8a000f3e4b",
+      "actual_stake": 3016.7665,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x27619fb128b32aa6384e0ca79f96fbd5c3ea0e2d",
+      "actual_stake": 3009.3549,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90fdf1b91a06e59b736e3a6fbfc5f0d06b4e928f",
+      "actual_stake": 3001,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x765ce21d34164b4ef7b362c3835f60a711b5f554",
+      "actual_stake": 3000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd2c991cc5bdbb00195b8c814abc1cb195dbba910",
+      "actual_stake": 3000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd4437a5e053a011b6aecef4efea5a4f15d1b400d",
+      "actual_stake": 3000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x451248229712d6f207ff9466d8d3a33cb59d103c",
+      "actual_stake": 2920.1194,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xec83e4768e314cdd88f910e397affcde78a52f92",
+      "actual_stake": 2894.1222,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc3a038cb837ff7cdb038c72d3714951a835e6a36",
+      "actual_stake": 2890.5527,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x811df83148fa178c1fa9f80b9f07e1dda5a9c191",
+      "actual_stake": 2881.8233925075624,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdce673f13d5aa11c7089c99b7342580108af2d25",
+      "actual_stake": 2819.9328227105593,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2c170831e607e0d8645c07c6f070496ddef9f33c",
+      "actual_stake": 2769,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3785f0272f5e19dd2c27977ec2d91195bb2af801",
+      "actual_stake": 2762,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3269250d335183f7238cde8f10b114bc4c0c9fae",
+      "actual_stake": 2646,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe3d2283e983d9ec973d1e773358981a7e9c62409",
+      "actual_stake": 2630,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x371544578e550be7b5efa4cc186b5457bfc507fb",
+      "actual_stake": 2509.9669,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3af9b992ea26c43f4f3b019a3c5c7fe4e059af25",
+      "actual_stake": 2443.6449,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe347d593d62be9d012448f9f7adf6e24954267d5",
+      "actual_stake": 2413.3416,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04031ff90daa5ce7fd90be871933b46889653f99",
+      "actual_stake": 2335.15,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2b8655383305d07dfd0da40459a9dad61e9918af",
+      "actual_stake": 2332.6971,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x85d1b4aced9027d8e714874ce4cd9017e3bb1c32",
+      "actual_stake": 2315,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4abe8e29fcff74e6b2054920b2da21fe2940887b",
+      "actual_stake": 2300.7518,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5cb01a74e34bcbfdce2af0733092dc5f410c4f34",
+      "actual_stake": 2256.1975,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0f8988cb31ece73fad5c2c7b3844b5c4228ab7c2",
+      "actual_stake": 2238.5037,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xadb84f68596f9e9ec7b79e15c61c02b7260b118e",
+      "actual_stake": 2224,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa374fb299efce7d3b40e14f592fee134699418d3",
+      "actual_stake": 2189.5918,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x59512422af0709c7cab8285838975cd8d7c7ce7d",
+      "actual_stake": 2151.9601,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8c59eb7f0ff13fe71e916b5a1039bca73b0c0021",
+      "actual_stake": 2150.3182,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4405f42728ad7e647265b45bc9bcbcbc31f11c66",
+      "actual_stake": 2150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x71cc66c14c1f24473e92bd19011ccfc27ded38ea",
+      "actual_stake": 2150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb8d296c3d5bdb753e3a8fe39638bcbf94618d550",
+      "actual_stake": 2140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7ad648c1d96d208c09712dde7791921d3e6de434",
+      "actual_stake": 2121.4459,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb2be6d8e872c7b08085d9dce6afcbd0286c75b0a",
+      "actual_stake": 2120,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb435e80f07179be24d79844348f0737e2c751b5c",
+      "actual_stake": 2116,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x41df0d7108aa67aa76d8072a91edc2fddbc9783a",
+      "actual_stake": 2103.1945,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6a7057cdc4c5d405538ef5aad315413700e3a9f8",
+      "actual_stake": 2076.6452,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4ac4ab29f4a87150d89d3fdd5cbc46112606e5e8",
+      "actual_stake": 2030,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8a90c38bc1396d2f658a1dcbacdbd9cab78b6c11",
+      "actual_stake": 2018.8171307955088,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x219c59a99fb5134db62382f3cb3a88c0c15b6ef2",
+      "actual_stake": 2005.473,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x98bda2edd653896e0618fdf55feec02684faf02f",
+      "actual_stake": 2004,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0c42f59b0c562fa4e7edc3c26ca27cb37e1f9139",
+      "actual_stake": 2000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x21caa3351430944cb7f31998b0eb199bc2c3112c",
+      "actual_stake": 2000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x25c0d367c165c43a6d84d2829d96b0e44147d804",
+      "actual_stake": 2000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf34ea57fa78d3cb0fa96cbe9fcd03974226b4034",
+      "actual_stake": 2000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x24ad53649ac401138e31cdc893cbe86073117be6",
+      "actual_stake": 1970,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd164984268bc6e81ce9a5109c955b96e4edbee89",
+      "actual_stake": 1889.1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9933e62bcada6efb795d77a914a311a49503658e",
+      "actual_stake": 1882.74,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb996f5f0be1dc903d39f0256df7a47d59edd5e2f",
+      "actual_stake": 1844.2983,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa4138f4f5ed55cfd883bf255bb7a99df824f3159",
+      "actual_stake": 1787.3897,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcffd5178c7feb482e7a128fef2f7b5aa0bc7aa6c",
+      "actual_stake": 1770.8378,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0e905f4acabf5914b71d2fde1427a46dd2a037c5",
+      "actual_stake": 1765.9647,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x66633cc6b84cd127a0bb84864c1a4ea0172469a6",
+      "actual_stake": 1741.8,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8664cedfbfd62980211acefcd4919c72237d801b",
+      "actual_stake": 1739,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc2f82e4284b432d9e2765c72f93f8e456f640e43",
+      "actual_stake": 1730.0303,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe44aede3f7d3849c4803c22ac8b65384298b7b0a",
+      "actual_stake": 1716,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x79b94191b6695e2267885b43728aa2cf8d5c56f5",
+      "actual_stake": 1679.4965,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb1ead214506d0cd73785dd09b3efc2307133bf69",
+      "actual_stake": 1640.3452,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbf234ce9f90b22ac6d328b876cfee0af02de762d",
+      "actual_stake": 1632,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x525c62a424c35bbdafd8830c04e1867b6625dba1",
+      "actual_stake": 1610.699,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3801ce2c074ac97e9c83322d0cecefe46343fcb3",
+      "actual_stake": 1606.2533,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9c8bcb383f97a067497920afff4d1d17da84dfbf",
+      "actual_stake": 1602.7513,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0709758056377647d7212730d888862e77becd69",
+      "actual_stake": 1582.9239,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xca47a15b66b6c785c3addd6aa3e73c4fdec31b67",
+      "actual_stake": 1564.4172,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf42be2aa2e0b455df33164df69d8e8b9c6308cc0",
+      "actual_stake": 1564,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x394c82976a57c4309138c072149ee57aea16560b",
+      "actual_stake": 1556.7018,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3b5f199efdd46c53a767860ec438f406695e5799",
+      "actual_stake": 1553,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0d36dd40ff721ac6e3f40fc3e36a5566609a03f1",
+      "actual_stake": 1502,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeca882093a6d319c8dae679cd7610196a26e4777",
+      "actual_stake": 1501.3479,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9ccb89c59e0040fe96814d02832ed6533cbada55",
+      "actual_stake": 1500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xff659f9c29d69a078f0d868ceb18e9c6e7d8f4fe",
+      "actual_stake": 1486,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5d444c96fa55fe9df1fee7530ff407c977f32348",
+      "actual_stake": 1459.6433,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x64bbbec4730bfd30fc7476a0b353f49b108b44f2",
+      "actual_stake": 1429,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdd16f14aa9226e7ecc456f8b52427f92eb7b84ee",
+      "actual_stake": 1401.1237,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f108bbd7e05cb6a360eff8ff77b4e9d098a51ef",
+      "actual_stake": 1400,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0be5b1cd299e13237f2e40f109ac705399a8cc97",
+      "actual_stake": 1355.7635,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf2dc3e9afa5eb004fe65a7f7d0065cea12136b46",
+      "actual_stake": 1343.0541,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x08b14bf37a80dd26ebeffdbc6de933682caa3ba4",
+      "actual_stake": 1332.792,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x02304d460e9074e82e5efd18e483422033f488a4",
+      "actual_stake": 1326.7848,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc5dfa28511cc1be2fb7374f19af5ac2a14e05e83",
+      "actual_stake": 1320.42,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe456ff3e321be2675a5aeb56b3623586254c3419",
+      "actual_stake": 1307.809,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9f572ac4a20eb83b067cf9fb8d4452041a302acb",
+      "actual_stake": 1300.1379,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc94dc73a2677e012fb6260c680ce5344e3aeaab8",
+      "actual_stake": 1262.2089,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x28aba6506bebd5ac749037c42e0e1b38c57b784a",
+      "actual_stake": 1258,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9b8008224cb42e8346e6ba975cd12702aa0c57cb",
+      "actual_stake": 1200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb634eb031955130d3191cb734f9f774d3dfb93ea",
+      "actual_stake": 1188.98,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x706765a537d7b4cb95146d9a05613d4ada51dc46",
+      "actual_stake": 1168.4553,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x24f43c500b87ae243ff996318b9d96a09afb9bbf",
+      "actual_stake": 1165.263,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4c2a9100097de6c2e12d576d72c195a1d74c1ee0",
+      "actual_stake": 1140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xffaa1206b12710edf3e619b64aa8a652d6b0667d",
+      "actual_stake": 1121,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9b6f20e0ea7a409a31e3595210c4ccbcefa95fe5",
+      "actual_stake": 1090,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x176b554bafc860ec118e39685322ae1643a2db1f",
+      "actual_stake": 1086.3999,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x598cb65d37bce50d7d7ceb2a34c7180f2d6283af",
+      "actual_stake": 1052,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0d12e38ffa27f2e676d332c5f3903e302d032408",
+      "actual_stake": 1041.3152,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x90ed12c423cee6a0ccecadb1c87482733be3ef26",
+      "actual_stake": 1023.0863,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd2970eecfc0cdcb8e94b1d05fc825fcc43ca1c53",
+      "actual_stake": 1020,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x343ece916da848f6ab5ec7523c29a9c0e9400958",
+      "actual_stake": 1010.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04136d1730202628ea1edd0b9ed1d423a09d451d",
+      "actual_stake": 1010,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe729e82c62ba98ee226dbf680803cfb4189dbe30",
+      "actual_stake": 1004.3447,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x225340a46ab2fba658c6d7b53f9bb96bc0cc31a1",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x405a2527b2ec97764d79fece3fcbab396155d179",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x54fe70567a5974656431d85e7508bb05da5bb078",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5e27a2447b4f19064f0014d3de3bb0777f7b84c9",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x63fe428e1254665b799825ad82b66f54130f700a",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7eee11505ff2b2e1c9d984760602b5eee76d499f",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8a1b73a88e1854dd3eebee4354bd4dba23861e3a",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x914a3c3290cfa3ecec9edd61f67cf13acefdaf42",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb4e8865ede93e5b36ca856788c7c9d7ad4fe409d",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc6d15113e2fc44064e2ce8df7a5c38e01ad6bcd5",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xda50beb6279f1b18e7fa5e061483d0dceb2af064",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe43e5d37f8014f54f3a0cd2a13ef8703fa0c782e",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeb10e3b522c3d3f0dde60f769f94609347daebfc",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xef195b5f9dda1d1d59c77c74c7f0b69bcd44e3fd",
+      "actual_stake": 1000,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4b73a891074ae37c47e1a6006d33611c2f0b3c5e",
+      "actual_stake": 990,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf9f2abcc9df889794b60f0791a784f5a97d32920",
+      "actual_stake": 988.3938,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7b15a0a2bcb856c3bd5dcfa8798eb29d5852d74d",
+      "actual_stake": 948.1107,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe5557fb2e22a0ab88226b7edaa4a8cf7e1c0d229",
+      "actual_stake": 917.6863,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x407f9e8c06371b9f2b2faa4f98c233253d817308",
+      "actual_stake": 914.0182,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4496c474a0768384841ebc0aae87beaeab7261a6",
+      "actual_stake": 900,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9ad3dc55b0873c65361521c20388d51a7f150a64",
+      "actual_stake": 900,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x93ef4743cad66d1707cf1e98464a11d6970aa399",
+      "actual_stake": 880,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x49e2a5af17fb2b37a0ff460217dc7a9ff4f34f90",
+      "actual_stake": 858,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdcde457fd95823f6ce08a6257815408a6a91b545",
+      "actual_stake": 826.0129,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x37f8e3b0dfc2a980ec9cd2c233a054eaa99e9d8a",
+      "actual_stake": 800,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfacce76508a3ddaaf1cd7cf7463c16406ea8f031",
+      "actual_stake": 800,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x28beb6fd342f7f41c0ebe086f78e43468c7a25c1",
+      "actual_stake": 790.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x67759ab4d897093deb1c036e74824df0f75fdfe4",
+      "actual_stake": 778,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x75daa09ce22ed9e4e27cb1f2d0251647831642a6",
+      "actual_stake": 750.0237,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd07c1e03e6b5a2b4f79ff7fecefafeb9b5a754fd",
+      "actual_stake": 735,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xddc570bafd31c4a3545a3d742b9d022e78a9cb7f",
+      "actual_stake": 731.3238,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6bd189bea9b732a0587917fb3dfc5fe93585dede",
+      "actual_stake": 704.285,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6fb3071447c444e51f7b282a76f06f811e21d3ec",
+      "actual_stake": 664.0087,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc2552747697ad2eea67dd75e10f7933a62ceb64c",
+      "actual_stake": 600,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2a8b74f9d2bfdc204f3b29fec435e8a4f8a7f6fa",
+      "actual_stake": 582.6997,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x77b4d90772d317f1be4ab3cd23e6a0cec75f2351",
+      "actual_stake": 569.5279,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xba1cad8e212e79cd1b4298abe09eb6b44384ffa2",
+      "actual_stake": 568.781512605042,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x098bede5133f6da3d3d8fadc046d26980cc1ec50",
+      "actual_stake": 541,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xea77919951b2c331fbe849b2f2be9d6fa92a1d9d",
+      "actual_stake": 534.8655,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6d41ec4b9613fe86d4796524abe114c97bd35eee",
+      "actual_stake": 530,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5af27e3663c17e1b641d2698a1270a1fc7a20c59",
+      "actual_stake": 520.1465,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x79b42a6a7b708ec06ee807e4b77b3d449bf7afb8",
+      "actual_stake": 518.4318,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0850990b5c7cdf59a6f12d350634c011d42b68ec",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x094e4b82a5722271546cca99c8c351bd840669ae",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1c48e218083edc1e989051796054c7d186ad45dd",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x200abb5115a3f0809cdf8a7bcc9cfa6583eb8e06",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x301504bae73b1f9a59723e271c79ccbb91c485ef",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa81d9856d5be6e26fe1f7a0d8c415fb0cc3dc2af",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe3071c3f75c3a17e25c6a88a31453e97da25edc3",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe8bb7407a2a675f2a5a40e39b09c872360f3e571",
+      "actual_stake": 500,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x99f3970c941b3ff16530b7d29d4f1714679f0613",
+      "actual_stake": 490,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc897925222be6c25a1569e18d2ff0558ae616db0",
+      "actual_stake": 490,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xecfff2cac784fa6792d4e495bf77e1328e7c041b",
+      "actual_stake": 490,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe520951ed61acf55b65a3ad251044e14fa61f743",
+      "actual_stake": 487,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4c1b730b520ccc662752ffa8b9fce34f78f95255",
+      "actual_stake": 483,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xabc03f5d073099f7d7c9d8fc3c72044269eefe03",
+      "actual_stake": 480,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5fd35b45c5464838f5acb8559f5ffa4b02e4cde8",
+      "actual_stake": 478.4548,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8cb1f920e437791a97443cc81b62476120d30e40",
+      "actual_stake": 455.567,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcad3410fc7919e1a164683c90587bc6fdda62886",
+      "actual_stake": 452.4386,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xeb6a24e62e2f337dd65c6c2086488e6f8cf7eb31",
+      "actual_stake": 450,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5e0cb0308d7c243e293aba2c05275f7e039a828f",
+      "actual_stake": 444.3842,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa43b7588f44b06f3939f6c8806fbf77dbf5ed7af",
+      "actual_stake": 439.5361,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7cae98aad83a498eb48d164f41a2e1ac3bc902f1",
+      "actual_stake": 430.375,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe6388e11b9b27e9a0d48e7de6ed8314fbf14074f",
+      "actual_stake": 408,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xed5a1aa5687de0f9da5bf4c662665eb7387189eb",
+      "actual_stake": 406.6041,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5e927d6d547254dcfab48c18b2314757ab931150",
+      "actual_stake": 362.95,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfa048dc57af9fbeacaeb5cd6cdcdc10ff59e0a02",
+      "actual_stake": 350,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x046ccc1e85158c4c77a228242c86ecafa20fa6ab",
+      "actual_stake": 318.0448,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc7bfcfb1a531917855e7d1bab80cf855b7c12da9",
+      "actual_stake": 315.3035,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x138308323652edd886a1418a80ee5e74a1bc1503",
+      "actual_stake": 314.3847,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x61d7a6a9316b9c69108afc44b79ea5e64733eb63",
+      "actual_stake": 309.9788,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x12a56ccde2c6fd55e17a784d9ca08d00daa8667a",
+      "actual_stake": 300,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x708d15d6b33b588a38fc9a822ea52b4a4c0f2894",
+      "actual_stake": 300,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd4a96cde701bec80f26913af8a9ce35610b73470",
+      "actual_stake": 298.7518,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5fe9a92531fe648666551a6cbae2a7b817249c52",
+      "actual_stake": 298.7445,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4530c834f814acdf63845fa3662975356f65bf47",
+      "actual_stake": 298.4338,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa2d9488e230f0878cf4d2d79ecfd7360ae0a80f4",
+      "actual_stake": 295,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x36db7df1d5a563d6e707ffc976b46dd4872a8bf0",
+      "actual_stake": 265.6869,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9583ca25ec7770b1d575d0c4c76b79ce257e6645",
+      "actual_stake": 264.1667,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2407ae4297d548cffd44b34048bd835f486f5135",
+      "actual_stake": 241.508,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x909651233bede87715e44514452ff0b15b47eaaf",
+      "actual_stake": 232,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa2676434160df812594d53a51a63a46981411c2a",
+      "actual_stake": 217,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0e11e54ee7540a447f5cec807499d8382d6e87aa",
+      "actual_stake": 200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5a7e384b276ccf6b58f4924eccfd1fba45d81f86",
+      "actual_stake": 200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x72e86a5babceb7f2926392339ca131d3d433ce9a",
+      "actual_stake": 200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdbe7c7276c013ece0b81fc5f3ffb8efd6f3e62ba",
+      "actual_stake": 200,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb3902cd8318c4648e18dfe6afce125a331f1a787",
+      "actual_stake": 190,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbf45dd1bca8067769494b935c69763ca29de85a0",
+      "actual_stake": 189,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5067823770154868970ce35a50782c35d0a4e76d",
+      "actual_stake": 187.3917,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdaccce559a0571083556f39d05b177579613d83b",
+      "actual_stake": 150.6399,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x09211fa6fb3944ba24162462ae7cc860af97ff39",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1fecb2e6ed1e930879d86d4734489442f2f80952",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x21bbaa49ba624d88beaa02057c423bc2cd9da102",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2322d8b17a25248179282f6a1a18e208cd0eccf1",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x317890de9ee2d5987e30662b3cb640cffce62ce6",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x363951773d40a61fa5587a1043ee80586db302d0",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4b6aabf108b1581e5cc02d954fb91394c98881fe",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7d788d71afbabc2d65839387791528fca6fa3a5b",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8596aa3b7fab52b49d2b3a9d2d731074a4737913",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x88a18a928368c7718782d072fe05a1c2429e67d9",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9936171ddf3174b3b28a59c5a45ebe685558e384",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa580bceae4d6f91cab521c816a3aa1115ff16762",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa96830c6b0c297c6627bc81eee51ccc373a2aff1",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc50aeede12c91667a83ba75cba65980415a707f8",
+      "actual_stake": 150.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa5ece293c10fa3709303dd39ff816d51c5d44234",
+      "actual_stake": 150.3,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbff1a2f422274cb7da1ada4704f2eb0b55297b84",
+      "actual_stake": 150.3,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x299776620339ea8d5a4aaa2597fcf75481ada0af",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x328a2a04d32bccfdbbe0d307ff876b8d43b0e807",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x446a3e8dea79f232ebf35010b39578c30c8e7f94",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x50930de6723bc97a051a2201e48c5ce5a9cafe86",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8e2a89ff2f45ed7f8c8506f846200d671e2f176f",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb7338951d8aaf32ec72e72aff962aa0ee315cc6b",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xec9f4a83813f83b9da7812128f076cbb66c61cec",
+      "actual_stake": 150,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6731a657be913360c013edabef254ee809bed8b4",
+      "actual_stake": 149,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x28b776ac526b7614701f45965ed4f5c103f0ec0d",
+      "actual_stake": 145,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x83f62a5b0fdd00ac4a73be13b61bde29551e7175",
+      "actual_stake": 145,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4c897357c2bbc36a0fcc22128235d09856e5b920",
+      "actual_stake": 140.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x37a8c69fea7eeae300a534ae5d8fab8f0533d132",
+      "actual_stake": 140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbdc78eb074d1b811ba7b9a6e17f0adc2453af3d9",
+      "actual_stake": 140,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x70e7f221951441b5fbb5b633927790be4528ac08",
+      "actual_stake": 101.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x12e16b4488068572071d6c8b7933e99d2ce8baa0",
+      "actual_stake": 101.2141,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd4c254dcd8215850e7955b0993d5b08663bce9ca",
+      "actual_stake": 100.3759,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x111c36a714282706208ebbe6e353c1a27e86f047",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1b2d46ff65458bbbee87ccfa1fc2de8f4222b1b2",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2082b37c9962222d91e092ff4e6b18e87dcb532b",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2518d25bd229aa6f5eaa344873895528462b8f37",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x273d4e93eeef5a494206c072fff70f6ea7d7afc4",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3d0bb03c7cbb0caf3b10dd152bea10afe2852181",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5c7ca6a93a46ae786d99d91ed423a91d6fa13879",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x74dc2a94edf7232b57371402d2720fd2e3879776",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa3eb50b7e011fa85dfb02ad1ff6bb7dbe849433a",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xba540bb14101cbd4170df90408c0b9ec6c86273c",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xce2b4eb688ff2ad177089dcbff270cb07532d997",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf72a24ecefe559c885b175b341be3930a2d7d342",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xffdbc1819236431f91367c360fb184e35bf87f9f",
+      "actual_stake": 100,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa7476ec14cd663c742d527113638c77a1631cc89",
+      "actual_stake": 98,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf447d8703106d0230910a88279e2026a4e3cc113",
+      "actual_stake": 92.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb1101c790731f62bd06cc5e91551fa523a20330d",
+      "actual_stake": 85.5234,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x56ade75750b3b0f7629e77869b178e2edd360f29",
+      "actual_stake": 85,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3d9827ac4636756f0306ad9a40e3e7a414d6f74b",
+      "actual_stake": 81.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7f543dea4e2d66d5aaf99ba860ef1d6c9735f719",
+      "actual_stake": 81,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xceff98a045a3732f3e26247a29ba5e7d52fe84b2",
+      "actual_stake": 80.2013,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3c30765cae26cc563411e08f3084387bdd557e74",
+      "actual_stake": 80,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb0a9d798f7c8028b0e467b913a02b547d0528c4a",
+      "actual_stake": 76,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x65c13724928ea0afa68e09c7b70449bb8f6f3fc8",
+      "actual_stake": 71,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xda3715f7f82e0769ca118680f79bb48dc312d40d",
+      "actual_stake": 59,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa3783253bd1a9a3cf2cd62ab9cdf421f54c6e224",
+      "actual_stake": 58.3653,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1d07ca009d9e507e780fd921d63c90c2bcd1052c",
+      "actual_stake": 51.01,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3a70f03d6ede4ce6dd2e482b45d56a82b15a96f6",
+      "actual_stake": 50,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbe3e87caa6e9bd31eeafc8a5ee46fec8d9300ce0",
+      "actual_stake": 48,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1ed66c33a46d57172e675a5b0e2207a1cc0db018",
+      "actual_stake": 37,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x108c07764a22dfcffd08f0eb1a74e12f57002809",
+      "actual_stake": 29.7619047619048,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xde9bdac8a4ee49907b30e95c35bf9dd274c1415e",
+      "actual_stake": 27,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2c640ac98e293daa246f98d2828e328a06fa6936",
+      "actual_stake": 17,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x489ef5fc27e7bbfa4cfa1c8d5ec197da3d1bae54",
+      "actual_stake": 15,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0e7d12cd0b9d51e79bfcdd72c35f3dffae5abd67",
+      "actual_stake": 11,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0235db3d9de8f976044e67eb464b18b2f0fd4894",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4b05f77d1cf8bb27dacb894285f748b6ab7710fc",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4ebe8dddbeac2dea6dfbb77d48a4d84c96d2dcf1",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x51888511bd32869e6c4bc3de77b993712fb1aec3",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x559f046932523496a9e8a22372121936706f5633",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5a154e29580fddc7f22241eb72066bc25b405044",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5d92fcabf327456bba33d64da8721c56a69b08d0",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6e2a9e4120da3b9274553d7953ad91e1b76b85bf",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7dc005b44859ef5e1c66f99138acc57796bd5b42",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8647a738cb7374845ac75da1c53ef625cddc3e3e",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9a69598ee328149fb6e36c28639f5e00eff363c9",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb9b6cec863aea619be2e1f2739e57854ff3f9d8b",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbf314e9a96e1ea7a9edbb93f0c50b50e4d348c14",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc78a748dccbd806ae782eb3b8590ae7d162e5a90",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd10deb645552c338ef122b0d73bc0eb694cd29d1",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf96267e63031036610372dca729d0eaebfcefeec",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfbb86b509a1f6b8f94ed8a40b880ca4272c96506",
+      "actual_stake": 10,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8c461f78760988c4135e363a87dd736f8b671ff0",
+      "actual_stake": 8.8686,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe222e11129a5fefdebcc0572a10a6deacc35e6c0",
+      "actual_stake": 8.4236,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9e311c00501b1425abb3f45d3780e7e689c6b286",
+      "actual_stake": 7,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x650c5e22141deb5860898e85cedefd534156024a",
+      "actual_stake": 5.00022,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6131b31607dc3e26fc28e46fa21b958c2b2b215e",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x677b24c03686b98ecfa5fd45e07b65c184c56d3c",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6f25320321e0fcc6cefea38c8504f127812ef7ad",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x83ae2b590e4c1702eb734437188ccb9800ff9cbe",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x94f7c3b5db467e32079d8aff166d1a5c19c97a6a",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x97281d9da948509a271d84d11fbcf0377b130515",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa06ea9cc58d0d50c033a1b55f1399fb6909b65af",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc307c55d8038265fb9337cfc4bf36b874289482b",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xca4fe3b7150f5e0dc77cf920f4d577e31e854552",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd190071695de93377d8abd1e5a9dcb0e7c162cba",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfc744e67dc1d3ef15e014c13ab3d86fe3d2e18ae",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfc97910e9200189265d759d80f25c4f0c691330d",
+      "actual_stake": 5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb6a23375088eeca6842abd63a3dffa58d7e969e7",
+      "actual_stake": 3.72581,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x033e0a61ac00288a6388d1c8bad11a881ca9e212",
+      "actual_stake": 3.2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0818964d7eaa2dce730ce6bea276e91171833c8c",
+      "actual_stake": 2.85,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5189e4f03824b5f21e2d8e7161437c35b219ac89",
+      "actual_stake": 2.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf1fa3853cbaabdb71374d4a3ca9a8cb6ef6d7cd1",
+      "actual_stake": 2.34,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x372d2efbee77e73e7db8e7b0a2ba4d85d24039cf",
+      "actual_stake": 2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x849d046dfb65e7bd680f5022613c1c8ae9a52367",
+      "actual_stake": 2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x97cd70611075e6eae5d64a9908d6fe2592438c88",
+      "actual_stake": 2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb79799c8494ce8c4c349e6072cfd687d69e6f1ce",
+      "actual_stake": 2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x02f133242ca2eb7feb2dcdd4844ea3500f343b63",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0452272d704261574c22d05a04d1d0c44027ecd6",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x05b75d5a56ca311bb878833d97d80338c22a877a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x06b428b209824e712857ae2bc6ba84c3d59553e9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0a0b5dd11e6b7a32f72f20354cd28cfd525bf261",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0c5b16f1b8eefded06173ca6fce42a5b624043d4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0d3a0e117e79c60002939777358ec92c6a4c7e35",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0f209929d3c0b816f408e09b69b70d91bb79878e",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x10a262209be8c3e5293b4d2744c7591180b06fb5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1281603e182a8a526ec62ceaeb3a24cb0379da79",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1300ad33bb8615e965d9ae24faefd917859c5169",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x17a9a4694653505c501f1e92e9c975ea11278989",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x17c434152967287d37601a331c998f7569532d58",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x18b1723c329ce96c001dca22af175778476f87ca",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x18db0fdf278d62b4cf1d58b2d7d24729b3d9d902",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x18f7e2fd0bb67f09be4e5e7d541e692f5a2abf61",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x1e1339e1c320fba582437346f5f8f255ccc0298b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2338985b86be7f39843a00e89e2c403bb4c2ca6f",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x26945ad8bf9671c175776371a071a7d9c2d42aa7",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x26e16d39c35db596f3bcc0c4a681a4b695e03aa0",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x28c81f7e75e9e27115be784d11db6d245490d26e",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2906a12b566f3de6bb28ed9ffc01ccd85e68838b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2b4074eacf0d93b51da37cf2fdb2b92a29f7a62b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2edf02db0096eed4b223dd5fae00b8d00664beeb",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f09376bfaeab2a228bb47b50baa1a06a72215ce",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2f73d8cf6974c675e8fb695180eebb693a0c90f4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x315bbdc92a1d5ac1d5cd72fcab68db625932b546",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3174bfd6c824b8c2bf2b7789c77b400e227a8126",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3858d8aabb7b6db98b7ab5dc18cdcff4ca855cc0",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3adda0f701110c64399c4ac547ca7c9988a77d06",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3b82b839d492ad87d5efda87a39f626ec22c5626",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3c4f92b8dcd10ea4defbbf6ecde83ec4c199565f",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3f63dab7b1f28c28713b09f0ffbd81e7f7cf0b05",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3fcaaa3062b75ceb9a9a230310c71250e3383599",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x435aeddda07f2e0e40e75c940d2d8c88af30faa8",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4614267ee9e61ed08b91607f90ab9553eba2a559",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x476cf12d3a58803a6396fa9d996b16bd5fd5bc97",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x49196ccd96632f3c2ed79e7ee02b22ce89860cd8",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x494f6c8dd3a24a4b8cfb17cb35580d44a6a5b5b3",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x495fc90677e398d70b5066f294337f164a996b52",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4a3416da2690142c4d29833c3ccba07ad91fd2e5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4b21c366ceab894fe63d1d4da5f8c93cd54e7781",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4c1828e25724846b84b75fe89d984464da43a3b5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4ee5955e9f10e9843054de7e8e9f190732c1366f",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x4fe6b9c2f4f42cc96ac38d7e7404a876e18879d5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x52344fc0c8586443d6cf9843da0edde207f36154",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x534a350439c0d8ef6bd87dbd8ae87a98d7a19fee",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x58976cdcb306a33594a9006d42cfde01dd1a5dd9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x594185ad7267edbc4d909660e36dae73642279ac",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5984522e8a043b07303562bf3c3fe3f4358be146",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5c82309fb96679c4a246effb6cae82e4f5a503a9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5dcb31dcf3253e10d22b0c866db2e585de68260a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x5e7b3094a840d6e63c0ee82ffc50d719792ce30e",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x63177051f97d6428cb021bbcedb4b0197f344cda",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x633e7081d2514a88687ba47fc35c2a6c49141927",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x66b3ae9ce70bf1f8adf6164086881a9d3a59f799",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x67a0fe77d11bb228e4abc8303e11a70221ece23d",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6af466552285d4e0d124c6a744ec3937d5847063",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6b60edeab595a8e908e12ee2c11e744883b2d61a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6c9228b29795802374855eb8be3a086aa11a5aa5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6f5c1d799431338c9266a20a31ebd7ff8565f9e4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x6f5e4e0c95b0ce5321ce545470d8702d2bb4368d",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x71b5c30c3dd69a8b8ed7a5fa7952bd305f19b5b3",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x72c4e819bea89d2a4bedc19410bbe26329ff85a3",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x745644c8a21a9ba54fb90d90a9b946d682ccaead",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x758c4a7bc9e6c09b4ce4537494840373d500d68f",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x76836741b7838ca77e27d017fdf1eb8789a86a1e",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x76d18c48f0a6bff1343e4471645b5f1ab950445a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x76d70b9f4d57b9a142402a10e6dd66d23434d663",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7708b79e2bc3b7ab816e66af33a8c9385f0fca4b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x779a4fe40cd3d0e522e6acd979355bd13319d4eb",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x79d25167e16ca3f9925037cd7a1b3ba4f6e98aa1",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7a3a97e9548c1d7b6b271586c3df7d598401195d",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7aadb669c2fbf10bc0401bf69767a6c8dc767c63",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7add5905d69a8467f5f03b0cb26313f60866d228",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x7bf37710f7139be98db50b2259051f84e41397f8",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x827f2155e5d6cc98b176c0d6033cc08849e7a863",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8286d5a11fe8737c80f52436ef58ae880b156db9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x834a15b69ae5f4025e8054a64abd4101e12bbf3e",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x855173c9e148ef7fce182fbd050b88744263d8e7",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x86364f69723ed131b89d2e28c6457e02ad0d8aa9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x86ab8050fa2dbf473b6b2b835eaeecf79fdb853a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8b8109822cf4fb584592ad096ea2cda5019f5862",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8c3e3f300267eb9f3e6375868fb80b800f3edcb1",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8d78ee648e21f36ac5881b356f57605773efe195",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x8de72f206a88a16cb58cb4b58e210fdfb74209d2",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x912769efe261f484c9d1c62fb310b8a658a265c4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x91690be5446ec084f22fb2bd542b3d58e98abaa4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x93803d334edff050eb333f0337ac0e728932baa3",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9595cd099429cbd13327b2add9c9af1ac1495faf",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9949a4572b9f177642052f441ab5c04ebe294034",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x9f5aa14327fb4b61f6f7f1b205501fd1a66bc183",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa18732dc751be0db04157eb92c92ba9d0fc09fc5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa2460960451ec2482b2ee668c844d59aa7f2f7f1",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa252c6caff320a0a2349ec78f2eed5e5d6958e89",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa259607466a7f8c233a90f8056c7c2b088e44a3b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa4d210905d941e0cdcb6b88f7c5ca6174026984c",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa7f1ce6e4adc376fc610861076408aa79cd9a226",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaa8c135316894210564b4bd6a62d711efffe6ab3",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaaa9722e144867288e390dee76b2ac90a703d233",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xaef8843cde7f9f02690debfba53c0ce06d29cfd0",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb0d8f67600b6daee83d7bdfbfe0091098a545aa6",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb1abfc296dac8065868688407d3e8ef9d3ec34ac",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb46a2fd67e275b1dbb1f6c1b55c26ecc3aff1aa2",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb5d59d917140ee6e7057ce15b4123e85285f5b19",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xbd8aada978349e9e212b5a8ce99cdfaf2314c633",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc036c021402451242cd413a6a6b863ff41b8e6ac",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc16c6707c225bcfe6cb45d70c2c3b60fa1dd8684",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc40326ea38b5b7ad6f21b6d2725a736320b2b13a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc42662d950a9b86b37e992737edaf24ae1eefd52",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc6e8f993e38a2080bfcf6059e0e53035cc6e4c70",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc7094fce0476b224a99e9186d6757022bc989245",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xc744b8025c16f1c8b829bb8613a7031a0467b0f5",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcbc44dd131bc2ab9e555cc4b43485874e10ec6eb",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcd03015249664c0c951ba2860260def5eb88032b",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcd5743a88dbd7283c7b62969315737d0c09108b9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xcefbf484039b2d4ea0bc018c1857170c7b1b481c",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd0be191691c709cd5b5e1244154f0da0859974a8",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd1b7bbf015f73bff3c8a8ef105c2d3d857d48186",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xd79f05a11ff18470b9c7bf2ed50696b9fa26ff5d",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xda137dd9143973fa30fe117bec7fe8d13c8497a2",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdac9c78cd1a425537669219e57ffc5df5207c31f",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xdf65949b31cec6ddd08e62a64732bc8034725566",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe4a050f884187169444ae33dd0cc557146437d79",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe593c13982e2b25fe6a1f4a44035c99d9e7bb399",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe5c45509af209bda85bba4eed08b8ee109ccdef7",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe7937e0330a5459f96314e1a7f016116c035cc91",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xe8f1647206b2304498817a79f651cd71745a3004",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xed0be1e3c1e9fa52f01023081603f5045d7207c9",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xef635ab310aa00c005ec7efd51235948dfc7c282",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xef822b117f501f41cf3709adbd2c7cb7fc8b042a",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xefc2d75947db60f1f3c5e6a87d60e5263a70dba4",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf422cf49eb49d93ad6952db28117849bcf44024d",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xf95b7aa4ad505b0a5695344bcbf624f184bde574",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfe1172cc3c51d760007283dbb521aa9a38f8e353",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfed459299bd99747cec1f0a5422a930aea38ff66",
+      "actual_stake": 1,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x04e1896afd0e28d196371cd73054f35a96e99503",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0ae769633a6d0fc9d8c29fce352b8998b9aea6fa",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x0d473456255c5c1abb4809fd3194a57a6287b568",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x35f534748af2d5a6dc9b61a0458483d30887c19a",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x3e45ab8b315eb8796e7c9ef2ff5c6a9e01a47e19",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xa30b0c0385451c7218c492170f7487344d7e1b23",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xb4e72508614bef370b18a9456ed6154f1c9aef03",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0xfd7743949ead3faeeb993ba0a8c92e2edebb22e9",
+      "actual_stake": 0.5,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x2402da10a6172ed018aeea22ca60ede1f766655c",
+      "actual_stake": 0.2,
+      "virtual_stake": 0
+    },
+    {
+      "account": "0x145baa3b61fff057b3a08090ab66bc535b0293d2",
+      "actual_stake": 0.01,
+      "virtual_stake": 0
+    }
+  ]
