@@ -1,14 +1,25 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
+
 import {
   CERAMIC_IDX_ALIASES,
   CERAMIC_IDX_HOPR_NAMESPACE,
 } from "../../constants/ceramic";
-import { HOPR_ADDRESS_CHAR_LENGTH } from "../../constants/hopr";
+import {
+  HOPR_ADDRESS_CHAR_LENGTH,
+  HOPR_WEB3_SIGNATURE_DOMAIN,
+  HOPR_WEB3_SIGNATURE_TYPES,
+  HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
+} from "../../constants/hopr";
 
 const truncate = (address) => `${address.slice(0, 5)}...${address.slice(-5)}`;
 
-const NodeTable = ({ nodes = [] }) => (
+const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
+  hoprAddress,
+  ethAddress,
+});
+
+const NodeTable = ({ nodes = [], signRequest }) => (
   <div className="box-container-table" style={{ height: "100%" }}>
     <table>
       <thead>
@@ -20,10 +31,18 @@ const NodeTable = ({ nodes = [] }) => (
       </thead>
       <tbody>
         {Object.keys(nodes).map((node) => (
-          <tr>
+          <tr key={node}>
             <td>{truncate(node)}</td>
             <td>{truncate(nodes[node])}</td>
-            <td><button disabled>Fund</button></td>
+            <td>
+              <button
+                onClick={() => {
+                  signRequest(node, nodes[node]);
+                }}
+              >
+                Fund
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -32,7 +51,7 @@ const NodeTable = ({ nodes = [] }) => (
 );
 
 export const VerifyNode = ({ idx }) => {
-  const { account } = useEthers();
+  const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
   const [nodes, setNodes] = useState({});
   const [profile, setProfile] = useState({});
@@ -41,8 +60,23 @@ export const VerifyNode = ({ idx }) => {
   const loadIDX = async () => {
     const profile = await idx.get("basicProfile", `${account}@eip155:137`);
     setProfile(profile);
-    setNodes(profile[CERAMIC_IDX_HOPR_NAMESPACE])
+    setNodes(profile[CERAMIC_IDX_HOPR_NAMESPACE]);
   };
+
+  const signRequest = async (hoprAddress, ethAddress) => {
+    const signParams = {
+      domain: HOPR_WEB3_SIGNATURE_DOMAIN,
+      message: getWeb3SignatureFaucetContents(hoprAddress, ethAddress),
+      primaryType: HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
+      types: HOPR_WEB3_SIGNATURE_TYPES,
+    };
+    const signature = await library.send("eth_signTypedData_v4", [
+      account,
+      JSON.stringify(signParams),
+    ]);
+    console.log("SIGNATURE", signature);
+  };
+
   const addHOPRNodeToIDX = async () => {
     // NB: We can’t fully validate HOPR node address until it’s stored in IDX
     // since our hopr-utils had been tailored for node.js and not browser usage.
@@ -60,7 +94,7 @@ export const VerifyNode = ({ idx }) => {
           Accept: "application/json",
         }),
       }).then((res) => res.json());
-      console.log("RESPONSE", response)
+      console.log("RESPONSE", response);
 
       if (response.status === "ok") {
         await idx.set(alias1, {
@@ -71,9 +105,9 @@ export const VerifyNode = ({ idx }) => {
       } else {
         await idx.set(alias1, {
           [CERAMIC_IDX_HOPR_NAMESPACE]: {
-            [inputValue]: 'invalid',
+            [inputValue]: "invalid",
           },
-        })
+        });
       }
       console.log("RESPONSE", response);
       loadIDX();
@@ -91,14 +125,16 @@ export const VerifyNode = ({ idx }) => {
         <small>
           By adding a HOPR node, you can request funds from our faucet. You can
           add any HOPR node, even if it’s not controlled by you. By clicking
-          “Add HOPR node”, we will validate the given node and obtain its address.
+          “Add HOPR node”, we will validate the given node and obtain its
+          address.
         </small>
         <br />
         <br />
         <small>
-          If your address is part of our staking program, we'll be funding your
-          address with both MATIC (0.01) and (m)HOPR funds (10), otherwise we’ll
-          only provide you with (m)HOPR funds. You can fund up to (10) nodes.
+          To fund, please sign the fund request with your web3 provider. If your
+          address is part of our staking program, we'll be funding your address
+          with both MATIC (0.01) and (m)HOPR funds (10), otherwise we’ll only
+          provide you with (m)HOPR funds. You can fund up to (10) nodes.
         </small>
         <div display="block" style={{ marginTop: "5px" }}>
           <input
@@ -122,7 +158,10 @@ export const VerifyNode = ({ idx }) => {
           </button>
           {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
-        <NodeTable nodes={profile[CERAMIC_IDX_HOPR_NAMESPACE]} />
+        <NodeTable
+          nodes={profile[CERAMIC_IDX_HOPR_NAMESPACE]}
+          signRequest={signRequest}
+        />
       </div>
       <div>
         <p>
