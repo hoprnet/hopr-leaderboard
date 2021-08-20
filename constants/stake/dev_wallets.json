@@ -1,7 +1,32 @@
 [
-    {
-      "account": "0xC133910ac0B8d73606aafd9Ef1307aB3087eBAde",
-      "actual_stake": 100.00,
-      "virtual_stake": 0
-    }
+  {
+    "account": "0xC133910ac0B8d73606aafd9Ef1307aB3087eBAde",
+    "actual_stake": 100.0,
+    "virtual_stake": 0
+  },
+  {
+    "account": "0xe3bC4365Bf15D5688949017795e604b80204730f",
+    "actual_stake": 110.0,
+    "virtual_stake": 0
+  },
+  {
+    "account": "0xA18732DC751BE0dB04157eb92C92BA9d0fC09FC5",
+    "actual_stake": 120.0,
+    "virtual_stake": 0
+  },
+  {
+    "account": "0x2402da10A6172ED018AEEa22CA60EDe1F766655C",
+    "actual_stake": 130.0,
+    "virtual_stake": 0
+  },
+  {
+    "account": "0x8f7a2AbbC8741572427e3426538cD516A41102f3",
+    "actual_stake": 140.0,
+    "virtual_stake": 0
+  },
+  {
+    "account": "0x1A387b5103f28bc6601d085A3dDC878dEE631A56",
+    "actual_stake": 150.0,
+    "virtual_stake": 0
+  }
 ]
