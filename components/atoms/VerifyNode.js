@@ -20,6 +20,18 @@ const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   ethAddress,
 });
 
+const sendSignatureToAPI = async (account, signature, message) => {
+  const response = await fetch(`/api/faucet/fund/${account}`, {
+    body: JSON.stringify({ signature, message }),
+    method: "POST",
+    headers: new Headers({
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    }),
+  }).then((res) => res.json());
+  console.log("SIGNATURE RESPONSE", response)
+}
+
 const NodeTable = ({ nodes = [], signRequest }) => (
   <div className="box-container-table" style={{ height: "100%" }}>
     <table>
@@ -64,17 +76,9 @@ export const VerifyNode = ({ idx }) => {
   };
 
   const signRequest = async (hoprAddress, ethAddress) => {
-    const signParams = {
-      domain: HOPR_WEB3_SIGNATURE_DOMAIN,
-      message: getWeb3SignatureFaucetContents(hoprAddress, ethAddress),
-      primaryType: HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
-      types: HOPR_WEB3_SIGNATURE_TYPES,
-    };
-    const signature = await library.send("eth_signTypedData_v4", [
-      account,
-      JSON.stringify(signParams),
-    ]);
-    console.log("SIGNATURE", signature);
+    const message = getWeb3SignatureFaucetContents(hoprAddress, ethAddress)
+    const signature = await library.getSigner()._signTypedData(HOPR_WEB3_SIGNATURE_DOMAIN, HOPR_WEB3_SIGNATURE_TYPES, message)
+    sendSignatureToAPI(account, signature, message)
   };
 
   const addHOPRNodeToIDX = async () => {

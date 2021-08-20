@@ -11,7 +11,7 @@ export const EligibilityPerAddress = () => {
       );
       if (response.status === "ok") {
         console.log("RES", response)
-        setEligibility(`0.1 MATIC, ${response.eligible} mHOPR`);
+        setEligibility(`0.01 MATIC, ${response.eligible} mHOPR`);
       }
     };
     loadEligibility();
