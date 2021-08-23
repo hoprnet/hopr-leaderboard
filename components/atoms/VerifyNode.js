@@ -29,8 +29,8 @@ const sendSignatureToAPI = async (account, signature, message) => {
       Accept: "application/json",
     }),
   }).then((res) => res.json());
-  console.log("SIGNATURE RESPONSE", response)
-}
+  console.log("SIGNATURE RESPONSE", response);
+};
 
 const NodeTable = ({ nodes = [], signRequest }) => (
   <div className="box-container-table" style={{ height: "100%" }}>
@@ -66,6 +66,10 @@ const NodeTable = ({ nodes = [], signRequest }) => (
 export const VerifyNode = ({ idx }) => {
   const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
+  // NB: These would fit better grouped via a reducer
+  const [isLoading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState("");
+
   const [profile, setProfile] = useState({});
   const [error, setError] = useState();
 
@@ -76,9 +80,15 @@ export const VerifyNode = ({ idx }) => {
   };
 
   const signRequest = async (hoprAddress, ethAddress) => {
-    const message = getWeb3SignatureFaucetContents(hoprAddress, ethAddress)
-    const signature = await library.getSigner()._signTypedData(HOPR_WEB3_SIGNATURE_DOMAIN, HOPR_WEB3_SIGNATURE_TYPES, message)
-    sendSignatureToAPI(account, signature, message)
+    const message = getWeb3SignatureFaucetContents(hoprAddress, ethAddress);
+    const signature = await library
+      .getSigner()
+      ._signTypedData(
+        HOPR_WEB3_SIGNATURE_DOMAIN,
+        HOPR_WEB3_SIGNATURE_TYPES,
+        message
+      );
+    sendSignatureToAPI(account, signature, message);
   };
 
   const addHOPRNodeToIDX = async () => {
@@ -89,7 +99,19 @@ export const VerifyNode = ({ idx }) => {
     } else {
       const { alias1 } = CERAMIC_IDX_ALIASES;
       const hoprNodeInfo = { [inputValue]: inputValue };
+
+      setLoading(true);
+      setLoadingMessage("Connecting to IDX");
       await idx.set(alias1, { [CERAMIC_IDX_HOPR_NAMESPACE]: hoprNodeInfo });
+      setLoadingMessage("Node stored in IDX");
+
+      await new Promise((res) =>
+        setTimeout(() => {
+          setLoadingMessage("Validating Node in server");
+          res();
+        }, 1400)
+      );
+
       const response = await fetch(`/api/faucet/nodes/${account}`, {
         body: JSON.stringify({ node: inputValue }),
         method: "POST",
@@ -98,23 +120,44 @@ export const VerifyNode = ({ idx }) => {
           Accept: "application/json",
         }),
       }).then((res) => res.json());
-      console.log("RESPONSE", response);
 
       if (response.status === "ok") {
+        setLoadingMessage("Node is valid. Continuing...");
+        await new Promise((res) =>
+          setTimeout(() => {
+            setLoadingMessage("Updating IDX store.");
+            res();
+          }, 1600)
+        );
         await idx.set(alias1, {
           [CERAMIC_IDX_HOPR_NAMESPACE]: {
             [response.peerId.id]: response.ethAddress,
           },
         });
+        setLoadingMessage("IDX store updated.");
       } else {
+        setLoadingMessage("Node is invalid. Removing...");
         await idx.set(alias1, {
           [CERAMIC_IDX_HOPR_NAMESPACE]: {
             [inputValue]: "invalid",
           },
         });
       }
-      console.log("RESPONSE", response);
-      loadIDX();
+
+      await new Promise((res) =>
+        setTimeout(() => {
+          setLoadingMessage("Fetching nodes from IDX");
+          res();
+        }, 1400)
+      );
+      await loadIDX();
+      setLoadingMessage("Profile updated with nodes");
+      await new Promise((res) =>
+        setTimeout(() => {
+          setLoading(false);
+          res();
+        }, 1600)
+      );
     }
   };
   useEffect(() => {
@@ -125,7 +168,7 @@ export const VerifyNode = ({ idx }) => {
       <EligibilityPerAddress />
       <div style={{ marginBottom: "15px" }}>
         <p>
-          <b>Add HOPR node</b> { !profile && <span>Loading IDX...</span> }
+          <b>Add HOPR node</b> {!profile && <span>Loading IDX...</span>}
         </p>
         <small>
           By adding a HOPR node, you can request funds from our faucet. You can
@@ -153,6 +196,7 @@ export const VerifyNode = ({ idx }) => {
         </div>
         <div>
           <button
+            disabled={isLoading}
             style={{
               backgroundColor: "rgba(248, 114, 54, 0.5)",
               marginTop: "5px",
@@ -161,7 +205,7 @@ export const VerifyNode = ({ idx }) => {
               addHOPRNodeToIDX();
             }}
           >
-            Add node for funding.
+            {isLoading ? loadingMessage : "Add node for funding."}
           </button>
           {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
@@ -198,8 +242,11 @@ export const VerifyNode = ({ idx }) => {
             style={{ width: "98%", padding: "5px" }}
           />
         </div>
-        <button style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}>
-          Verify node for rewards.
+        <button
+          disabled={true}
+          style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
+        >
+          Verify node for rewards (after Testnet).
         </button>
       </div>
     </div>
