@@ -62,8 +62,8 @@ const Layout = ({ children, toggle }) => {
       if (response.data) {
         let CleanDate = response.data.refreshed.slice(0, -5)
         SetAPI_LastUpdated(CleanDate)
-        setAddress(response.data.hoprCoverbotAddress)
-        setChannel(response.data.hoprChannelContract)
+        setAddress('0x6f80d1a3ab9006548c2fbb180879b87364d63bf7')
+        setChannel('0xd8F4E1867BBff6647B80bC624D22bD552EB81eEF')
         setHash(response.data.address)
       }
     }

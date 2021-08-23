@@ -19,7 +19,7 @@ export const EligibilityPerAddress = () => {
   return (
     <div style={{ marginBottom: "15px" }}>
       <p>
-        <b>Eligibility</b> {eligibility}
+        <b>Eligibility</b><span style={{ color: "green", marginLeft: "5px"}}>{eligibility}</span>
       </p>
       <small>
         If you participated in our{" "}
