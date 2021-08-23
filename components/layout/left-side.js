@@ -4,7 +4,7 @@ import Link from "next/link";
 import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
 
-const LeftSide = ({darkMode,hash, copyCodeToClipboard}) => {
+const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
   const router = useRouter();
 
   return (
@@ -16,33 +16,35 @@ const LeftSide = ({darkMode,hash, copyCodeToClipboard}) => {
               "menu-item-desktop " + (router.pathname == "/" ? "active" : "")
             }
           >
-            <img src={'/assets/icons/home'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
-            <p>HOME</p>
+            <img
+              src={"/assets/icons/home" + (darkMode ? "_d" : "") + ".svg"}
+              alt="hopr HOME"
+            />
+            <p>Network</p>
           </div>
         </Link>
-        <Link href="/hopr-allocation">
+        <Link href="/nfts">
           <div
             className={
               "menu-item-desktop " +
-              (router.pathname == "/hopr-allocation" ? "active" : "")
+              (router.pathname == "/nfts" ? "active" : "")
             }
           >
-            <img src="/assets/icons/horp_icon.svg" alt="hopr HOPR ALLOCATION" />
-            <p>
-              HOPR <br /> ALLOCATION
-            </p>
+            <img src="/assets/icons/horp_icon.svg" alt="HOPR NFTs" />
+            <p>NFTs</p>
           </div>
         </Link>
-        <div className="menu-item-desktop ">
-          <a
-            target="_blank"
-            href="https://discord.com/invite/wUSYqpD"
-            rel="noopener noreferrer"
+        <Link href="/node">
+          <div
+            className={
+              "menu-item-desktop " +
+              (router.pathname == "/node" ? "active" : "")
+            }
           >
-            <img src={'/assets/icons/discord'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
-            <p>DISCORD</p>
-          </a>
-        </div>
+            <img src="/assets/icons/magnifying.svg" alt="HOPR node" />
+            <p>Node</p>
+          </div>
+        </Link>
         <Link href="/help">
           <div
             className={
@@ -50,32 +52,29 @@ const LeftSide = ({darkMode,hash, copyCodeToClipboard}) => {
               (router.pathname == "/help" ? "active" : "")
             }
           >
-              <img src={'/assets/icons/help'+ (darkMode ? '_d':'') +'.svg'} alt="hopr HOME" />
-            <p>HELP</p>
+            <img
+              src={"/assets/icons/help" + (darkMode ? "_d" : "") + ".svg"}
+              alt="Help"
+            />
+            <p>Help</p>
           </div>
         </Link>
       </div>
       <div className="copy-line-token">
-        <h4>HOPR node</h4>
-        <div className="hash" onClick={() => copyCodeToClipboard(hash)}>
-          <p>{hash.substr(-8)}</p>
-          <div>
-            <img style={{ marginLeft: 8 }} src="/assets/icons/copy.svg" alt="copy" />
-          </div>
-        </div>
+        <h4>URLs</h4>
       </div>
       <div className="twitter-line-menu">
         <div>
-          <a href="https://twitter.com/hoprnet" target="_blank">
-            <img src="/assets/icons/twitter.svg" alt="twitter" />
-            <p>@hoprnet</p>
+          <a href="https://stake.hoprnet.org" target="_blank">
+            <img src="/assets/icons/horp_icon.svg" width="18px" alt="hopr" />
+            <p>Stake HOPR</p>
           </a>
         </div>
         <div>
-          <TweetBasodino>
+          <a href="https://twitter.com/hoprnet" target="_blank">
             <img src="/assets/icons/twitter.svg" alt="twitter" />
-            <p>#Basodino</p>
-          </TweetBasodino>
+            <p>Get updates</p>
+          </a>
         </div>
       </div>
     </section>

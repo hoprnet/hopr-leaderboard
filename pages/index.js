@@ -16,6 +16,18 @@ export default function Home() {
       className: "sortBy desc",
     },
     {
+      title: "staked",
+      dataIndex: "staked",
+      key: "staked",
+      className: "sortBy desc",
+    },
+    {
+      title: "channels",
+      dataIndex: "channels",
+      key: "channels",
+      className: "sortBy desc",
+    },
+    {
       title: "address",
       dataIndex: "address",
       key: "address",
@@ -26,12 +38,7 @@ export default function Home() {
       dataIndex: "id",
       key: "id",
       className: "sortBy",
-    },
-    {
-      title: "tweetUrl",
-      dataIndex: "tweetUrl",
-      key: "tweetUrl",
-    },
+    }
   ];
 
   const [data, setData] = useState(undefined);
@@ -45,9 +52,9 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
-  const nodesVerified = data ? data.connected.length : 0;
+  const nodesVerified = '?';
   const nodesRegistered = data ? data.nodes.length : 0;
-  const nodesConnected = data ? data.connectedNodes : 0;
+  const nodesConnected = '?';
   const nodes = data ? data.nodes : [];
 
   const callAPI = () => {
@@ -91,14 +98,16 @@ export default function Home() {
     setMatch(count);
   }, [searchTerm]);
 
-  const getIntBase = (key) => {
+  const getParser = (key) => {
     switch (key) {
       case "address":
-        return 16;
+        return (val) => parseInt(val, 16);
       case "id":
-        return 36;
+        return (val) => parseInt(val, 36);
+      case "stake":
+          return (val) => +val;
       default:
-        return 10;
+        return (val) => parseInt(val, 10);
     }
   };
 
@@ -117,9 +126,12 @@ export default function Home() {
     aColumns.find((item) => item.key === key).className = "sortBy " + sSort;
 
     aNew.nodes = aNew.nodes.sort((a, b) => {
-      let iBase = getIntBase(key),
-        convertA = parseInt(a[key], iBase),
-        convertB = parseInt(b[key], iBase);
+      let parser = getParser(key),
+        convertA = parser(a[key]),
+        convertB = parser(b[key]);
+
+      console.log("A", convertA, a[key], key)
+      console.log("A", convertB, b[key], key)
 
       if (sSort === "asc") {
         return convertB - convertA;
@@ -183,7 +195,7 @@ export default function Home() {
         <div className="box-top-area">
           <div>
             <div className="box-title">
-              <h1>Leaderboard</h1>
+              <h1>Network</h1>
             </div>
             <div className="box-btn">
               <button onClick={() => callAPI()}>
@@ -233,7 +245,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { address, id, score, tweetUrl } = e;
+                    const { address, id, score, channels, staked } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -247,7 +259,7 @@ export default function Home() {
                             key={id}
                             score={score}
                             address={address}
-                            tweetUrl={tweetUrl}
+                            staked={staked}
                             showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
@@ -260,7 +272,8 @@ export default function Home() {
                           key={id}
                           score={score}
                           address={address}
-                          tweetUrl={tweetUrl}
+                          channels={channels}
+                          staked={staked}
                           showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />

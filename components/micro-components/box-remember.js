@@ -27,7 +27,7 @@ const BoxRemember = ({leaderboardData = []}) => {
           </a>
         </div>
       </div>
-      <p className="download-link"><CSVLink filename={"hopr-network.csv"} data={csvData}>Download (CSV)</CSVLink></p>
+      { leaderboardData.length > 0 && <p className="download-link"><CSVLink filename={"hopr-network.csv"} data={csvData}>Download (CSV)</CSVLink></p> }
     </div>
   );
 };

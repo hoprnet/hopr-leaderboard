@@ -29,20 +29,14 @@ const SuperBoxSearch = ({
       <div className="data-additional">
         <div>
           <div>
-            {nodesVerified && <span>{nodesVerified}</span>}
-            <p>Verified</p>
-          </div>
-        </div>
-        <div>
-          <div>
             {nodesRegistered && <span>{nodesRegistered}</span>}
             <p>Registered</p>
           </div>
         </div>
         <div>
           <div>
-            {nodesConnected && <span>{nodesConnected}</span>}
-            <p>Connected</p>
+            {nodesVerified && <span>{nodesVerified}</span>}
+            <p>Verified</p>
           </div>
         </div>
       </div>

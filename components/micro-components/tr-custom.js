@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
-const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }) => {
+const TrCustom = ({ address, id, score, channels, staked, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -39,11 +39,24 @@ const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }
       >
         {score}
       </td>
+      <td 
+        data-type="staked"
+        data-label="staked"
+      >
+        {staked}
+      </td>
+      <td 
+        data-type="channels"
+        data-label="channels"
+      >
+        {channels}
+      </td>
+      
       <td data-label="address" data-raw={address}>
         <a
           className="table-link-on"
           target="_blank"
-          href={"https://explorer.matic.network/address/" + address}
+          href={"https://polygonscan.com/address/" + address}
           rel="noopener noreferrer"
         >
           <img src="/assets/icons/link.svg" alt="link" />
@@ -58,11 +71,6 @@ const TrCustom = ({ address, id, score, tweetUrl, setVisibleData, showCopyCode }
         onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
       >
         <div><img src="/assets/icons/copy.svg" alt="copy" /> {id.slice(0, 5)}<span>...</span>{id.slice(-5)}</div>
-      </td>
-      <td data-label="tweetUrl">
-        <a target="_blank" href={tweetUrl} rel="noopener noreferrer">
-          <img src="/assets/icons/twitter.svg" alt="twitter" />
-        </a>
       </td>
     </tr>
   );
