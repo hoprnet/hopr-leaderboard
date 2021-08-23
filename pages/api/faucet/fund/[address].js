@@ -53,7 +53,7 @@ export default async (req, res) => {
       transactions.push(
         await wallet.sendTransaction({
           to: message.ethAddress,
-          value: utils.parseEther("0.001"),
+          value: utils.parseEther("0.01"),
         })
       );
     } else {
