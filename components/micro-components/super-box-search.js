@@ -16,7 +16,8 @@ const SuperBoxSearch = ({
     <div className="aux-super-tab">
       <div className="data-form">
         <p className="help-total-results">
-          Total results: <span>{match}</span>
+          {/* Total results: <span>{match}</span> */}
+          Total results: <span>?</span>
         </p>
         <input
           className="search"

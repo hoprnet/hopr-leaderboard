@@ -7,7 +7,7 @@ const DataUpdateKnow = ({API_LastUpdated}) => {
     <div className="box-info">
       <div>
         <p>
-          Last Updated: <span>{API_LastUpdated}</span>
+          Last Updated: <span>{new Date().toUTCString()}</span>
         </p>
       </div>
     </div>

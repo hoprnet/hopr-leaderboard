@@ -53,7 +53,8 @@ export default function Home() {
   const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
   const nodesVerified = '?';
-  const nodesRegistered = data ? data.nodes.length : 0;
+  const nodesRegistered = '?';
+  // const nodesRegistered = data ? data.nodes.length : 0;
   const nodesConnected = '?';
   const nodes = data ? data.nodes : [];
 
@@ -220,10 +221,12 @@ export default function Home() {
               setSearchTerm={setSearchTerm}
               match={match}
             />
+            
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          <div className="box-container-table">
+          <div style={{ margin: "20px" }}>After launch, this panel will show the status of nodes in the HOPR network, along with their current score</div>
+          {/* <div className="box-container-table">
             {nodes && (
               <table id="date">
                 <thead>
@@ -283,7 +286,7 @@ export default function Home() {
                 </tbody>
               </table>
             )}
-          </div>
+          </div> */}
           <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
