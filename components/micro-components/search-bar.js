@@ -8,7 +8,8 @@ const SearchBar = ({ searchTerm, setSearchTerm, match }) => {
   return (
     <div className="container-search-bar">
       <p className="help-total-results">
-        Total results: <span>{match}</span>
+        {/* Total results: <span>{match}</span> */}
+        Total results: <span>?</span>
       </p>
       <input
         className="search"

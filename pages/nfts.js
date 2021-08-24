@@ -84,7 +84,7 @@ export default function HoprAllocation() {
             <div className="box-title">
               <h1>HOPR NFTs</h1>
             </div>
-            <div className="box-btn">
+            {/* <div className="box-btn">
               <button>
                 <a
                   className="link-top-blog"
@@ -96,21 +96,19 @@ export default function HoprAllocation() {
                   learn more
                 </a>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="box-main-area remove-all-padding aux-add-top ">
           <div className="box-main-area">
             <div className="quick-code">
               <small>
-                Basòdino v2 has a 200,000 HOPR prize fund. The precise
-                allocation will be determined by the community as part of a
-                daily task. Please check back later.
+              After launch, this panel will show your node stats and instructions on how to claim your NFT.
               </small>
             </div>
           </div>
           <div className="box-container-table">
-            <table>
+            {/* <table>
               <thead>
                 <tr>
                   <th scope="col">Rank</th>
@@ -146,7 +144,7 @@ export default function HoprAllocation() {
                   );
                 })}
               </tbody>
-            </table>
+            </table> */}
           </div>
           <BoxRemember />
         </div>
