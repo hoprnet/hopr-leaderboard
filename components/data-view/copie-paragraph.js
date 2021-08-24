@@ -6,7 +6,7 @@ const CopieParagraph = () => {
     <>
       <p className="paragraph">
         Welcome to {" "}
-          <span>HOPR Wildorn testnet!</span>{" "}
+          <span>HOPR Wildhorn testnet!</span>{" "}
         <br/>
         <br/>
         Wildhorn will run on the Polygon network from the <span>26th August</span> at{" "}
