@@ -24,6 +24,40 @@ const Code = ({ code, copyCodeToClipboard, multiline }) => (
   </div>
 );
 
+export const InstructionsAvado = ({ copyCodeToClipboard }) => (
+  <ol>
+    <li>
+      First go to your AVADO{" "}
+      <a href="http://my.avado/" target="_blank" rel="noreferrer">
+        <span> dashboard</span>
+      </a>
+      . Make sure you are connected to it via its Wifi or OpenVPN. For
+      instructions on the latter, see AVADO's{" "}
+      <a
+        href="https://wiki.ava.do/tutorials/openvpn"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span> wiki</span>
+      </a>.
+    </li>
+    <li>
+    Go to DappStore and enter hash into search bar or go <a
+        href="http://my.dappnode/#/installer/%2Fipfs%2FQmUHRKZt7bgp8V2VCq7nW19uyBvPNXKJZ28dPC9Spwn4qk"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span> here</span>
+      </a>.
+      <br />
+      <Code
+        code="/ipfs/QmUHRKZt7bgp8V2VCq7nW19uyBvPNXKJZ28dPC9Spwn4qk"
+        copyCodeToClipboard={copyCodeToClipboard}
+      />
+    </li>
+  </ol>
+);
+
 export const InstructionsNPM = ({ copyCodeToClipboard }) => (
   <ol>
     <li>
@@ -56,7 +90,10 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       You are ready to run hoprd.
       <br />
       <Code
-        code={["hoprd --init --admin --rest \\", "--password='hopr-wildhorn' --testNoAuthentication"]}
+        code={[
+          "hoprd --init --admin --rest \\",
+          "--password='hopr-wildhorn' --testNoAuthentication",
+        ]}
         multiline
         copyCodeToClipboard={copyCodeToClipboard}
       />
@@ -106,15 +143,19 @@ export const InstructionsDocker = ({ copyCodeToClipboard }) => (
           " --identity /app/db/.hopr-identity \\",
           " --testNoAuthentication \\",
           " --admin --adminHost 0.0.0.0 \\",
-          " --healthCheck --healthCheckHost 0.0.0.0"
+          " --healthCheck --healthCheckHost 0.0.0.0",
         ]}
         copyCodeToClipboard={copyCodeToClipboard}
       />
     </li>
     <li>
-      For better authentication, you can replace <code>--testNoAuthentication</code> for
+      For better authentication, you can replace{" "}
+      <code>--testNoAuthentication</code> for
       <br />
-      <Code code="--apiToken='h0pR-4p1+0k3N!'" copyCodeToClipboard={copyCodeToClipboard} />
+      <Code
+        code="--apiToken='h0pR-4p1+0k3N!'"
+        copyCodeToClipboard={copyCodeToClipboard}
+      />
     </li>
   </ol>
 );
@@ -135,6 +176,8 @@ export const Instructions = ({ setShowMsg, instructionsTarget }) => {
       return <InstructionsNPM copyCodeToClipboard={copyCodeToClipboard} />;
     case "docker":
       return <InstructionsDocker copyCodeToClipboard={copyCodeToClipboard} />;
+    case "avado":
+      return <InstructionsAvado copyCodeToClipboard={copyCodeToClipboard} />;
     default:
       return <InstructionsNPM copyCodeToClipboard={copyCodeToClipboard} />;
   }

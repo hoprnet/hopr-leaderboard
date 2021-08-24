@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/layout/layout.js";
 import { Instructions } from "../components/atoms/Instructions";
+import BoxRemember from "../components/micro-components/box-remember";
 
 export default function Help() {
   const [showMsg, setShowMsg] = useState(false);
@@ -47,23 +48,8 @@ export default function Help() {
               setShowMsg={setShowMsg}
               instructionsTarget={instructionsTarget}
             />
-            <hr />
-            <div className="twitter-line-menu">
-              <a
-                className="aux-help-twitter"
-                href="https://twitter.com/hoprnet"
-                target="_blank"
-              >
-                <div>
-                  <img src="/assets/icons/twitter.svg" alt="twitter" />
-                </div>
-                <div>
-                  <p>@hoprnet</p>
-                  <span>click here to tweet</span>
-                </div>
-              </a>
-            </div>
           </div>
+          <BoxRemember />
         </div>
       </Layout>
     </>
