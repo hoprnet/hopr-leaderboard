@@ -12,14 +12,16 @@ const CopieParagraph = () => {
           href="https://medium.com/hoprnet/bas%C3%B2dino-results-and-v2-announcement-aeff51f155bf"
           rel="noopener noreferrer"
         >
-          <span>HOPR Basòdino v2 testnet!</span>{" "}
+          <span>HOPR Wildorn testnet!</span>{" "}
         </a>
-        Registration is now <span>CLOSED</span>. Basòdino v2 will 
-        run from <span>Nov 9th</span> at{" "}
-        <span>3pm CET</span> until{" "}
-        <span>Nov 23rd</span>.{" "} There is a <span>200,000 HOPR</span> prize pool.{" "}Complete daily tasks for points!{" "} 
-        Tasks will be posted on Telegram at 3pm CET each day.{" "} 
-        Visit HELP in the menu for instructions.{" "}
+        <br/>
+        <br/>
+        Wildhorn will run on the Polygon network from the <span>26th August</span> at{" "}
+        <span>2pm CEST</span> until{" "}
+        <span>2nd September 2pm CEST</span>.{" "} There is series of NFTs for people and high score earners
+        based on their HOPR nodes activities. Visit HELP in the menu for instructions.{" "}
+        <br/>
+        <br/>
         <a
           className="aux-link-out"
           target="_blank"

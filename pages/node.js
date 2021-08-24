@@ -5,6 +5,7 @@ import { VerifyNode } from "../components/atoms/VerifyNode";
 import api from "../utils/api";
 import { useEthers } from "@usedapp/core";
 import { Connectors } from "../components/molecules/Connectors";
+import BoxRemember from "../components/micro-components/box-remember";
 
 export default function Help() {
   const { account, library } = useEthers();
@@ -47,7 +48,7 @@ export default function Help() {
             </div>
           </div>
 
-          <div className="box-main-area">
+          <div className="box-main-area" style={{ marginBottom: '20px'}}>
             <div className="quick-code">
               <small>
                 Use the following tools to get HOPR tokens, connect your HOPR
@@ -61,18 +62,22 @@ export default function Help() {
               </small>
             </div>
             <hr />
-            <Connectors
-              address={account}
-              idx={idx}
-              setIdx={setIdx}
-            />
-            {account && library && idx && <VerifyNode idx={idx} />}
-            <hr />
-            <div className="twitter-line-menu">
-              <b>Faucet Balance:</b>
-              <FaucetBalance />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                marginBottom: "10px",
+              }}
+            >
+              <h3>Faucet</h3>
+              <small style={{ marginLeft: "5px" }}>
+                <FaucetBalance />
+              </small>
             </div>
+            <Connectors address={account} idx={idx} setIdx={setIdx} />
+            {account && library && idx && <VerifyNode idx={idx} />}
           </div>
+          <BoxRemember />
         </div>
       </Layout>
     </>
