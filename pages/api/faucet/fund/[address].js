@@ -3,8 +3,7 @@ import {
   HOPR_WEB3_SIGNATURE_DOMAIN,
   TOKEN_ADDRESS_POLYGON,
 } from "../../../../constants/hopr";
-import stakers from "../../../../constants/stake/sixth_august.json";
-import devs from "../../../../constants/stake/dev_wallets.json";
+import { whitelisted } from "../../../../constants/stake";
 import HOPR_TOKEN_ABI from "../../../../constants/HoprTokenABI";
 import { providers, utils, Wallet, Contract } from "ethers";
 
@@ -26,7 +25,7 @@ export default async (req, res) => {
 
   if (isValidSignature) {
     const checksumedAddress = utils.getAddress(address);
-    const eligible = [stakers, devs]
+    const eligible = whitelisted
       .map((collection) =>
         collection.find((staker) => staker.account === checksumedAddress)
       )
