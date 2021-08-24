@@ -247,6 +247,11 @@
         cursor: pointer;
       }
     }
+    .hash.multiline {
+      flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+    }
     @media (min-width: 767px) {
       .hash {
         padding: 0.7em;

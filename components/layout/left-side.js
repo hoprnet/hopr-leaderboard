@@ -42,7 +42,7 @@ const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
             }
           >
             <img src="/assets/icons/magnifying.svg" alt="HOPR node" />
-            <p>Node</p>
+            <p>Node(s)</p>
           </div>
         </Link>
         <Link href="/help">
