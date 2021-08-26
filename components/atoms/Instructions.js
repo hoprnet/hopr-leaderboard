@@ -79,6 +79,14 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       <Code code="nvm use 16" copyCodeToClipboard={copyCodeToClipboard} />
     </li>
     <li>
+      Install node-pre-gyp (needed for hoprd)
+      <br />
+      <Code
+        code="npm install node-pre-gyp"
+        copyCodeToClipboard={copyCodeToClipboard}
+      />
+    </li>
+    <li>
       Install wildhorn in your computer globally.
       <br />
       <Code
@@ -92,7 +100,7 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       <Code
         code={[
           "hoprd --init --admin --rest \\",
-          "--password='hopr-wildhorn' --testNoAuthentication",
+          " --password='hopr-wildhorn' --testNoAuthentication",
         ]}
         multiline
         copyCodeToClipboard={copyCodeToClipboard}
