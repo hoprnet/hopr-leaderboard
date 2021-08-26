@@ -3,10 +3,9 @@ import {
   HOPR_WEB3_SIGNATURE_DOMAIN,
   TOKEN_ADDRESS_POLYGON,
 } from "../../../../constants/hopr";
-import { formatEther } from '@ethersproject/units';
+import { formatEther } from "@ethersproject/units";
 import HOPR_TOKEN_ABI from "../../../../constants/HoprTokenABI";
 import { providers, utils, Wallet, Contract } from "ethers";
-
 
 export default async (req, res) => {
   const { address } = req.query;
@@ -31,45 +30,63 @@ export default async (req, res) => {
       provider
     );
 
-    const requesterBalance = await provider.getBalance(checksumedAddress).then(b => formatEther(b));
-    const nodeBalance = await provider.getBalance(message.ethAddress).then(b => formatEther(b));
+    const nodeHoprBalance = await new Contract(
+      TOKEN_ADDRESS_POLYGON,
+      ['function balanceOf(address owner) view returns (uint256)'],
+      provider
+    ).balanceOf(message.ethAddress)
+     .then(b => formatEther(b))
 
-    if (requesterBalance == '0.0' && nodeBalance == '0.0') {
-      
+    const requesterBalance = await provider
+      .getBalance(checksumedAddress)
+      .then((b) => formatEther(b));
+    const nodeBalance = await provider
+      .getBalance(message.ethAddress)
+      .then((b) => formatEther(b));
+
+    if (nodeHoprBalance == "0.0") {
       const hoprTokenContract = new Contract(
         TOKEN_ADDRESS_POLYGON,
         HOPR_TOKEN_ABI,
         wallet
       );
 
-      // Send 0.01 MATIC, and 10 mHOPR tokens
       const transferAmount = "10";
       const transactions = [];
-      transactions.push(
-        await wallet.sendTransaction({
-          to: message.ethAddress,
-          value: utils.parseEther("0.01"),
-        })
-      );
+
+      // Always send 10 mHOPR tokens if node empty
       transactions.push(
         await hoprTokenContract.transfer(
           message.ethAddress,
           utils.parseEther(transferAmount)
         )
       );
+
+      // Send 0.01 MATIC if both node AND requestor is empty
+      if (requesterBalance == "0.0" && nodeBalance == "0.0") {
+        transactions.push(
+          await wallet.sendTransaction({
+            to: message.ethAddress,
+            value: utils.parseEther("0.01"),
+          })
+        );
+      }
+
       return res.status(200).json({
         status: "ok",
         address,
         transactions,
-        message: `Your request was successful. Please monitor the following transactions.`
+        message: `Your request was successful. Please monitor the following transactions.`,
       });
     } else {
       return res.status(200).json({
         status: "err",
-        message: nodeBalance == '0.0' ? "Requestor has MATIC to fund nodes" : "Node has MATIC already"
-      });  
+        message:
+          nodeBalance == "0.0"
+            ? "Requestor has MATIC to fund nodes"
+            : "Node has MATIC already",
+      });
     }
-    
   } else {
     return res.json({
       status: "err",

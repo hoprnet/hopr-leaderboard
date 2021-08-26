@@ -126,8 +126,8 @@ const NodeTable = ({ nodes = [], signRequest, copyCodeToClipboard }) => {
                     alt="copy"
                   />
                 </td>
-                <td>{index == 0 ? "0.01" : "10"}</td>
-                <td>{index == 0 ? "MATIC" : "mHOPR"}</td>
+                <td>{index == 0 ? "10" : "0.01"}</td>
+                <td>{index == 0 ? "mHOPR" : "MATIC"}</td>
               </tr>
             ))}
           </tbody>
