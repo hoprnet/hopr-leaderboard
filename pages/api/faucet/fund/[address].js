@@ -3,14 +3,10 @@ import {
   HOPR_WEB3_SIGNATURE_DOMAIN,
   TOKEN_ADDRESS_POLYGON,
 } from "../../../../constants/hopr";
-import { whitelisted } from "../../../../constants/stake";
+import { formatEther } from "@ethersproject/units";
 import HOPR_TOKEN_ABI from "../../../../constants/HoprTokenABI";
 import { providers, utils, Wallet, Contract } from "ethers";
 
-//@TODO:
-//1. [✅] Get address and signature, verify that indeed they match.
-//2. [✅] Using that signature, look up the eligibility for funds.
-//3. [⏰] Trigger a transferFrom call with the eligible funds and send receipt.
 export default async (req, res) => {
   const { address } = req.query;
   const { signature, message } = req.body;
@@ -25,11 +21,6 @@ export default async (req, res) => {
 
   if (isValidSignature) {
     const checksumedAddress = utils.getAddress(address);
-    const eligible = whitelisted
-      .map((collection) =>
-        collection.find((staker) => staker.account === checksumedAddress)
-      )
-      .reduce((acc, val) => (acc ? acc : val));
 
     const provider = new providers.JsonRpcProvider(
       `https://polygon-mainnet.infura.io/v3/${process.env.HOPR_DASHBOARD_API_INFURA_ID}`
@@ -38,39 +29,64 @@ export default async (req, res) => {
       process.env.HOPR_DASHBOARD_API_PRIVATE_KEY,
       provider
     );
-    const hoprTokenContract = new Contract(
+
+    const nodeHoprBalance = await new Contract(
       TOKEN_ADDRESS_POLYGON,
-      HOPR_TOKEN_ABI,
-      wallet
-    );
+      ['function balanceOf(address owner) view returns (uint256)'],
+      provider
+    ).balanceOf(message.ethAddress)
+     .then(b => formatEther(b))
 
-    let transferAmount;
-    const transactions = [];
-    if (eligible) {
-      // Send 0.01 MATIC, and eligible.actual_stake mHOPR to message.ethAddress
-      transferAmount = "3";
-      transactions.push(
-        await wallet.sendTransaction({
-          to: message.ethAddress,
-          value: utils.parseEther("0.01"),
-        })
+    const requesterBalance = await provider
+      .getBalance(checksumedAddress)
+      .then((b) => formatEther(b));
+    const nodeBalance = await provider
+      .getBalance(message.ethAddress)
+      .then((b) => formatEther(b));
+
+    if (nodeHoprBalance == "0.0") {
+      const hoprTokenContract = new Contract(
+        TOKEN_ADDRESS_POLYGON,
+        HOPR_TOKEN_ABI,
+        wallet
       );
-    } else {
-      // Send 0 MATIC, and 10 mHOPR to message.ethAddress
-      transferAmount = "1";
-    }
-    transactions.push(
-      await hoprTokenContract.transfer(
-        message.ethAddress,
-        utils.parseEther(transferAmount)
-      )
-    );
 
-    return res.status(200).json({
-      status: "ok",
-      address,
-      transactions,
-    });
+      const transferAmount = "10";
+      const transactions = [];
+
+      // Always send 10 mHOPR tokens if node empty
+      transactions.push(
+        await hoprTokenContract.transfer(
+          message.ethAddress,
+          utils.parseEther(transferAmount)
+        )
+      );
+
+      // Send 0.01 MATIC if both node AND requestor is empty
+      if (requesterBalance == "0.0" && nodeBalance == "0.0") {
+        transactions.push(
+          await wallet.sendTransaction({
+            to: message.ethAddress,
+            value: utils.parseEther("0.01"),
+          })
+        );
+      }
+
+      return res.status(200).json({
+        status: "ok",
+        address,
+        transactions,
+        message: `Your request was successful. Please monitor the following transactions.`,
+      });
+    } else {
+      return res.status(200).json({
+        status: "err",
+        message:
+          nodeBalance == "0.0"
+            ? "Requestor has MATIC to fund nodes"
+            : "Node has MATIC already",
+      });
+    }
   } else {
     return res.json({
       status: "err",

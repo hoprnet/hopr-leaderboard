@@ -74,9 +74,8 @@ export default function Help() {
                 <FaucetBalance />
               </small>
             </div>
-            <div style={{ margin: "20px" }}>After launch, this panel will help you fund your own node with mHOPR tokens or MATIC if you participated in our staking program.</div>
-            {/* <Connectors address={account} idx={idx} setIdx={setIdx} />
-            {account && library && idx && <VerifyNode idx={idx} />} */}
+            <Connectors address={account} idx={idx} setIdx={setIdx} />
+            {account && library && idx && <VerifyNode idx={idx} copyCodeToClipboard={copyCodeToClipboard}/>}
           </div>
           <BoxRemember />
         </div>

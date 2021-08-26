@@ -30,40 +30,114 @@ const sendSignatureToAPI = async (account, signature, message) => {
     }),
   }).then((res) => res.json());
   console.log("SIGNATURE RESPONSE", response);
+  return response;
 };
 
-const NodeTable = ({ nodes = [], signRequest }) => (
-  <div className="box-container-table" style={{ height: "100%" }}>
-    <table>
-      <thead>
-        <tr>
-          <th>HOPR node</th>
-          <th>Ethereum address</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.keys(nodes).map((node) => (
-          <tr key={node}>
-            <td>{truncate(node)}</td>
-            <td>{truncate(nodes[node])}</td>
-            <td>
-              <button
-                onClick={() => {
-                  signRequest(node, nodes[node]);
-                }}
-              >
-                Fund
-              </button>
-            </td>
+const NodeTable = ({ nodes = [], signRequest, copyCodeToClipboard }) => {
+  const [isLoading, setLoading] = useState(false);
+  const [serverResponse, setServerResponse] = useState("");
+  const [transactions, setTransactions] = useState([]);
+  return (
+    <div className="box-container-table" style={{ height: "100%" }}>
+      <table>
+        <thead>
+          <tr>
+            <th>HOPR node</th>
+            <th>Ethereum address</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody>
+          {Object.keys(nodes).map((node) => (
+            <tr key={node}>
+              <td
+                onClick={() => copyCodeToClipboard(node)}
+                style={{ cursor: "pointer" }}
+              >
+                {truncate(node)}
+                <img
+                  style={{ marginLeft: 8 }}
+                  src="/assets/icons/copy.svg"
+                  alt="copy"
+                />
+              </td>
+              <td
+                onClick={() => copyCodeToClipboard(nodes[node])}
+                style={{ cursor: "pointer" }}
+              >
+                {truncate(nodes[node])}
+                <img
+                  style={{ marginLeft: 8 }}
+                  src="/assets/icons/copy.svg"
+                  alt="copy"
+                />
+              </td>
+              <td>
+                <button
+                  disabled={isLoading}
+                  onClick={async () => {
+                    setTransactions([]);
+                    setServerResponse("");
+                    setLoading(true);
+                    try {
+                      const response =
+                        (await signRequest(node, nodes[node])) || {};
+                      if (response.status == "ok") {
+                        setTransactions(response.transactions);
+                      }
+                      setServerResponse(response.message);
+                      setLoading(false);
+                    } catch (e) {
+                      setLoading(false);
+                    }
+                  }}
+                >
+                  {isLoading ? "Loading.." : "Fund"}
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {serverResponse.length > 0 && (
+        <table>
+          <thead>
+            <tr>
+              <th>transaction</th>
+              <th>quantity</th>
+              <th>symbol</th>
+            </tr>
+          </thead>
 
-export const VerifyNode = ({ idx }) => {
+          <tbody>
+            <tr>
+              <th colSpan="3">{serverResponse}</th>
+            </tr>
+            {transactions.map((tx, index) => (
+              <tr>
+                <td
+                  onClick={() => copyCodeToClipboard(tx.hash)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {truncate(tx.hash)}
+                  <img
+                    style={{ marginLeft: 8 }}
+                    src="/assets/icons/copy.svg"
+                    alt="copy"
+                  />
+                </td>
+                <td>{index == 0 ? "10" : "0.01"}</td>
+                <td>{index == 0 ? "mHOPR" : "MATIC"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+};
+
+export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
   // NB: These would fit better grouped via a reducer
@@ -88,7 +162,8 @@ export const VerifyNode = ({ idx }) => {
         HOPR_WEB3_SIGNATURE_TYPES,
         message
       );
-    sendSignatureToAPI(account, signature, message);
+    const response = await sendSignatureToAPI(account, signature, message);
+    return response;
   };
 
   const addHOPRNodeToIDX = async () => {
@@ -165,26 +240,22 @@ export const VerifyNode = ({ idx }) => {
   }, []);
   return (
     <div display="flex" style={{ margin: "10px 0" }}>
-      <EligibilityPerAddress />
       <div style={{ marginBottom: "15px" }}>
         <p>
           <b>Add HOPR node</b> {!profile && <span>Loading IDX...</span>}
         </p>
         <small>
-          By adding a HOPR node, you can request funds from our faucet. You can
-          add any HOPR node, even if it’s not controlled by you. By clicking
-          “Add HOPR node”, we will validate the given node and obtain its
-          address.
+          If you have started a HOPR node, you can request funds from our
+          faucet. Paste your HOPR node address below, which you can find right
+          after starting your node. By clicking “Add HOPR node”, we will
+          validate the given node and obtain its address.
         </small>
         <br />
         <br />
         <small>
           To fund, please sign the fund request with your web3 provider to
-          validate your address against our{" "}
-          <a href="https://dune.xyz/queries/109219" target="_blank">
-            records
-          </a>
-          . You can fund up to (10) nodes.
+          validate whether your address and node have MATIC funds already. You
+          can fund as many HOPR nodes as needed.
         </small>
         <div display="block" style={{ marginTop: "5px" }}>
           <input
@@ -205,13 +276,14 @@ export const VerifyNode = ({ idx }) => {
               addHOPRNodeToIDX();
             }}
           >
-            {isLoading ? loadingMessage : "Add node for funding."}
+            {isLoading ? loadingMessage : "Validate node for funding."}
           </button>
           {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
         <NodeTable
           nodes={profile[CERAMIC_IDX_HOPR_NAMESPACE]}
           signRequest={signRequest}
+          copyCodeToClipboard={copyCodeToClipboard}
         />
       </div>
       <div>
