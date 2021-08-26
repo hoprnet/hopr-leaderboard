@@ -43,7 +43,7 @@ export const InstructionsAvado = ({ copyCodeToClipboard }) => (
     </li>
     <li>
     Go to DappStore and enter hash into search bar or go <a
-        href="http://my.dappnode/#/installer/%2Fipfs%2FQmWMR1GfAhQKiNZr79KzTZbDmdcCxKV4BHJuXTn8h7aq4L"
+        href="http://my.dappnode/#/installer/%2Fipfs%2FQmPaZ1XZbZBAfodKJokzGYiiCVehon71UWK8Sv5hfduPj6"
         target="_blank"
         rel="noreferrer"
       >
@@ -51,7 +51,7 @@ export const InstructionsAvado = ({ copyCodeToClipboard }) => (
       </a>.
       <br />
       <Code
-        code="/ipfs/QmWMR1GfAhQKiNZr79KzTZbDmdcCxKV4BHJuXTn8h7aq4L"
+        code="/ipfs/QmPaZ1XZbZBAfodKJokzGYiiCVehon71UWK8Sv5hfduPj6"
         copyCodeToClipboard={copyCodeToClipboard}
       />
     </li>
