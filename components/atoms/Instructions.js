@@ -99,8 +99,8 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       <br />
       <Code
         code={[
-          "DEBUG=hopr* npx hoprd --init --admin --rest \\",
-          " --identity $HOME/.hoprd-id-matic --data $HOME/.hoprd-db-matic \\",
+          "DEBUG=hopr* npx hoprd --init --admin --rest ",
+          " --identity $HOME/.hoprd-id-matic --data $HOME/.hoprd-db-matic ",
           " --password='hopr-wildhorn' --testNoAuthentication",
         ]}
         multiline
@@ -143,15 +143,15 @@ export const InstructionsDocker = ({ copyCodeToClipboard }) => (
       <Code
         multiline
         code={[
-          "docker run -v $HOME/.hoprd-db-matic:/app/db \\",
-          " -e DEBUG=hopr* \\",
-          " -p 9091:9091 -p 3000:3000 -p 8080:8080 \\",
-          " hopr/hoprd:matic \\",
-          " --password='h0pR-w1Lh0RN' \\",
-          " --init --announce \\",
-          " --identity /app/db/.hopr-identity \\",
-          " --testNoAuthentication \\",
-          " --admin --adminHost 0.0.0.0 \\",
+          "docker run -v $HOME/.hoprd-db-matic:/app/db ",
+          " -e DEBUG=hopr* ",
+          " -p 9091:9091 -p 3000:3000 -p 8080:8080 ",
+          " hopr/hoprd:matic ",
+          " --password='h0pR-w1Lh0RN' ",
+          " --init --announce ",
+          " --identity /app/db/.hopr-identity ",
+          " --testNoAuthentication ",
+          " --admin --adminHost 0.0.0.0 ",
           " --healthCheck --healthCheckHost 0.0.0.0",
         ]}
         copyCodeToClipboard={copyCodeToClipboard}
