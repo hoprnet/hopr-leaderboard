@@ -9,9 +9,9 @@ const CopieParagraph = () => {
           <span>HOPR Wildhorn testnet!</span>{" "}
         <br/>
         <br/>
-        Wildhorn will run on the Polygon network from the <span>26th August</span> at{" "}
+        Wildhorn will run on the Polygon network from the <span>27th August</span> at{" "}
         <span>2pm CEST</span> until{" "}
-        <span>2nd September 2pm CEST</span>.{" "} Earn HOPR boost NFTs based on your node activity. Visit HELP in the menu for instructions.{" "}
+        <span>3rd September 2pm CEST</span>.{" "} Earn HOPR boost NFTs based on your node activity. Visit HELP in the menu for instructions.{" "}
         <br/>
         <br/>
         <a
