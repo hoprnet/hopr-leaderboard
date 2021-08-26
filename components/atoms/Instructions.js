@@ -90,7 +90,7 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       Install wildhorn in your computer globally.
       <br />
       <Code
-        code="npm install -g @hoprnet/hoprd@wildhorn"
+        code="npm install @hoprnet/hoprd@wildhorn"
         copyCodeToClipboard={copyCodeToClipboard}
       />
     </li>
@@ -99,7 +99,8 @@ export const InstructionsNPM = ({ copyCodeToClipboard }) => (
       <br />
       <Code
         code={[
-          "hoprd --init --admin --rest \\",
+          "DEBUG=hopr* npx hoprd --init --admin --rest \\",
+          " --identity $HOME/.hoprd-id-matic --data $HOME/.hoprd-db-matic \\",
           " --password='hopr-wildhorn' --testNoAuthentication",
         ]}
         multiline
