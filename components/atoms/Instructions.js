@@ -145,7 +145,7 @@ export const InstructionsDocker = ({ copyCodeToClipboard }) => (
           "docker run -v $HOME/.hoprd-db:/app/db \\",
           " -e DEBUG=hopr* \\",
           " -p 9091:9091 -p 3000:3000 -p 8080:8080 \\",
-          " hopr/hoprd:matic",
+          " hopr/hoprd:matic \\",
           " --password='h0pR-w1Lh0RN' \\",
           " --init --announce \\",
           " --identity /app/db/.hopr-identity \\",
