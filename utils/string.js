@@ -46,3 +46,5 @@ export function stringToU8a(str, length) {
 
   return arr;
 }
+
+export const truncate = (address) => `${address.slice(0, 5)}...${address.slice(-5)}`;

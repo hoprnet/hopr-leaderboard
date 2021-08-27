@@ -71,7 +71,7 @@ export default function Help() {
             >
               <h3>Faucet</h3>
               <small style={{ marginLeft: "5px" }}>
-                <FaucetBalance />
+                <FaucetBalance copyCodeToClipboard={copyCodeToClipboard}/>
               </small>
             </div>
             <Connectors address={account} idx={idx} setIdx={setIdx} />
