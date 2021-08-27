@@ -1,5 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
+import { truncate } from '../../utils/string';
 
 import { EligibilityPerAddress } from "./EligibilityPerAddress";
 import {
