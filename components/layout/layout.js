@@ -63,7 +63,7 @@ const Layout = ({ children, toggle }) => {
         let CleanDate = response.data.refreshed.slice(0, -5)
         SetAPI_LastUpdated(CleanDate)
         setAddress('0x6f80d1a3ab9006548c2fbb180879b87364d63bf7')
-        setChannel('0xd8F4E1867BBff6647B80bC624D22bD552EB81eEF')
+        setChannel('0x3Cd4B4D97dCad4eE772BC4f0fB0e7605fC86A85b')
         setHash(response.data.address)
       }
     }
