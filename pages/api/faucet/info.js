@@ -6,11 +6,13 @@ const { HOPR_DASHBOARD_API_PRIVATE_KEY, HOPR_DASHBOARD_API_INFURA_ID } =
   process.env;
 
 export default async (_req, res) => {
-  const faucetAddress = utils.computeAddress(
-    HOPR_DASHBOARD_API_PRIVATE_KEY
-      ? `0x${HOPR_DASHBOARD_API_PRIVATE_KEY}`
-      : constants.AddressZero
-  );
+  if (!HOPR_DASHBOARD_API_PRIVATE_KEY) {
+    return res.json({
+      status: "ok",
+      faucet: { hopr: +'0.00', native: +'0.00', address: constants.AddressZero },
+    });
+  }
+  const faucetAddress = utils.computeAddress(`0x${HOPR_DASHBOARD_API_PRIVATE_KEY}`);
   const provider = new providers.JsonRpcProvider(
     `https://polygon-mainnet.infura.io/v3/${HOPR_DASHBOARD_API_INFURA_ID}`
   );
