@@ -44,7 +44,7 @@ export default async (req, res) => {
       .getBalance(message.ethAddress)
       .then((b) => formatEther(b));
 
-    if (nodeHoprBalance == "0.0") {
+    if (nodeBalance == "0.0") {
       const hoprTokenContract = new Contract(
         TOKEN_ADDRESS_POLYGON,
         HOPR_TOKEN_ABI,
