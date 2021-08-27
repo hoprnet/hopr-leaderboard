@@ -13,8 +13,6 @@ import {
   HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
 } from "../../constants/hopr";
 
-const truncate = (address) => `${address.slice(0, 5)}...${address.slice(-5)}`;
-
 const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   hoprAddress,
   ethAddress,
