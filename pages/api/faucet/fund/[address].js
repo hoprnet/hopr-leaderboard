@@ -35,12 +35,12 @@ export default async (req, res) => {
       .then((b) => formatEther(b));
     const nodeBalance = await provider
       .getBalance(message.ethAddress)
-      .then((b) => formatEther(b));
+      .then((b) => +formatEther(b));
 
     // NB: The original polygon airdrop was for 0.01291,
     // so if they transfered anything out of that they
     // should also be eligible for faucet funds.
-    if (nodeBalance < "0.01291") {
+    if (nodeBalance < 0.01291) {
       const hoprTokenContract = new Contract(
         TOKEN_ADDRESS_POLYGON,
         HOPR_TOKEN_ABI,
