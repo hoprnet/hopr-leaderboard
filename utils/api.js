@@ -48,12 +48,12 @@ export async function getAllData() {
     getData(FirebaseNetworkTables.score).then((res) => res.data),
   ]);
 
-  const nodes = accounts.map(({ id, channels, multiaddr}) => ({
-    id: new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop(),
+  const nodes = accounts.map(({ id, openedChannels, closedChannels, multiaddr}) => ({
+    id: multiaddr ? new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop() : '',
     address: id,
-    score: 0,
-    channels: channels.length,
-    staked: (staked => staked.toFixed(2))(channels.reduce((acc, val) => acc += +utils.formatEther(val.balance), 0))
+    score: '?',
+    channels: openedChannels,
+    staked: closedChannels
   }))
 
   console.log("NODES", nodes);

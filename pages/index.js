@@ -16,13 +16,13 @@ export default function Home() {
       className: "sortBy desc",
     },
     {
-      title: "staked",
+      title: "closed channels",
       dataIndex: "staked",
       key: "staked",
       className: "sortBy desc",
     },
     {
-      title: "channels",
+      title: "opened channels",
       dataIndex: "channels",
       key: "channels",
       className: "sortBy desc",
@@ -226,7 +226,7 @@ export default function Home() {
         </div>
         <div className="box-main-area remove-all-padding">
           <div style={{ margin: "20px" }}>After launch, this panel will show the status of nodes in the HOPR network, along with their current score</div>
-          {/* <div className="box-container-table">
+          <div className="box-container-table">
             {nodes && (
               <table id="date">
                 <thead>
@@ -286,7 +286,7 @@ export default function Home() {
                 </tbody>
               </table>
             )}
-          </div> */}
+          </div>
           <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
