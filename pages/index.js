@@ -225,7 +225,6 @@ export default function Home() {
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          <div style={{ margin: "20px" }}>After launch, this panel will show the status of nodes in the HOPR network, along with their current score</div>
           <div className="box-container-table">
             {nodes && (
               <table id="date">
@@ -261,6 +260,7 @@ export default function Home() {
                             id={id}
                             key={id}
                             score={score}
+                            channels={channels}
                             address={address}
                             staked={staked}
                             showCopyCode={showCopyCode}
