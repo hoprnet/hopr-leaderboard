@@ -39,15 +39,15 @@ export default async (req, res) => {
 
     const requesterBalance = await provider
       .getBalance(checksumedAddress)
-      .then((b) => formatEther(b));
+      .then((b) => +formatEther(b));
     const nodeBalance = await provider
       .getBalance(message.ethAddress)
-      .then((b) => formatEther(b));
+      .then((b) => +formatEther(b));
 
     // NB: The original polygon airdrop was for 0.01291,
     // so if they transfered anything out of that they
-    // should also be eligible for faucet funds.
-    if (nodeBalance == "0.0" || nodeHoprBalance == "0.0") {
+    // should also be eligible for faucet funds. Also, in
+    if (nodeBalance <= 0.001 || nodeHoprBalance <= 0.001) {
       const hoprTokenContract = new Contract(
         TOKEN_ADDRESS_POLYGON,
         HOPR_TOKEN_ABI,
@@ -66,7 +66,7 @@ export default async (req, res) => {
       );
 
       // Send 0.01 MATIC if both node AND requestor is empty
-      if (+requesterBalance < 0.01291 && nodeBalance == "0.0") {
+      if (+requesterBalance < 0.01291 && nodeBalance <= 0.001) {
         transactions.push(
           await wallet.sendTransaction({
             to: message.ethAddress,
