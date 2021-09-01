@@ -16,15 +16,15 @@ export default function Home() {
       className: "sortBy desc",
     },
     {
-      title: "closed channels",
-      dataIndex: "staked",
-      key: "staked",
+      title: "opened channels",
+      dataIndex: "openedChannels",
+      key: "openedChannels",
       className: "sortBy desc",
     },
     {
-      title: "opened channels",
-      dataIndex: "channels",
-      key: "channels",
+      title: "closed channels",
+      dataIndex: "closedChannels",
+      key: "closedChannels",
       className: "sortBy desc",
     },
     {
@@ -105,10 +105,8 @@ export default function Home() {
         return (val) => parseInt(val, 16);
       case "id":
         return (val) => parseInt(val, 36);
-      case "stake":
-          return (val) => +val;
       default:
-        return (val) => parseInt(val, 10);
+        return (val) => +val;
     }
   };
 
@@ -131,9 +129,6 @@ export default function Home() {
         convertA = parser(a[key]),
         convertB = parser(b[key]);
 
-      console.log("A", convertA, a[key], key)
-      console.log("A", convertB, b[key], key)
-
       if (sSort === "asc") {
         return convertB - convertA;
       } else {
@@ -145,6 +140,7 @@ export default function Home() {
   };
 
   const onClickSort = (key) => {
+    console.log("KEY", key, data)
     let [aNew, aColumns] = fnSortData(key, [...columns], { ...data });
 
     setData(aNew);
@@ -247,7 +243,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { address, id, score, channels, staked } = e;
+                    const { address, id, score, openedChannels, closedChannels } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -260,9 +256,9 @@ export default function Home() {
                             id={id}
                             key={id}
                             score={score}
-                            channels={channels}
+                            openedChannels={openedChannels}
                             address={address}
-                            staked={staked}
+                            closedChannels={closedChannels}
                             showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
@@ -275,8 +271,8 @@ export default function Home() {
                           key={id}
                           score={score}
                           address={address}
-                          channels={channels}
-                          staked={staked}
+                          openedChannels={openedChannels}
+                          closedChannels={closedChannels}
                           showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />
