@@ -32,7 +32,7 @@ export default function Home() {
       dataIndex: "id",
       key: "id",
       className: "sortBy",
-    }
+    },
   ];
 
   const [data, setData] = useState(undefined);
@@ -43,13 +43,14 @@ export default function Home() {
     data: "",
   });
   const [columns, setColumns] = useState(columnsDefaults);
+  const [queriedNode, setQueryNode] = useState();
   const [searchTerm, setSearchTerm] = useState("");
   const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
-  const nodesVerified = '?';
-  const nodesRegistered = '?';
+  const nodesVerified = "?";
+  const nodesRegistered = "?";
   // const nodesRegistered = data ? data.nodes.length : 0;
-  const nodesConnected = '?';
+  const nodesConnected = "?";
   const nodes = data ? data.nodes : [];
 
   const callAPI = () => {
@@ -76,6 +77,18 @@ export default function Home() {
 
   useEffect(() => {
     let count = 0;
+    const loadNode = async (node) => {
+      const response = await (await fetch(`/api/search/${node}`)).json();
+      const existingNode = nodes.find((node) => node.id == response.id);
+      if (!existingNode) {
+        setQueryNode(response);
+      }
+    };
+    // NB: Hopr Node address length
+    // e.g. 16Uiu2HAmGg3eQ8wiUHp63qQp831nmYecUrpvGV76JSf1pDUSquAa
+    if (searchTerm.length == 53) {
+      loadNode(searchTerm);
+    }
     if (nodes) {
       if (nodes.length) {
         count = nodes.length;
@@ -134,7 +147,6 @@ export default function Home() {
   };
 
   const onClickSort = (key) => {
-    console.log("KEY", key, data)
     let [aNew, aColumns] = fnSortData(key, [...columns], { ...data });
 
     setData(aNew);
@@ -153,7 +165,8 @@ export default function Home() {
   );
 
   const trimmedNodesWithUsername = nodes.map((node) => {
-    const regexedTweet = node.tweetUrl && node.tweetUrl.match(twitterRegex) || [];
+    const regexedTweet =
+      (node.tweetUrl && node.tweetUrl.match(twitterRegex)) || [];
     const username = regexedTweet[1] || "undefined_user";
     const { id } = node;
     return { id, username };
@@ -211,7 +224,6 @@ export default function Home() {
               setSearchTerm={setSearchTerm}
               match={match}
             />
-            
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
@@ -236,6 +248,17 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
+                  {queriedNode && (
+                    <TrCustom
+                      id={queriedNode.id}
+                      key={queriedNode.id}
+                      openedChannels={queriedNode.openedChannels}
+                      address={queriedNode.address}
+                      closedChannels={queriedNode.closedChannels}
+                      showCopyCode={showCopyCode}
+                      setVisibleData={setVisibleData}
+                    />
+                  )}
                   {nodes.map((e) => {
                     const { address, id, openedChannels, closedChannels } = e;
                     if (searchTerm.length > 0) {
