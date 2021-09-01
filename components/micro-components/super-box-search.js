@@ -16,8 +16,14 @@ const SuperBoxSearch = ({
     <div className="aux-super-tab">
       <div className="data-form">
         <p className="help-total-results">
-          {/* Total results: <span>{match}</span> */}
-          Total results: <span>?</span>
+          Refer our our{" "}
+          <a
+            href="https://dune.xyz/hoprnet/HOPR-Polygon-Test-Net"
+            target="_blank"
+          >
+            Dune dashboard
+          </a>{" "}
+          for a more up-to-date information about your node.
         </p>
         <input
           className="search"
@@ -26,20 +32,6 @@ const SuperBoxSearch = ({
           value={searchTerm}
           onChange={handleChange}
         />
-      </div>
-      <div className="data-additional">
-        <div>
-          <div>
-            {nodesRegistered && <span>{nodesRegistered}</span>}
-            <p>Registered</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            {nodesVerified && <span>{nodesVerified}</span>}
-            <p>Verified</p>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -43,20 +43,19 @@ export async function getAllAccounts() {
 export async function getAllData() {
   const accounts = await getAllAccounts() || []
   console.log("Getting All Data", accounts)
-  const [state, score] = await Promise.all([
+  const [state] = await Promise.all([
     getData(FirebaseNetworkTables.state).then((res) => res.data),
-    getData(FirebaseNetworkTables.score).then((res) => res.data),
   ]);
 
-  const nodes = accounts.map(({ id, channels, multiaddr}) => ({
-    id: new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop(),
+  const nodes = accounts.map(({ id, openedChannels, closedChannels, multiaddr}) => {
+    const address = multiaddr ? new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop() : ''
+    return {
+    id: address,
     address: id,
-    score: 0,
-    channels: channels.length,
-    staked: (staked => staked.toFixed(2))(channels.reduce((acc, val) => acc += +utils.formatEther(val.balance), 0))
-  }))
-
-  console.log("NODES", nodes);
+    openedChannels: address.length > 0 ? openedChannels : -1,
+    closedChannels: address.length > 0 ? closedChannels : -1
+   }
+})
 
   state.nodes = nodes;
 

@@ -4,7 +4,7 @@ import "../../styles/main.scss";
 
 const BoxRemember = ({leaderboardData = []}) => {
   const csvData = leaderboardData.length > 0 ? leaderboardData : [
-    { "address": "0x000...00000", "node": "16Uiu...xxxxx", "score": 0}
+    { "address": "0x000...00000", "node": "16Uiu...xxxxx"}
   ]
 
   return (

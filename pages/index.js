@@ -10,21 +10,15 @@ import api from "../utils/api";
 export default function Home() {
   const columnsDefaults = [
     {
-      title: "score",
-      dataIndex: "score",
-      key: "score",
+      title: "opened channels",
+      dataIndex: "openedChannels",
+      key: "openedChannels",
       className: "sortBy desc",
     },
     {
-      title: "staked",
-      dataIndex: "staked",
-      key: "staked",
-      className: "sortBy desc",
-    },
-    {
-      title: "channels",
-      dataIndex: "channels",
-      key: "channels",
+      title: "closed channels",
+      dataIndex: "closedChannels",
+      key: "closedChannels",
       className: "sortBy desc",
     },
     {
@@ -38,7 +32,7 @@ export default function Home() {
       dataIndex: "id",
       key: "id",
       className: "sortBy",
-    }
+    },
   ];
 
   const [data, setData] = useState(undefined);
@@ -49,13 +43,14 @@ export default function Home() {
     data: "",
   });
   const [columns, setColumns] = useState(columnsDefaults);
+  const [queriedNode, setQueryNode] = useState();
   const [searchTerm, setSearchTerm] = useState("");
   const [showMsg, setShowMsg] = useState(false);
   const [match, setMatch] = useState(0);
-  const nodesVerified = '?';
-  const nodesRegistered = '?';
+  const nodesVerified = "?";
+  const nodesRegistered = "?";
   // const nodesRegistered = data ? data.nodes.length : 0;
-  const nodesConnected = '?';
+  const nodesConnected = "?";
   const nodes = data ? data.nodes : [];
 
   const callAPI = () => {
@@ -63,7 +58,7 @@ export default function Home() {
       const response = await api.getAllData();
       if (response.data) {
         let [aNew, aColumns] = fnSortData(
-          "score",
+          "openedChannels",
           columnsDefaults,
           response.data
         );
@@ -82,6 +77,18 @@ export default function Home() {
 
   useEffect(() => {
     let count = 0;
+    const loadNode = async (node) => {
+      const response = await (await fetch(`/api/search/${node}`)).json();
+      const existingNode = nodes.find((node) => node.id == response.id);
+      if (!existingNode) {
+        setQueryNode(response);
+      }
+    };
+    // NB: Hopr Node address length
+    // e.g. 16Uiu2HAmGg3eQ8wiUHp63qQp831nmYecUrpvGV76JSf1pDUSquAa
+    if (searchTerm.length == 53) {
+      loadNode(searchTerm);
+    }
     if (nodes) {
       if (nodes.length) {
         count = nodes.length;
@@ -105,10 +112,8 @@ export default function Home() {
         return (val) => parseInt(val, 16);
       case "id":
         return (val) => parseInt(val, 36);
-      case "stake":
-          return (val) => +val;
       default:
-        return (val) => parseInt(val, 10);
+        return (val) => +val;
     }
   };
 
@@ -130,9 +135,6 @@ export default function Home() {
       let parser = getParser(key),
         convertA = parser(a[key]),
         convertB = parser(b[key]);
-
-      console.log("A", convertA, a[key], key)
-      console.log("A", convertB, b[key], key)
 
       if (sSort === "asc") {
         return convertB - convertA;
@@ -163,13 +165,14 @@ export default function Home() {
   );
 
   const trimmedNodesWithUsername = nodes.map((node) => {
-    const regexedTweet = node.tweetUrl && node.tweetUrl.match(twitterRegex) || [];
+    const regexedTweet =
+      (node.tweetUrl && node.tweetUrl.match(twitterRegex)) || [];
     const username = regexedTweet[1] || "undefined_user";
-    const { id, score } = node;
-    return { id, username, score };
+    const { id } = node;
+    return { id, username };
   });
   const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
-    (a, b) => b.score - a.score
+    (a, b) => b.openedChannels - a.openedChannels
   );
 
   return (
@@ -221,12 +224,10 @@ export default function Home() {
               setSearchTerm={setSearchTerm}
               match={match}
             />
-            
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          <div style={{ margin: "20px" }}>After launch, this panel will show the status of nodes in the HOPR network, along with their current score</div>
-          {/* <div className="box-container-table">
+          <div className="box-container-table">
             {nodes && (
               <table id="date">
                 <thead>
@@ -247,8 +248,19 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
+                  {queriedNode && (
+                    <TrCustom
+                      id={queriedNode.id}
+                      key={queriedNode.id}
+                      openedChannels={queriedNode.openedChannels}
+                      address={queriedNode.address}
+                      closedChannels={queriedNode.closedChannels}
+                      showCopyCode={showCopyCode}
+                      setVisibleData={setVisibleData}
+                    />
+                  )}
                   {nodes.map((e) => {
-                    const { address, id, score, channels, staked } = e;
+                    const { address, id, openedChannels, closedChannels } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -260,9 +272,9 @@ export default function Home() {
                           <TrCustom
                             id={id}
                             key={id}
-                            score={score}
+                            openedChannels={openedChannels}
                             address={address}
-                            staked={staked}
+                            closedChannels={closedChannels}
                             showCopyCode={showCopyCode}
                             setVisibleData={setVisibleData}
                           />
@@ -273,10 +285,9 @@ export default function Home() {
                         <TrCustom
                           id={id}
                           key={id}
-                          score={score}
                           address={address}
-                          channels={channels}
-                          staked={staked}
+                          openedChannels={openedChannels}
+                          closedChannels={closedChannels}
                           showCopyCode={showCopyCode}
                           setVisibleData={setVisibleData}
                         />
@@ -286,7 +297,7 @@ export default function Home() {
                 </tbody>
               </table>
             )}
-          </div> */}
+          </div>
           <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
