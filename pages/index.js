@@ -10,12 +10,6 @@ import api from "../utils/api";
 export default function Home() {
   const columnsDefaults = [
     {
-      title: "score",
-      dataIndex: "score",
-      key: "score",
-      className: "sortBy desc",
-    },
-    {
       title: "opened channels",
       dataIndex: "openedChannels",
       key: "openedChannels",
@@ -63,7 +57,7 @@ export default function Home() {
       const response = await api.getAllData();
       if (response.data) {
         let [aNew, aColumns] = fnSortData(
-          "score",
+          "openedChannels",
           columnsDefaults,
           response.data
         );
@@ -161,11 +155,11 @@ export default function Home() {
   const trimmedNodesWithUsername = nodes.map((node) => {
     const regexedTweet = node.tweetUrl && node.tweetUrl.match(twitterRegex) || [];
     const username = regexedTweet[1] || "undefined_user";
-    const { id, score } = node;
-    return { id, username, score };
+    const { id } = node;
+    return { id, username };
   });
   const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
-    (a, b) => b.score - a.score
+    (a, b) => b.openedChannels - a.openedChannels
   );
 
   return (
@@ -243,7 +237,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {nodes.map((e) => {
-                    const { address, id, score, openedChannels, closedChannels } = e;
+                    const { address, id, openedChannels, closedChannels } = e;
                     if (searchTerm.length > 0) {
                       if (
                         address
@@ -255,7 +249,6 @@ export default function Home() {
                           <TrCustom
                             id={id}
                             key={id}
-                            score={score}
                             openedChannels={openedChannels}
                             address={address}
                             closedChannels={closedChannels}
@@ -269,7 +262,6 @@ export default function Home() {
                         <TrCustom
                           id={id}
                           key={id}
-                          score={score}
                           address={address}
                           openedChannels={openedChannels}
                           closedChannels={closedChannels}

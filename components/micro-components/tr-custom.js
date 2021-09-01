@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
-const TrCustom = ({ address, id, score, openedChannels, closedChannels, setVisibleData, showCopyCode }) => {
+const TrCustom = ({ address, id, openedChannels, closedChannels, setVisibleData, showCopyCode }) => {
   const _handlerOnHover = (event, id) => {
     const oRect = event.currentTarget.getBoundingClientRect(),
       position = {
@@ -18,27 +18,19 @@ const TrCustom = ({ address, id, score, openedChannels, closedChannels, setVisib
     showCopyCode();
   };
 
-  const breakdownScorePerId = (id, score) => {
+  const breakdownScorePerId = (id) => {
     let pointsFromDailies = 0;
     const dailiesBreakdown = DAILIES_SCORE_ARRAY_MAP.map(dailyScore => {
       pointsFromDailies += +dailyScore.daily[id] || 0;
       return `${dailyScore.name}: ${dailyScore.daily[id] || 0}/${dailyScore.maxPoints}`
     })
-    const coverbotPoints = +score - pointsFromDailies;
+    const coverbotPoints = pointsFromDailies;
     dailiesBreakdown.push(`Coverbot: ${coverbotPoints}`)
     return dailiesBreakdown.join('\n')
   }
 
   return (
     <tr key={id}>
-      <td 
-        data-type="score"
-        data-label="score"
-        onMouseEnter={(event) => _handlerOnHover(event, breakdownScorePerId(id, score))}
-        onMouseLeave={() => setVisibleData({ visible: false, position: {}, data: '' })}
-      >
-        {score}
-      </td>
       <td 
         data-type="openedChannels"
         data-label="openedChannels"

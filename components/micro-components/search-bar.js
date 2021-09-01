@@ -8,8 +8,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, match }) => {
   return (
     <div className="container-search-bar">
       <p className="help-total-results">
-        {/* Total results: <span>{match}</span> */}
-        Total results: <span>?</span>
+      Paste your address to search for nodes.
       </p>
       <input
         className="search"

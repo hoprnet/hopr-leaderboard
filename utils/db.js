@@ -5,8 +5,7 @@ export const FirebaseNetworkSchema = {
   basodino: 'basodino',
 };
 
-export const FirebaseNetworkTables = {
-  score: 'score',
+export const FirebaseNetworkTables = {  
   state: 'state'
 };
 
