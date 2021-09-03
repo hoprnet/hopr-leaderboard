@@ -1,6 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
-import { truncate } from '../../utils/string';
+import { truncate } from "../../utils/string";
 
 import { EligibilityPerAddress } from "./EligibilityPerAddress";
 import {
@@ -11,7 +11,7 @@ import {
   HOPR_ADDRESS_CHAR_LENGTH,
   HOPR_WEB3_SIGNATURE_DOMAIN,
   HOPR_WEB3_SIGNATURE_TYPES,
-  HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
+  HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
 } from "../../constants/hopr";
 
 const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
@@ -19,8 +19,14 @@ const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   ethAddress,
 });
 
-const sendSignatureToAPI = async (account, signature, message) => {
-  const response = await fetch(`/api/faucet/fund/${account}`, {
+const getWeb3SignatureVerifyContents = (hoprAddress, hoprSignature, ethAddress) => ({
+  hoprAddress,
+  hoprSignature,
+  ethAddress,
+});
+
+const sendSignatureToAPI = async (endpoint, account, signature, message) => {
+  const response = await fetch(endpoint, {
     body: JSON.stringify({ signature, message }),
     method: "POST",
     headers: new Headers({
@@ -139,6 +145,7 @@ const NodeTable = ({ nodes = [], signRequest, copyCodeToClipboard }) => {
 export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
+  const [signatureValue, setSignatureValue] = useState();
   // NB: These would fit better grouped via a reducer
   const [isLoading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
@@ -152,6 +159,24 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
     setProfile(profile);
   };
 
+  const signSignature = async (hoprAddress, hoprSignature, ethAddress) => {
+    const message = getWeb3SignatureVerifyContents(hoprAddress, hoprSignature, ethAddress);
+    const signature = await library
+      .getSigner()
+      ._signTypedData(
+        HOPR_WEB3_SIGNATURE_DOMAIN,
+        HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
+        message
+      );
+    const response = await sendSignatureToAPI(
+      `/api/sign/verify/${account}`,
+      account,
+      signature,
+      message
+    );
+    return response.message;
+  };
+
   const signRequest = async (hoprAddress, ethAddress) => {
     const message = getWeb3SignatureFaucetContents(hoprAddress, ethAddress);
     const signature = await library
@@ -161,7 +186,12 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         HOPR_WEB3_SIGNATURE_TYPES,
         message
       );
-    const response = await sendSignatureToAPI(account, signature, message);
+    const response = await sendSignatureToAPI(
+      `/api/faucet/fund/${account}`,
+      account,
+      signature,
+      message
+    );
     return response;
   };
 
@@ -292,16 +322,30 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         <small>
           By verifying your node, you are elegible to NFT rewards based on the
           on-chain actions your node(s) execute(s). You can only verify nodes
-          you control. Copy your Ethereum address and go to the admin interface
-          of your HOPR node. Using the command “sign”, sign your copied address
-          and paste the result here. e.g. “sign
-          0x2402da10A6172ED018AEEa22CA60EDe1F766655C”
+          you control. First, add your HOPR node address in the following input
+          value field.
+        </small>
+        <div display="block" style={{ marginTop: "10px" }}>
+          <input
+            type="text"
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="16Uiu2HA..."
+            style={{ width: "98%", padding: "5px" }}
+          />
+        </div>
+        <br />
+        <small>
+          Now, copy your Ethereum address (the one you want your NFT rewards to
+          go to and you can use for signing, usually your MetaMask one) and go
+          to the admin interface of your HOPR node. Using the command “sign”,
+          sign your copied address and paste the result here. e.g. “sign
+          {' '}{account}”
         </small>
         <br />
         <br />
         <small>
           Copy and paste the contents of the sign function in the following text
-          field and click on “Verify your HOPR node in IDX”. If valid, your node
+          field and click on “Verify node for rewards”. If valid, your node
           will then be shown as verified in our network with your Ethereum
           address.
         </small>
@@ -309,15 +353,22 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           <textarea
             placeholder="0x304402203208f46d1d25c4939760..."
             rows="3"
+            onChange={(e) => setSignatureValue(e.target.value)}
             display="block"
             style={{ width: "98%", padding: "5px" }}
           />
         </div>
         <button
-          disabled={true}
+          disabled={!signatureValue || isLoading}
+          onClick={async () => {
+            setLoading(true);
+            const message = await signSignature(inputValue, signatureValue, account);
+            setLoading(false);
+            alert(message);
+          }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          Verify node for rewards (after Testnet).
+          { isLoading ?  'Adding your node' : 'Verify node for rewards' }
         </button>
       </div>
     </div>

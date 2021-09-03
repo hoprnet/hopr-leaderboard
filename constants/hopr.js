@@ -17,3 +17,11 @@ export const HOPR_WEB3_SIGNATURE_TYPES = {
     { name: "ethAddress", type: "address" },
   ],
 };
+
+export const HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES = {
+  Node: [
+    { name: "hoprAddress", type: "string" },
+    { name: "hoprSignature", type: "string" },
+    { name: "ethAddress", type: "address" },
+  ],
+};
