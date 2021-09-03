@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/layout/layout.js";
 import BoxRemember from "../components/micro-components/box-remember";
+import Link from "next/link";
 
 const dataTable = [
   {
@@ -103,7 +104,15 @@ export default function HoprAllocation() {
           <div className="box-main-area">
             <div className="quick-code">
               <small>
-              After launch, this panel will show your node stats and instructions on how to claim your NFT.
+                After launch, this panel will show your node stats, it’s
+                on-chain activity, and instructions on how to claim your NFT.
+              </small>
+              <br />
+              <br />
+              <small>
+                Please make sure to verify your node in our{" "}
+                <Link href="/node">node</Link>{" "}page to be able to connect your node(s)
+                with your Ethereum wallet.
               </small>
             </div>
           </div>
