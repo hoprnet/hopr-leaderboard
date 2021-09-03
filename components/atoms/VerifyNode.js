@@ -1,6 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useEffect, useState } from "react";
-import { truncate } from '../../utils/string';
+import { truncate } from "../../utils/string";
 
 import { EligibilityPerAddress } from "./EligibilityPerAddress";
 import {
@@ -11,7 +11,7 @@ import {
   HOPR_ADDRESS_CHAR_LENGTH,
   HOPR_WEB3_SIGNATURE_DOMAIN,
   HOPR_WEB3_SIGNATURE_TYPES,
-  HOPR_WEB3_SIGNATURE_PRIMARY_TYPE,
+  HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
 } from "../../constants/hopr";
 
 const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
@@ -19,8 +19,13 @@ const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   ethAddress,
 });
 
-const sendSignatureToAPI = async (account, signature, message) => {
-  const response = await fetch(`/api/faucet/fund/${account}`, {
+const getWeb3SignatureVerifyContents = (hoprSignature, ethAddress) => ({
+  hoprSignature,
+  ethAddress,
+});
+
+const sendSignatureToAPI = async (endpoint, account, signature, message) => {
+  const response = await fetch(endpoint, {
     body: JSON.stringify({ signature, message }),
     method: "POST",
     headers: new Headers({
@@ -139,6 +144,7 @@ const NodeTable = ({ nodes = [], signRequest, copyCodeToClipboard }) => {
 export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   const { account, library } = useEthers();
   const [inputValue, setInputValue] = useState();
+  const [signatureValue, setSignatureValue] = useState();
   // NB: These would fit better grouped via a reducer
   const [isLoading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
@@ -152,6 +158,25 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
     setProfile(profile);
   };
 
+  const signSignature = async (hoprSignature = "hello world", ethAddress) => {
+    const message = getWeb3SignatureVerifyContents(hoprSignature, ethAddress);
+    const signature = await library
+      .getSigner()
+      ._signTypedData(
+        HOPR_WEB3_SIGNATURE_DOMAIN,
+        HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
+        message
+      );
+    const response = await sendSignatureToAPI(
+      `/api/sign/verify/${account}`,
+      account,
+      signature,
+      message
+    );
+    console.log("SERVER RESPONSE", response);
+    return response;
+  };
+
   const signRequest = async (hoprAddress, ethAddress) => {
     const message = getWeb3SignatureFaucetContents(hoprAddress, ethAddress);
     const signature = await library
@@ -161,7 +186,12 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         HOPR_WEB3_SIGNATURE_TYPES,
         message
       );
-    const response = await sendSignatureToAPI(account, signature, message);
+    const response = await sendSignatureToAPI(
+      `/api/faucet/fund/${account}`,
+      account,
+      signature,
+      message
+    );
     return response;
   };
 
@@ -309,15 +339,19 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           <textarea
             placeholder="0x304402203208f46d1d25c4939760..."
             rows="3"
+            onChange={(e) => setSignatureValue(e.target.value)}
             display="block"
             style={{ width: "98%", padding: "5px" }}
           />
         </div>
         <button
-          disabled={true}
+          disabled={!signatureValue}
+          onClick={() => {
+            signSignature(signatureValue, account);
+          }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          Verify node for rewards (after Testnet).
+          Verify node for rewards.
         </button>
       </div>
     </div>
