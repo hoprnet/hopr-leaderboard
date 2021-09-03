@@ -160,7 +160,6 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   };
 
   const signSignature = async (hoprAddress, hoprSignature, ethAddress) => {
-    console.log("INPUT", hoprAddress, hoprSignature, ethAddress)
     const message = getWeb3SignatureVerifyContents(hoprAddress, hoprSignature, ethAddress);
     const signature = await library
       .getSigner()
@@ -175,8 +174,7 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
       signature,
       message
     );
-    console.log("SERVER RESPONSE", response);
-    return response;
+    return response.message;
   };
 
   const signRequest = async (hoprAddress, ethAddress) => {
@@ -361,13 +359,16 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           />
         </div>
         <button
-          disabled={!signatureValue}
-          onClick={() => {
-            signSignature(inputValue, signatureValue, account);
+          disabled={!signatureValue || isLoading}
+          onClick={async () => {
+            setLoading(true);
+            const message = await signSignature(inputValue, signatureValue, account);
+            setLoading(false);
+            alert(message);
           }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          Verify node for rewards.
+          { isLoading ?  'Adding your node' : 'Verify node for rewards' }
         </button>
       </div>
     </div>

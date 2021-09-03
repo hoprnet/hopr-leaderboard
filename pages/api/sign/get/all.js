@@ -3,7 +3,10 @@ import KeyResolver from "key-did-resolver";
 import { DID } from "dids";
 import CeramicClient from "@ceramicnetwork/http-client";
 import { TileDocument } from "@ceramicnetwork/stream-tile";
-import { CERAMIC_API_URL } from "../../../../constants/ceramic";
+import {
+  CERAMIC_API_URL,
+  CERAMIC_TILE_ID,
+} from "../../../../constants/ceramic";
 
 import { utils } from "ethers";
 
@@ -13,19 +16,17 @@ const secretKey = Uint8Array.from(
 const provider = new Ed25519Provider(secretKey);
 const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
-let tile = null;
+const tileId = CERAMIC_TILE_ID;
 
 export default async (req, res) => {
-  if (!tile) {
-    await did.authenticate();
-    client.setDID(did);
-    tile = await TileDocument.create(client, {});
-  }
+  await did.authenticate();
+  client.setDID(did);
 
-  const records = await TileDocument.load(client, tile.id);
+  const records = await TileDocument.load(client, tileId);
 
   return res.status(200).json({
     status: "ok",
+    tileId,
     records: records.content,
   });
 };
