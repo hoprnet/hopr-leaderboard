@@ -19,7 +19,8 @@ const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   ethAddress,
 });
 
-const getWeb3SignatureVerifyContents = (hoprSignature, ethAddress) => ({
+const getWeb3SignatureVerifyContents = (hoprAddress, hoprSignature, ethAddress) => ({
+  hoprAddress,
   hoprSignature,
   ethAddress,
 });
@@ -159,7 +160,7 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   };
 
   const signSignature = async (hoprSignature = "hello world", ethAddress) => {
-    const message = getWeb3SignatureVerifyContents(hoprSignature, ethAddress);
+    const message = getWeb3SignatureVerifyContents(hoprAddress, hoprSignature, ethAddress);
     const signature = await library
       .getSigner()
       ._signTypedData(
@@ -322,16 +323,30 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         <small>
           By verifying your node, you are elegible to NFT rewards based on the
           on-chain actions your node(s) execute(s). You can only verify nodes
-          you control. Copy your Ethereum address and go to the admin interface
-          of your HOPR node. Using the command “sign”, sign your copied address
-          and paste the result here. e.g. “sign
-          0x2402da10A6172ED018AEEa22CA60EDe1F766655C”
+          you control. First, add your HOPR node address in the following input
+          value field.
+        </small>
+        <div display="block" style={{ marginTop: "10px" }}>
+          <input
+            type="text"
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="16Uiu2HA..."
+            style={{ width: "98%", padding: "5px" }}
+          />
+        </div>
+        <br />
+        <small>
+          Now, copy your Ethereum address (the one you want your NFT rewards to
+          go to and you can use for signing, usually your MetaMask one) and go
+          to the admin interface of your HOPR node. Using the command “sign”,
+          sign your copied address and paste the result here. e.g. “sign
+          {' '}{account}”
         </small>
         <br />
         <br />
         <small>
           Copy and paste the contents of the sign function in the following text
-          field and click on “Verify your HOPR node in IDX”. If valid, your node
+          field and click on “Verify node for rewards”. If valid, your node
           will then be shown as verified in our network with your Ethereum
           address.
         </small>
