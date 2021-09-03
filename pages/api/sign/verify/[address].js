@@ -29,9 +29,9 @@ export default async (req, res) => {
 
   if (isValidSignature) {
     const checksumedAddress = utils.getAddress(address);
-
     const { hoprSignature, hoprAddress, ethAddress } = message;
     const messageSignedByNode = `${HOPR_PREFIX}${ethAddress}`;
+
     const isAddressOwnerOfNode = await verifySignatureFromPeerId(
       hoprAddress,
       messageSignedByNode,

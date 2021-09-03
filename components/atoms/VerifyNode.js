@@ -159,7 +159,8 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
     setProfile(profile);
   };
 
-  const signSignature = async (hoprSignature = "hello world", ethAddress) => {
+  const signSignature = async (hoprAddress, hoprSignature, ethAddress) => {
+    console.log("INPUT", hoprAddress, hoprSignature, ethAddress)
     const message = getWeb3SignatureVerifyContents(hoprAddress, hoprSignature, ethAddress);
     const signature = await library
       .getSigner()
@@ -362,7 +363,7 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         <button
           disabled={!signatureValue}
           onClick={() => {
-            signSignature(signatureValue, account);
+            signSignature(inputValue, signatureValue, account);
           }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
