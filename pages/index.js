@@ -201,103 +201,20 @@ export default function Home() {
             <div className="box-title">
               <h1>Network</h1>
             </div>
-            <div className="box-btn">
-              <button onClick={() => callAPI()}>
-                <img src="/assets/icons/refresh.svg" alt="refresh now" />
-                refresh now
-              </button>
-            </div>
-          </div>
-          <div className="only-mobile-view remove-all-padding">
-            <SearchBar
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              match={match}
-            />
-          </div>
-          <div className="only-desktop-view remove-all-padding ">
-            <SuperBoxSearch
-              nodesVerified={nodesVerified}
-              nodesRegistered={nodesRegistered}
-              nodesConnected={nodesConnected}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              match={match}
-            />
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          <div className="box-container-table">
-            {nodes && (
-              <table id="date">
-                <thead>
-                  <tr>
-                    {columns.map((e) => {
-                      const { title, key, className } = e;
-                      return (
-                        <th
-                          className={className}
-                          onClick={className ? () => onClickSort(key) : null}
-                          scope="col"
-                          key={key}
-                        >
-                          {title}
-                        </th>
-                      );
-                    })}
-                  </tr>
-                </thead>
-                <tbody>
-                  {queriedNode && (
-                    <TrCustom
-                      id={queriedNode.id}
-                      key={queriedNode.id}
-                      openedChannels={queriedNode.openedChannels}
-                      address={queriedNode.address}
-                      closedChannels={queriedNode.closedChannels}
-                      showCopyCode={showCopyCode}
-                      setVisibleData={setVisibleData}
-                    />
-                  )}
-                  {nodes.map((e) => {
-                    const { address, id, openedChannels, closedChannels } = e;
-                    if (searchTerm.length > 0) {
-                      if (
-                        address
-                          .toLowerCase()
-                          .indexOf(searchTerm.toLowerCase()) >= 0 ||
-                        id.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
-                      ) {
-                        return (
-                          <TrCustom
-                            id={id}
-                            key={id}
-                            openedChannels={openedChannels}
-                            address={address}
-                            closedChannels={closedChannels}
-                            showCopyCode={showCopyCode}
-                            setVisibleData={setVisibleData}
-                          />
-                        );
-                      }
-                    } else {
-                      return (
-                        <TrCustom
-                          id={id}
-                          key={id}
-                          address={address}
-                          openedChannels={openedChannels}
-                          closedChannels={closedChannels}
-                          showCopyCode={showCopyCode}
-                          setVisibleData={setVisibleData}
-                        />
-                      );
-                    }
-                  })}
-                </tbody>
-              </table>
-            )}
-          </div>
+          <div style={{ margin: "20px" }}>
+          <p className="help-total-results">
+          Please visit our{" "}
+          <a
+            href="https://dune.xyz/hoprnet/HOPR-Polygon-Test-Net"
+            target="_blank"
+          >
+            Dune dashboard
+          </a>{" "}
+          to locate and find information about your node.
+        </p></div>
           <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
