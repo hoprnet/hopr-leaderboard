@@ -19,10 +19,21 @@ const client = new CeramicClient(CERAMIC_API_URL);
 const tileId = CERAMIC_TILE_ID;
 
 export default async (req, res) => {
+  const { flattened } = req.query;
   await did.authenticate();
   client.setDID(did);
 
   const records = await TileDocument.load(client, tileId);
+
+  if (flattened) {
+    const ethAddress = Object.values(records.content);
+    const correspondingHoprNode = Object.keys(records.content);
+    return res.status(200).json({
+      status: "ok",
+      ethAddress,
+      correspondingHoprNode
+    })
+  }
 
   return res.status(200).json({
     status: "ok",
