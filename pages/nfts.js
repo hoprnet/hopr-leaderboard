@@ -80,12 +80,12 @@ const dataTable = [
 ];
 
 export default function HoprAllocation() {
-  const { account, library } = useEthers();
+  const { account } = useEthers();
   const [records, setRecords] = useState([]);
   useEffect(() => {
     const loadRecords = async () => {
-      const response = await (await fetch(`/api/sign/get/${account}`)).json();
-      setRecords(response.records);
+      const { records, oldRecords } = await (await fetch(`/api/sign/get/${account}`)).json();
+      setRecords(oldRecords.concat(records));
     };
     account && loadRecords();
   }, [account]);

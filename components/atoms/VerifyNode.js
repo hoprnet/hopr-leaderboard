@@ -19,7 +19,11 @@ const getWeb3SignatureFaucetContents = (hoprAddress, ethAddress) => ({
   ethAddress,
 });
 
-const getWeb3SignatureVerifyContents = (hoprAddress, hoprSignature, ethAddress) => ({
+const getWeb3SignatureVerifyContents = (
+  hoprAddress,
+  hoprSignature,
+  ethAddress
+) => ({
   hoprAddress,
   hoprSignature,
   ethAddress,
@@ -160,7 +164,11 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   };
 
   const signSignature = async (hoprAddress, hoprSignature, ethAddress) => {
-    const message = getWeb3SignatureVerifyContents(hoprAddress, hoprSignature, ethAddress);
+    const message = getWeb3SignatureVerifyContents(
+      hoprAddress,
+      hoprSignature,
+      ethAddress
+    );
     const signature = await library
       .getSigner()
       ._signTypedData(
@@ -338,16 +346,15 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           Now, copy your Ethereum address (the one you want your NFT rewards to
           go to and you can use for signing, usually your MetaMask one) and go
           to the admin interface of your HOPR node. Using the command “sign”,
-          sign your copied address and paste the result here. e.g. “sign
-          {' '}{account}”
+          sign your copied address and paste the result here. e.g. “sign{" "}
+          {account}”
         </small>
         <br />
         <br />
         <small>
           Copy and paste the contents of the sign function in the following text
-          field and click on “Verify node for rewards”. If valid, your node
-          will then be shown as verified in our network with your Ethereum
-          address.
+          field and click on “Verify node for rewards”. If valid, your node will
+          then be shown as verified in our network with your Ethereum address.
         </small>
         <div display="block" style={{ marginTop: "5px" }}>
           <textarea
@@ -361,14 +368,24 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         <button
           disabled={!signatureValue || isLoading}
           onClick={async () => {
+            let message;
             setLoading(true);
-            const message = await signSignature(inputValue, signatureValue, account);
-            setLoading(false);
+            try {
+              message = await signSignature(
+                inputValue,
+                signatureValue,
+                account
+              );
+              setLoading(false);
+            } catch (e) {
+              message = "Server error, please try again later.";
+              setLoading(false);
+            }
             alert(message);
           }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          { isLoading ?  'Adding your node' : 'Verify node for rewards' }
+          {isLoading ? "Adding your node" : "Verify node for rewards"}
         </button>
       </div>
     </div>

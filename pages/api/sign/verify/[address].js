@@ -9,11 +9,10 @@ import {
 } from "../../../../constants/hopr";
 import {
   CERAMIC_API_URL,
-  CERAMIC_TILE_ID,
 } from "../../../../constants/ceramic";
 
 import { verifySignatureFromPeerId } from "@hoprnet/hopr-utils";
-import { utils} from "ethers";
+import { utils } from "ethers";
 
 // NB: HOPR Node sign messages using the prefix to avoid having
 // the nodes sign any generic data which could be used maliciously
@@ -28,7 +27,6 @@ const secretKey = Uint8Array.from(
 const provider = new Ed25519Provider(secretKey);
 const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
-const tileId = CERAMIC_TILE_ID;
 
 export default async (req, res) => {
   const { address } = req.query;
@@ -54,15 +52,30 @@ export default async (req, res) => {
     );
 
     if (isAddressOwnerOfNode) {
-
       await did.authenticate();
       client.setDID(did);
 
-      const docs = await TileDocument.load(client, tileId);
+      const docs = await TileDocument.create(client, null, {
+        deterministic: true,
+        tags: [ethAddress],
+        family: "hopr-wildhorn",
+      });
+      
       const mutatedDoc = Object.assign({}, docs.content, {
         [hoprAddress]: ethAddress,
       });
       await docs.update(mutatedDoc);
+
+      const dashboard = await TileDocument.create(client, null, {
+        deterministic: true,
+        tags: ["hopr-dashboard"],
+        family: "hopr-wildhorn",
+      });
+
+      const mutatedDashboard = Object.assign({}, dashboard.content, {
+        [docs.id.toString()]: ethAddress,
+      });
+      await dashboard.update(mutatedDashboard);
 
       return res.status(200).json({
         status: "ok",
