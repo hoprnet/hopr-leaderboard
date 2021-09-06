@@ -366,7 +366,8 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           />
         </div>
         <button
-          disabled={!signatureValue || isLoading}
+          // disabled={!signatureValue || isLoading}
+          disabled
           onClick={async () => {
             let message;
             setLoading(true);
@@ -385,7 +386,8 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           }}
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          {isLoading ? "Adding your node" : "Verify node for rewards"}
+          {/* {isLoading ? "Adding your node" : "Verify node for rewards"} */}
+          Disabled for maintenance.
         </button>
       </div>
     </div>
