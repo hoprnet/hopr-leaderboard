@@ -116,8 +116,9 @@ export default function HoprAllocation() {
           <div className="box-main-area">
             <div className="quick-code">
               <small>
-                After launch, this panel will show your node stats, it’s
-                on-chain activity, and instructions on how to claim your NFT.
+                Verify your node to register your on-chain activity. You’ll
+                be airdropped an NFT in the xDAI network usable in our staking
+                program based on the nodes you register and their on-chain activity.
               </small>
               <br />
               <br />
