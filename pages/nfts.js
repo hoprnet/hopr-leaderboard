@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/layout.js";
 import BoxRemember from "../components/micro-components/box-remember";
+import { Connectors } from "../components/molecules/Connectors";
+import { truncate } from "../utils/string";
+import { useEthers } from "@usedapp/core";
 import Link from "next/link";
 
 const dataTable = [
@@ -77,6 +80,15 @@ const dataTable = [
 ];
 
 export default function HoprAllocation() {
+  const { account, library } = useEthers();
+  const [records, setRecords] = useState([]);
+  useEffect(() => {
+    const loadRecords = async () => {
+      const response = await (await fetch(`/api/sign/get/${account}`)).json();
+      setRecords(response.records);
+    };
+    account && loadRecords();
+  }, [account]);
   return (
     <Layout>
       <div className="box special-table-top">
@@ -111,50 +123,41 @@ export default function HoprAllocation() {
               <br />
               <small>
                 Please make sure to verify your node in our{" "}
-                <Link href="/node">node</Link>{" "}page to be able to connect your node(s)
-                with your Ethereum wallet.
+                <Link href="/node">node</Link> page to be able to connect your
+                node(s) with your Ethereum wallet.
               </small>
             </div>
+            <br />
+            <Connectors address={account} connectIdx={false} />
           </div>
-          <div className="box-container-table">
-            {/* <table>
-              <thead>
-                <tr>
-                  <th scope="col">Rank</th>
-                  <th scope="col">User</th>
-                  <th scope="col">Prize</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dataTable.map((e, index) => {
-                  const { rank, address, prize } = e;
-                  return (
-                    <tr key={rank}>
-                      <td data-label="rank">{rank}</td>
-                      <td data-label="user">
-                        <a
-                          className="table-link-on"
-                          target="_blank"
-                          href={
-                            "https://explorer.matic.network/address/" + address
-                          }
-                          rel="noopener noreferrer"
-                        >
-                          <img src="/assets/icons/link.svg" alt="link" />
-                          <div>
-                            {address.slice(0, 5)}
-                            <span>...</span>
-                            {address.slice(-5)}
-                          </div>
-                        </a>
-                      </td>
-                      <td data-label="prize">{prize}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table> */}
-          </div>
+          <br />
+          {account && (
+            <div className="box-container-table" style={{ height: "auto" }}>
+              <table>
+                <thead>
+                  <tr>
+                    <th colSpan="2" style={{ color: "black" }}>
+                      verified nodes
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">account</th>
+                    <th scope="col">node</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {records.map((hoprNode, index) => {
+                    return (
+                      <tr key={hoprNode}>
+                        <td data-label="account">{truncate(account)}</td>
+                        <td data-label="node">{truncate(hoprNode)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
           <BoxRemember />
         </div>
       </div>

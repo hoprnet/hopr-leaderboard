@@ -74,7 +74,7 @@ export default function Help() {
                 <FaucetBalance copyCodeToClipboard={copyCodeToClipboard}/>
               </small>
             </div>
-            <Connectors address={account} idx={idx} setIdx={setIdx} />
+            <Connectors address={account} connectIdx idx={idx} setIdx={setIdx} />
             {account && library && idx && <VerifyNode idx={idx} copyCodeToClipboard={copyCodeToClipboard}/>}
           </div>
           <BoxRemember />
