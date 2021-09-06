@@ -5,11 +5,12 @@ export const Connectors = ({
   address,
   idx,
   setIdx,
+  connectIdx
 }) => {
   return (
     <>
       <ConnectWallet>
-        {address && (
+        {address && connectIdx && (
           <ConnectIDX
             idx={idx}
             address={address}
