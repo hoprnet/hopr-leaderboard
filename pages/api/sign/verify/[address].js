@@ -63,7 +63,9 @@ export default async (req, res) => {
         const mutatedDoc = Object.assign({}, docs.content, {
           [hoprAddress]: ethAddress,
         });
-        await docs.update(mutatedDoc);
+
+        // NB: No waiting on update to avoid blocking server
+        docs.update(mutatedDoc);
 
         return res.status(200).json({
           status: "ok",

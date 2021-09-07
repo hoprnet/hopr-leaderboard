@@ -25,7 +25,9 @@ export default async (req, res) => {
     }
     await did.authenticate();
     client.setDID(did);
-    await client.pin.add(streamId);
+
+    // NB: Not waiting to avoid blocking server
+    client.pin.add(streamId);
 
     return res.status(200).json({
       status: "ok",

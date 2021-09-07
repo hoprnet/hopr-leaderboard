@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/layout.js";
 import BoxRemember from "../components/micro-components/box-remember";
+import SearchBar from "../components/micro-components/search-bar";
 import { Connectors } from "../components/molecules/Connectors";
 import { truncate } from "../utils/string";
 import { useEthers } from "@usedapp/core";
@@ -79,16 +80,49 @@ const dataTable = [
   },
 ];
 
-export default function HoprAllocation() {
-  const { account } = useEthers();
+const Records = ({ account }) => {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     const loadRecords = async () => {
+      console.log("LODAING..")
       const { records } = await (await fetch(`/api/sign/get/${account}`)).json();
       setRecords(records);
     };
-    account && loadRecords();
+    account && account.length == 42 && loadRecords();
   }, [account]);
+  return account ? (
+    <div className="box-container-table" style={{ height: "auto" }}>
+      <table>
+        <thead>
+          <tr>
+            <th colSpan="2" style={{ color: "black" }}>
+              verified nodes
+            </th>
+          </tr>
+          <tr>
+            <th scope="col">account</th>
+            <th scope="col">node</th>
+          </tr>
+        </thead>
+        <tbody>
+          {records.map((hoprNode, index) => {
+            return (
+              <tr key={hoprNode}>
+                <td data-label="account">{truncate(account)}</td>
+                <td data-label="node">{truncate(hoprNode)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  ) : (<></>)
+}
+
+export default function HoprAllocation() {
+  const { account } = useEthers();
+  const [addressToLoad, setAddressToLoad] = useState('')
+  
   return (
     <Layout>
       <div className="box special-table-top">
@@ -112,6 +146,7 @@ export default function HoprAllocation() {
             </div> */}
           </div>
         </div>
+        <SearchBar searchTerm={addressToLoad} setSearchTerm={setAddressToLoad} inputPlaceholder="0x1234..." labelMessage="Paste an Ethereum address to see their registered nodes." />
         <div className="box-main-area remove-all-padding aux-add-top ">
           <div className="box-main-area">
             <div className="quick-code">
@@ -132,33 +167,7 @@ export default function HoprAllocation() {
             <Connectors address={account} connectIdx={false} />
           </div>
           <br />
-          {account && (
-            <div className="box-container-table" style={{ height: "auto" }}>
-              <table>
-                <thead>
-                  <tr>
-                    <th colSpan="2" style={{ color: "black" }}>
-                      verified nodes
-                    </th>
-                  </tr>
-                  <tr>
-                    <th scope="col">account</th>
-                    <th scope="col">node</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {records.map((hoprNode, index) => {
-                    return (
-                      <tr key={hoprNode}>
-                        <td data-label="account">{truncate(account)}</td>
-                        <td data-label="node">{truncate(hoprNode)}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <Records account={addressToLoad != '' ? addressToLoad : account} />
           <BoxRemember />
         </div>
       </div>
