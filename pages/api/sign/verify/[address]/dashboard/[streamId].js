@@ -6,10 +6,8 @@ import { TileDocument } from "@ceramicnetwork/stream-tile";
 import {
   HOPR_WEB3_SIGNATURE_DOMAIN,
   HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
-} from "../../../../constants/hopr";
-import {
-  CERAMIC_API_URL,
-} from "../../../../constants/ceramic";
+} from "../../../../../../constants/hopr";
+import { CERAMIC_API_URL } from "../../../../../../constants/ceramic";
 
 import { verifySignatureFromPeerId } from "@hoprnet/hopr-utils";
 import { utils } from "ethers";
@@ -29,7 +27,7 @@ const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
 
 export default async (req, res) => {
-  const { address } = req.query;
+  const { streamId, address } = req.query;
   const { signature, message } = req.body;
 
   const signerAddress = utils.verifyTypedData(
@@ -55,21 +53,21 @@ export default async (req, res) => {
       await did.authenticate();
       client.setDID(did);
 
-      const docs = await TileDocument.create(client, null, {
+      const dashboard = await TileDocument.create(client, null, {
         deterministic: true,
-        tags: [ethAddress],
+        tags: ["hopr-dashboard"],
         family: "hopr-wildhorn",
       });
-      
-      const mutatedDoc = Object.assign({}, docs.content, {
-        [hoprAddress]: ethAddress,
+
+      const mutatedDashboard = Object.assign({}, dashboard.content, {
+        [streamId]: ethAddress,
       });
-      await docs.update(mutatedDoc);
+      await dashboard.update(mutatedDashboard);
 
       return res.status(200).json({
         status: "ok",
-        streamId: docs.id.toString(),
-        message: `Your node was recorded into the Ceramic network.`,
+        streamId: streamId,
+        message: `The dashboard update was recorded into the Ceramic network.`,
       });
     } else {
       return res.status(200).json({

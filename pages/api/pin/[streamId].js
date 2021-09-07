@@ -2,10 +2,7 @@ import { Ed25519Provider } from "key-did-provider-ed25519";
 import KeyResolver from "key-did-resolver";
 import { DID } from "dids";
 import CeramicClient from "@ceramicnetwork/http-client";
-import { TileDocument } from "@ceramicnetwork/stream-tile";
-import {
-  CERAMIC_API_URL,
-} from "../../../../constants/ceramic";
+import { CERAMIC_API_URL } from "../../../constants/ceramic";
 
 import { utils } from "ethers";
 
@@ -17,20 +14,14 @@ const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
 
 export default async (req, res) => {
-  const { flattened } = req.query;
+  const { streamId } = req.query;
   await did.authenticate();
   client.setDID(did);
-
-  const records = await TileDocument.create(
-    client,
-    null,
-    { deterministic: true, family: "hopr-wildhorn", tags: ["hopr-dashboard"] },
-    { anchor: false, publish: false }
-  );
+  await client.pin.add(streamId);
 
   return res.status(200).json({
     status: "ok",
-    tileId: records.id.toString(),
-    records: records.content,
+    streamId,
+    message: `Your stream was pinned into the Ceramic network.`,
   });
 };

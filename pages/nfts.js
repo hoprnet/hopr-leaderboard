@@ -84,8 +84,8 @@ export default function HoprAllocation() {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     const loadRecords = async () => {
-      const { records, oldRecords } = await (await fetch(`/api/sign/get/${account}`)).json();
-      setRecords(oldRecords.concat(records));
+      const { records } = await (await fetch(`/api/sign/get/${account}`)).json();
+      setRecords(records);
     };
     account && loadRecords();
   }, [account]);
