@@ -1,6 +1,5 @@
 import React from "react";
 import { CSVLink } from "react-csv";
-import "../../styles/main.scss";
 
 const BoxRemember = ({leaderboardData = []}) => {
   const csvData = leaderboardData.length > 0 ? leaderboardData : [

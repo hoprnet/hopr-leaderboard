@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import "../../styles/main.scss";
 import TweetBasodino from "../tweet-basodino";
 
 const LeftSide = ({ darkMode, hash, copyCodeToClipboard }) => {
