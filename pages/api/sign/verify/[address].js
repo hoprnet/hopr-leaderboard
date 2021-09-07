@@ -7,9 +7,7 @@ import {
   HOPR_WEB3_SIGNATURE_DOMAIN,
   HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
 } from "../../../../constants/hopr";
-import {
-  CERAMIC_API_URL,
-} from "../../../../constants/ceramic";
+import { CERAMIC_API_URL } from "../../../../constants/ceramic";
 
 import { verifySignatureFromPeerId } from "@hoprnet/hopr-utils";
 import { utils } from "ethers";
@@ -45,38 +43,46 @@ export default async (req, res) => {
     const { hoprSignature, hoprAddress, ethAddress } = message;
     const messageSignedByNode = `${HOPR_PREFIX}${ethAddress}`;
 
-    const isAddressOwnerOfNode = await verifySignatureFromPeerId(
-      hoprAddress,
-      messageSignedByNode,
-      hoprSignature
-    );
+    try {
+      const isAddressOwnerOfNode = await verifySignatureFromPeerId(
+        hoprAddress,
+        messageSignedByNode,
+        hoprSignature
+      );
 
-    if (isAddressOwnerOfNode) {
-      await did.authenticate();
-      client.setDID(did);
+      if (isAddressOwnerOfNode) {
+        await did.authenticate();
+        client.setDID(did);
 
-      const docs = await TileDocument.create(client, null, {
-        deterministic: true,
-        tags: [ethAddress],
-        family: "hopr-wildhorn",
-      });
-      
-      const mutatedDoc = Object.assign({}, docs.content, {
-        [hoprAddress]: ethAddress,
-      });
-      await docs.update(mutatedDoc);
+        const docs = await TileDocument.create(client, null, {
+          deterministic: true,
+          tags: [ethAddress],
+          family: "hopr-wildhorn",
+        });
 
+        const mutatedDoc = Object.assign({}, docs.content, {
+          [hoprAddress]: ethAddress,
+        });
+        await docs.update(mutatedDoc);
+
+        return res.status(200).json({
+          status: "ok",
+          streamId: docs.id.toString(),
+          message: `Your node was recorded into the Ceramic network.`,
+        });
+      } else {
+        return res.status(200).json({
+          status: "invalid",
+          address: checksumedAddress,
+          node: hoprAddress,
+          message: `Your signature does not match the address you are submitting. Please try with a new signature.`,
+        });
+      }
+    } catch (e) {
       return res.status(200).json({
-        status: "ok",
-        streamId: docs.id.toString(),
-        message: `Your node was recorded into the Ceramic network.`,
-      });
-    } else {
-      return res.status(200).json({
-        status: "invalid",
-        address: checksumedAddress,
-        node: hoprAddress,
-        message: `Your signature does not match the address you are submitting. Please try with a new signature.`,
+        status: "err",
+        hoprAddress,
+        message: `Invalid HOPR address during node verification: ${hoprAddress}. Please use a correct one or reach our ambassadors with your ETH address for support.`,
       });
     }
   } else {

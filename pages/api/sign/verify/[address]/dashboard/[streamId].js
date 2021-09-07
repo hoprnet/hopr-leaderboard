@@ -43,38 +43,47 @@ export default async (req, res) => {
     const { hoprSignature, hoprAddress, ethAddress } = message;
     const messageSignedByNode = `${HOPR_PREFIX}${ethAddress}`;
 
-    const isAddressOwnerOfNode = await verifySignatureFromPeerId(
-      hoprAddress,
-      messageSignedByNode,
-      hoprSignature
-    );
+    try {
+      const isAddressOwnerOfNode = await verifySignatureFromPeerId(
+        hoprAddress,
+        messageSignedByNode,
+        hoprSignature
+      );
+      if (isAddressOwnerOfNode) {
+        await did.authenticate();
+        client.setDID(did);
 
-    if (isAddressOwnerOfNode) {
-      await did.authenticate();
-      client.setDID(did);
+        const dashboard = await TileDocument.create(client, null, {
+          deterministic: true,
+          tags: ["hopr-dashboard"],
+          family: "hopr-wildhorn",
+        });
 
-      const dashboard = await TileDocument.create(client, null, {
-        deterministic: true,
-        tags: ["hopr-dashboard"],
-        family: "hopr-wildhorn",
-      });
+        const mutatedDashboard = Object.assign({}, dashboard.content, {
+          [streamId]: ethAddress,
+        });
 
-      const mutatedDashboard = Object.assign({}, dashboard.content, {
-        [streamId]: ethAddress,
-      });
-      await dashboard.update(mutatedDashboard);
+        // NB: We will not wait for the update of the dashboard to avoid issues w/timeouts.
+        dashboard.update(mutatedDashboard);
 
+        return res.status(200).json({
+          status: "ok",
+          streamId: streamId,
+          message: `The dashboard update was recorded into the Ceramic network.`,
+        });
+      } else {
+        return res.status(200).json({
+          status: "invalid",
+          address: checksumedAddress,
+          node: hoprAddress,
+          message: `Your signature does not match the address you are submitting. Please try with a new signature.`,
+        });
+      }
+    } catch (e) {
       return res.status(200).json({
-        status: "ok",
-        streamId: streamId,
-        message: `The dashboard update was recorded into the Ceramic network.`,
-      });
-    } else {
-      return res.status(200).json({
-        status: "invalid",
-        address: checksumedAddress,
-        node: hoprAddress,
-        message: `Your signature does not match the address you are submitting. Please try with a new signature.`,
+        status: "err",
+        hoprAddress,
+        message: `Invalid HOPR address during dashboard verification: ${hoprAddress}. Please use a correct one or reach our ambassadors with your ETH address for support.`,
       });
     }
   } else {
