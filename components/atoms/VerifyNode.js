@@ -29,7 +29,7 @@ const getWeb3SignatureVerifyContents = (
   ethAddress,
 });
 
-const sendSignatureToAPI = async (endpoint, account, signature, message) => {
+const sendSignatureToAPI = async (endpoint, signature, message) => {
   const response = await fetch(endpoint, {
     body: JSON.stringify({ signature, message }),
     method: "POST",
@@ -154,6 +154,9 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
   const [isLoading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
 
+  const [isVerifierLoading, setVerifiedLoading] = useState(false);
+  const [verifierLoadingMessage, setVerifierLoadingMessage] = useState("");
+
   const [profile, setProfile] = useState({});
   const [error, setError] = useState();
 
@@ -163,7 +166,20 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
     setProfile(profile);
   };
 
-  const signSignature = async (hoprAddress, hoprSignature, ethAddress) => {
+  const sendSignatureForVerifying = async (signature, message) => {
+    const response = await sendSignatureToAPI(
+      `/api/sign/verify/${account}`,
+      signature,
+      message
+    );
+    return response;
+  };
+
+  const getSignatureAndMessage = async (
+    hoprAddress,
+    hoprSignature,
+    ethAddress
+  ) => {
     const message = getWeb3SignatureVerifyContents(
       hoprAddress,
       hoprSignature,
@@ -176,13 +192,13 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
         message
       );
-    const response = await sendSignatureToAPI(
-      `/api/sign/verify/${account}`,
-      account,
-      signature,
-      message
-    );
-    return response.message;
+    return { message, signature };
+  };
+
+  const pinStreamId = async (streamId) => {
+    const response = await (await fetch(`/api/pin/${streamId}`)).json();
+    console.log("PIN RESPONSE", response);
+    return response;
   };
 
   const signRequest = async (hoprAddress, ethAddress) => {
@@ -196,11 +212,90 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
       );
     const response = await sendSignatureToAPI(
       `/api/faucet/fund/${account}`,
-      account,
       signature,
       message
     );
     return response;
+  };
+
+  const verifyNodeInCeramic = async (
+    hoprAddress,
+    hoprSignature,
+    ethAddress
+  ) => {
+    {
+      let message;
+      setVerifiedLoading(true);
+      setVerifierLoadingMessage("Verifying signature and node");
+      try {
+        const { signature, message } = await getSignatureAndMessage(
+          hoprAddress,
+          hoprSignature,
+          ethAddress
+        );
+        const signingResponse = await sendSignatureForVerifying(
+          signature,
+          message
+        );
+        if (signingResponse.status != "ok") {
+          alert(signingResponse.message);
+          setVerifiedLoading(false);
+          return;
+        }
+        const nodeStreamId = signingResponse.streamId;
+        console.log("RESPONSE AND PIN", signingResponse, nodeStreamId);
+        setVerifierLoadingMessage("Node successfully verified.");
+
+        await new Promise((res) =>
+          setTimeout(() => {
+            setVerifierLoadingMessage("Pinning node info to Ceramic.");
+            res();
+          }, 1400)
+        );
+        await pinStreamId(nodeStreamId);
+        setVerifierLoadingMessage("Node info successfully pinned.");
+
+        await new Promise((res) =>
+          setTimeout(() => {
+            setVerifierLoadingMessage("Storing your node in Dashboard.");
+            res();
+          }, 1200)
+        );
+
+        const dashboardSingingResponse = await sendSignatureToAPI(
+          `/api/sign/verify/${account}/dashboard/${nodeStreamId}`,
+          signature,
+          message
+        );
+        const dashboardStreamId = dashboardSingingResponse.streamId;
+        setVerifierLoadingMessage("Node stored in Dashboard successfully.");
+
+        await new Promise((res) =>
+          setTimeout(() => {
+            setVerifierLoadingMessage("Pinning dashboard update to Ceramic.");
+            res();
+          }, 1400)
+        );
+        await pinStreamId(dashboardStreamId);
+        setVerifierLoadingMessage("Dashboard successfully pinned.");
+        alert(
+          "Process completed, your node has been verified and is now in our records."
+        );
+        setVerifiedLoading(false);
+        return;
+      } catch (e) {
+        console.log("ERROR Registered", e);
+        setVerifierLoadingMessage("Something went wrong, try again.");
+        await new Promise((res) =>
+          setTimeout(() => {
+            res();
+          }, 1400)
+        );
+        message = "Server error, please try again later.";
+        setVerifiedLoading(false);
+      }
+      alert(message);
+    }
   };
 
   const addHOPRNodeToIDX = async () => {
@@ -366,28 +461,15 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           />
         </div>
         <button
-          // disabled={!signatureValue || isLoading}
-          disabled
-          onClick={async () => {
-            let message;
-            setLoading(true);
-            try {
-              message = await signSignature(
-                inputValue,
-                signatureValue,
-                account
-              );
-              setLoading(false);
-            } catch (e) {
-              message = "Server error, please try again later.";
-              setLoading(false);
-            }
-            alert(message);
-          }}
+          disabled={!signatureValue || isVerifierLoading}
+          onClick={async () =>
+            verifyNodeInCeramic(inputValue.trim(), signatureValue.trim(), account)
+          }
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
-          {/* {isLoading ? "Adding your node" : "Verify node for rewards"} */}
-          Disabled for maintenance.
+          {isVerifierLoading
+            ? verifierLoadingMessage
+            : "Verify node for rewards."}
         </button>
       </div>
     </div>
