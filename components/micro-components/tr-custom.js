@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/main.scss";
 import { DAILIES_SCORE_ARRAY_MAP } from '../../constants/dailies';
 
 const TrCustom = ({ address, id, openedChannels, closedChannels, setVisibleData, showCopyCode }) => {
