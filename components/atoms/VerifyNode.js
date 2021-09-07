@@ -463,7 +463,7 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         <button
           disabled={!signatureValue || isVerifierLoading}
           onClick={async () =>
-            verifyNodeInCeramic(inputValue, signatureValue, account)
+            verifyNodeInCeramic(inputValue.trim(), signatureValue.trim(), account)
           }
           style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
         >
