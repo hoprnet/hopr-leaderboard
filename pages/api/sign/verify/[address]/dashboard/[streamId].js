@@ -68,7 +68,7 @@ export default async (req, res) => {
 
         return res.status(200).json({
           status: "ok",
-          streamId: streamId,
+          streamId: dashboard.id.toString(),
           message: `The dashboard update was recorded into the Ceramic network.`,
         });
       } else {
