@@ -34,7 +34,7 @@ export default async (req, res) => {
 
   return res.status(200).json({
     status: "ok",
-    tileId: records.id.toString(),
+    streamId: records.id.toString(),
     records: addressRecords,
   });
 };

@@ -82,21 +82,29 @@ const dataTable = [
 
 const Records = ({ account }) => {
   const [records, setRecords] = useState([]);
+  const [isPinned, setPinned] = useState(false);
+
+  const loadRecords = async () => {
+    const { records, streamId } = await (
+      await fetch(`/api/sign/get/${account}`)
+    ).json();
+    const { isPinned } = await (await fetch(`/api/pin/get/${streamId}`)).json();
+    setRecords(records);
+    setPinned(isPinned);
+  };
+
   useEffect(() => {
-    const loadRecords = async () => {
-      console.log("LODAING..")
-      const { records } = await (await fetch(`/api/sign/get/${account}`)).json();
-      setRecords(records);
-    };
     account && account.length == 42 && loadRecords();
   }, [account]);
+
   return account ? (
     <div className="box-container-table" style={{ height: "auto" }}>
       <table>
         <thead>
           <tr>
-            <th colSpan="2" style={{ color: "black" }}>
-              verified nodes
+            <th style={{ color: "black" }}>verified nodes</th>
+            <th style={{ color: isPinned ? "green" : "red" }}>
+              {isPinned ? "pinned" : records.length > 0 ? <button onClick={loadRecords}>pin</button> : 'no nodes'}
             </th>
           </tr>
           <tr>
@@ -116,13 +124,15 @@ const Records = ({ account }) => {
         </tbody>
       </table>
     </div>
-  ) : (<></>)
-}
+  ) : (
+    <></>
+  );
+};
 
 export default function HoprAllocation() {
   const { account } = useEthers();
-  const [addressToLoad, setAddressToLoad] = useState('')
-  
+  const [addressToLoad, setAddressToLoad] = useState("");
+
   return (
     <Layout>
       <div className="box special-table-top">
@@ -146,14 +156,20 @@ export default function HoprAllocation() {
             </div> */}
           </div>
         </div>
-        <SearchBar searchTerm={addressToLoad} setSearchTerm={setAddressToLoad} inputPlaceholder="0x1234..." labelMessage="Paste an Ethereum address to see their registered nodes." />
+        <SearchBar
+          searchTerm={addressToLoad}
+          setSearchTerm={setAddressToLoad}
+          inputPlaceholder="0x1234..."
+          labelMessage="Paste an Ethereum address to see their registered nodes."
+        />
         <div className="box-main-area remove-all-padding aux-add-top ">
           <div className="box-main-area">
             <div className="quick-code">
               <small>
-                Verify your node to register your on-chain activity. You’ll
-                be airdropped an NFT in the xDAI network usable in our staking
-                program based on the nodes you register and their on-chain activity.
+                Verify your node to register your on-chain activity. You’ll be
+                airdropped an NFT in the xDAI network usable in our staking
+                program based on the nodes you register and their on-chain
+                activity.
               </small>
               <br />
               <br />
@@ -167,7 +183,7 @@ export default function HoprAllocation() {
             <Connectors address={account} connectIdx={false} />
           </div>
           <br />
-          <Records account={addressToLoad != '' ? addressToLoad : account} />
+          <Records account={addressToLoad != "" ? addressToLoad : account} />
           <BoxRemember />
         </div>
       </div>
