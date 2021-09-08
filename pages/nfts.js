@@ -83,6 +83,7 @@ const dataTable = [
 const Records = ({ account }) => {
   const [records, setRecords] = useState([]);
   const [isPinned, setPinned] = useState(false);
+  const [streamId, setStreamId] = useState();
 
   const loadRecords = async () => {
     const { records, streamId } = await (
@@ -91,6 +92,12 @@ const Records = ({ account }) => {
     const { isPinned } = await (await fetch(`/api/pin/get/${streamId}`)).json();
     setRecords(records);
     setPinned(isPinned);
+    setStreamId(streamId);
+  };
+
+  const pinRecord = async (streamId) => {
+    await fetch(`/api/pin/${streamId}`);
+    await loadRecords();
   };
 
   useEffect(() => {
@@ -104,7 +111,13 @@ const Records = ({ account }) => {
           <tr>
             <th style={{ color: "black" }}>verified nodes</th>
             <th style={{ color: isPinned ? "green" : "red" }}>
-              {isPinned ? "pinned" : records.length > 0 ? <button onClick={loadRecords}>pin</button> : 'no nodes'}
+              {isPinned ? (
+                "pinned"
+              ) : records.length > 0 ? (
+                <button onClick={() => pinRecord(streamId)}>pin</button>
+              ) : (
+                "no nodes"
+              )}
             </th>
           </tr>
           <tr>
