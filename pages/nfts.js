@@ -3,84 +3,21 @@ import Layout from "../components/layout/layout.js";
 import BoxRemember from "../components/micro-components/box-remember";
 import SearchBar from "../components/micro-components/search-bar";
 import { Connectors } from "../components/molecules/Connectors";
+import {
+  HOPR_WEB3_SIGNATURE_DOMAIN,
+  HOPR_WEB3_SIGNATURE_TYPES,
+} from "../constants/hopr";
 import { truncate } from "../utils/string";
 import { useEthers } from "@usedapp/core";
 import Link from "next/link";
 
-const dataTable = [
-  {
-    rank: "1",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "40,000",
-  },
-  {
-    rank: "2",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "20,000",
-  },
-  {
-    rank: "3",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "15,000",
-  },
-  {
-    rank: "4",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "10,000",
-  },
-  {
-    rank: "5",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "7,500",
-  },
-  {
-    rank: "6",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "6,000",
-  },
-  {
-    rank: "7",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "4,00",
-  },
-  {
-    rank: "8",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "3,000",
-  },
-  {
-    rank: "9",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "2,500",
-  },
-  {
-    rank: "10",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "2,000",
-  },
-  {
-    rank: "11-20",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "1,500",
-  },
-  {
-    rank: "21-50",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "1,000",
-  },
-  {
-    rank: "51-100",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "500",
-  },
-  {
-    rank: "101-200",
-    address: "0xAAe9F525Ab123801dd2665981E948309DF0b2E20",
-    prize: "200",
-  },
-];
+const getWeb3SignatureEthereumContents = (hoprAddress, ethAddress) => ({
+  hoprAddress,
+  ethAddress,
+});
 
 const Records = ({ account }) => {
+  const { library } = useEthers()
   const [records, setRecords] = useState([]);
   const [isPinned, setPinned] = useState(false);
   const [streamId, setStreamId] = useState();
@@ -95,13 +32,73 @@ const Records = ({ account }) => {
     setStreamId(streamId);
   };
 
+  const sendSignatureToAPI = async (endpoint, signature, message) => {
+    const response = await fetch(endpoint, {
+      body: JSON.stringify({ signature, message }),
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+    }).then((res) => res.json());
+    console.log("SIGNATURE RESPONSE", response);
+    return response;
+  };
+
   const pinRecord = async (streamId) => {
     await fetch(`/api/pin/${streamId}`);
     await loadRecords();
   };
 
+  const sendSignatureForDeletion = async (signature, message) => {
+    const response = await sendSignatureToAPI(
+      `/api/sign/delete/${account}`,
+      signature,
+      message
+    );
+    return response;
+  };
+
+  const getSignatureAndMessage = async (
+    hoprAddress,
+    ethAddress
+  ) => {
+    const message = getWeb3SignatureEthereumContents(
+      hoprAddress,
+      ethAddress
+    );
+    console.log("SIGNATURE", message, hoprAddress, ethAddress);
+    const signature = await library
+      .getSigner()
+      ._signTypedData(
+        HOPR_WEB3_SIGNATURE_DOMAIN,
+        HOPR_WEB3_SIGNATURE_TYPES,
+        message
+      );
+      console.log("SIGNATURE", signature);
+    return { message, signature };
+  };
+
+  const deleteRecord = async (hoprAddress, ethAddress) => {
+    const { signature, message } = await getSignatureAndMessage(
+      hoprAddress,
+      ethAddress
+    );
+    const signingResponse = await sendSignatureForDeletion(
+      signature,
+      message
+    );
+    console.log("SIGNING RESPONSE", signingResponse);
+    await loadRecords();
+  }
+
   useEffect(() => {
     account && account.length == 42 && loadRecords();
+    return(() => {
+      setRecords([]);
+      setPinned(false);
+      setStreamId(null);
+    })
   }, [account]);
 
   return account ? (
@@ -110,7 +107,7 @@ const Records = ({ account }) => {
         <thead>
           <tr>
             <th style={{ color: "black" }}>verified nodes</th>
-            <th style={{ color: isPinned ? "green" : "red" }}>
+            <th colSpan="2" style={{ color: isPinned ? "green" : "red" }}>
               {isPinned ? (
                 "pinned"
               ) : records.length > 0 ? (
@@ -123,6 +120,7 @@ const Records = ({ account }) => {
           <tr>
             <th scope="col">account</th>
             <th scope="col">node</th>
+            { library && <th scope="col">action</th> }
           </tr>
         </thead>
         <tbody>
@@ -131,6 +129,7 @@ const Records = ({ account }) => {
               <tr key={hoprNode}>
                 <td data-label="account">{truncate(account)}</td>
                 <td data-label="node">{truncate(hoprNode)}</td>
+                { library && <td data-label="action"><button onClick={() => deleteRecord(hoprNode, account)}>delete</button></td> }
               </tr>
             );
           })}
