@@ -24,7 +24,7 @@ const Records = ({ account }) => {
 
   const loadRecords = async () => {
     const { records, streamId } = await (
-      await fetch(`/api/sign/get/${account}`)
+      await fetch(`/api/get/${account}`)
     ).json();
     const { isPinned } = await (await fetch(`/api/pin/get/${streamId}`)).json();
     setRecords(records);

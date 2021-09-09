@@ -5,7 +5,7 @@ import CeramicClient from "@ceramicnetwork/http-client";
 import { TileDocument } from "@ceramicnetwork/stream-tile";
 import {
   CERAMIC_API_URL,
-} from "../../../../constants/ceramic";
+} from "../../../constants/ceramic";
 
 import { utils } from "ethers";
 
@@ -16,21 +16,25 @@ const provider = new Ed25519Provider(secretKey);
 const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
 
+const filterPerAddress = (records, address) => Object.keys(records.content).filter(hoprNode => records.content[hoprNode] == address);
+
 export default async (req, res) => {
-  const { flattened } = req.query;
+  const { address } = req.query;
   await did.authenticate();
   client.setDID(did);
 
   const records = await TileDocument.create(
     client,
     null,
-    { deterministic: true, family: "hopr-wildhorn", tags: ["hopr-dashboard"] },
+    { deterministic: true, family: "hopr-wildhorn", tags: [address] },
     { anchor: false, publish: false }
   );
 
+  const addressRecords = filterPerAddress(records, address);
+
   return res.status(200).json({
     status: "ok",
-    tileId: records.id.toString(),
-    records: records.content,
+    streamId: records.id.toString(),
+    records: addressRecords,
   });
 };
