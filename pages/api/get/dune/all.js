@@ -75,11 +75,11 @@ export default async (req, res) => {
           MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
         return ({
           ethAddress: acc.ethAddress
-            ? `${acc.ethAddress},${ethAddress}`
-            : ethAddress,
+            ? `${acc.ethAddress},${ethAddress.toLowerCase()}`
+            : ethAddress.toLowerCase(),
           hoprAddresses: acc.hoprAddresses
-            ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(val)}`
-            : convertHoprAddressToETHAddress(val),
+            ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(val).toLowerCase()}`
+            : convertHoprAddressToETHAddress(val).toLowerCase(),
           length: acc.length + 1
         });
       },
