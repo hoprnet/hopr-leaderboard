@@ -40,6 +40,8 @@ export default async (req, res) => {
 
   const LIMIT_NODES_PER_ETH_IN_DUNE = 180;
   let MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS = 0;
+  const UNIQUE_ETH_ADDRESS_REGISTERED = [];
+  let TOTAL_AMOUNT_OF_NODES = 0;
   
   const unfilteredRegistrationRecords = Object.keys(streamMap).map((streamId) => {
     /*
@@ -57,6 +59,8 @@ export default async (req, res) => {
     const doc = streamMap[streamId];
     const ethAddress = records.content[streamId];
     const hoprAddresses = Object.keys(doc.content);
+    TOTAL_AMOUNT_OF_NODES += hoprAddresses ? (hoprAddresses.length || 0) : 0;
+    UNIQUE_ETH_ADDRESS_REGISTERED.push(ethAddress);
 
     const duneFormatPerAddress = hoprAddresses.length > 0 && hoprAddresses.reduce(
       (acc, val) => {
@@ -108,8 +112,6 @@ export default async (req, res) => {
     }
    */
 
-    console.log("Pre flatten Records", registrationRecords);
-
   const flattenedRegistrationRecords = registrationRecords.reduce((acc, val, index, allRecords) => {
       const currentBatchLength = acc.currentLength + val.length;
       const nextLength = allRecords[index + 1] ? allRecords[index + 1].length : 0;
@@ -159,9 +161,6 @@ export default async (req, res) => {
     }, { allBatches: [], currentBatch: { ethAddress: "", hoprAddresses: "" }, currentLength: 0 }
   );
 
-  console.log("Records", flattenedRegistrationRecords);
-  console.log("Max Records", SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE);
-
   if (parsed) {
     const sqlBlock = (obj) => `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`
     const parsed = flattenedRegistrationRecords.allBatches.reduce((acc, cur, index) => index === 0 ? sqlBlock(cur) : acc + ' UNION ALL ' + sqlBlock(cur), '');
@@ -171,6 +170,9 @@ export default async (req, res) => {
   return res.status(200).json({
     status: "ok",
     tileId: records.id.toString(),
+    ethAddresses: UNIQUE_ETH_ADDRESS_REGISTERED,
+    uniqueEthAddresses: UNIQUE_ETH_ADDRESS_REGISTERED.length,
+    totalNodes: TOTAL_AMOUNT_OF_NODES,
     records: flattenedRegistrationRecords.allBatches,
   });
 };
