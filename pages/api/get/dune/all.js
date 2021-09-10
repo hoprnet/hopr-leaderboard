@@ -42,19 +42,15 @@ export default async (req, res) => {
 
   const allStreams = Object.keys(records.content);
   console.log("ALL STREAMS", allStreams)
-  const streams = allStreams.slice(100);
+  const streams = allStreams.slice(0, 100);
 
-  const duneReadyParsedRecordPromises = streams.map(async (streamId) => {
-    const ethAddress = records.content[streamId];
+  const queries = streams.map(streamId => ({ streamId }))
+  const streamMap = await client.multiQuery(queries)
 
-    const doc = await TileDocument.create(
-      client,
-      null,
-      { deterministic: true, family: "hopr-wildhorn", tags: [ethAddress] },
-      { anchor: false, publish: false }
-    );
-
-    const hoprAddresses = Object.keys(doc.content);
+  const LIMIT_NODES_PER_ETH_IN_DUNE = 180;
+  let MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS = 0;
+  
+  const unfilteredRegistrationRecords = Object.keys(streamMap).map((streamId) => {
     /*
       Considering we have 1 ETH -> * HOPR_Address, we need to produce as a result
       an string that's able to reprsent the relationship between ETH addresses and
@@ -67,9 +63,16 @@ export default async (req, res) => {
       ethAddress = 0x1234...,0x1234...
       hoprAddress = 16u2111...,16u2222... 
      */
-    console.log("ADDRESSES", hoprAddresses);
+    const doc = streamMap[streamId];
+    const ethAddress = records.content[streamId];
+    const hoprAddresses = Object.keys(doc.content);
+
     const duneFormatPerAddress = hoprAddresses.length > 0 && hoprAddresses.reduce(
       (acc, val) => {
+        MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS = 
+          acc.length > MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS ?
+          acc.length :
+          MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
         return ({
           ethAddress: acc.ethAddress
             ? `${acc.ethAddress},${ethAddress}`
@@ -77,16 +80,17 @@ export default async (req, res) => {
           hoprAddresses: acc.hoprAddresses
             ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(val)}`
             : convertHoprAddressToETHAddress(val),
+          length: acc.length + 1
         });
       },
-      { ethAddress: "", hoprAddresses: "" }
+      { ethAddress: "", hoprAddresses: "", length: 0 }
     );
 
     return duneFormatPerAddress;
   });
 
-  const unfilteredRegistrationRecords = await Promise.all(duneReadyParsedRecordPromises);
   const registrationRecords = unfilteredRegistrationRecords.filter( record => !!record );
+  const SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE = LIMIT_NODES_PER_ETH_IN_DUNE - MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
   /*
    With the multiple records organized in structures ready to be flatten, we
    can now return a single string line for a given amount of entries. For better
@@ -115,25 +119,61 @@ export default async (req, res) => {
 
     console.log("Pre flatten Records", registrationRecords);
 
-  const flattenedRegistrationRecords = registrationRecords.reduce(
-    (acc, val) => {
-      return {
-        ethAddress: acc.ethAddress
-          ? `${acc.ethAddress},${val.ethAddress}`
+  const flattenedRegistrationRecords = registrationRecords.reduce((acc, val, index, allRecords) => {
+      const currentBatchLength = acc.currentLength + val.length;
+      const nextLength = allRecords[index + 1] ? allRecords[index + 1].length : 0;
+
+      /*
+      We create the batches for flattening based on our SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE,
+      which allows us to wrap them in a value that Dune can understand. To do so, we iterate
+      over all the existing valid records, and separate them in batches where
+
+      [0 < batch.length < SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE]
+
+      by counting the total of the current node length and the batch's length. Whenever batch.length
+      is more than our limit, we create a new batch and restart all counters.
+
+      e.g. records = . ..  . . .... . .. . . ..... . . . .... .. . . , upperLimit = 5
+      records.reduce => [., .., ., .], [...., .], [.., ., .,], [.....], [., ., .,], [....], [.., ., .]
+      */
+
+      const currentBatchWithNewRecord = {
+        ethAddress: acc.currentBatch.ethAddress
+          ? `${acc.currentBatch.ethAddress},${val.ethAddress}`
           : val.ethAddress,
-        hoprAddresses: acc.hoprAddresses
-          ? `${acc.hoprAddresses},${val.hoprAddresses}`
+        hoprAddresses: acc.currentBatch.hoprAddresses
+          ? `${acc.currentBatch.hoprAddresses},${val.hoprAddresses}`
           : val.hoprAddresses,
       };
-    },
-    { ethAddress: "", hoprAddresses: "" }
+      let allBatches, currentBatch, currentLength;
+      if (currentBatchLength + nextLength > (SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE)) {
+        // We are at our max batch rate, and it's time to create a new one,
+        // we reset the currentBatch to start the new one, as well as length.
+        allBatches = acc.allBatches.concat(currentBatchWithNewRecord)
+        currentBatch = { ethAddress: "", hoprAddress: "" }
+        currentLength = 0;
+      } else {
+        // We can keep the current one, concatenate it and send it to the batch,
+        // if there's no next value, we append our current batch to allBatches,
+        // otherwise, it remains the same as before.
+        if (!allRecords[index + 1]) {
+          allBatches = acc.allBatches.concat(currentBatchWithNewRecord)
+        } else {
+          allBatches = acc.allBatches;
+        }
+        currentBatch = currentBatchWithNewRecord;
+        currentLength = currentBatchLength;
+      }
+      return { allBatches, currentBatch, currentLength }
+    }, { allBatches: [], currentBatch: { ethAddress: "", hoprAddresses: "" }, currentLength: 0 }
   );
 
   console.log("Records", flattenedRegistrationRecords);
+  console.log("Max Records", SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE);
 
   return res.status(200).json({
     status: "ok",
     tileId: records.id.toString(),
-    records: flattenedRegistrationRecords,
+    records: flattenedRegistrationRecords.allBatches,
   });
 };
