@@ -23,7 +23,7 @@ const convertHoprAddressToETHAddress = (hoprAddress) => {
 }
 
 export default async (req, res) => {
-  const { flattened } = req.query;
+  const { parsed } = req.query;
   await did.authenticate();
   client.setDID(did);
 
@@ -34,16 +34,7 @@ export default async (req, res) => {
     { anchor: false, publish: false }
   );
 
-  // const streams = [
-  //   Object.keys(records.content)[0],
-  //   "k2t6wyfsu4pg30809vivmrrqxawb3hm6yfluqzsvivfk3d928amo4kqokd6gol", // 2 entries
-  //   "k2t6wyfsu4pg2w843yg72227bt2y6mtficy6bnug68qqsoge8l20xyo4f6gnoc", // empty
-  // ];
-
-  const allStreams = Object.keys(records.content);
-  console.log("ALL STREAMS", allStreams)
-  const streams = allStreams.slice(0, 100);
-
+  const streams = Object.keys(records.content);
   const queries = streams.map(streamId => ({ streamId }))
   const streamMap = await client.multiQuery(queries)
 
@@ -170,6 +161,12 @@ export default async (req, res) => {
 
   console.log("Records", flattenedRegistrationRecords);
   console.log("Max Records", SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE);
+
+  if (parsed) {
+    const sqlBlock = (obj) => `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`
+    const parsed = flattenedRegistrationRecords.allBatches.reduce((acc, cur, index) => index === 0 ? sqlBlock(cur) : acc + ' UNION ALL ' + sqlBlock(cur), '');
+    return res.status(200).json({ parsed })
+  }
 
   return res.status(200).json({
     status: "ok",
