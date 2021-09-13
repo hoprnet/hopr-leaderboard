@@ -4,7 +4,6 @@ import { DID } from "dids";
 import CeramicClient from "@ceramicnetwork/http-client";
 import { TileDocument } from "@ceramicnetwork/stream-tile";
 import { CERAMIC_API_URL } from "../../../../../constants/ceramic";
-import { uniqueEthAddresses } from "../../../../../constants/missing/1/addresses";
 
 import { utils } from "ethers";
 
@@ -16,8 +15,12 @@ const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
 
 export default async (req, res) => {
+  const { batch } = req.query;
   await did.authenticate();
   client.setDID(did);
+
+  const addresses = await import(`../../../../../constants/missing/${batch}/addresses`);
+  const uniqueEthAddresses = addresses.uniqueEthAddresses;
 
   const resolvedStreams = await Promise.all(
     uniqueEthAddresses.map(async (ethAddress) => {

@@ -1,0 +1,85 @@
+export const uniqueEthAddresses = [
+  "0x4a2Dd4b190B6Dee6939709278b659eD5Ffcb9d92",
+  "0x7f4eDb8FCa00Cd0E8B02CDcf46cd0be76ce4C773",
+  "0x12184be6cF91cb528Df1F5759828B1c734442ED7",
+  "0xcf7fb3adc0a9a4e6f7caff2ca8c365325fd19277",
+  "0xd71a22B7D8a8F573A9580AB6Ff899d1d9FeA4b78",
+  "0xf2d3712102001C2D7C2fEc82227364b615199088",
+  "0x405b134A7a06886293df2eD6CE14fCc26162Dc9F",
+  "0x78D6f46b62688581C8eD59881C68e9f864A00436",
+  "0x68F1173Ae6D96A11D05f6dbd7D3226855e4c4C5b",
+  "0x405e7329594fB2778aA8628eDf5ec9712F1F9a79",
+  "0x292A2Ddf2D978cfF010B0e727BB43a8664c0723e",
+  "0x043cF91b4eC1c8Ab0DF17F8F61355c2181c91AeD",
+  "0x65C13724928ea0AfA68e09c7b70449bB8f6f3Fc8",
+  "0xd114fE967B1d6A10E21A89868369C1EeD669A560",
+  "0xa6cf43fE0B47D5Da8f03258B37F1cAf148955019",
+  "0x21eCaF1598A17E69232637eC2cEA8EcbAF33BED6",
+  "0xf769B3FfCe1F5AE095Cfd5959E04f40bE4a6Ad0D",
+  "0x405b134A7a06886293df2eD6CE14fCc26162Dc9F",
+  "0xba540Bb14101cBd4170DF90408C0B9EC6c86273c",
+  "0xc8C3e484dDF92069eb3226dF266C2C262902D835",
+];
+
+export const streams = [
+  "k2t6wyfsu4pfy8qxm1a6zmih07j8ek73w7q6e1rb5ph1ftssi9kwy4f7wem600",
+  "k2t6wyfsu4pfxo2ypho9e66m9r8yjs7wgdm8w2ih7fext0w3tamxz4piju04od",
+  "k2t6wyfsu4pfz804dm0ogw2wn3g8x2zsu6cbiz2sdg8o7np0w6qgprneuziw93",
+  "k2t6wyfsu4pg0xmi5v61d9crp4fcq9o5m3r7u5ftpa2t2fypznmq19ipc8jjl7",
+  "k2t6wyfsu4pg0tfdtkpx7e8fqhpy6rm3au6bnf1nq6oawgovu41bgzatz8u87f",
+  "k2t6wyfsu4pg1cmb14thhqiaz73ffxnrd7k1rsw2x8log6ln1heo302m7mea1w",
+  "k2t6wyfsu4pg2xwc2va0ouu06o040klmajz02qjpzd794n1wpdb2z63liskjn9",
+  "k2t6wyfsu4pg2wsllh9t2i9mshyyjdbqvhpkclndpppxi55ra1lezvhxlby0ww",
+  "k2t6wyfsu4pg1nprspxpzmf4yychq880ly3f2ximv6ebc6f3hkb8hewc51p48g",
+  "k2t6wyfsu4pfxtqc9a94liigg6ddw07986hsmx1y8kja2d23ael5efywhf827r",
+  "k2t6wyfsu4pg27uqc3ouek9o89zxsqrjevlmry9irdpvscjxq5ryhft6jzexj2",
+  "k2t6wyfsu4pfy4gh3rbez7mfr3plqwcfcgzln92kvp0384u0xwhascgi8j1x4p",
+  "k2t6wyfsu4pg03jlvmv7n7gxq4gn0651z7rpcv2kbv2icbd5ejcwu5ujjo3ox0",
+  "k2t6wyfsu4pg2ddle4c0irz4jpdw39i40ndvn4e9sku0fx2mjd2m1g2e7y8l6s",
+  "k2t6wyfsu4pfz590col4oin0p3zcz29bxai5t7hlc1i5gipbai2ugpug1x5nw0",
+  "k2t6wyfsu4pfziagfkn6sg36hmk8ov7k5tl1jmhfgvaxrxxcjx3ru1voabxxg6",
+  "k2t6wyfsu4pg2vjdnf3wkqd15kkj2l25gwaj3axf8m1red6vu2vl3xlbk9phkl",
+  "k2t6wyfsu4pfzsa2nq7e7avhnrgca4p1ahfs749xk5no1kmfwru5vp1esf4h2m",
+  "k2t6wyfsu4pg0gqz57q9u05038p4vo2bdnp8bewsxfa0mb1r0p06awovno1vjp",
+];
+
+export const streamsMap = {
+  k2t6wyfsu4pfy8qxm1a6zmih07j8ek73w7q6e1rb5ph1ftssi9kwy4f7wem600:
+    "0x4a2Dd4b190B6Dee6939709278b659eD5Ffcb9d92",
+  k2t6wyfsu4pfxo2ypho9e66m9r8yjs7wgdm8w2ih7fext0w3tamxz4piju04od:
+    "0x7f4eDb8FCa00Cd0E8B02CDcf46cd0be76ce4C773",
+  k2t6wyfsu4pfz804dm0ogw2wn3g8x2zsu6cbiz2sdg8o7np0w6qgprneuziw93:
+    "0x12184be6cF91cb528Df1F5759828B1c734442ED7",
+  k2t6wyfsu4pg0xmi5v61d9crp4fcq9o5m3r7u5ftpa2t2fypznmq19ipc8jjl7:
+    "0xcf7fb3adc0a9a4e6f7caff2ca8c365325fd19277",
+  k2t6wyfsu4pg0tfdtkpx7e8fqhpy6rm3au6bnf1nq6oawgovu41bgzatz8u87f:
+    "0xd71a22B7D8a8F573A9580AB6Ff899d1d9FeA4b78",
+  k2t6wyfsu4pg1cmb14thhqiaz73ffxnrd7k1rsw2x8log6ln1heo302m7mea1w:
+    "0xf2d3712102001C2D7C2fEc82227364b615199088",
+  k2t6wyfsu4pg2xwc2va0ouu06o040klmajz02qjpzd794n1wpdb2z63liskjn9:
+    "0x405b134A7a06886293df2eD6CE14fCc26162Dc9F",
+  k2t6wyfsu4pg2wsllh9t2i9mshyyjdbqvhpkclndpppxi55ra1lezvhxlby0ww:
+    "0x78D6f46b62688581C8eD59881C68e9f864A00436",
+  k2t6wyfsu4pg1nprspxpzmf4yychq880ly3f2ximv6ebc6f3hkb8hewc51p48g:
+    "0x68F1173Ae6D96A11D05f6dbd7D3226855e4c4C5b",
+  k2t6wyfsu4pfxtqc9a94liigg6ddw07986hsmx1y8kja2d23ael5efywhf827r:
+    "0x405e7329594fB2778aA8628eDf5ec9712F1F9a79",
+  k2t6wyfsu4pg27uqc3ouek9o89zxsqrjevlmry9irdpvscjxq5ryhft6jzexj2:
+    "0x292A2Ddf2D978cfF010B0e727BB43a8664c0723e",
+  k2t6wyfsu4pfy4gh3rbez7mfr3plqwcfcgzln92kvp0384u0xwhascgi8j1x4p:
+    "0x043cF91b4eC1c8Ab0DF17F8F61355c2181c91AeD",
+  k2t6wyfsu4pg03jlvmv7n7gxq4gn0651z7rpcv2kbv2icbd5ejcwu5ujjo3ox0:
+    "0x65C13724928ea0AfA68e09c7b70449bB8f6f3Fc8",
+  k2t6wyfsu4pg2ddle4c0irz4jpdw39i40ndvn4e9sku0fx2mjd2m1g2e7y8l6s:
+    "0xd114fE967B1d6A10E21A89868369C1EeD669A560",
+  k2t6wyfsu4pfz590col4oin0p3zcz29bxai5t7hlc1i5gipbai2ugpug1x5nw0:
+    "0xa6cf43fE0B47D5Da8f03258B37F1cAf148955019",
+  k2t6wyfsu4pfziagfkn6sg36hmk8ov7k5tl1jmhfgvaxrxxcjx3ru1voabxxg6:
+    "0x21eCaF1598A17E69232637eC2cEA8EcbAF33BED6",
+  k2t6wyfsu4pg2vjdnf3wkqd15kkj2l25gwaj3axf8m1red6vu2vl3xlbk9phkl:
+    "0xf769B3FfCe1F5AE095Cfd5959E04f40bE4a6Ad0D",
+  k2t6wyfsu4pfzsa2nq7e7avhnrgca4p1ahfs749xk5no1kmfwru5vp1esf4h2m:
+    "0xba540Bb14101cBd4170DF90408C0B9EC6c86273c",
+  k2t6wyfsu4pg0gqz57q9u05038p4vo2bdnp8bewsxfa0mb1r0p06awovno1vjp:
+    "0xc8C3e484dDF92069eb3226dF266C2C262902D835",
+};

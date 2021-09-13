@@ -44,9 +44,6 @@ export default async (req, res) => {
     await did.authenticate();
     client.setDID(did);
 
-    console.log("ETH Address", ethAddress);
-    console.log("HOPR Address", hoprAddress);
-
     const docs = await TileDocument.create(client, null, {
         deterministic: true,
         tags: [ethAddress],

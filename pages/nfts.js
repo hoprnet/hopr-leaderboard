@@ -41,7 +41,6 @@ const Records = ({ account }) => {
         Accept: "application/json",
       }),
     }).then((res) => res.json());
-    console.log("SIGNATURE RESPONSE", response);
     return response;
   };
 
@@ -67,7 +66,6 @@ const Records = ({ account }) => {
       hoprAddress,
       ethAddress
     );
-    console.log("SIGNATURE", message, hoprAddress, ethAddress);
     const signature = await library
       .getSigner()
       ._signTypedData(
@@ -75,7 +73,6 @@ const Records = ({ account }) => {
         HOPR_WEB3_SIGNATURE_TYPES,
         message
       );
-      console.log("SIGNATURE", signature);
     return { message, signature };
   };
 
@@ -88,7 +85,6 @@ const Records = ({ account }) => {
       signature,
       message
     );
-    console.log("SIGNING RESPONSE", signingResponse);
     await loadRecords();
   }
 
