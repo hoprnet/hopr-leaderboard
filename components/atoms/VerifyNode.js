@@ -37,7 +37,6 @@ const sendSignatureToAPI = async (endpoint, signature, message) => {
       Accept: "application/json",
     }),
   }).then((res) => res.json());
-  console.log("SIGNATURE RESPONSE", response);
   return response;
 };
 
@@ -196,7 +195,6 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
 
   const pinStreamId = async (streamId) => {
     const response = await (await fetch(`/api/pin/${streamId}`)).json();
-    console.log("PIN RESPONSE", response);
     return response;
   };
 
@@ -242,7 +240,6 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
           return;
         }
         const nodeStreamId = signingResponse.streamId;
-        console.log("RESPONSE AND PIN", signingResponse, nodeStreamId);
         setVerifierLoadingMessage("Node successfully verified.");
 
         await new Promise((res) =>
@@ -283,7 +280,6 @@ export const VerifyNode = ({ idx, copyCodeToClipboard }) => {
         setVerifiedLoading(false);
         return;
       } catch (e) {
-        console.log("ERROR Registered", e);
         setVerifierLoadingMessage("Something went wrong, try again.");
         await new Promise((res) =>
           setTimeout(() => {

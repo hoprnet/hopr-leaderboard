@@ -80,8 +80,6 @@ export default async (req, res) => {
     return duneFormatPerAddress;
   });
 
-  console.log("UNFILTED", unfilteredRegistrationRecords)
-
   const registrationRecords = unfilteredRegistrationRecords.filter( record => !!record );
   const SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE = LIMIT_NODES_PER_ETH_IN_DUNE - MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
   /*

@@ -42,7 +42,6 @@ export async function getAllAccounts() {
 
 export async function getAllData() {
   const accounts = await getAllAccounts() || []
-  console.log("Getting All Data", accounts)
   const [state] = await Promise.all([
     getData(FirebaseNetworkTables.state).then((res) => res.data),
   ]);
