@@ -6,7 +6,6 @@ import { TileDocument } from "@ceramicnetwork/stream-tile";
 import { CERAMIC_API_URL } from "../../../../../../constants/ceramic";
 import PeerId from "peer-id";
 import { PublicKey } from "@hoprnet/hopr-utils";
-import { streams, streamsMap } from "../../../../../../constants/missing/1/addresses"
 
 import { utils } from "ethers";
 
@@ -24,9 +23,12 @@ const convertHoprAddressToETHAddress = (hoprAddress) => {
 }
 
 export default async (req, res) => {
-  const { parsed } = req.query;
+  const { parsed, batch } = req.query;
   await did.authenticate();
   client.setDID(did);
+
+  const addresses = await import(`../../../../../../constants/missing/${batch}/addresses`);
+  const { streams, streamsMap } = addresses;
 
   const queries = streams.map(streamId => ({ streamId }))
   const streamMap = await client.multiQuery(queries)
@@ -78,6 +80,8 @@ export default async (req, res) => {
     return duneFormatPerAddress;
   });
 
+  console.log("UNFILTED", unfilteredRegistrationRecords)
+
   const registrationRecords = unfilteredRegistrationRecords.filter( record => !!record );
   const SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE = LIMIT_NODES_PER_ETH_IN_DUNE - MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
   /*
@@ -105,7 +109,6 @@ export default async (req, res) => {
       hoprAddresses: '16Uiu2HAm8NkpLp4NDJCMJcKWQTU3eMZA26cTYcsXvhaTcjVvZUTV','16Uiu2HAm2WFVcLD8vxuMZDDUFokjVFu8pPTFmjixKD2r3JgH9FjV,16Uiu2HAmBgdPEXbhnYhL2nKoX9KY9Rrr162ADW4cLs43KGgbD4tE'
     }
    */
-
   const flattenedRegistrationRecords = registrationRecords.reduce((acc, val, index, allRecords) => {
       const currentBatchLength = acc.currentLength + val.length;
       const nextLength = allRecords[index + 1] ? allRecords[index + 1].length : 0;
