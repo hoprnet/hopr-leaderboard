@@ -4,8 +4,7 @@ import { DID } from "dids";
 import CeramicClient from "@ceramicnetwork/http-client";
 import { TileDocument } from "@ceramicnetwork/stream-tile";
 import { CERAMIC_API_URL } from "../../../../constants/ceramic";
-import PeerId from "peer-id";
-import { PublicKey } from "@hoprnet/hopr-utils";
+import { convertHoprAddressToETHAddress } from "../../../../utils/hopr";
 
 import { utils } from "ethers";
 
@@ -15,12 +14,6 @@ const secretKey = Uint8Array.from(
 const provider = new Ed25519Provider(secretKey);
 const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 const client = new CeramicClient(CERAMIC_API_URL);
-
-const convertHoprAddressToETHAddress = (hoprAddress) => {
-  const pId = PeerId.createFromB58String(hoprAddress);
-  const ethAddress = PublicKey.fromPeerId(pId).toAddress().toHex();
-  return ethAddress; 
-}
 
 export default async (req, res) => {
   const { parsed } = req.query;
