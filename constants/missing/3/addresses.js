@@ -28,11 +28,11 @@ export const nodesMap = [
   },
   {
     ethAddress: "0x5cF3967b719552A0644d7EFe0bb980Be38DaAA18",
-    hoprAddresses: ["16Uiu2HAm7FmSYENhU8GjUzPJLsSNKLpVsx6SMTqx65muhexnN9Wd "],
+    hoprAddresses: ["16Uiu2HAm7FmSYENhU8GjUzPJLsSNKLpVsx6SMTqx65muhexnN9Wd"],
   },
   {
     ethAddress: "0xcf39D9CF1E3122B6Bc9ec9db19bEEbB7E77ae6c9",
-    hoprAddresses: ["16Uiu2HAkwW1MsTDHvWbPbuzp2UXyzTuN5ZCS5oehd8eGvLb2nrh5 "],
+    hoprAddresses: ["16Uiu2HAkwW1MsTDHvWbPbuzp2UXyzTuN5ZCS5oehd8eGvLb2nrh5"],
   },
   {
     ethAddress: "0x513abfE91F0902c005C01a1A7C5a14b87aB74C10",
@@ -587,10 +587,6 @@ export const nodesMap = [
     hoprAddresses: ["16Uiu2HAkzg9thvkJ6PnmrAqxCxkiqq4So2gMUcMuY6BKmYgYGkm1"],
   },
   {
-    ethAddress: "0xB757c9A22958a4124a62b67C96591E4faeAC822a",
-    hoprAddresses: ["0x0CfeA9FF3245c025199b184e9832ffC4ADCEB8D1"],
-  },
-  {
     ethAddress: "0xFc04aEfE621f6065B7A8B147Cc6086498f24cA8E",
     hoprAddresses: ["16Uiu2HAmAwCjZrH7g7FNUA9SrTtakxW6WL5fo6kTj5KYcAG3HDch"],
   },
@@ -613,10 +609,6 @@ export const nodesMap = [
   {
     ethAddress: "0xfF353b7b261bD132bB99b32148C985E174f58e71",
     hoprAddresses: ["16Uiu2HAmCecs3apJQW4NRK5zaUETxMGssqLQJyCAQNCnjkVp8Mm7"],
-  },
-  {
-    ethAddress: "0x7f8c75Ef3f70C9934a47eE6B05F4000aa399C64b",
-    hoprAddresses: ["0x082b8a4f8eb6cAFCB631c27fE401428bEBAB6A8E"],
   },
   {
     ethAddress: "0x70Bca6C3FF5069452da503a17aC335E974a58D2D",
