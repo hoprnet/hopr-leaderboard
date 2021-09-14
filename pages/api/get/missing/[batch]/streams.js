@@ -19,28 +19,38 @@ export default async (req, res) => {
   await did.authenticate();
   client.setDID(did);
 
-  const addresses = await import(`../../../../../constants/missing/${batch}/addresses`);
-  const uniqueEthAddresses = addresses.uniqueEthAddresses;
-
-  const resolvedStreams = await Promise.all(
-    uniqueEthAddresses.map(async (ethAddress) => {
-      const records = await TileDocument.create(
-        client,
-        null,
-        { deterministic: true, family: "hopr-wildhorn", tags: [ethAddress] },
-        { anchor: false, publish: false }
-      );
-      return { ethAddress, streamId: records.id.toString() };
-    })
+  const addresses = await import(
+    `../../../../../constants/missing/${batch}/addresses`
   );
 
-  const streams = resolvedStreams.reduce((acc, val) => {
-    acc[val.streamId] = val.ethAddress
-    return acc;
-  }, {})
+  try {
+    const uniqueEthAddresses = addresses.uniqueEthAddresses;
 
-  return res.status(200).json({
-    status: "ok",
-    streams,
-  });
+    const resolvedStreams = await Promise.all(
+      uniqueEthAddresses.map(async (ethAddress) => {
+        const records = await TileDocument.create(
+          client,
+          null,
+          { deterministic: true, family: "hopr-wildhorn", tags: [ethAddress] },
+          { anchor: false, publish: false }
+        );
+        return { ethAddress, streamId: records.id.toString() };
+      })
+    );
+
+    const streams = resolvedStreams.reduce((acc, val) => {
+      acc[val.streamId] = val.ethAddress;
+      return acc;
+    }, {});
+
+    return res.status(200).json({
+      status: "ok",
+      streams,
+    });
+  } catch {
+    return res.status(200).json({
+      status: "err",
+      message: "Batch doesn’t exist or has no streams to share.",
+    });
+  }
 };
