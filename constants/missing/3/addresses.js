@@ -1188,5 +1188,9 @@ export const nodesMap = [
   {
     ethAddress: "0x445c9da83C4211fa8829672785599Dd8180aDe7C",
     hoprAddresses: ["16Uiu2HAmGbFyH9dutihbqxDtmmJUD4wG2Gph1MARZpMmd4RXmZ1e"]
+  },
+  {
+    ethAddress: "0x95B30124aEeF1293302E6dC6cFd28895070B3934",
+    hoprAddresses: ["16Uiu2HAmVZPZs22iugpHCVFp9briFjQEHLokadMZADDq46NS6e6J"]
   }
 ];
