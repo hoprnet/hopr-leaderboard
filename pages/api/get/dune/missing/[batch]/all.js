@@ -208,6 +208,7 @@ export default async (req, res) => {
 
   return res.status(200).json({
     status: "ok",
+    ethAddresses: UNIQUE_ETH_ADDRESS_REGISTERED,
     uniqueEthAddresses: UNIQUE_ETH_ADDRESS_REGISTERED.length,
     totalNodes: TOTAL_AMOUNT_OF_NODES,
     records: flattenedRegistrationRecords.allBatches,

@@ -36,28 +36,33 @@ export default function Help() {
   useEffect(() => {
     
     const loadGetAll = async(global, repeated) => {
+      const endpoint = `/api/get/dune/all`
       setLoadingSetOne(true)
-      const getAllResponse = await (await fetch(`/api/get/all`)).json();
-      const all = Object.values(getAllResponse.records)
+      const getAllResponse = await (await fetch(endpoint)).json();
+      const all = getAllResponse.ethAddresses
       setAll(all);
-      console.log('[ loadGetAll ] Records from /get/all', all)
-      updateGlobalAndRepeatedWithRecords(global, repeated, all, `/api/get/all`)
+      console.log('[ loadGetAll ] Records from',endpoint, all)
+      updateGlobalAndRepeatedWithRecords(global, repeated, all, endpoint)
       setTimeout(() => setLoadingSetOne(false), 1000);
     }
     const loadMissingOne = async(global, repeated) => {
+      const endpoint = `/api/get/dune/missing/1/all`
       setLoadingMissingSetOne(true)
-      const getMissingOneResponse = await (await fetch(`/api/get/missing/1/all`)).json();
-      setMissingOneAll(getMissingOneResponse.addresses)
-      console.log('[ loadMissingOne ] Records from /get/missing/1/all', getMissingOneResponse.addresses)
-      updateGlobalAndRepeatedWithRecords(global, repeated, getMissingOneResponse.addresses, `/api/get/missing/1/all`)
+      const getMissingOneResponse = await (await fetch(endpoint)).json();
+      const missingOneAll = getMissingOneResponse.ethAddresses
+      setMissingOneAll(missingOneAll)
+      console.log('[ loadMissingOne ] Records from',endpoint, missingOneAll)
+      updateGlobalAndRepeatedWithRecords(global, repeated, missingOneAll, endpoint)
       setTimeout(() => setLoadingMissingSetOne(false), 1000);
     }
     const loadMissingThree = async(global, repeated) => {
+      const endpoint = `/api/get/dune/missing/3/all`
       setLoadingMissingSetThree(true)
-      const getMissingThreeResponse = await (await fetch(`/api/get/missing/3/all`)).json();
-      setMissingThreeAll(getMissingThreeResponse.addresses)
-      console.log('[ loadMissingThree ] Records from /get/missing/3/all', getMissingThreeResponse.addresses)
-      updateGlobalAndRepeatedWithRecords(global, repeated, getMissingThreeResponse.addresses, `/api/get/missing/3/all`)
+      const getMissingThreeResponse = await (await fetch(endpoint)).json();
+      const missingThreeAll = getMissingThreeResponse.ethAddresses;
+      setMissingThreeAll(missingThreeAll)
+      console.log('[ loadMissingThree ] Records from', endpoint,missingThreeAll)
+      updateGlobalAndRepeatedWithRecords(global, repeated, missingThreeAll, endpoint)
       setTimeout(() => setLoadingMissingSetThree(false), 1000);
     }
     const loadAll = async() => {
