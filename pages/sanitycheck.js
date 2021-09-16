@@ -38,7 +38,8 @@ export default function Help() {
     const loadGetAll = async() => {
       setLoadingSetOne(true)
       const getAllResponse = await (await fetch(`/api/get/all`)).json();
-      setAll(Object.values(getAllResponse.records));
+      const all = Object.values(getAllResponse.records)
+      setAll(all);
       console.log('[ loadGetAll ] Records from /get/all', all)
       updateGlobalAndRepeatedWithRecords(all, `/api/get/all`)
       setTimeout(() => setLoadingSetOne(false), 1000);
@@ -47,7 +48,7 @@ export default function Help() {
       setLoadingMissingSetOne(true)
       const getMissingOneResponse = await (await fetch(`/api/get/missing/1/all`)).json();
       setMissingOneAll(getMissingOneResponse.addresses)
-      console.log('[ loadMissingOne ] Records from /get/missing/1/all', missingOneAll)
+      console.log('[ loadMissingOne ] Records from /get/missing/1/all', getMissingOneResponse.addresses)
       updateGlobalAndRepeatedWithRecords(missingOneAll, `/api/get/missing/1/all`)
       setTimeout(() => setLoadingMissingSetOne(false), 1000);
     }
@@ -55,7 +56,7 @@ export default function Help() {
       setLoadingMissingSetThree(true)
       const getMissingThreeResponse = await (await fetch(`/api/get/missing/3/all`)).json();
       setMissingThreeAll(getMissingThreeResponse.addresses)
-      console.log('[ loadMissingThree ] Records from /get/missing/3/all', missingThreeAll)
+      console.log('[ loadMissingThree ] Records from /get/missing/3/all', getMissingThreeResponse.addresses)
       updateGlobalAndRepeatedWithRecords(missingThreeAll, `/api/get/missing/3/all`)
       setTimeout(() => setLoadingMissingSetThree(false), 1000);
     }
