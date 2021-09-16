@@ -103,6 +103,10 @@ export default function Help() {
           <br/>
           <b>Repeated</b>
           <p>Total repeated <code>{repeated.length}</code></p>
+          <br/>
+          <br/>
+          <b>Total ETH Addresses</b>
+          <p>Total unique addresses <code>{all.length + missingOneAll.length + missingThreeAll.length }</code></p>
           </div>
         </div>
       </Layout>
