@@ -494,8 +494,24 @@ export const nodesMap_3 = [
  { ethAddress: "0xf769B3FfCe1F5AE095Cfd5959E04f40bE4a6Ad0D", hoprAddresses: ["16Uiu2HAmHk3aUuyusQJwn8wZiYV7Ri7gag8KhC7MQxxQ6ss1BsMP"]},
  { ethAddress: "0x405b134A7a06886293df2eD6CE14fCc26162Dc9F", hoprAddresses: ["16Uiu2HAmEeA9pfzcQmnx9Y243hsWvKBJFYVKMnAzt4ZG2MxrAhw5"]},
  { ethAddress: "0xba540Bb14101cBd4170DF90408C0B9EC6c86273c", hoprAddresses: ["16Uiu2HAmFcu2nJ4tHJv7b1nyWiqAB1WoRKoT1Ftr2oVTFy3YSHpL", "16Uiu2HAm861VhvWgcnN9dcEbVoZF24n5bAeUpKwSA1vqGZ5jmtQT"]},
- { ethAddress: "0x55D9DEFe37F122336Cd81B5cB0cCB2101ac4D75", hoprAddresses: ["16Uiu2HAmVJEepeCwjeGRCXHgT1hqohX8x98vUVwxCpCZ2n9fesrZ"]},
- { ethAddress: "0xc8C3e484dDF92069eb3226dF266C2C262902D835", hoprAddresses: ["16Uiu2HAmNk6yBZ8RmE81By9SHMY1ezLy4BJ2vS8GJvbD7cqxm7gT"]}
+ { ethAddress: "0x55D9DEFe37F122336Cd81B5cB0cCB2101ac4D759", hoprAddresses: ["16Uiu2HAmVJEepeCwjeGRCXHgT1hqohX8x98vUVwxCpCZ2n9fesrZ"]},
+ { ethAddress: "0xc8C3e484dDF92069eb3226dF266C2C262902D835", hoprAddresses: ["16Uiu2HAmNk6yBZ8RmE81By9SHMY1ezLy4BJ2vS8GJvbD7cqxm7gT"]},
+ { ethAddress: "0xB757c9A22958a4124a62b67C96591E4faeAC822a", hoprAddresses: ["16Uiu2HAmTor41TPLcgGZ1mcVd5bMakXWo1e4wF5PXoLSiYR6qobT"]},
+ { ethAddress: "0x99410a7450caaAb505242927B31c06824ec2c9ac", hoprAddresses: ["16Uiu2HAm9Be3AveDLJmFhnxENYix2YBgjBitPYoyxqm8j6uS3Sve"]},
+ { ethAddress: "0xF6319f877d997d35382bd61Fb2557A67b3d0351C", hoprAddresses: ["16Uiu2HAm7xRSGAjixUHprCPvEz9my1rC6BniaWArZr2a3segwXeM", "16Uiu2HAmB43UMi75iYRDrBqEgHmpZsspwwXMNNQkLS4xavTBJk9V"]},
+ { ethAddress: "0x11F2a573fDA43e0724d4938B3FaB7d38443e4707", hoprAddresses: ["16Uiu2HAmGkhuyj26G9oohQCdzp3AZ6APUu2x7niG9na7Qxbb3jcS", "16Uiu2HAmEQojmSNrBx6v6psgFxZeiXovDMkxLywDqq956dwUPMbs"]},
+ { ethAddress: "0x7c778827a42bCAF7eF0d2aB2f8d7309Bb2267fF3", hoprAddresses: ["16Uiu2HAmFiBxRbQrZqnok53YCD2dueUV75iwLCsbSp5gNke9FywP", "16Uiu2HAmErHG5DKW6hRdVRhmNSBwGgDFPLy6hESjvj3usQ33FeoV"]},
+ { ethAddress: "0xB07F5E81915f185Ef5e3BD871dF58d703EAc7BB9", hoprAddresses: ["16Uiu2HAm9MTrLfMxKJYv54KAq9sEGoScTfnxRMt3yiz1JQvtxjAH"]},
+ { ethAddress: "0x36c78eF04B32A7B740A9AdD78049C49587B7f4B9", hoprAddresses: ["16Uiu2HAm463sBgnSUdtSJZ89T6PjjrMJLboEehkYF7Pyr63A153G"]},
+ { ethAddress: "0x9AC8dde92Cb63Ec3580cC132eb5a7E4E6ffd27F2", hoprAddresses: ["16Uiu2HAkxa1NGU5TFueqmYD764WtKNvfu2eVQM7KSoP8qLs6ydc9"]},
+ { ethAddress: "0x170775956745dE9efA6D38aBc8D7Ed4849a1234B", hoprAddresses: ["16Uiu2HAmToEHzwXiCbpcBECvXUAQMCauyzNww6UigYG7hLykPNPz", "16Uiu2HAmRUS7theEjJq2C67Sac6UPXgBP5mL18LVQwmeYxQk8twi", "16Uiu2HAmS2DmL65DrTQGwxaaDkSuBZMgRHYdnnbG3LJqfisTDd9T"]},
+ { ethAddress: "0x95B30124aEeF1293302E6dC6cFd28895070B3934", hoprAddresses: ["16Uiu2HAmVZPZs22iugpHCVFp9briFjQEHLokadMZADDq46NS6e6J"]},
+ { ethAddress: "0x26149Cc83f247DD0f4EC5c3F319bcbE5cf59fdA5", hoprAddresses: ["16Uiu2HAkwpsaT5UQtXN2SFWLxfDC8cxty8HdodWV8mParoeTLGiV"]},
+ { ethAddress: "0x36dE213095141B321641B57A64d6Ff1D423b0BF4", hoprAddresses: ["16Uiu2HAmNf5SvfZrCEmNEgXxoDWeLfSFaqdM3HnZ1qhZs5obSTvo"]},
+ { ethAddress: "0x72b3DAf411912561836DeA10e2Efebd6F81ec209", hoprAddresses: ["16Uiu2HAmSHFkZKy3HUCG2RS4fiUPhwXVJatDpXBcMvUer7Ld3eHp"]},
+ { ethAddress: "0x3E3F22da9a50D22694c452c5Ec39B907524373b8", hoprAddresses: ["16Uiu2HAmBjsyupwmWN7o8T8ZLAmqi97Krm4CrR7xzLU15SqLT6tA"]},
+ { ethAddress: "0x98EB376308D212820Aa578B80efAc11942008Deb", hoprAddresses: ["16Uiu2HAmRijSpkFEpV6kcPko8zojwKfST33QeFS1UkEsrq8MJ9my"]},
+ { ethAddress: "0xe41D31e57D170F7dDD4A94afB19B8E9B2Cd74d8A", hoprAddresses: ["16Uiu2HAmGop1TLteDR9vT1EJPEzxcAxqd51G1MT9LDpQE9WiSVdZ"]}
 ]
 
 export const nodesMap = nodesMap_2.concat(nodesMap_3)
