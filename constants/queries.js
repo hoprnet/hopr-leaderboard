@@ -1,5 +1,5 @@
 export const ENDPOINT =
-  "https://api.thegraph.com/subgraphs/id/QmYvue9jzFHPfoE6tggo9w1uJMaKFkqGinZcmxY83Gw7kA";
+  "https://api.thegraph.com/subgraphs/id/QmTZF2p7zUVQC9g2vdtnrqm3rNPjhMzeR1hrw9sw7Zawpr"; // change to staging URL for development
 export const QUERY_GET_ACCOUNTS = `
   {
     accounts(first: 250, orderBy: openedChannels, orderDirection: desc) {
