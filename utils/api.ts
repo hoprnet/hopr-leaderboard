@@ -4,8 +4,10 @@ import { Client, createClient } from "@urql/core";
 import { QUERY_GET_ACCOUNTS } from "../constants/querys";
 import { Multiaddr } from 'multiaddr'
 import { stringToU8a } from './string'
+import { IAccounts, IState } from "../types";
 
-export async function getData(table: any) {
+export async function getData(table: string) {
+  
   try {
     const queryResponse = await db.getTable(HOPR_NETWORK, table);
     if (queryResponse.data) {
@@ -23,11 +25,11 @@ export async function getState() {
 }
 
 export async function getScore() {
-  return getData(FirebaseNetworkTables.score);
+  return getData(FirebaseNetworkTables.score!);
 }
 
 export async function getAllAccounts() {
-  const client: Client = createClient({
+  const client = createClient({
     url: ENDPOINT,
     fetchOptions: {
       mode: "cors", // no-cors, cors, *same-origin
@@ -38,13 +40,14 @@ export async function getAllAccounts() {
 }
 
 export async function getAllData() {
-  const accounts: any = (await getAllAccounts()) || [];
-  const [state]: any = await Promise.all([
+  const accounts: Array<IAccounts> = (await getAllAccounts()) || [];
+  const [state]: Array<IState> = await Promise.all([
     getData(FirebaseNetworkTables.state).then((res) => res.data),
   ]);
+  
 
   const nodes = accounts.map(
-    ({ id, openedChannels, closedChannels, multiaddr }: any) => {
+    ({ id, openedChannels, closedChannels, multiaddr }: IAccounts) => {
       const address: string | undefined = multiaddr
         ? new Multiaddr(stringToU8a(multiaddr)).toString().split("/").pop()
         : "";
@@ -56,7 +59,6 @@ export async function getAllData() {
       };
     }
   );
-
   state.nodes = nodes;
 
   return {

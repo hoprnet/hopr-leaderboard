@@ -9,8 +9,8 @@ import { IDX } from "@ceramicstudio/idx";
 
 export interface ConnectIDXProps {
   address: string;
-  idx?: IDX;
-  setIdx?: Dispatch<SetStateAction<IDX | null>>;
+  idx?: IDX | null;
+  setIdx?: Dispatch<SetStateAction<IDX | null | undefined>>;
 }
 
 export const ConnectIDX: NextPage<ConnectIDXProps> = ({

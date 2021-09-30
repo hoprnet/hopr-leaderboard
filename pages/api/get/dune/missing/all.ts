@@ -1,58 +1,61 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { client, did } from "../../../../../constants/api";
+import { IGetDuneMissingVal } from "../../../../../types";
 import { convertHoprAddressToETHAddress } from "../../../../../utils/hopr";
 
-
-
-
-
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const { parsed, batch } = req.query;
-    await did.authenticate();
-    client.setDID(did);
-  
-    const addresses = await import(
-      `../../../../../../constants/missing/${batch}/addresses`
-    );
-  
-    let streamsMap: any, streamMap: any;
-    // NB: We have a specific batch which is hardcoded, so unfortunately we don’t have streams
-    // but instead the HOPR addresses directly.
-    if (batch !== "3") {
-      const { streams } = addresses;
-      streamsMap = addresses.streamsMap;
-      const queries = streams.map((streamId: any) => ({ streamId }));
-      streamMap = await client.multiQuery(queries);
-    } else {
-      // NB: We need to format the hardcoded addresses for our algorithm
-      // currently we have nodesMap => { ethAddress: [hoprAddress] }, so
-      // for hardcoded entries streamId == index of the array.
-      // streamsMap = { streamId: ethAddress }
-      // streamMap = { streamId: { content: [hoprAddresses] }}
-      streamsMap = addresses.nodesMap.reduce((acc: any, val: any, index: number) => {
+  const { parsed, batch } = req.query;
+  await did.authenticate();
+  client.setDID(did);
+
+  const addresses = await import(
+    `../../../../../../constants/missing/${batch}/addresses`
+  );
+
+  let streamsMap: any, streamMap: any;
+  // NB: We have a specific batch which is hardcoded, so unfortunately we don’t have streams
+  // but instead the HOPR addresses directly.
+  if (batch !== "3") {
+    const { streams } = addresses;
+    streamsMap = addresses.streamsMap;
+    const queries = streams.map((streamId: string) => ({ streamId }));
+    streamMap = await client.multiQuery(queries);
+  } else {
+    // NB: We need to format the hardcoded addresses for our algorithm
+    // currently we have nodesMap => { ethAddress: [hoprAddress] }, so
+    // for hardcoded entries streamId == index of the array.
+    // streamsMap = { streamId: ethAddress }
+    // streamMap = { streamId: { content: [hoprAddresses] }}
+    streamsMap = addresses.nodesMap.reduce(
+      (acc: string, val: IGetDuneMissingVal, index: number) => {
         return Object.assign({}, acc, { [index]: val.ethAddress });
-      }, {});
-      streamMap = addresses.nodesMap.reduce((acc: any, val: any, index: number) => {
+      },
+      {}
+    );
+    streamMap = addresses.nodesMap.reduce(
+      (acc: string, val: IGetDuneMissingVal, index: number) => {
         return Object.assign({}, acc, {
           [index]: {
             content: val.hoprAddresses.reduce(
-              (_acc: any, _val: any) => Object.assign({}, _acc, { [_val]: val.ethAddress }),
+              (_acc: string | {}, _val: string) =>
+                Object.assign({}, _acc, { [_val]: val.ethAddress }),
               {}
             ),
           },
         });
-      }, {});
-    }
+      },
+      {}
+    );
+  }
 
-    const LIMIT_NODES_PER_ETH_IN_DUNE: number = 180;
-    let MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS: number = 0;
-    const UNIQUE_ETH_ADDRESS_REGISTERED: Array<[]> = [];
-    let TOTAL_AMOUNT_OF_NODES: number = 0;
-  
-    const unfilteredRegistrationRecords = Object.keys(streamMap).map(
-      (streamId) => {
-        /*
+  const LIMIT_NODES_PER_ETH_IN_DUNE: number = 180;
+  let MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS: number = 0;
+  const UNIQUE_ETH_ADDRESS_REGISTERED: Array<[]> = [];
+  let TOTAL_AMOUNT_OF_NODES: number = 0;
+
+  const unfilteredRegistrationRecords = Object.keys(streamMap).map(
+    (streamId) => {
+      /*
         Considering we have 1 ETH -> * HOPR_Address, we need to produce as a result
         an string that's able to reprsent the relationship between ETH addresses and
         HOPR_addresses on a 1 <-> 1 in a single string.
@@ -64,46 +67,46 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         ethAddress = 0x1234...,0x1234...
         hoprAddress = 16u2111...,16u2222... 
        */
-        const doc = streamMap[streamId];
-        const ethAddress = streamsMap[streamId];
-  
-        const hoprAddresses = Object.keys(doc.content);
-        TOTAL_AMOUNT_OF_NODES += hoprAddresses ? hoprAddresses.length || 0 : 0;
-        UNIQUE_ETH_ADDRESS_REGISTERED.push(ethAddress);
-  
-        const duneFormatPerAddress =
-          hoprAddresses.length > 0 &&
-          hoprAddresses.reduce(
-            (acc, val) => {
-              MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS =
-                acc.length > MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS
-                  ? acc.length
-                  : MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
-              return {
-                ethAddress: acc.ethAddress
-                  ? `${acc.ethAddress},${ethAddress.toLowerCase()}`
-                  : ethAddress.toLowerCase(),
-                hoprAddresses: acc.hoprAddresses
-                  ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(
-                      val
-                    ).toLowerCase()}`
-                  : convertHoprAddressToETHAddress(val).toLowerCase(),
-                length: acc.length + 1,
-              };
-            },
-            { ethAddress: "", hoprAddresses: "", length: 0 }
-          );
-  
-        return duneFormatPerAddress;
-      }
-    );
-  
-    const registrationRecords = unfilteredRegistrationRecords.filter(
-      (record) => !!record
-    );
-    const SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE =
-      LIMIT_NODES_PER_ETH_IN_DUNE - MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
-    /*
+      const doc = streamMap[streamId];
+      const ethAddress = streamsMap[streamId];
+
+      const hoprAddresses = Object.keys(doc.content);
+      TOTAL_AMOUNT_OF_NODES += hoprAddresses ? hoprAddresses.length || 0 : 0;
+      UNIQUE_ETH_ADDRESS_REGISTERED.push(ethAddress);
+
+      const duneFormatPerAddress =
+        hoprAddresses.length > 0 &&
+        hoprAddresses.reduce(
+          (acc, val) => {
+            MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS =
+              acc.length > MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS
+                ? acc.length
+                : MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
+            return {
+              ethAddress: acc.ethAddress
+                ? `${acc.ethAddress},${ethAddress.toLowerCase()}`
+                : ethAddress.toLowerCase(),
+              hoprAddresses: acc.hoprAddresses
+                ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(
+                    val
+                  ).toLowerCase()}`
+                : convertHoprAddressToETHAddress(val).toLowerCase(),
+              length: acc.length + 1,
+            };
+          },
+          { ethAddress: "", hoprAddresses: "", length: 0 }
+        );
+
+      return duneFormatPerAddress;
+    }
+  );
+
+  const registrationRecords = unfilteredRegistrationRecords.filter(
+    (record) => !!record
+  );
+  const SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE =
+    LIMIT_NODES_PER_ETH_IN_DUNE - MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
+  /*
      With the multiple records organized in structures ready to be flatten, we
      can now return a single string line for a given amount of entries. For better
      or worse, Dune is only able to query up to `186` addresses in a single string.
@@ -128,14 +131,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         hoprAddresses: '16Uiu2HAm8NkpLp4NDJCMJcKWQTU3eMZA26cTYcsXvhaTcjVvZUTV','16Uiu2HAm2WFVcLD8vxuMZDDUFokjVFu8pPTFmjixKD2r3JgH9FjV,16Uiu2HAmBgdPEXbhnYhL2nKoX9KY9Rrr162ADW4cLs43KGgbD4tE'
       }
      */
-    const flattenedRegistrationRecords = registrationRecords.reduce(
-      (acc: any, val: any, index: number, allRecords: any) => {
-        const currentBatchLength = acc.currentLength + val.length;
-        const nextLength = allRecords[index + 1]
-          ? allRecords[index + 1].length
-          : 0;
-  
-        /*
+  const flattenedRegistrationRecords = registrationRecords.reduce(
+    (acc: any, val: any, index: number, allRecords: any) => {
+      const currentBatchLength = acc.currentLength + val.length;
+      const nextLength = allRecords[index + 1]
+        ? allRecords[index + 1].length
+        : 0;
+
+      /*
         We create the batches for flattening based on our SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE,
         which allows us to wrap them in a value that Dune can understand. To do so, we iterate
         over all the existing valid records, and separate them in batches where
@@ -148,63 +151,62 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         e.g. records = . ..  . . .... . .. . . ..... . . . .... .. . . , upperLimit = 5
         records.reduce => [., .., ., .], [...., .], [.., ., .,], [.....], [., ., .,], [....], [.., ., .]
         */
-  
-        const currentBatchWithNewRecord = {
-          ethAddress: acc.currentBatch.ethAddress
-            ? `${acc.currentBatch.ethAddress},${val.ethAddress}`
-            : val.ethAddress,
-          hoprAddresses: acc.currentBatch.hoprAddresses
-            ? `${acc.currentBatch.hoprAddresses},${val.hoprAddresses}`
-            : val.hoprAddresses,
-        };
-        let allBatches, currentBatch, currentLength;
-        if (
-          currentBatchLength + nextLength >
-          SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE
-        ) {
-          // We are at our max batch rate, and it's time to create a new one,
-          // we reset the currentBatch to start the new one, as well as length.
+
+      const currentBatchWithNewRecord = {
+        ethAddress: acc.currentBatch.ethAddress
+          ? `${acc.currentBatch.ethAddress},${val.ethAddress}`
+          : val.ethAddress,
+        hoprAddresses: acc.currentBatch.hoprAddresses
+          ? `${acc.currentBatch.hoprAddresses},${val.hoprAddresses}`
+          : val.hoprAddresses,
+      };
+      let allBatches, currentBatch, currentLength;
+      if (
+        currentBatchLength + nextLength >
+        SAFE_LIMIT_FOR_HOPR_NODES_FOR_DUNE
+      ) {
+        // We are at our max batch rate, and it's time to create a new one,
+        // we reset the currentBatch to start the new one, as well as length.
+        allBatches = acc.allBatches.concat(currentBatchWithNewRecord);
+        currentBatch = { ethAddress: "", hoprAddress: "" };
+        currentLength = 0;
+      } else {
+        // We can keep the current one, concatenate it and send it to the batch,
+        // if there's no next value, we append our current batch to allBatches,
+        // otherwise, it remains the same as before.
+        if (!allRecords[index + 1]) {
           allBatches = acc.allBatches.concat(currentBatchWithNewRecord);
-          currentBatch = { ethAddress: "", hoprAddress: "" };
-          currentLength = 0;
         } else {
-          // We can keep the current one, concatenate it and send it to the batch,
-          // if there's no next value, we append our current batch to allBatches,
-          // otherwise, it remains the same as before.
-          if (!allRecords[index + 1]) {
-            allBatches = acc.allBatches.concat(currentBatchWithNewRecord);
-          } else {
-            allBatches = acc.allBatches;
-          }
-          currentBatch = currentBatchWithNewRecord;
-          currentLength = currentBatchLength;
+          allBatches = acc.allBatches;
         }
-        return { allBatches, currentBatch, currentLength };
-      },
-      {
-        allBatches: [],
-        currentBatch: { ethAddress: "", hoprAddresses: "" },
-        currentLength: 0,
+        currentBatch = currentBatchWithNewRecord;
+        currentLength = currentBatchLength;
       }
-    );
-  
-    if (parsed) {
-      const sqlBlock = (obj: any) =>
-        `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`;
-      const parsed = flattenedRegistrationRecords.allBatches.reduce(
-        (acc: any, cur: any, index: number) =>
-          index === 0 ? sqlBlock(cur) : acc + " UNION ALL " + sqlBlock(cur),
-        ""
-      );
-      return res.status(200).json({ parsed });
+      return { allBatches, currentBatch, currentLength };
+    },
+    {
+      allBatches: [],
+      currentBatch: { ethAddress: "", hoprAddresses: "" },
+      currentLength: 0,
     }
-  
-    return res.status(200).json({
-      status: "ok",
-      ethAddresses: UNIQUE_ETH_ADDRESS_REGISTERED,
-      uniqueEthAddresses: UNIQUE_ETH_ADDRESS_REGISTERED.length,
-      totalNodes: TOTAL_AMOUNT_OF_NODES,
-      records: flattenedRegistrationRecords.allBatches,
-    });
-  };
-  
+  );
+
+  if (parsed) {
+    const sqlBlock = (obj: any) =>
+      `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`;
+    const parsed = flattenedRegistrationRecords.allBatches.reduce(
+      (acc: string, cur: string, index: number) =>
+        index === 0 ? sqlBlock(cur) : acc + " UNION ALL " + sqlBlock(cur),
+      ""
+    );
+    return res.status(200).json({ parsed });
+  }
+
+  return res.status(200).json({
+    status: "ok",
+    ethAddresses: UNIQUE_ETH_ADDRESS_REGISTERED,
+    uniqueEthAddresses: UNIQUE_ETH_ADDRESS_REGISTERED.length,
+    totalNodes: TOTAL_AMOUNT_OF_NODES,
+    records: flattenedRegistrationRecords.allBatches,
+  });
+};

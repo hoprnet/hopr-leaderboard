@@ -6,8 +6,8 @@ import { ENDPOINT, QUERY_GET_ACCOUNT } from "../../../constants/querys";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { node }: any = req.query;
-    const pId = await PeerId.createFromB58String(node);
+    const { node } = req.query;
+    const pId = await PeerId.createFromB58String(node.toString());
     const address = PublicKey.fromPeerId(pId).toAddress().toHex().toLowerCase();
 
     const client: Client = createClient({
@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .query(QUERY_GET_ACCOUNT, { id: address })
       .toPromise();
 
-    const result: object = {
+    const result = {
       id: node,
       address,
       openedChannels: data.accounts[0].openedChannels,

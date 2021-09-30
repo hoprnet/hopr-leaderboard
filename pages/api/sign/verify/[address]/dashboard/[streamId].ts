@@ -18,7 +18,7 @@ const HOPR_PREFIX = "HOPR Signed Message: ";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { streamId, address }: any = req.query;
-  const { signature, message }: any = req.body;
+  const { signature, message } = req.body;
 
   const signerAddress: string = utils.verifyTypedData(
     HOPR_WEB3_SIGNATURE_DOMAIN,

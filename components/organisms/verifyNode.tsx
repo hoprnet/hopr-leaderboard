@@ -15,9 +15,10 @@ import {
 import { Inputs } from "../atoms/inputs";
 import { Buttons } from "../atoms/buttons";
 import NodeTable from "../molecules/nodeTable";
+import { IDX } from "@ceramicstudio/idx";
 
 interface VerifyNodeProps {
-  idx: any;
+  idx: IDX;
   copyCodeToClipboard: (text: string) => void;
   sendSignatureToAPI: (
     api: string,

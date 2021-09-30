@@ -7,8 +7,8 @@ import Layout from "../components/organisms/layout";
 export interface HelpProps {}
 
 const Help: NextPage<HelpProps> = ({}) => {
-  const [showMsg, setShowMsg] = useState(false);
-  const [instructionsTarget, setInstructionsTarget] = useState("npm");
+  const [showMsg, setShowMsg] = useState<boolean>(false);
+  const [instructionsTarget, setInstructionsTarget] = useState<string>("npm");
 
   return (
     <>

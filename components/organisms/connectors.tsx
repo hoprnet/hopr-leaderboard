@@ -6,8 +6,8 @@ import { IDX } from "@ceramicstudio/idx";
 
 export interface ConnectorsProps {
   address?: string | null;
-  idx?: IDX;
-  setIdx?:  Dispatch<SetStateAction<IDX | null>>;
+  idx?: IDX | null;
+  setIdx?:  Dispatch<SetStateAction<IDX | null | undefined>>;
   connectIdx?: boolean;
 }
 

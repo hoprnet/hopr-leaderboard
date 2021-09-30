@@ -7,9 +7,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const checksumedAddress: string = utils.getAddress(address.toString());
   const eligible = whitelisted
     .map((collection: any) =>
-      collection.find((staker: any) => staker.account === checksumedAddress)
+      collection.find(
+        (staker: { account: string }) => staker.account === checksumedAddress
+      )
     )
-    .reduce((acc: any, val: any) => (acc ? acc : val));
+    .reduce((acc: string, val: string) => (acc ? acc : val));
   return eligible
     ? res.json({
         status: "ok",

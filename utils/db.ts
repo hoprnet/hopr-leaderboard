@@ -34,7 +34,7 @@ class FirebaseDatabase {
     }
   }
 
-  async getSchema(schema: any) {
+  async getSchema(schema: string) {
     try {
       const response = await fetch(`${this.databaseurl}${schema}.json`).catch(
         (err) =>
@@ -50,7 +50,7 @@ class FirebaseDatabase {
     }
   }
 
-  async getTable(schema: any, table: any) {
+  async getTable(schema: string, table: string) {
     try {
       
       const response = await fetch(

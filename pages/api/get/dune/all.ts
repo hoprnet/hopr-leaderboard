@@ -9,12 +9,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await did.authenticate();
   client.setDID(did);
 
-  const records: any = await TileDocument.create(
-    client,
-    null,
-    { deterministic: true, family: "hopr-wildhorn", tags: ["hopr-dashboard"] },
-    { anchor: false, publish: false }
-  );
+  const records: TileDocument<{ content: string } | any> =
+    await TileDocument.create(
+      client,
+      null,
+      {
+        deterministic: true,
+        family: "hopr-wildhorn",
+        tags: ["hopr-dashboard"],
+      },
+      { anchor: false, publish: false }
+    );
 
   const streams = Object.keys(records.content);
   const queries = streams.map((streamId) => ({ streamId }));
@@ -22,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const LIMIT_NODES_PER_ETH_IN_DUNE: number = 180;
   let MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS: number = 0;
-  const UNIQUE_ETH_ADDRESS_REGISTERED: Array<[]> = [];
+  const UNIQUE_ETH_ADDRESS_REGISTERED: Array<string> = [];
   let TOTAL_AMOUNT_OF_NODES: number = 0;
 
   const unfilteredRegistrationRecords = Object.keys(streamMap).map(
@@ -40,7 +45,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         hoprAddress = 16u2111...,16u2222... 
        */
       const doc: Stream = streamMap[streamId];
-      const ethAddress: any = records.content[streamId];
+      const ethAddress: string = records.content[streamId];
       const hoprAddresses: string[] = Object.keys(doc.content);
       TOTAL_AMOUNT_OF_NODES += hoprAddresses ? hoprAddresses.length || 0 : 0;
       UNIQUE_ETH_ADDRESS_REGISTERED.push(ethAddress);
@@ -167,7 +172,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const sqlBlock = (obj: any) =>
       `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`;
     const parsed = flattenedRegistrationRecords.allBatches.reduce(
-      (acc: any, cur: any, index: any) =>
+      (acc: string, cur: string, index: number) =>
         index === 0 ? sqlBlock(cur) : acc + " UNION ALL " + sqlBlock(cur),
       ""
     );

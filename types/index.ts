@@ -1,23 +1,15 @@
 import { constants } from "ethers";
 export interface IFirebaseNetworkTables {
-  state: any;
-  score?: any;
+  state: string;
+  score?: string;
 }
-
-export interface IVisibleData {
-  visible: boolean;
-  position: { x: number; y: number };
-  os_page: object;
-  data: string;
-}
-
 export interface IFaucet {
   hopr: number;
   native: number;
   address: string;
 }
 
-export interface IResponse{
+export interface IResponse {
   status: string;
   transactions: any;
   message: string;
@@ -41,4 +33,25 @@ export interface IeMenuMobile {
   p: string;
 }
 
+export interface IAccounts {
+  id: string;
+  openedChannels: string;
+  closedChannels: string;
+  multiaddr: string;
+}
 
+interface INodes {
+  id: string | undefined;
+  address: string;
+  openedChannels: string | number;
+  closedChannels: string | number;
+}
+
+export interface IState {
+  nodes: Array<INodes>;
+}
+
+export interface IGetDuneMissingVal {
+  hoprAddresses: Array<string>;
+  ethAddress: string;
+}

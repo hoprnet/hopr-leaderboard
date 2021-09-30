@@ -48,7 +48,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           }
         );
 
-        const mutatedDoc: any = Object.assign({}, docs.content, {
+        const mutatedDoc = Object.assign({}, docs.content, {
           [hoprAddress]: ethAddress,
         });
 

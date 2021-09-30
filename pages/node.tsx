@@ -7,12 +7,13 @@ import { Connectors } from "../components/organisms/connectors";
 import BoxRemember from "../components/molecules/boxRemember";
 import { FaucetBalance } from "../components/organisms/faucetBalance";
 import { VerifyNode } from "../components/organisms/verifyNode";
+import { IDX } from "@ceramicstudio/idx";
 
 export interface NodeProps {}
 
 const Node: NextPage<NodeProps> = ({}) => {
   const { account, library } = useEthers();
-  const [idx, setIdx] = useState<any>();
+  const [idx, setIdx] = useState<IDX | null>();
   const [hash, setHash] = useState<string>("");
   const [showMsg, setShowMsg] = useState<boolean>(false);
 
