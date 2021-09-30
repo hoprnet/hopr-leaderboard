@@ -49,6 +49,8 @@ interface INodes {
 
 export interface IState {
   nodes: Array<INodes>;
+  address: string;
+  refreshed: string;
 }
 
 export interface IGetDuneMissingVal {

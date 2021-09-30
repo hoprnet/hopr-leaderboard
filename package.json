@@ -21,6 +21,8 @@
     "dids": "^2.4.0",
     "graphql": "^15.6.0",
     "isomorphic-fetch": "^3.0.0",
+    "key-did-provider-ed25519": "^1.1.0",
+    "key-did-resolver": "^1.4.0",
     "multiaddr": "^10.0.1",
     "next": "11.1.2",
     "peer-id": "^0.15.3",
