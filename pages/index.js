@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import 'react-dropdown/style.css';
+import Dropdown from 'react-dropdown';
 import Layout from "../components/layout/layout.js";
 import BoxRemember from "../components/micro-components/box-remember";
 import BoxDataTable from "../components/data-view/box-data-table";
@@ -34,6 +36,8 @@ export default function Home() {
       className: "sortBy",
     },
   ];
+  const DEFAULT_TO_DUNE = 0;
+  const NETWORK_VERSIONS = ["Wildhorn v1", "Wildhorn v2"];
 
   const [data, setData] = useState(undefined);
   const [visibleData, setVisibleData] = useState({
@@ -52,7 +56,7 @@ export default function Home() {
   // const nodesRegistered = data ? data.nodes.length : 0;
   const nodesConnected = "?";
   const nodes = data ? data.nodes : [];
-  const [version, setVersion] = useState(1);
+  const [version, setVersion] = useState(DEFAULT_TO_DUNE);
 
   const callAPI = () => {
     const fetchData = async () => {
@@ -202,7 +206,10 @@ export default function Home() {
             <div className="box-title">
               <h1>Network</h1>
             </div>
-            {version === 1 ? (" ") : (<div className="box-btn">
+            <div>
+              <Dropdown options={NETWORK_VERSIONS} onChange={(e) => {setVersion(NETWORK_VERSIONS.indexOf(e.value))}} value={NETWORK_VERSIONS[DEFAULT_TO_DUNE]} />
+            </div>
+            {version === DEFAULT_TO_DUNE ? (" ") : (<div className="box-btn">
               <button onClick={() => callAPI()}>
                 <img src="/assets/icons/refresh.svg" alt="refresh now" />
                 refresh now
@@ -210,14 +217,14 @@ export default function Home() {
             </div>)}
           </div>
           <div className="only-mobile-view remove-all-padding">
-            {version === 1 ? (" ") : (<SearchBar
+            {version === DEFAULT_TO_DUNE ? (" ") : (<SearchBar
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               match={match}
             />)}
           </div>
           <div className="only-desktop-view remove-all-padding ">
-            {version === 1 ? (" ") : (<SuperBoxSearch
+            {version === DEFAULT_TO_DUNE ? (" ") : (<SuperBoxSearch
               nodesVerified={nodesVerified}
               nodesRegistered={nodesRegistered}
               nodesConnected={nodesConnected}
@@ -228,7 +235,7 @@ export default function Home() {
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          {version === 1 ? (
+          {version === DEFAULT_TO_DUNE ? (
             <div style={{ margin: "20px" }}>
             <p className="help-total-results">
             Please visit our{" "}
