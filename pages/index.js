@@ -52,6 +52,7 @@ export default function Home() {
   // const nodesRegistered = data ? data.nodes.length : 0;
   const nodesConnected = "?";
   const nodes = data ? data.nodes : [];
+  const [version, setVersion] = useState(1);
 
   const callAPI = () => {
     const fetchData = async () => {
@@ -201,20 +202,117 @@ export default function Home() {
             <div className="box-title">
               <h1>Network</h1>
             </div>
+            {version === 1 ? (" ") : (<div className="box-btn">
+              <button onClick={() => callAPI()}>
+                <img src="/assets/icons/refresh.svg" alt="refresh now" />
+                refresh now
+              </button>
+            </div>)}
+          </div>
+          <div className="only-mobile-view remove-all-padding">
+            {version === 1 ? (" ") : (<SearchBar
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              match={match}
+            />)}
+          </div>
+          <div className="only-desktop-view remove-all-padding ">
+            {version === 1 ? (" ") : (<SuperBoxSearch
+              nodesVerified={nodesVerified}
+              nodesRegistered={nodesRegistered}
+              nodesConnected={nodesConnected}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              match={match}
+            />)}
           </div>
         </div>
         <div className="box-main-area remove-all-padding">
-          <div style={{ margin: "20px" }}>
-          <p className="help-total-results">
-          Please visit our{" "}
-          <a
+          {version === 1 ? (
+            <div style={{ margin: "20px" }}>
+            <p className="help-total-results">
+            Please visit our{" "}
+            <a
             href="https://dune.xyz/hoprnet/HOPR-Polygon-Test-Net"
             target="_blank"
-          >
+            >
             Dune dashboard
-          </a>{" "}
-          to locate and find information about your node.
-        </p></div>
+            </a>{" "}
+            to locate and find information about your node.
+            </p></div>
+          ) : (
+            <div className="box-container-table">
+              {nodes && (
+                <table id="date">
+                  <thead>
+                    <tr>
+                      {columns.map((e) => {
+                        const { title, key, className } = e;
+                        return (
+                          <th
+                            className={className}
+                            onClick={className ? () => onClickSort(key) : null}
+                            scope="col"
+                            key={key}
+                          >
+                            {title}
+                          </th>
+                        );
+                      })}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {queriedNode && (
+                      <TrCustom
+                        id={queriedNode.id}
+                        key={queriedNode.id}
+                        openedChannels={queriedNode.openedChannels}
+                        address={queriedNode.address}
+                        closedChannels={queriedNode.closedChannels}
+                        showCopyCode={showCopyCode}
+                        setVisibleData={setVisibleData}
+                      />
+                    )}
+                    {nodes.map((e) => {
+                      const { address, id, openedChannels, closedChannels } = e;
+                      if (searchTerm.length > 0) {
+                        if (
+                          address
+                            .toLowerCase()
+                            .indexOf(searchTerm.toLowerCase()) >= 0 ||
+                          id.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
+                        ) {
+                          return (
+                            <TrCustom
+                              id={id}
+                              key={id}
+                              openedChannels={openedChannels}
+                              address={address}
+                              closedChannels={closedChannels}
+                              showCopyCode={showCopyCode}
+                              setVisibleData={setVisibleData}
+                            />
+                          );
+                        }
+                      } else {
+                        return (
+                          <TrCustom
+                            id={id}
+                            key={id}
+                            address={address}
+                            openedChannels={openedChannels}
+                            closedChannels={closedChannels}
+                            showCopyCode={showCopyCode}
+                            setVisibleData={setVisibleData}
+                          />
+                        );
+                      }
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          )}
           <BoxRemember leaderboardData={sortedTrimmedNodesWithUsername} />
         </div>
       </div>
