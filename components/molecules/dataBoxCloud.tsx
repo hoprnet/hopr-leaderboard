@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Images } from "../atoms/images";
 
-export interface DataBoxCloudProps {
+interface DataBoxCloudProps {
   address: string;
   channel: string;
   copyCodeToClipboard: (text: string) => void;

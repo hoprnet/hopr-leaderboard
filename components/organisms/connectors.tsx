@@ -4,7 +4,7 @@ import { ConnectWallet } from "../molecules/connectWallet";
 import { ConnectIDX } from "../molecules/connectIDX";
 import { IDX } from "@ceramicstudio/idx";
 
-export interface ConnectorsProps {
+interface ConnectorsProps {
   address?: string | null;
   idx?: IDX | null;
   setIdx?:  Dispatch<SetStateAction<IDX | null | undefined>>;

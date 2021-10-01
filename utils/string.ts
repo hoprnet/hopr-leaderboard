@@ -47,4 +47,4 @@
     return arr;
   }
   
-  export const truncate = (address: any) => `${address.slice(0, 5)}...${address.slice(-5)}`;
+  export const truncate = (address?: string | null) => `${address?.slice(0, 5)}...${address?.slice(-5)}`;

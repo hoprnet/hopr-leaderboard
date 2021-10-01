@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React, { Dispatch, SetStateAction } from "react";
 import { Inputs } from "../atoms/inputs";
 
-export interface SearchBarProps {
+interface SearchBarProps {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
   labelMessage: string;

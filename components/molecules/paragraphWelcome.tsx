@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Images } from "../atoms/images";
 
-export interface ParagraphWelcomeProps {}
+interface ParagraphWelcomeProps {}
 
 const ParagraphWelcome: NextPage<ParagraphWelcomeProps> = ({}) => {
   return (

@@ -1,16 +1,16 @@
 import React from "react";
 import { MenuSectionsMobile, Networks } from "../../constants/menuSections";
 import { Images } from "../atoms/images";
-import { ElementMenuMobile } from "../atoms/elementMenuMobile";
+import { ElementMenuMobile, ElementMenuMobileProps } from "../atoms/elementMenuMobile";
 import { NextPage } from "next";
 import { IeMenuMobile } from "../../types";
 
-export interface MenuMobileProps {
+interface MenuMobileProps {
   activeMenu: boolean;
   hash: string;
   copyCodeToClipboard: (hash: string) => void;
   changeThemeMode: () => void;
-  darkMode: any;
+  darkMode: boolean;
 }
 
 export const MenuMobile: NextPage<MenuMobileProps> = ({
@@ -25,7 +25,7 @@ export const MenuMobile: NextPage<MenuMobileProps> = ({
     <div className={`menu-mobile ${activeMenu ? "open-menu" : ""}`}>
       <div className="menu-container">
         <ul>
-          {sections.map((e: any, index: number) => (
+          {sections.map((e: ElementMenuMobileProps, index: number) => (
             <ElementMenuMobile {...e} key={index} />
           ))}
         </ul>

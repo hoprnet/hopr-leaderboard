@@ -1,10 +1,8 @@
+import { IColumnsDefaults } from "../types";
 
-export const columnsDefaults: {
-  title: string;
-  dataIndex: string;
-  key: string;
-  className: string;
-}[] = [
+
+
+export const columnsDefaults: IColumnsDefaults[] = [
   {
     title: "opened channels",
     dataIndex: "openedChannels",

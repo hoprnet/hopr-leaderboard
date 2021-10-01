@@ -9,7 +9,7 @@ import { FaucetBalance } from "../components/organisms/faucetBalance";
 import { VerifyNode } from "../components/organisms/verifyNode";
 import { IDX } from "@ceramicstudio/idx";
 
-export interface NodeProps {}
+interface NodeProps {}
 
 const Node: NextPage<NodeProps> = ({}) => {
   const { account, library } = useEthers();
@@ -20,7 +20,7 @@ const Node: NextPage<NodeProps> = ({}) => {
   const sendSignatureToAPI = async (
     endpoint: string,
     signature: string,
-    message: string
+    message: object
   ) => {
     const response = await fetch(endpoint, {
       body: JSON.stringify({ signature, message }),
@@ -36,10 +36,12 @@ const Node: NextPage<NodeProps> = ({}) => {
   const getWeb3SignatureFaucetContents = (
     hoprAddress: string,
     ethAddress: string
-  ) => ({
+  ) => (
+    {
     hoprAddress,
     ethAddress,
-  });
+    }
+  );
 
   const getWeb3SignatureVerifyContents = (
     hoprAddress: string,

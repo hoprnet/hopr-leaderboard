@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Images } from "./images";
 
-interface ElementMenuMobileProps {
+export interface ElementMenuMobileProps {
   href: string;
   className: string;
   src: string;

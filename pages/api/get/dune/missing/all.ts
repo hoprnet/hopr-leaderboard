@@ -1,6 +1,7 @@
+import { Stream } from "@ceramicnetwork/common";
 import { NextApiRequest, NextApiResponse } from "next";
 import { client, did } from "../../../../../constants/api";
-import { IGetDuneMissingVal } from "../../../../../types";
+import { IGetDuneMissingVal, IReduceAll, ISQLAll } from "../../../../../types";
 import { convertHoprAddressToETHAddress } from "../../../../../utils/hopr";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     `../../../../../../constants/missing/${batch}/addresses`
   );
 
-  let streamsMap: any, streamMap: any;
+  let streamsMap: { [key: string]: [] }, streamMap: Record<string, Stream>;
   // NB: We have a specific batch which is hardcoded, so unfortunately we don’t have streams
   // but instead the HOPR addresses directly.
   if (batch !== "3") {
@@ -84,8 +85,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 : MAX_AMOUNT_OF_NODES_PER_ETH_ADDRESS;
             return {
               ethAddress: acc.ethAddress
-                ? `${acc.ethAddress},${ethAddress.toLowerCase()}`
-                : ethAddress.toLowerCase(),
+                ? `${acc.ethAddress},${ethAddress.toString().toLowerCase()}`
+                : ethAddress.toString().toLowerCase(),
               hoprAddresses: acc.hoprAddresses
                 ? `${acc.hoprAddresses},${convertHoprAddressToETHAddress(
                     val
@@ -132,7 +133,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
      */
   const flattenedRegistrationRecords = registrationRecords.reduce(
-    (acc: any, val: any, index: number, allRecords: any) => {
+    (acc: IReduceAll | any, val: IReduceAll | any, index: number, allRecords: IReduceAll | any) => {
       const currentBatchLength = acc.currentLength + val.length;
       const nextLength = allRecords[index + 1]
         ? allRecords[index + 1].length
@@ -192,11 +193,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
 
   if (parsed) {
-    const sqlBlock = (obj: any) =>
+    const sqlBlock = (obj: ISQLAll) =>
       `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`;
     const parsed = flattenedRegistrationRecords.allBatches.reduce(
       (acc: string, cur: string, index: number) =>
-        index === 0 ? sqlBlock(cur) : acc + " UNION ALL " + sqlBlock(cur),
+        index === 0 ? sqlBlock((cur as unknown as ISQLAll)) : acc + " UNION ALL " + sqlBlock((cur as unknown as ISQLAll)),
       ""
     );
     return res.status(200).json({ parsed });

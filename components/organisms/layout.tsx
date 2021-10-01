@@ -14,7 +14,7 @@ import LastUpdatedData from "../molecules/lastUpdatedData";
 import { NextPage } from "next";
 import DataBoxTable from "../molecules/dataBoxTable";
 
-export interface LayoutProps {
+interface LayoutProps {
   toggle?: boolean;
 }
 
@@ -86,7 +86,7 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
     setactiveMenu(!activeMenu);
   };
 
-  const onChangeDarkModeDesktop = (event: any) => {
+  const onChangeDarkModeDesktop = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDarkMode(event.target.checked);
   };
 
@@ -106,7 +106,7 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
         <DesktopView
           darkMode={darkMode}
           activeMenu={activeMenu}
-          onChangeDarkModeDesktop={(event: any) =>
+          onChangeDarkModeDesktop={(event: React.ChangeEvent<HTMLInputElement>) =>
             onChangeDarkModeDesktop(event)
           }
           checked={darkMode ? true : false}

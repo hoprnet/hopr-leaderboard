@@ -5,7 +5,7 @@ import { IFaucet } from "../../types";
 import { truncate } from "../../utils/string";
 import { Images } from "../atoms/images";
 
-export interface FaucetBalanceProps {
+interface FaucetBalanceProps {
   copyCodeToClipboard: (address: string) => void;
 }
 

@@ -17,7 +17,7 @@ import { TileDocument } from "@ceramicnetwork/stream-tile";
 const HOPR_PREFIX = "HOPR Signed Message: ";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { streamId, address }: any = req.query;
+  const { streamId, address } = req.query;
   const { signature, message } = req.body;
 
   const signerAddress: string = utils.verifyTypedData(
@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const isValidSignature: boolean = address == signerAddress;
 
   if (isValidSignature) {
-    const checksumedAddress: string = utils.getAddress(address);
+    const checksumedAddress: string = utils.getAddress(address.toString());
     const { hoprSignature, hoprAddress, ethAddress } = message;
     const messageSignedByNode: string = `${HOPR_PREFIX}${ethAddress}`;
 
@@ -54,7 +54,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         );
 
         const mutatedDashboard = Object.assign({}, dashboard.content, {
-          [streamId]: ethAddress,
+          [streamId.toString()]: ethAddress,
         });
 
         // NB: We will not wait for the update of the dashboard to avoid issues w/timeouts.

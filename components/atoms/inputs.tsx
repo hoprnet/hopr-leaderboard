@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React, { CSSProperties } from "react";
 
-export interface InputsProps {
+interface InputsProps {
   className?: string;
   type?: string;
   placeholder: string;

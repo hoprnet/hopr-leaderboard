@@ -13,7 +13,7 @@ import devs from "./json/devs.json";
 export const secretKey = Uint8Array.from(
   utils.arrayify(`0x${process.env.HOPR_DASHBOARD_API_PRIVATE_KEY}`)
 );
-export const provider = new Ed25519Provider(secretKey) as any;
+export const provider = new Ed25519Provider(secretKey);
 export const did = new DID({ provider, resolver: KeyResolver.getResolver() });
 export const client = new CeramicClient(CERAMIC_API_URL);
 

@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Images } from "../atoms/images";
 
-export interface MobileViewProps {
+interface MobileViewProps {
   darkMode: boolean;
   activeMenu: boolean;
   onClick: () => void;

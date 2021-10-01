@@ -1,12 +1,12 @@
 import { NextPage } from "next";
 import React, { useState } from "react";
-import { IResponse } from "../../types";
+import { INodeTableTX, IResponse } from "../../types";
 import { truncate } from "../../utils/string";
 import { Buttons } from "../atoms/buttons";
 import { Images } from "../atoms/images";
 
-export interface NodeTableProps {
-  nodes: Array<string>;
+interface NodeTableProps {
+  nodes: { [key: string]: string };
   signRequest: (node: string, nodes: string) => Promise<IResponse>;
   copyCodeToClipboard: (text: string) => void;
 }
@@ -18,9 +18,9 @@ const NodeTable: NextPage<NodeTableProps> = ({
 }) => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [serverResponse, setServerResponse] = useState<string>("");
-  const [transactions, setTransactions] = useState<any>([]);
+  const [transactions, setTransactions] = useState<Array<INodeTableTX>>([]);
 
-  const onClick = async (node: string, nodes: any) => {
+  const onClick = async (node: string, nodes: { [key: string]: string }) => {
     setTransactions([]);
     setServerResponse("");
     setLoading(true);
@@ -47,7 +47,7 @@ const NodeTable: NextPage<NodeTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {Object.keys(nodes).map((node: any) => (
+          {Object.keys(nodes).map((node: string) => (
             <tr key={node}>
               <td
                 onClick={() => copyCodeToClipboard(node)}
@@ -96,7 +96,7 @@ const NodeTable: NextPage<NodeTableProps> = ({
             <tr>
               <th colSpan={3}>{serverResponse}</th>
             </tr>
-            {transactions.map((tx: any, index: number) => (
+            {transactions.map((tx: INodeTableTX, index: number) => (
               <tr>
                 <td
                   onClick={() => copyCodeToClipboard(tx.hash)}

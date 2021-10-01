@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React, { CSSProperties } from "react";
 
-export interface ImagesProps {
+interface ImagesProps {
   src?: string;
   className?: string;
   alt?: string;

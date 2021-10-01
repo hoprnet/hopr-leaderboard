@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 
-export interface LastUpdatedDataProps {
+interface LastUpdatedDataProps {
   API_LastUpdated: string;
 }
 

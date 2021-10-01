@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { useEthers } from "@usedapp/core";
-import { IResponse } from "../../types";
+import { IResponse, IVerifyNodeProfile } from "../../types";
 import {
   HOPR_ADDRESS_CHAR_LENGTH,
   HOPR_WEB3_SIGNATURE_DOMAIN,
@@ -23,17 +23,17 @@ interface VerifyNodeProps {
   sendSignatureToAPI: (
     api: string,
     signature: string,
-    message: string
+    message: object
   ) => Promise<IResponse>;
   getWeb3SignatureVerifyContents: (
     hoprAddress: string,
     hoprSignature: string,
     ethAddress: string
-  ) => any;
+  ) => { hoprAddress: string; hoprSignature: string; ethAddress: string };
   getWeb3SignatureFaucetContents: (
     hoprAddress: string,
     ethAddress: string
-  ) => any;
+  ) => { hoprAddress: string; ethAddress: string };
 }
 
 export const VerifyNode: NextPage<VerifyNodeProps> = ({
@@ -54,18 +54,18 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
   const [verifierLoadingMessage, setVerifierLoadingMessage] =
     useState<string>("");
 
-  const [profile, setProfile] = useState<any>({});
+  const [profile, setProfile] = useState<IVerifyNodeProfile>();
   const [error, setError] = useState<string>("");
 
   const loadIDX = async () => {
     const profile =
       (await idx.get("basicProfile", `${account}@eip155:137`)) || {};
-    setProfile(profile);
+    setProfile(profile as IVerifyNodeProfile);
   };
 
   const sendSignatureForVerifying = async (
     signature: string,
-    message: string
+    message: object
   ) => {
     const response = await sendSignatureToAPI(
       `/api/sign/verify/${account}`,
@@ -80,17 +80,18 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
     hoprSignature: string,
     ethAddress: string
   ) => {
-    const message = getWeb3SignatureVerifyContents(
+    const message: object = getWeb3SignatureVerifyContents(
       hoprAddress,
       hoprSignature,
       ethAddress
     );
+
     const signature = await library!
       .getSigner()
       ._signTypedData(
         HOPR_WEB3_SIGNATURE_DOMAIN,
         HOPR_WEB3_SIGNATURE_FOR_NODE_TYPES,
-        message
+        message as unknown as Record<string, string>
       );
     return { message, signature };
   };
@@ -107,7 +108,7 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
       ._signTypedData(
         HOPR_WEB3_SIGNATURE_DOMAIN,
         HOPR_WEB3_SIGNATURE_TYPES,
-        message
+        message as unknown as Record<string, string>
       );
     const response = await sendSignatureToAPI(
       `/api/faucet/fund/${account}`,
@@ -310,7 +311,7 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
           {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
         </div>
         <NodeTable
-          nodes={profile[CERAMIC_IDX_HOPR_NAMESPACE]}
+          nodes={profile![CERAMIC_IDX_HOPR_NAMESPACE]}
           signRequest={signRequest}
           copyCodeToClipboard={copyCodeToClipboard}
         />

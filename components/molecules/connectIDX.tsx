@@ -7,7 +7,7 @@ import { DID } from "dids";
 import ThreeIdResolver from "@ceramicnetwork/3id-did-resolver";
 import { IDX } from "@ceramicstudio/idx";
 
-export interface ConnectIDXProps {
+interface ConnectIDXProps {
   address: string;
   idx?: IDX | null;
   setIdx?: Dispatch<SetStateAction<IDX | null | undefined>>;

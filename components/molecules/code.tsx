@@ -1,11 +1,11 @@
 import { NextPage } from "next";
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import { Images } from "../atoms/images";
 
 interface CodeProps {
-  code: any;
+  code: string[] | string;
   copyCodeToClipboard: (text: string) => void;
-  multiline?: any;
+  multiline?: boolean;
 }
 
 export const Code: NextPage<CodeProps> = ({
@@ -16,18 +16,18 @@ export const Code: NextPage<CodeProps> = ({
   return (
     <div className="quick-code">
       <div
-        className={`hash ${multiline && "multiline"}`}
-        onClick={() => copyCodeToClipboard(code)}
+        //className={`hash ${multiline && "multiline"}`}
+        onClick={() => copyCodeToClipboard(code.toString())}
       >
         {multiline ? (
-          code.map((loc: string, index: string) => <p key={index}>{loc}</p>)
+          (code as string[]).map((loc: string, index: number) => <p key={index}>{loc}</p>)
         ) : (
           <p>{code}</p>
         )}
         <div
-          style={
+          /*style={
             multiline && { position: "absolute", right: 0, padding: "0.7em" }
-          }
+          }*/
         >
           <Images
             style={{ marginLeft: 8 }}

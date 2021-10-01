@@ -2,10 +2,10 @@ import { NextPage } from "next";
 import React from "react";
 import { Images } from "../atoms/images";
 
-export interface DesktopViewProps {
+interface DesktopViewProps {
   darkMode: boolean;
   activeMenu: boolean;
-  onChangeDarkModeDesktop: (event: React.ChangeEvent) => void;
+  onChangeDarkModeDesktop: (event: React.ChangeEvent<HTMLInputElement>) => void;
   checked: boolean
 }
 

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React, { CSSProperties } from "react";
 
-export interface ButonsProps {
+interface ButonsProps {
   text: string;
   onClick: () => void;
   disabled?: boolean;

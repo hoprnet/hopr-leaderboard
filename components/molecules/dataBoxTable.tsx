@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 
-export interface DataBoxTableProps{
+interface DataBoxTableProps{
     nodesVerified: string;
     nodesRegistered: string;
     nodesConnected: string;

@@ -6,8 +6,11 @@ import Link from "next/link";
 import { Connectors } from "../components/organisms/connectors";
 import Records from "../components/organisms/records";
 import BoxRemember from "../components/molecules/boxRemember";
+import { NextPage } from "next";
 
-const HoprAllocation = () => {
+interface HoprAllocationProps {}
+
+const HoprAllocation: NextPage<HoprAllocationProps> = ({}) => {
   const { account } = useEthers();
   const [addressToLoad, setAddressToLoad] = useState<string>("");
   return (

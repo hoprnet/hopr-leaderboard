@@ -5,7 +5,7 @@ import { TOKEN_ADDRESS_POLYGON } from "../../constants/hopr";
 import { NextPage } from "next";
 import { Buttons } from "../atoms/buttons";
 
-export interface ConnectWalletProps {}
+interface ConnectWalletProps {}
 
 export const ConnectWallet: NextPage<ConnectWalletProps> = ({ children }) => {
   const { activateBrowserWallet, account, deactivate } = useEthers();

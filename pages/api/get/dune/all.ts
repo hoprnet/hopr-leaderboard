@@ -3,13 +3,14 @@ import { client, did } from "../../../../constants/api";
 import { TileDocument } from "@ceramicnetwork/stream-tile";
 import { Stream } from "@ceramicnetwork/common";
 import { convertHoprAddressToETHAddress } from "../../../../utils/hopr";
+import { IReduceAll, ISQLAll } from "../../../../types";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { parsed } = req.query;
   await did.authenticate();
   client.setDID(did);
 
-  const records: TileDocument<{ content: string } | any> =
+  const records =
     await TileDocument.create(
       client,
       null,
@@ -21,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       { anchor: false, publish: false }
     );
 
-  const streams = Object.keys(records.content);
+  const streams = Object.keys((records.content as unknown as TileDocument<null>));
   const queries = streams.map((streamId) => ({ streamId }));
   const streamMap = await client.multiQuery(queries);
 
@@ -45,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         hoprAddress = 16u2111...,16u2222... 
        */
       const doc: Stream = streamMap[streamId];
-      const ethAddress: string = records.content[streamId];
+      const ethAddress: string = (records.content || "")[streamId as unknown as number];
       const hoprAddresses: string[] = Object.keys(doc.content);
       TOTAL_AMOUNT_OF_NODES += hoprAddresses ? hoprAddresses.length || 0 : 0;
       UNIQUE_ETH_ADDRESS_REGISTERED.push(ethAddress);
@@ -109,7 +110,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
      */
 
   const flattenedRegistrationRecords = registrationRecords.reduce(
-    (acc: any, val: any, index: any, allRecords: any) => {
+    (acc: IReduceAll | any, val: IReduceAll | any, index: number, allRecords: IReduceAll | any) => {
       const currentBatchLength: number = acc.currentLength + val.length;
       const nextLength: number = allRecords[index + 1]
         ? allRecords[index + 1].length
@@ -169,11 +170,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
 
   if (parsed) {
-    const sqlBlock = (obj: any) =>
+    const sqlBlock = (obj: ISQLAll) =>
       `SELECT decode(lower(substring(unnest(regexp_split_to_array('${obj.ethAddress}', ',')), 3)), 'hex')::bytea AS eoa, decode(lower(substring(unnest(regexp_split_to_array('${obj.hoprAddresses}', ',')), 3)), 'hex')::bytea AS node`;
     const parsed = flattenedRegistrationRecords.allBatches.reduce(
       (acc: string, cur: string, index: number) =>
-        index === 0 ? sqlBlock(cur) : acc + " UNION ALL " + sqlBlock(cur),
+        index === 0 ? sqlBlock((cur as unknown as ISQLAll)) : acc + " UNION ALL " + sqlBlock((cur as unknown as ISQLAll)),
       ""
     );
     return res.status(200).json({ parsed });

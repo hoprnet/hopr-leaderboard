@@ -1,10 +1,12 @@
 import { NextPage } from "next";
 import React from "react";
 import { CSVLink } from "react-csv";
+import { IBoxRememberLeaderBoardData } from "../../types";
 import { Images } from "../atoms/images";
 
-export interface BoxRememberProps {
-  leaderboardData: Array<[]>;
+
+interface BoxRememberProps {
+  leaderboardData: Array<IBoxRememberLeaderBoardData>;
 }
 
 const BoxRemember: NextPage<BoxRememberProps> = ({ leaderboardData }) => {

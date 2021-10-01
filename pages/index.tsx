@@ -4,35 +4,37 @@ import BoxRemember from "../components/molecules/boxRemember";
 import Layout from "../components/organisms/layout";
 import { twitterRegex } from "../constants/regexExp";
 import { columnsDefaults } from "../constants/tablesColumns";
+import { IColumnsDefaults, IDataIndex, INodeObject, ISortedUsername, IState } from "../types";
 import api from "../utils/api";
 
-export interface HomeProps {}
+interface HomeProps {}
 
 const Home: NextPage<HomeProps> = ({}) => {
-  const [data, setData] = useState<any>(undefined);
+  const [data, setData] = useState<IDataIndex>();
   const [showMsg, setShowMsg] = useState<boolean>(false);
 
-  const nodes: any = data ? data.nodes : [];
+  const nodes = data ? data.nodes : [];
 
   const callAPI = () => {
     const fetchData = async () => {
       const response = await api.getAllData();
+
       if (response.data) {
-        let [aNew, aColumns] = fnSortData(
+        let [aNew] = fnSortData(
           "openedChannels",
           columnsDefaults,
           response.data
         );
-        setData(aNew);
+        setData(aNew as IDataIndex);
       }
     };
     fetchData();
   };
 
-  const fnSortData = (key: string, aColumns: any, aNew: any) => {
+  const fnSortData = (key: string, aColumns: IColumnsDefaults[], aNew: IDataIndex | IColumnsDefaults[] | IState) => {
     let sSort = "";
 
-    aColumns.map((item: any) => {
+    aColumns.map((item: { key: string; className: string }) => {
       if (item.key === key) {
         sSort = item.className.replace("sortBy", "").trim();
         sSort = sSort === "asc" ? "desc" : "asc";
@@ -41,20 +43,23 @@ const Home: NextPage<HomeProps> = ({}) => {
         item.className = "sortBy";
       }
     });
-    aColumns.find((item: any) => item.key === key).className =
+
+    aColumns.find((item: { key: string }) => item.key === key)!.className =
       "sortBy " + sSort;
 
-    aNew.nodes = aNew.nodes.sort((a: any, b: any) => {
-      let parser = getParser(key),
-        convertA = parser(a[key]),
-        convertB = parser(b[key]);
+    (aNew as IDataIndex).nodes = ((aNew as IDataIndex).nodes as string[]).sort(
+      (a: string, b: string) => {
+        let parser = getParser(key),
+          convertA = parser(a[key as unknown as number]),
+          convertB = parser(b[key as unknown as number]);
 
-      if (sSort === "asc") {
-        return convertB - convertA;
-      } else {
-        return convertA - convertB;
+        if (sSort === "asc") {
+          return convertB - convertA;
+        } else {
+          return convertA - convertB;
+        }
       }
-    });
+    );
 
     return [aNew, aColumns];
   };
@@ -74,16 +79,16 @@ const Home: NextPage<HomeProps> = ({}) => {
     callAPI();
   }, []);
 
-  const trimmedNodesWithUsername = nodes.map((node: any) => {
+  const trimmedNodesWithUsername = (nodes as Array<string>).map((node: string | INodeObject) => {
     const regexedTweet =
-      (node.tweetUrl && node.tweetUrl.match(twitterRegex)) || [];
+      ((node as INodeObject).tweetUrl && (node as INodeObject).tweetUrl.match(twitterRegex)) || [];
     const username = regexedTweet[1] || "undefined_user";
-    const { id } = node;
+    const { id } = node as INodeObject;
     return { id, username };
   });
 
   const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
-    (a: any, b: any) => b.openedChannels - a.openedChannels
+    (a: ISortedUsername, b: ISortedUsername) => (b.openedChannels || 0) - (a.openedChannels || 0)
   );
 
   return (

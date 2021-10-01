@@ -10,13 +10,13 @@ import TableRecords from "../molecules/tableRecords";
 
 const getWeb3SignatureEthereumContents = (
   hoprAddress: string,
-  ethAddress: string
+  ethAddress?: string | null
 ) => ({
   hoprAddress,
   ethAddress,
 });
 
-export interface RecordProps {
+interface RecordProps {
   account?: string | null;
 }
 
@@ -39,7 +39,7 @@ const Records: NextPage<RecordProps> = ({ account }) => {
   const sendSignatureToAPI = async (
     endpoint: string,
     signature: string,
-    message: string
+    message: { hoprAddress: string; ethAddress?: string | null }
   ) => {
     const response = await fetch(endpoint, {
       body: JSON.stringify({ signature, message }),
@@ -59,7 +59,7 @@ const Records: NextPage<RecordProps> = ({ account }) => {
 
   const sendSignatureForDeletion = async (
     signature: string,
-    message: string
+    message: { hoprAddress: string; ethAddress?: string | null }
   ) => {
     const response = await sendSignatureToAPI(
       `/api/sign/delete/${account}`,
@@ -71,7 +71,7 @@ const Records: NextPage<RecordProps> = ({ account }) => {
 
   const getSignatureAndMessage = async (
     hoprAddress: string,
-    ethAddress: string
+    ethAddress?: string | null
   ) => {
     const message = getWeb3SignatureEthereumContents(hoprAddress, ethAddress);
     const signature = await library!
@@ -84,8 +84,11 @@ const Records: NextPage<RecordProps> = ({ account }) => {
     return { message, signature };
   };
 
-  const deleteRecord = async (hoprAddress: string, ethAddress: string) => {
-    const { signature, message }: any = await getSignatureAndMessage(
+  const deleteRecord = async (
+    hoprAddress: string,
+    ethAddress?: string | null
+  ) => {
+    const { signature, message } = await getSignatureAndMessage(
       hoprAddress,
       ethAddress
     );

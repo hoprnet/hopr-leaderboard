@@ -4,13 +4,13 @@ import { truncate } from "../../utils/string";
 import { Buttons } from "../atoms/buttons";
 import { Web3Provider } from '@ethersproject/providers'
 
-export interface TableRecordsProps {
+interface TableRecordsProps {
   isPinned: boolean;
   records: Array<string>;
   pinRecord: () => void;
   library?: Web3Provider;
   account?: string | null;
-  deleteRecord: (hoprNode: any, account: any) => void;
+  deleteRecord: (hoprNode: string, account?: string | null) => void;
 }
 
 const TableRecords: NextPage<TableRecordsProps> = ({

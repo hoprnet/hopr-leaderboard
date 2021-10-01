@@ -4,7 +4,7 @@ import { MenuSectionsDesktop } from "../../constants/menuSections";
 import { IeMenuDesktop } from "../../types";
 import { ElementMenuDesktop } from "../atoms/elementMenuDesktop";
 
-export interface MenuDesktopdProps {
+interface MenuDesktopdProps {
   darkMode: boolean;
 }
 

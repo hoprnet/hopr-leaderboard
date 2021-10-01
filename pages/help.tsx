@@ -4,7 +4,7 @@ import BoxRemember from "../components/molecules/boxRemember";
 import { Instructions } from "../components/organisms/instructions";
 import Layout from "../components/organisms/layout";
 
-export interface HelpProps {}
+interface HelpProps {}
 
 const Help: NextPage<HelpProps> = ({}) => {
   const [showMsg, setShowMsg] = useState<boolean>(false);

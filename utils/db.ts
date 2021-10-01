@@ -17,11 +17,11 @@ class FirebaseDatabase {
     this.databaseurl = `https://${HOPR_DATABASE_URL}.firebaseio.com/`;
   }
 
-  async resolveResponse(response: any) {
+  async resolveResponse(response: void | Response) {
     if (response) {
       const json = await response
         .json()
-        .catch((err: any) =>
+        .catch((err: Error) =>
           console.error(
             `- resolveResponse | json :: Error parsing data from response`,
             err
