@@ -2,6 +2,7 @@ import { PublicKey } from "@hoprnet/hopr-utils";
 import PeerId from "peer-id";
 import { createClient } from "@urql/core";
 import { ENDPOINT, QUERY_GET_ACCOUNT } from "../../../constants/queries";
+import { getImportanceScore } from "../../../constants/score";
 
 export default async (req, res) => {
   try {
@@ -22,8 +23,10 @@ export default async (req, res) => {
     const result = {
       id: node,
       address,
-      openedChannels: data.accounts[0].openedChannels,
-      closedChannels: data.accounts[0].closedChannels,
+      balance: data.accounts[0].balance,
+      openedChannels: data.accounts[0].fromChannels.filter(c => c.status === 'OPEN').length,
+      closedChannels: data.accounts[0].fromChannels.filter(c => c.status === 'CLOSED').length,
+      importanceScore: getImportanceScore(data.accounts[0])
     };
     return res.json({
       ...result,

@@ -1,6 +1,6 @@
 import { createClient } from '@urql/core';
 import db, { FirebaseNetworkTables } from "./db";
-import { DEDUCTABLE_SCORE_MAP } from "../constants/score";
+import { DEDUCTABLE_SCORE_MAP, getImportanceScore } from "../constants/score";
 import { DAILIES_SCORE_ARRAY } from "../constants/dailies";
 import { Multiaddr } from 'multiaddr'
 import { stringToU8a } from './string'
@@ -46,13 +46,17 @@ export async function getAllData() {
     getData(FirebaseNetworkTables.state).then((res) => res.data),
   ]);
 
-  const nodes = accounts.map(({ id, openedChannels, closedChannels, multiaddr}) => {
-    const address = multiaddr ? new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop() : ''
+  const nodes = accounts.map((account) => {
+    const {id, fromChannelsCount, fromChannels, multiaddr, balance} = account
+    const address = multiaddr.length > 0 ? new Multiaddr(stringToU8a(multiaddr[0])).toString().split('/').pop() : ''
     return {
     id: address,
     address: id,
-    openedChannels: address.length > 0 ? openedChannels : -1,
-    closedChannels: address.length > 0 ? closedChannels : -1
+    balance,
+    importanceScore: getImportanceScore(account),
+    fromChannelsCount,
+    openedChannels: fromChannels.filter(c => c.status === 'OPEN').length,
+    closedChannels: fromChannels.filter(c => c.status === 'CLOSED').length,
    }
 })
 
