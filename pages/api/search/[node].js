@@ -22,8 +22,9 @@ export default async (req, res) => {
     const result = {
       id: node,
       address,
-      openedChannels: data.accounts[0].openedChannels,
-      closedChannels: data.accounts[0].closedChannels,
+      balance: data.accounts[0].balance,
+      openedChannels: data.accounts[0].fromChannels.filter(c => c.status === 'OPEN').length,
+      closedChannels: data.accounts[0].fromChannels.filter(c => c.status === 'CLOSED').length,
     };
     return res.json({
       ...result,

@@ -46,13 +46,15 @@ export async function getAllData() {
     getData(FirebaseNetworkTables.state).then((res) => res.data),
   ]);
 
-  const nodes = accounts.map(({ id, openedChannels, closedChannels, multiaddr}) => {
-    const address = multiaddr ? new Multiaddr(stringToU8a(multiaddr)).toString().split('/').pop() : ''
+  const nodes = accounts.map(({ id, fromChannelsCount, fromChannels, multiaddr, balance}) => {
+    const address = multiaddr.length > 0 ? new Multiaddr(stringToU8a(multiaddr[0])).toString().split('/').pop() : ''
     return {
     id: address,
     address: id,
-    openedChannels: address.length > 0 ? openedChannels : -1,
-    closedChannels: address.length > 0 ? closedChannels : -1
+    balance,
+    fromChannelsCount,
+    openedChannels: fromChannels.filter(c => c.status === 'OPEN').length,
+    closedChannels: fromChannels.filter(c => c.status === 'CLOSED').length,
    }
 })
 
