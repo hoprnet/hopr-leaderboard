@@ -6,7 +6,6 @@ interface InputsProps {
   type?: string;
   placeholder: string;
   value?: string;
-  style?: CSSProperties
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -16,7 +15,6 @@ export const Inputs: NextPage<InputsProps> = ({
   placeholder,
   value,
   onChange,
-  style
 }) => {
   return (
     <input
@@ -25,7 +23,6 @@ export const Inputs: NextPage<InputsProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      style={style}
     />
   );
 };

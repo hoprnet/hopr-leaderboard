@@ -40,7 +40,7 @@ export const MenuMobile: NextPage<MenuMobileProps> = ({
               {hash.slice(-8)}
             </p>
             <Images
-              style={{ marginLeft: 8 }}
+              className="img-copy"
               src="/assets/icons/copy.svg"
               alt="copy"
             />

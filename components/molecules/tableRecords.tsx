@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { truncate } from "../../utils/string";
 import { Buttons } from "../atoms/buttons";
-import { Web3Provider } from '@ethersproject/providers'
+import { Web3Provider } from "@ethersproject/providers";
 
 interface TableRecordsProps {
   isPinned: boolean;
@@ -25,8 +25,8 @@ const TableRecords: NextPage<TableRecordsProps> = ({
     <table>
       <thead>
         <tr>
-          <th style={{ color: "black" }}>verified nodes</th>
-          <th colSpan={2} style={{ color: isPinned ? "green" : "red" }}>
+          <th className="verfied-nodes">verified nodes</th>
+          <th colSpan={2} className={isPinned ? "records-green" : "records-red"}>
             {isPinned ? (
               "pinned"
             ) : records.length > 0 ? (

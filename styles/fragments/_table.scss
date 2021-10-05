@@ -3,8 +3,38 @@
   font-size: 13px;
 }
 
+.node-table {
+  height: 100%;
+
+  img {
+    margin-left: 8px;
+  }
+}
+
 .box-container-table {
   overflow: scroll;
+
+  &.records {
+    height: auto;
+  }
+
+  table {
+    td {
+      cursor: pointer;
+    }
+
+    th.verfied-nodes {
+      color: black;
+    }
+
+    th.records-green {
+      color: green;
+    }
+
+    th.records-red {
+      color: red;
+    }
+  }
 }
 
 table {
@@ -233,5 +263,43 @@ table th {
       filter: grayscale(0);
       transition: all 350ms ease-in-out;
     }
+  }
+}
+
+.verify-node {
+  margin: 10px;
+  display: "flex";
+
+  .add-hopr-node {
+    margin-bottom: 30px;
+  }
+  .connect-node {
+    margin-top: 5px;
+    display: block;
+
+    &.node {
+      width: 98%;
+      padding: 5px;
+    }
+
+    &.signature {
+      width: 98%;
+      padding: 5px;
+      display: block;
+    }
+  }
+}
+
+.verifier {
+  background-color: rgba(248, 114, 54, 0.5);
+}
+
+.validate-node {
+  button {
+    background-color: rgba(248, 114, 54, 0.5);
+    margin-top: 5px;
+  }
+  &.error-small {
+    margin-left: 5px;
   }
 }

@@ -99,6 +99,18 @@
   }
 }
 
+.connectWallet {
+  display: flex;
+
+  button {
+    margin-right: 5px;
+  }
+}
+
+.msgAvailableWallet {
+  margin-left: 10px;
+}
+
 // MAIN INFO
 .box .box-top-area {
   & > div {
@@ -187,9 +199,33 @@
   }
 }
 
+.info-node {
+  margin-bottom: 20px;
+}
+
+.section-faucet {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.small-faucet {
+  margin-left: 5px;
+
+  img {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}
+
 .box .box-main-area {
   padding: 0 1em;
   overflow: hidden;
+
+  .section-info-index {
+    margin: 20px;
+  }
+
   ol li {
     line-height: normal;
     margin-bottom: 0.55em;
@@ -316,3 +352,10 @@
   }
 }
 
+.pick-distribution {
+  margin-right: 5px;
+
+  &.condition-dist {
+    font-weight: 900;
+  }
+}

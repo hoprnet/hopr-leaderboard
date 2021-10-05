@@ -37,7 +37,7 @@ const NodeTable: NextPage<NodeTableProps> = ({
   };
 
   return (
-    <div className="box-container-table" style={{ height: "100%" }}>
+    <div className="box-container-table node-table">
       <table>
         <thead>
           <tr>
@@ -51,22 +51,20 @@ const NodeTable: NextPage<NodeTableProps> = ({
             <tr key={node}>
               <td
                 onClick={() => copyCodeToClipboard(node)}
-                style={{ cursor: "pointer" }}
               >
                 {truncate(node)}
                 <Images
-                  style={{ marginLeft: 8 }}
+                  className="img-copy"
                   src="/assets/icons/copy.svg"
                   alt="copy"
                 />
               </td>
               <td
                 onClick={() => copyCodeToClipboard(nodes[node])}
-                style={{ cursor: "pointer" }}
               >
                 {truncate(nodes[node])}
                 <Images
-                  style={{ marginLeft: 8 }}
+                  className="img-copy"
                   src="/assets/icons/copy.svg"
                   alt="copy"
                 />
@@ -100,11 +98,9 @@ const NodeTable: NextPage<NodeTableProps> = ({
               <tr>
                 <td
                   onClick={() => copyCodeToClipboard(tx.hash)}
-                  style={{ cursor: "pointer" }}
                 >
                   {truncate(tx.hash)}
                   <Images
-                    style={{ marginLeft: 8 }}
                     src="/assets/icons/copy.svg"
                     alt="copy"
                   />

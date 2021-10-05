@@ -36,12 +36,10 @@ const Node: NextPage<NodeProps> = ({}) => {
   const getWeb3SignatureFaucetContents = (
     hoprAddress: string,
     ethAddress: string
-  ) => (
-    {
+  ) => ({
     hoprAddress,
     ethAddress,
-    }
-  );
+  });
 
   const getWeb3SignatureVerifyContents = (
     hoprAddress: string,
@@ -85,7 +83,7 @@ const Node: NextPage<NodeProps> = ({}) => {
           </div>
         </div>
 
-        <div className="box-main-area" style={{ marginBottom: "20px" }}>
+        <div className="box-main-area info-node">
           <div className="quick-code">
             <small>
               Use the following tools to get HOPR tokens, connect your HOPR node
@@ -99,15 +97,9 @@ const Node: NextPage<NodeProps> = ({}) => {
             </small>
           </div>
           <hr />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              marginBottom: "10px",
-            }}
-          >
+          <div className="section-faucet">
             <h3>Faucet</h3>
-            <small style={{ marginLeft: "5px" }}>
+            <small className="small-faucet">
               <FaucetBalance copyCodeToClipboard={showCopyCode} />
             </small>
           </div>

@@ -269,8 +269,8 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
     loadIDX();
   }, []);
   return (
-    <div style={{ margin: "10px 0", display: "flex" }}>
-      <div style={{ marginBottom: "15px" }}>
+    <div className="verify-node">
+      <div className="add-hopr-node">
         <p>
           <b>Add HOPR node</b> {!profile && <span>Loading IDX...</span>}
         </p>
@@ -287,28 +287,24 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
           validate whether your address and node have MATIC funds already. You
           can fund as many HOPR nodes as needed.
         </small>
-        <div style={{ marginTop: "5px", display: "block" }}>
+        <div className="connect-node">
           <Inputs
             type="text"
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="16Uiu2HA..."
-            style={{ width: "98%", padding: "5px" }}
+            className="connect-node node"
           />
         </div>
-        <div>
+        <div className="validate-node">
           <Buttons
             disabled={isLoading}
-            style={{
-              backgroundColor: "rgba(248, 114, 54, 0.5)",
-              marginTop: "5px",
-            }}
             onClick={() => {
               addHOPRNodeToIDX();
             }}
             text={isLoading ? loadingMessage : "Validate node for funding."}
           />
 
-          {error && <small style={{ marginLeft: "5px" }}>{error}</small>}
+          {error && <small className="validate-node error-small">{error}</small>}
         </div>
         <NodeTable
           nodes={profile![CERAMIC_IDX_HOPR_NAMESPACE]}
@@ -326,12 +322,12 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
           you control. First, add your HOPR node address in the following input
           value field.
         </small>
-        <div style={{ marginTop: "10px", display: "block" }}>
+        <div className="connect-node">
           <Inputs
             type="text"
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="16Uiu2HA..."
-            style={{ width: "98%", padding: "5px" }}
+            className="connect-node node"
           />
         </div>
         <br />
@@ -349,15 +345,15 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
           field and click on “Verify node for rewards”. If valid, your node will
           then be shown as verified in our network with your Ethereum address.
         </small>
-        <div style={{ marginTop: "5px", display: "block" }}>
+        <div className="connect-node">
           <textarea
             placeholder="0x304402203208f46d1d25c4939760..."
             rows={3}
             onChange={(e) => setSignatureValue(e.target.value)}
-            style={{ width: "98%", padding: "5px", display: "block" }}
+            className="connect-node signature"
           />
         </div>
-        <button
+        <Buttons
           disabled={!signatureValue || isVerifierLoading}
           onClick={async () =>
             verifyNodeInCeramic(
@@ -366,12 +362,13 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
               account!
             )
           }
-          style={{ backgroundColor: "rgba(248, 114, 54, 0.5)" }}
-        >
-          {isVerifierLoading
-            ? verifierLoadingMessage
-            : "Verify node for rewards."}
-        </button>
+          className="verifier"
+          text={
+            isVerifierLoading
+              ? verifierLoadingMessage
+              : "Verify node for rewards."
+          }
+        />
       </div>
     </div>
   );

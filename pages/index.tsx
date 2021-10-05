@@ -4,7 +4,13 @@ import BoxRemember from "../components/molecules/boxRemember";
 import Layout from "../components/organisms/layout";
 import { twitterRegex } from "../constants/regexExp";
 import { columnsDefaults } from "../constants/tablesColumns";
-import { IColumnsDefaults, IDataIndex, INodeObject, ISortedUsername, IState } from "../types";
+import {
+  IColumnsDefaults,
+  IDataIndex,
+  INodeObject,
+  ISortedUsername,
+  IState,
+} from "../types";
 import api from "../utils/api";
 
 interface HomeProps {}
@@ -31,7 +37,11 @@ const Home: NextPage<HomeProps> = ({}) => {
     fetchData();
   };
 
-  const fnSortData = (key: string, aColumns: IColumnsDefaults[], aNew: IDataIndex | IColumnsDefaults[] | IState) => {
+  const fnSortData = (
+    key: string,
+    aColumns: IColumnsDefaults[],
+    aNew: IDataIndex | IColumnsDefaults[] | IState
+  ) => {
     let sSort = "";
 
     aColumns.map((item: { key: string; className: string }) => {
@@ -79,16 +89,21 @@ const Home: NextPage<HomeProps> = ({}) => {
     callAPI();
   }, []);
 
-  const trimmedNodesWithUsername = (nodes as Array<string>).map((node: string | INodeObject) => {
-    const regexedTweet =
-      ((node as INodeObject).tweetUrl && (node as INodeObject).tweetUrl.match(twitterRegex)) || [];
-    const username = regexedTweet[1] || "undefined_user";
-    const { id } = node as INodeObject;
-    return { id, username };
-  });
+  const trimmedNodesWithUsername = (nodes as Array<string>).map(
+    (node: string | INodeObject) => {
+      const regexedTweet =
+        ((node as INodeObject).tweetUrl &&
+          (node as INodeObject).tweetUrl.match(twitterRegex)) ||
+        [];
+      const username = regexedTweet[1] || "undefined_user";
+      const { id } = node as INodeObject;
+      return { id, username };
+    }
+  );
 
   const sortedTrimmedNodesWithUsername = trimmedNodesWithUsername.sort(
-    (a: ISortedUsername, b: ISortedUsername) => (b.openedChannels || 0) - (a.openedChannels || 0)
+    (a: ISortedUsername, b: ISortedUsername) =>
+      (b.openedChannels || 0) - (a.openedChannels || 0)
   );
 
   return (
@@ -103,7 +118,7 @@ const Home: NextPage<HomeProps> = ({}) => {
             </div>
           </div>
           <div className="box-main-area remove-all-padding">
-            <div style={{ margin: "20px" }}>
+            <div className="section-info-index">
               <p className="help-total-results">
                 Please visit our{" "}
                 <a

@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import React, { useState } from "react";
+import { Buttons } from "../components/atoms/buttons";
 import BoxRemember from "../components/molecules/boxRemember";
 import { Instructions } from "../components/organisms/instructions";
 import Layout from "../components/organisms/layout";
@@ -37,16 +38,12 @@ const Help: NextPage<HelpProps> = ({}) => {
             <h3>Instructions</h3>
             <span>Pick your distribution.</span>
             {["npm", "docker", "avado"].map((dist) => (
-              <button
+              <Buttons
                 key={dist}
-                style={{
-                  marginRight: "5px",
-                  fontWeight: dist == instructionsTarget ? 900 : undefined
-                }}
+                className={`pick-distribution ${dist == instructionsTarget && 'condition-dist' }`}
                 onClick={() => setInstructionsTarget(dist)}
-              >
-                {dist}
-              </button>
+                text={dist}
+              />
             ))}
             <Instructions
               setShowMsg={setShowMsg}

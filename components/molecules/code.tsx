@@ -16,21 +16,19 @@ export const Code: NextPage<CodeProps> = ({
   return (
     <div className="quick-code">
       <div
-        //className={`hash ${multiline && "multiline"}`}
+        className={`hash ${multiline && "multiline"}`}
         onClick={() => copyCodeToClipboard(code.toString())}
       >
         {multiline ? (
-          (code as string[]).map((loc: string, index: number) => <p key={index}>{loc}</p>)
+          (code as string[]).map((loc: string, index: number) => (
+            <p key={index}>{loc}</p>
+          ))
         ) : (
           <p>{code}</p>
         )}
-        <div
-          /*style={
-            multiline && { position: "absolute", right: 0, padding: "0.7em" }
-          }*/
-        >
+        <div>
           <Images
-            style={{ marginLeft: 8 }}
+            className="img-copy"
             src="/assets/icons/copy.svg"
             alt="copy"
           />

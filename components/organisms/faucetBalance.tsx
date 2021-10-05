@@ -37,7 +37,6 @@ export const FaucetBalance: NextPage<FaucetBalanceProps> = ({
       {truncate(faucet.address)}
       <Images
         onClick={() => copyCodeToClipboard(faucet.address)}
-        style={{ marginLeft: 8, cursor: "pointer" }}
         src="/assets/icons/copy.svg"
         alt="copy"
       />{" "}
