@@ -1,37 +1,27 @@
 [
   {
-    "account": "0xE17603346097fc5c175F0EF627434d3D805ae1c1",
-    "actual_stake": 1000.0,
-    "virtual_stake": 0
-  },
-  {
     "account": "0xe99dc1864b1bea3EFd8b87d5CEc5b7b65ff23379",
-    "actual_stake": 1000.0,
+    "actual_stake": 100000.0,
     "virtual_stake": 0
   },
   {
-    "account": "0x849D046dfb65E7Bd680F5022613c1C8Ae9a52367",
-    "actual_stake": 1000.0,
+    "account": "0xDe5701C91E479888878f9AEbf1DeCc0B10D88cB5",
+    "actual_stake": 100000.0,
     "virtual_stake": 0
   },
   {
-    "account": "0x8C62e7f1DB83e55a61e2AE27B2e1597124cDB9AB",
-    "actual_stake": 1000.0,
-    "virtual_stake": 0
-  },
-  {
-    "account": "0xf772Db956FFb322654b56839899C7F67125cf3f5",
-    "actual_stake": 1000.0,
+    "account": "0xA940548c3BE8B7E1D8A90D7825C3aa0d52668fD0",
+    "actual_stake": 100000.0,
     "virtual_stake": 0
   },
   {
     "account": "0x3c5B25331C30937ac324D3F20Af0CAA70e645588",
-    "actual_stake": 1000.0,
+    "actual_stake": 100000.0,
     "virtual_stake": 0
   },
   {
-    "account": "0x62Ec589cc2A82816599A7C6f9d145A62D90C17cB",
-    "actual_stake": 1000.0,
+    "account": "0xDd734d9ec8d8F66306416835ECeEBB358611F5F3",
+    "actual_stake": 100000.0,
     "virtual_stake": 0
   }
 ]
