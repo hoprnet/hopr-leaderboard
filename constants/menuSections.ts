@@ -6,14 +6,14 @@ export const MenuSectionsDesktop = (darkMode: boolean) => {
   const sections = [
     {
       href: "/",
-      className: `menu-item-desktop ${router.pathname == "/" ? "active" : ""}`,
+      className: `menu-item ${router.pathname == "/" ? "active" : ""}`,
       src: `/assets/icons/home${darkMode ? "_d" : ""}.svg`,
       alt: "hopr HOME",
       p: "Network",
     },
     {
       href: "/nfts",
-      className: `menu-item-desktop ${
+      className: `menu-item ${
         router.pathname == "/nfts" ? "active" : ""
       }`,
       src: `/assets/icons/horp_icon.svg`,
@@ -22,7 +22,7 @@ export const MenuSectionsDesktop = (darkMode: boolean) => {
     },
     {
       href: "/node",
-      className: `menu-item-desktop ${
+      className: `menu-item ${
         router.pathname == "/node" ? "active" : ""
       }`,
       src: `/assets/icons/magnifying.svg`,
@@ -31,7 +31,7 @@ export const MenuSectionsDesktop = (darkMode: boolean) => {
     },
     {
       href: "/help",
-      className: `menu-item-desktop ${
+      className: `menu-item ${
         router.pathname == "/help" ? "active" : ""
       }`,
       src: `/assets/icons/help${darkMode ? "_d" : ""}.svg`,
@@ -49,28 +49,28 @@ export const MenuSectionsMobile = () => {
   const sections = [
     {
       href: "/",
-      className: `${router.pathname == "/" ? "active" : ""}`,
+      className: `menu-item ${router.pathname == "/" ? "active" : ""}`,
       src: `/assets/icons/home.svg`,
       alt: "HOPR network",
       p: "Network",
     },
     {
       href: "/nfts",
-      className: `${router.pathname == "/nfts" ? "active" : ""}`,
+      className: `menu-item ${router.pathname == "/nfts" ? "active" : ""}`,
       src: `/assets/icons/horp_icon.svg`,
       alt: "HOPR NFTs",
       p: "NFTs",
     },
     {
       href: "/node",
-      className: ``,
+      className: `menu-item ${router.pathname == "/node" ? "active" : ""}`,
       src: `/assets/icons/magnifying.svg`,
       alt: "HOPR node",
       p: "Node",
     },
     {
       href: "/help",
-      className: `${router.pathname == "/help" ? "active" : ""}`,
+      className: `menu-item ${router.pathname == "/help" ? "active" : ""}`,
       src: `/assets/icons/help.svg`,
       alt: "Help",
       p: "Help",
