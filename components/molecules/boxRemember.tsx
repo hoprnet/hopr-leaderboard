@@ -4,13 +4,11 @@ import { CSVLink } from "react-csv";
 import { IBoxRememberLeaderBoardData } from "../../types";
 import { Images } from "../atoms/images";
 
-
 interface BoxRememberProps {
   leaderboardData: Array<IBoxRememberLeaderBoardData>;
 }
 
 const BoxRemember: NextPage<BoxRememberProps> = ({ leaderboardData }) => {
-    
   const csvData =
     leaderboardData.length > 0
       ? leaderboardData

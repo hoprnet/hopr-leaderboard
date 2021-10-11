@@ -1,7 +1,10 @@
 import React from "react";
 import { MenuSectionsMobile, Networks } from "../../constants/menuSections";
 import { Images } from "../atoms/images";
-import { ElementMenuMobile, ElementMenuMobileProps } from "../atoms/elementMenuMobile";
+import {
+  ElementMenuMobile,
+  ElementMenuMobileProps,
+} from "../atoms/elementMenuMobile";
 import { NextPage } from "next";
 import { IeMenuMobile } from "../../types";
 
@@ -9,7 +12,7 @@ interface MenuMobileProps {
   activeMenu: boolean;
   hash: string;
   copyCodeToClipboard: (hash: string) => void;
-  changeThemeMode: () => void;
+  onChangeDarkModeMobile: (event: React.ChangeEvent<HTMLInputElement>) => void;
   darkMode: boolean;
 }
 
@@ -17,13 +20,13 @@ export const MenuMobile: NextPage<MenuMobileProps> = ({
   activeMenu,
   hash,
   copyCodeToClipboard,
-  changeThemeMode,
+  onChangeDarkModeMobile,
   darkMode,
 }) => {
   const sections = MenuSectionsMobile();
   return (
-    <div className={`menu-mobile ${activeMenu ? "open-menu" : ""}`}>
-      <div className="menu-container">
+    <div className={`menu ${activeMenu ? "open-menu" : ""}`}>
+      <div className={`menu-container`}>
         <ul>
           {sections.map((e: ElementMenuMobileProps, index: number) => (
             <ElementMenuMobile {...e} key={index} />
@@ -47,15 +50,14 @@ export const MenuMobile: NextPage<MenuMobileProps> = ({
           </div>
         </div>
         <hr />
-        <div className="line-darkMode-mobile">
+        <div className="line-darkMode">
           <p>Light on dark</p>
           <label className="switch">
-            <input type="checkbox" onChange={() => changeThemeMode()} />
+            <input type="checkbox" onChange={(event) => onChangeDarkModeMobile(event)} />
             <span className="slider round">
               <Images
                 src={`/assets/icons/${darkMode ? "luna.svg" : "dom.svg"}`}
                 alt="hopr darkmode"
-                className="icon-darkmode"
               />
             </span>
           </label>

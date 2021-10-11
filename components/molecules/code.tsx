@@ -15,10 +15,8 @@ export const Code: NextPage<CodeProps> = ({
 }) => {
   return (
     <div className="quick-code">
-      <div
-        className={`hash ${multiline && "multiline"}`}
-        onClick={() => copyCodeToClipboard(code.toString())}
-      >
+      <div className={`hash ${multiline && "multiline"}`} 
+      onClick={() => copyCodeToClipboard(code.toString())}>
         {multiline ? (
           (code as string[]).map((loc: string, index: number) => (
             <p key={index}>{loc}</p>
@@ -27,11 +25,7 @@ export const Code: NextPage<CodeProps> = ({
           <p>{code}</p>
         )}
         <div>
-          <Images
-            className="img-copy"
-            src="/assets/icons/copy.svg"
-            alt="copy"
-          />
+          <Images src="/assets/icons/copy.svg" alt="copy" className="img-copy"/>
         </div>
       </div>
     </div>

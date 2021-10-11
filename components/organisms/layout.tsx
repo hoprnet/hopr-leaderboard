@@ -76,6 +76,7 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
 
   useEffect(() => {
     fetchData();
+
     let oValue = localStorage.getItem("darkMode");
     if (oValue) {
       setDarkMode(oValue === "true");
@@ -86,7 +87,7 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
     setactiveMenu(!activeMenu);
   };
 
-  const onChangeDarkModeDesktop = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDarkMode(event.target.checked);
   };
 
@@ -106,9 +107,9 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
         <DesktopView
           darkMode={darkMode}
           activeMenu={activeMenu}
-          onChangeDarkModeDesktop={(event: React.ChangeEvent<HTMLInputElement>) =>
-            onChangeDarkModeDesktop(event)
-          }
+          onChangeDarkModeDesktop={(
+            event: React.ChangeEvent<HTMLInputElement>
+          ) => onChangeDarkMode(event)}
           checked={darkMode ? true : false}
         />
 
@@ -119,17 +120,18 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
         activeMenu={activeMenu}
         hash={hash}
         copyCodeToClipboard={copyCodeToClipboard}
-        changeThemeMode={changeThemeMode}
+        onChangeDarkModeMobile={(event: React.ChangeEvent<HTMLInputElement>) =>
+          onChangeDarkMode(event)
+        }
         darkMode={darkMode}
       />
 
       <div className="main-container">
         <MenuDesktop darkMode={darkMode} />
         <section
-          className={
-            "about only-mobile-view " +
-            (router.pathname != "/" ? "aux-margin" : "")
-          }
+          className={`only-mobile-view ${
+            router.pathname != "/" ? "aux-margin" : ""
+          }`}
         >
           <div className={router.pathname != "/" ? "only-desktop-view" : ""}>
             <ParagraphWelcome />
@@ -143,8 +145,8 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
             nodesConnected={"?"}
           />
         </div>
-        
-        {children}
+
+         {children} 
 
         <section className="only-mobile-view">
           <hr />
@@ -158,11 +160,11 @@ const Layout: NextPage<LayoutProps> = ({ toggle, children }) => {
           <LastUpdatedData API_LastUpdated={API_LastUpdated} />
 
           <hr />
-          <p className="paragraph-copy ">
+          <p className="paragraph-copy">
             Thanks for helping us create the <span> HOPR network. </span>
           </p>
         </section>
-
+        
         <section className="right-side only-desktop-view">
           <ParagraphWelcome />
           <hr />

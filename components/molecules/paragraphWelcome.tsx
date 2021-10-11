@@ -6,7 +6,7 @@ interface ParagraphWelcomeProps {}
 
 const ParagraphWelcome: NextPage<ParagraphWelcomeProps> = ({}) => {
   return (
-    <p className="paragraph">
+    <p className="paragraph paragraph-desktop">
       Welcome to <b>HOPR Wildhorn testnet!</b> <br />
       <br />
       Wildhorn will run on the Polygon network from the <b>

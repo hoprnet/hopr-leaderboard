@@ -14,15 +14,15 @@ const DataBoxCloud: NextPage<DataBoxCloudProps> = ({
   copyCodeToClipboard,
 }) => {
   return (
-    <div className="box-border ">
+    <div className="box-border">
       <div onClick={() => copyCodeToClipboard(address)}>
-        <h3 className="num"> {address} </h3>
+        <h3> {address} </h3>
         <p>
           <Images src="/assets/icons/copy.svg" alt="copy" /> HOPR token address
         </p>
       </div>
       <div onClick={() => copyCodeToClipboard(channel)}>
-        <h3 className="num"> {channel} </h3>
+        <h3> {channel} </h3>
         <p>
           <Images src="/assets/icons/copy.svg" alt="copy" /> HOPR payment
           channel

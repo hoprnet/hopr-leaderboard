@@ -25,7 +25,7 @@ const TableRecords: NextPage<TableRecordsProps> = ({
     <table>
       <thead>
         <tr>
-          <th className="verfied-nodes">verified nodes</th>
+          <th className="verified-nodes">verified nodes</th>
           <th colSpan={2} className={isPinned ? "records-green" : "records-red"}>
             {isPinned ? (
               "pinned"

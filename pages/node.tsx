@@ -73,19 +73,19 @@ const Node: NextPage<NodeProps> = ({}) => {
 
   return (
     <Layout toggle={showMsg}>
-      <div className="box help-area">
+      <div className="box">
         <div className="box-top-area">
-          <div className="box-title">
+          <div>
             <h1>Connect your node</h1>
           </div>
-          <div className="box-btn">
+          <div>
             <p>HOPR Prompt v0.0.1</p>
           </div>
         </div>
 
         <div className="box-main-area info-node">
-          <div className="quick-code">
-            <small>
+          {/* <div className="quick-code"> */}
+            <p>
               Use the following tools to get HOPR tokens, connect your HOPR node
               to your identity, and other useful actions. All actions require a
               web3 provider like MetaMask to work, and all information will be
@@ -94,14 +94,14 @@ const Node: NextPage<NodeProps> = ({}) => {
                 Ceramic Network
               </a>
               , which only you can control via your web3 provider.
-            </small>
-          </div>
+            </p>
+          {/* </div> */}
           <hr />
-          <div className="section-faucet">
+          <div className="faucet-balance">
             <h3>Faucet</h3>
-            <small className="small-faucet">
+            <p className="faucet-balance">
               <FaucetBalance copyCodeToClipboard={showCopyCode} />
-            </small>
+            </p>
           </div>
           <Connectors address={account} connectIdx idx={idx} setIdx={setIdx} />
           {account && library && idx && (

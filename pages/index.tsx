@@ -111,15 +111,13 @@ const Home: NextPage<HomeProps> = ({}) => {
       <Layout toggle={showMsg}>
         <div className="box">
           <div className="box-top-area">
-            <div>
-              <div className="box-title">
+              <div>
                 <h1>Network</h1>
-              </div>
             </div>
           </div>
           <div className="box-main-area remove-all-padding">
-            <div className="section-info-index">
-              <p className="help-total-results">
+            <div className="info-index"> 
+              <p>
                 Please visit our{" "}
                 <a
                   href="https://dune.xyz/hoprnet/HOPR-Polygon-Test-Net"

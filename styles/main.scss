@@ -1,17 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600;700&display=swap');
-@import 'fragments/_normalize.scss';
-@import 'fragments/_toolkit.scss';
-@import 'fragments/_dark-mode.scss';
-@import 'fragments/_config.scss';
-@import 'fragments/_top-assets.scss';
-@import 'fragments/_msg-copy.scss';
-@import 'fragments/_modals.scss';
-@import 'fragments/_navbar.scss';
-@import 'fragments/_section.scss';
-@import 'fragments/_menu-desktop.scss';
-@import 'fragments/_menu-mobile.scss';
-@import 'fragments/_remember.scss';
-@import 'fragments/_box.scss';
-@import 'fragments/_search-bar.scss';
-@import 'fragments/_table.scss';
-@import 'fragments/tooltip.scss';
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap');
+
+//Commons
+@import 'commons/normalize';
+@import 'commons/toolkit';
+
+@import 'commons/switch';
+@import 'commons/slider';
+@import 'commons/config';
+@import 'commons/paragraph';
+
+//Fragments
+@import 'fragments/navbar';
+@import 'fragments/mobile-view';
+@import 'fragments/desktop_view';
+@import 'fragments/dark-mode';
+@import 'fragments/msg-copy';
+@import 'fragments/layout';
+@import 'fragments/box';
+@import 'fragments/box-remember';
+@import 'fragments/search-bar';
+@import 'fragments/table-records';
+@import 'fragments/faucet';
+@import 'fragments/verify-node';
+@import 'fragments/instructions';
+
+//Pages
+@import 'pages/index.scss';
+@import 'pages/nfts';
+@import 'pages/node.scss';
+@import 'pages/help';

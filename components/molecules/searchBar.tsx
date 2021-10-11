@@ -22,9 +22,8 @@ const SearchBar: NextPage<SearchBarProps> = ({
 
   return (
     <div className="container-search-bar">
-      <p className="help-total-results">{labelMessage}</p>
+      <p>{labelMessage}</p>
       <Inputs
-        className="search"
         type="text"
         placeholder={inputPlaceholder}
         value={searchTerm}

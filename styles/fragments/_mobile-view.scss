@@ -1,4 +1,10 @@
-.menu-mobile {
+.only-mobile-view {
+  @media (min-width: 767px) {
+    display: none !important;
+  }
+}
+
+.menu {
   background: #fff;
   top: 0;
   display: none;
@@ -26,7 +32,7 @@
         opacity: 0.64;
         letter-spacing: 0.03em;
         font-size: 1.13em;
-        text-transform:lowercase;
+        text-transform: lowercase;
         transition: all 350ms ease-in-out;
       }
       img {
@@ -62,6 +68,13 @@
   z-index: 2;
 }
 
+.menu-container {
+  margin: auto;
+  left: 3%;
+  right: 3%;
+  position: absolute;
+}
+
 .quick-code {
   & > p {
     text-transform: uppercase;
@@ -69,10 +82,6 @@
     color: #bcbcbc;
     font-size: 0.89em;
   }
-}
-
-.img-copy{
-  margin-left: 8px;
 }
 
 .hash {
@@ -100,6 +109,12 @@
   }
 }
 
+.line-darkMode{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .twitter-line-menu {
   display: flex;
   justify-content: space-around;
@@ -125,11 +140,5 @@
         }
       }
     }
-  }
-}
-
-.help-area {
-  .twitter-line-menu {
-    justify-content: flex-start;
   }
 }

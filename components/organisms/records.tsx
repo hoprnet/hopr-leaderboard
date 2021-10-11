@@ -106,7 +106,7 @@ const Records: NextPage<RecordProps> = ({ account }) => {
   }, [account]);
 
   return account ? (
-    <div className="box-container-table records">
+    <div className="container-table-records">
       <TableRecords
         isPinned={isPinned}
         records={records}

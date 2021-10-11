@@ -17,7 +17,7 @@ const HoprAllocation: NextPage<HoprAllocationProps> = ({}) => {
     <Layout>
       <div className="box special-table-top">
         <div className="box-top-area">
-          <div className="box-title">
+          <div>
             <h1>HOPR NFTs</h1>
           </div>
         </div>
@@ -28,29 +28,29 @@ const HoprAllocation: NextPage<HoprAllocationProps> = ({}) => {
           labelMessage="Paste an Ethereum address to see their registered nodes."
         />
 
-        <div className="box-main-area remove-all-padding aux-add-top ">
+        <div className="remove-all-padding aux-add-top">
           <div className="box-main-area">
-            <div className="quick-code">
-              <small>
+            {/* <div className="quick-code"> */}
+              <p>
                 Verify your node to register your on-chain activity. You’ll be
                 airdropped an NFT in the xDAI network usable in our staking
                 program based on the nodes you register and their on-chain
                 activity.
-              </small>
+              </p>
               <br />
               <br />
-              <small>
+              <p>
                 Please make sure to verify your node in our{" "}
                 <Link href="/node">node</Link> page to be able to connect your
                 node(s) with your Ethereum wallet.
-              </small>
-            </div>
+              </p>
+            {/* </div> */}
             <br />
             <Connectors address={account} connectIdx={false} />
           </div>
-          <br/>
+          <br />
           <Records account={addressToLoad != "" ? addressToLoad : account} />
-          <BoxRemember leaderboardData={[]}/>
+          <BoxRemember leaderboardData={[]} />
         </div>
       </div>
     </Layout>

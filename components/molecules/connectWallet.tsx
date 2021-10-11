@@ -14,17 +14,13 @@ export const ConnectWallet: NextPage<ConnectWalletProps> = ({ children }) => {
   return (
     <div>
       <div className="box-btn">
-        <div className="connectWallet">
+        <div className="connect-wallet">
           <Buttons
             text={!account ? "Connect" : "Disconnect"}
             onClick={!account ? activateBrowserWallet : deactivate}
           />
 
-          {!account && (
-            <small className="msgAvailableWallet">
-              Only available in Polygon/Matic network.
-            </small>
-          )}
+          {!account && <p>Only available in Polygon/Matic network.</p>}
           {children}
         </div>
       </div>

@@ -37,7 +37,7 @@ const NodeTable: NextPage<NodeTableProps> = ({
   };
 
   return (
-    <div className="box-container-table node-table">
+    <div className="container-table-records node-table">
       <table>
         <thead>
           <tr>
@@ -49,25 +49,13 @@ const NodeTable: NextPage<NodeTableProps> = ({
         <tbody>
           {Object.keys(nodes).map((node: string) => (
             <tr key={node}>
-              <td
-                onClick={() => copyCodeToClipboard(node)}
-              >
+              <td onClick={() => copyCodeToClipboard(node)}>
                 {truncate(node)}
-                <Images
-                  className="img-copy"
-                  src="/assets/icons/copy.svg"
-                  alt="copy"
-                />
+                <Images src="/assets/icons/copy.svg" alt="copy" className="img-copy"/>
               </td>
-              <td
-                onClick={() => copyCodeToClipboard(nodes[node])}
-              >
+              <td onClick={() => copyCodeToClipboard(nodes[node])}>
                 {truncate(nodes[node])}
-                <Images
-                  className="img-copy"
-                  src="/assets/icons/copy.svg"
-                  alt="copy"
-                />
+                <Images src="/assets/icons/copy.svg" alt="copy" className="img-copy"/>
               </td>
               <td>
                 <Buttons
@@ -96,14 +84,9 @@ const NodeTable: NextPage<NodeTableProps> = ({
             </tr>
             {transactions.map((tx: INodeTableTX, index: number) => (
               <tr>
-                <td
-                  onClick={() => copyCodeToClipboard(tx.hash)}
-                >
+                <td onClick={() => copyCodeToClipboard(tx.hash)}>
                   {truncate(tx.hash)}
-                  <Images
-                    src="/assets/icons/copy.svg"
-                    alt="copy"
-                  />
+                  <Images src="/assets/icons/copy.svg" alt="copy" />
                 </td>
                 <td>{index == 0 ? "10" : "0.01"}</td>
                 <td>{index == 0 ? "mHOPR" : "MATIC"}</td>

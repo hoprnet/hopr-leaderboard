@@ -1,0 +1,43 @@
+body {
+  font-family: "Source Code Pro", monospace;
+  background: $white-alt;
+
+  @media (min-width: 767px) {
+    height: 100vh;
+  }
+}
+
+section.aux-margin {
+  overflow: hidden;
+  margin-top: 1.5em;
+}
+
+.remove-all-padding {
+  padding: 0 !important;
+}
+
+.special-table-top {
+  table tbody tr {
+    &:first-child {
+      span {
+        img {
+          opacity: 1;
+        }
+      }
+    }
+    span {
+      margin-right: 0.89em;
+      img {
+        opacity: 0.34;
+      }
+    }
+  }
+}
+
+.connect-wallet {
+  display: flex;
+
+  button {
+    margin-right: 10px;
+  }
+}

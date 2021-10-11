@@ -270,23 +270,23 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
   }, []);
   return (
     <div className="verify-node">
-      <div className="add-hopr-node">
+      <div className="add-node">
         <p>
           <b>Add HOPR node</b> {!profile && <span>Loading IDX...</span>}
         </p>
-        <small>
+        <p>
           If you have started a HOPR node, you can request funds from our
           faucet. Paste your HOPR node address below, which you can find right
           after starting your node. By clicking “Add HOPR node”, we will
           validate the given node and obtain its address.
-        </small>
+        </p>
         <br />
         <br />
-        <small>
+        <p>
           To fund, please sign the fund request with your web3 provider to
           validate whether your address and node have MATIC funds already. You
           can fund as many HOPR nodes as needed.
-        </small>
+        </p>
         <div className="connect-node">
           <Inputs
             type="text"
@@ -327,7 +327,6 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
             type="text"
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="16Uiu2HA..."
-            className="connect-node node"
           />
         </div>
         <br />
@@ -350,7 +349,6 @@ export const VerifyNode: NextPage<VerifyNodeProps> = ({
             placeholder="0x304402203208f46d1d25c4939760..."
             rows={3}
             onChange={(e) => setSignatureValue(e.target.value)}
-            className="connect-node signature"
           />
         </div>
         <Buttons

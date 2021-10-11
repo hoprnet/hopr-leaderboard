@@ -1,12 +1,13 @@
 import { NextPage } from "next";
 import React from "react";
 import { Images } from "../atoms/images";
+import { Inputs } from "../atoms/inputs";
 
 interface DesktopViewProps {
   darkMode: boolean;
   activeMenu: boolean;
   onChangeDarkModeDesktop: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  checked: boolean
+  checked: boolean;
 }
 
 export const DesktopView: NextPage<DesktopViewProps> = ({
@@ -33,14 +34,13 @@ export const DesktopView: NextPage<DesktopViewProps> = ({
 
       <div className="active-darkmode">
         <label className="switch">
-          <input
+          <Inputs
             type="checkbox"
             onChange={(event) => onChangeDarkModeDesktop(event)}
             checked={checked}
           />
           <span className="slider round">
             <Images
-              className="icon-darkmode"
               src={`/assets/icons/${darkMode ? "luna.svg" : "dom.svg"}`}
               alt="hopr darkmode"
             />

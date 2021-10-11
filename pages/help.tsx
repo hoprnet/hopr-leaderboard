@@ -14,26 +14,26 @@ const Help: NextPage<HelpProps> = ({}) => {
   return (
     <>
       <Layout toggle={showMsg}>
-        <div className="box help-area">
+        <div className="box">
           <div className="box-top-area">
             <div>
-              <div className="box-title">
+              <div>
                 <h1>Help</h1>
               </div>
-              <div className="box-btn">
+              <div>
                 <p>v0.01</p>
               </div>
             </div>
           </div>
 
           <div className="box-main-area">
-            <div className="quick-code">
-              <small>
+            {/* <div className="quick-code"> */}
+              <p>
                 Welcome to our Polygon Wildhorn testnet. Please follow the
                 instructions to participate in our network and earn NFTs which
                 you can trade or use in our staking program.
-              </small>
-            </div>
+              </p>
+            {/* </div> */}
             <hr />
             <h3>Instructions</h3>
             <span>Pick your distribution.</span>
