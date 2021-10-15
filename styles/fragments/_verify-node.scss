@@ -1,0 +1,46 @@
+.verify-node {
+  margin: 10px;
+  display: "flex";
+
+  .add-node {
+    margin-bottom: 30px;
+
+    .connect-node {
+      margin-top: 5px;
+      display: block;
+
+      &.node {
+        width: 98%;
+        padding: 5px;
+      }
+
+      &.signature {
+        width: 98%;
+        padding: 5px;
+        display: block;
+      }
+    }
+
+    .validate-node {
+      button {
+        background-color: rgba(248, 114, 54, 0.5);
+        margin-top: 5px;
+      }
+      &.error-small {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.node-table {
+  height: 100%;
+
+  img {
+    margin-left: 8px;
+  }
+}
+
+.verifier {
+  background-color: rgba(248, 114, 54, 0.5);
+}

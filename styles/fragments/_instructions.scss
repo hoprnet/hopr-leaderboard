@@ -1,0 +1,43 @@
+.quick-code {
+    margin: 0.5em 0;
+    .hash {
+      padding: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 0.8em;
+      }
+      img {
+        width: 1em;
+        cursor: pointer;
+      }
+    }
+    .hash.multiline {
+      flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+    }
+    @media (min-width: 767px) {
+      .hash {
+        padding: 0.7em;
+        justify-content: space-between;
+        p {
+          font-size: 1em;
+          font-weight: 600;
+          letter-spacing: 0.55px;
+        }
+        img {
+          width: 1em;
+          filter: invert(0);
+          transform: translateX(0%);
+          transition: all 350ms ease-in-out;
+          &:hover {
+            filter: invert(1);
+            transform: translateX(-100%);
+            transition: all 350ms ease-in-out;
+          }
+        }
+      }
+    }
+  }

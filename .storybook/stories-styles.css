@@ -1,0 +1,49 @@
+.storybook-button {
+  background-color: #c2fd1e;
+  border-radius: 3em;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  padding: 10px 16px;
+}
+
+
+.storybook-MenuItemDesktop {
+  border-radius: 8px;
+  border: 1px solid #dbdbdb;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+}
+
+.storybook-MenuItemDesktopImage {
+  filter: grayscale(1);
+  height: 2em;
+  margin-bottom: 1em;
+  transition: all 350ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  width: 2em;
+}
+
+.storybook-MenuItemMobile {
+  margin: auto;
+  left: 3%;
+  right: 3%;
+  position: absolute;
+}
+
+.storybook-MenuItemMobileP {
+  color: black;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.03em;
+  font-size: 1.13em;
+  text-transform: lowercase;
+}
+
+.storybook-MenuItemMobileImage {
+  width: 1em;
+}
+

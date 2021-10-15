@@ -1,0 +1,30 @@
+p.paragraph {
+  color: #414141;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.5em;
+  text-align: left;
+  span {
+    font-weight: 700;
+  }
+}
+
+p.paragraph-copy {
+  color: #414141;
+  font-size: 0.9em;
+  font-weight: 200;
+  letter-spacing: 0.01em;
+  text-align: center;
+  span {
+    font-weight: 600;
+  }
+}
+
+.aux-link-out {
+  text-decoration: none;
+  img {
+    height: 12px;
+    margin: 0 0.05em;
+  }
+}

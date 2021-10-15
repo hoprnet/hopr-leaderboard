@@ -1,0 +1,62 @@
+.container-table-records {
+  height: auto;
+  overflow: scroll;
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid transparent;
+    margin: 0;
+    padding: 0;
+    table-layout: auto;
+    width: 100%;
+    tbody {
+      @media (min-width: 767px) {
+        counter-reset: hopr-nodes;
+      }
+    }
+
+    thead {
+      tr {
+        border-top: 0.5px solid #e3e3e359 !important;
+        background: #f7f7f796 !important;
+        th {
+          color: #cbcccf;
+          cursor: pointer;
+          font-size: 1em;
+          font-weight: 400;
+          text-transform: lowercase;
+          transition: all 350ms ease-in-out;
+          &.asc {
+            color: $blue;
+            font-weight: 600;
+            &::before {
+              color: $blue;
+              content: "▾";
+              margin-right: 0.4em;
+            }
+          }
+          &:hover {
+            color: $blue;
+            transition: all 350ms ease-in-out;
+          }
+        }
+      }
+
+      td {
+        cursor: pointer;
+      }
+
+      th.verified-nodes {
+        color: black;
+      }
+
+      th.records-green {
+        color: green;
+      }
+
+      th.records-red {
+        color: red;
+      }
+    }
+  }
+}
