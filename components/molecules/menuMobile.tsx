@@ -1,10 +1,10 @@
 import React from "react";
 import { MenuSectionsMobile, Networks } from "../../constants/menuSections";
-import { Images } from "../atoms/images";
+import { Images } from "../atoms/images/images";
 import {
   ElementMenuMobile,
   ElementMenuMobileProps,
-} from "../atoms/elementMenuMobile";
+} from "../atoms/elementMenuMobile/elementMenuMobile";
 import { NextPage } from "next";
 import { IeMenuMobile } from "../../types";
 

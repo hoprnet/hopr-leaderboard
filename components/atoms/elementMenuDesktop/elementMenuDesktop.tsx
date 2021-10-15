@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
-import { Images } from "./images";
+import { Images } from "../images/images";
 
 interface ElementMenuDesktopProps {
   href: string;

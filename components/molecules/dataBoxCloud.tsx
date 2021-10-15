@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React from "react";
-import { Images } from "../atoms/images";
+import { Images } from "../atoms/images/images";
 
 interface DataBoxCloudProps {
   address: string;

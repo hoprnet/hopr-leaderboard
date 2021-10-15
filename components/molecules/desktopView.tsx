@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
-import { Images } from "../atoms/images";
-import { Inputs } from "../atoms/inputs";
+import { Images } from "../atoms/images/images";
+import { Inputs } from "../atoms/inputs/inputs";
 
 interface DesktopViewProps {
   darkMode: boolean;

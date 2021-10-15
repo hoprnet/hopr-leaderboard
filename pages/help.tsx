@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React, { useState } from "react";
-import { Buttons } from "../components/atoms/buttons";
+import { Buttons } from "../components/atoms/button/buttons";
 import BoxRemember from "../components/molecules/boxRemember";
 import { Instructions } from "../components/organisms/instructions";
 import Layout from "../components/organisms/layout";

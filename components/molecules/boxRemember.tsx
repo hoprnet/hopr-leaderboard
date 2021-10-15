@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { CSVLink } from "react-csv";
 import { IBoxRememberLeaderBoardData } from "../../types";
-import { Images } from "../atoms/images";
+import { Images } from "../atoms/images/images";
 
 interface BoxRememberProps {
   leaderboardData: Array<IBoxRememberLeaderBoardData>;

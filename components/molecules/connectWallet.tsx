@@ -3,7 +3,7 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import { TOKEN_ADDRESS_POLYGON } from "../../constants/hopr";
 import { NextPage } from "next";
-import { Buttons } from "../atoms/buttons";
+import { Buttons } from "../atoms/button/buttons";
 
 interface ConnectWalletProps {}
 

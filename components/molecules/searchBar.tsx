@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React, { Dispatch, SetStateAction } from "react";
-import { Inputs } from "../atoms/inputs";
+import { Inputs } from "../atoms/inputs/inputs";
 
 interface SearchBarProps {
   searchTerm: string;

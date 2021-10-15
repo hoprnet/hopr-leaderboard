@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React, { CSSProperties, useEffect, useState } from "react";
-import { Images } from "../atoms/images";
+import { Images } from "../atoms/images/images";
 
 interface CodeProps {
   code: string[] | string;

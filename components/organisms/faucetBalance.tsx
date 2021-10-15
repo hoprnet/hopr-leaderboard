@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { IFaucet } from "../../types";
 import { truncate } from "../../utils/string";
-import { Images } from "../atoms/images";
+import { Images } from "../atoms/images/images";
 
 interface FaucetBalanceProps {
   copyCodeToClipboard: (address: string) => void;

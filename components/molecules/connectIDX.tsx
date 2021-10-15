@@ -6,6 +6,7 @@ import { CERAMIC_API_URL, CERAMIC_IDX_ALIASES } from "../../constants/ceramic";
 import { DID } from "dids";
 import ThreeIdResolver from "@ceramicnetwork/3id-did-resolver";
 import { IDX } from "@ceramicstudio/idx";
+import { Buttons } from "../atoms/button/buttons";
 
 interface ConnectIDXProps {
   address: string;
@@ -32,7 +33,10 @@ export const ConnectIDX: NextPage<ConnectIDXProps> = ({
   const authenticateCeramic = async () => {
     try {
       setLoading(true);
-      const authProvider = new EthereumAuthProvider((Window as any).window.ethereum, address);
+      const authProvider = new EthereumAuthProvider(
+        (Window as any).window.ethereum,
+        address
+      );
       await threeIdConnect!.connect(authProvider);
 
       const ceramic = new Ceramic(CERAMIC_API_URL);
@@ -58,11 +62,12 @@ export const ConnectIDX: NextPage<ConnectIDXProps> = ({
   return (
     <>
       {!idx && (
-        <button disabled={isLoading} onClick={() => authenticateCeramic()}>
-          {isLoading ? "Loading..." : "Connect to IDX"}
-        </button>
+        <Buttons
+          disabled={isLoading}
+          onClick={() => authenticateCeramic()}
+          text={isLoading ? "Loading..." : "Connect to IDX"}
+        />
       )}
     </>
   );
-
 };

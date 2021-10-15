@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { MenuSectionsDesktop } from "../../constants/menuSections";
 import { IeMenuDesktop } from "../../types";
-import { ElementMenuDesktop } from "../atoms/elementMenuDesktop";
+import { ElementMenuDesktop } from "../atoms/elementMenuDesktop/elementMenuDesktop";
 
 interface MenuDesktopdProps {
   darkMode: boolean;

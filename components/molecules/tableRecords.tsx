@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 import { truncate } from "../../utils/string";
-import { Buttons } from "../atoms/buttons";
+import { Buttons } from "../atoms/button/buttons";
 import { Web3Provider } from "@ethersproject/providers";
 
 interface TableRecordsProps {

@@ -12,8 +12,8 @@ import {
   CERAMIC_IDX_ALIASES,
   CERAMIC_IDX_HOPR_NAMESPACE,
 } from "../../constants/ceramic";
-import { Inputs } from "../atoms/inputs";
-import { Buttons } from "../atoms/buttons";
+import { Inputs } from "../atoms/inputs/inputs";
+import { Buttons } from "../atoms/button/buttons";
 import NodeTable from "../molecules/nodeTable";
 import { IDX } from "@ceramicstudio/idx";
 

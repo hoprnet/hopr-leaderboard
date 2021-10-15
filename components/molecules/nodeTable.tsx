@@ -2,8 +2,8 @@ import { NextPage } from "next";
 import React, { useState } from "react";
 import { INodeTableTX, IResponse } from "../../types";
 import { truncate } from "../../utils/string";
-import { Buttons } from "../atoms/buttons";
-import { Images } from "../atoms/images";
+import { Buttons } from "../atoms/button/buttons";
+import { Images } from "../atoms/images/images";
 
 interface NodeTableProps {
   nodes: { [key: string]: string };
